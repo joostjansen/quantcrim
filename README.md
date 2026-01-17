@@ -1,2 +1,2 @@
 # QuantCrim
-Open-web handboek kwantitatief onderzoek
+Open-web handboek kwantitatief criminologisch onderzoek
