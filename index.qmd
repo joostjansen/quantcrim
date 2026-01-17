@@ -1,6 +1,6 @@
 # Voorwoord {.unnumbered}
 
-Dit is het QuantCrim handboek waar je leert hoe je kwantitatieve data analyseert met R. Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.
+Dit is het QuantCrim handboek. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.^[We gaan in een later hoofdstuk zien wat een regressiemodel precies is.]
 
 ```{r}
 
@@ -10,13 +10,16 @@ library(ggplot2) # this package needs to be installed in console
 data("Boston")
 
 # inspect dataframe
-head(Boston)
+knitr::kable(
+  Boston[1:5, ]
+)
 
 # fit linear model 
 model1 <- lm(crim ~ indus, Boston)
 print(model1)
 
 # plot w ggplot2
+#| column: margin
 ggplot(Boston, aes(x = age, y = crim)) +
   geom_point() + 
   geom_smooth()

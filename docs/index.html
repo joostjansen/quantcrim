@@ -114,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -353,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/QuantCrim/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/QuantCrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -388,36 +388,142 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="voorwoord" class="level1 unnumbered">
+<section id="voorwoord" class="level1 unnumbered page-columns page-full">
 <h1 class="unnumbered">Voorwoord</h1>
-<p>Dit is het QuantCrim handboek waar je leert hoe je kwantitatieve data analyseert met R. Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.</p>
-<div class="cell">
+<p>Dit is het QuantCrim handboek. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;We gaan in een later hoofdstuk zien wat een regressiemodel precies is.</p></div></div><div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries and data</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># this package needs to be installed in console</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"Boston"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect dataframe</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Boston)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     crim zn indus chas   nox    rm  age    dis rad tax ptratio  black lstat
-1 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296    15.3 396.90  4.98
-2 0.02731  0  7.07    0 0.469 6.421 78.9 4.9671   2 242    17.8 396.90  9.14
-3 0.02729  0  7.07    0 0.469 7.185 61.1 4.9671   2 242    17.8 392.83  4.03
-4 0.03237  0  2.18    0 0.458 6.998 45.8 6.0622   3 222    18.7 394.63  2.94
-5 0.06905  0  2.18    0 0.458 7.147 54.2 6.0622   3 222    18.7 396.90  5.33
-6 0.02985  0  2.18    0 0.458 6.430 58.7 6.0622   3 222    18.7 394.12  5.21
-  medv
-1 24.0
-2 21.6
-3 34.7
-4 33.4
-5 36.2
-6 28.7</code></pre>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  Boston[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, ]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">crim</th>
+<th style="text-align: right;">zn</th>
+<th style="text-align: right;">indus</th>
+<th style="text-align: right;">chas</th>
+<th style="text-align: right;">nox</th>
+<th style="text-align: right;">rm</th>
+<th style="text-align: right;">age</th>
+<th style="text-align: right;">dis</th>
+<th style="text-align: right;">rad</th>
+<th style="text-align: right;">tax</th>
+<th style="text-align: right;">ptratio</th>
+<th style="text-align: right;">black</th>
+<th style="text-align: right;">lstat</th>
+<th style="text-align: right;">medv</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.00632</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">2.31</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.538</td>
+<td style="text-align: right;">6.575</td>
+<td style="text-align: right;">65.2</td>
+<td style="text-align: right;">4.0900</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">296</td>
+<td style="text-align: right;">15.3</td>
+<td style="text-align: right;">396.90</td>
+<td style="text-align: right;">4.98</td>
+<td style="text-align: right;">24.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.02731</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.07</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.469</td>
+<td style="text-align: right;">6.421</td>
+<td style="text-align: right;">78.9</td>
+<td style="text-align: right;">4.9671</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">242</td>
+<td style="text-align: right;">17.8</td>
+<td style="text-align: right;">396.90</td>
+<td style="text-align: right;">9.14</td>
+<td style="text-align: right;">21.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.02729</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7.07</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.469</td>
+<td style="text-align: right;">7.185</td>
+<td style="text-align: right;">61.1</td>
+<td style="text-align: right;">4.9671</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">242</td>
+<td style="text-align: right;">17.8</td>
+<td style="text-align: right;">392.83</td>
+<td style="text-align: right;">4.03</td>
+<td style="text-align: right;">34.7</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.03237</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.18</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.458</td>
+<td style="text-align: right;">6.998</td>
+<td style="text-align: right;">45.8</td>
+<td style="text-align: right;">6.0622</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">222</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">394.63</td>
+<td style="text-align: right;">2.94</td>
+<td style="text-align: right;">33.4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.06905</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.18</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.458</td>
+<td style="text-align: right;">7.147</td>
+<td style="text-align: right;">54.2</td>
+<td style="text-align: right;">6.0622</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">222</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">396.90</td>
+<td style="text-align: right;">5.33</td>
+<td style="text-align: right;">36.2</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit linear model </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(crim <span class="sc">~</span> indus, Boston)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit linear model </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(crim <span class="sc">~</span> indus, Boston)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -427,10 +533,11 @@ Coefficients:
 (Intercept)        indus  
     -2.0637       0.5098  </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot w ggplot2</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Boston, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> crim)) <span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plot w ggplot2</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| column: margin</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Boston, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> crim)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
@@ -445,6 +552,7 @@ Coefficients:
 
 
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

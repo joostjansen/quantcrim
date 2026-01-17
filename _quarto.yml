@@ -11,7 +11,7 @@ book:
   date: last-modified
   downloads: [pdf]
   repo-url: https://github.com/joostjansen/QuantCrim
-  repo-actions: [source, issue]   # also possible: [edit, issue]
+  repo-actions: [source, issue]
   sidebar:
     search: true
     style: docked
@@ -30,7 +30,11 @@ format:
     theme:
       light: cosmo
       dark: darkly
+    reference-location: margin
+    link-citations: true
+
   pdf:
     documentclass: scrreprt
+    link-citations: true
 
 editor: visual
