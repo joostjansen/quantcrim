@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "QuantCrim",
     "section": "",
-    "text": "Voorwoord\nDit is het QuantCrim handboek waar je leert hoe je kwantitatieve data analyseert met R. Hieronder vindt je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.\n\nlibrary(MASS)\ndata(\"Boston\")\nmodel1 &lt;- lm(crim ~ indus, Boston)\nprint(model1)\n\n\nCall:\nlm(formula = crim ~ indus, data = Boston)\n\nCoefficients:\n(Intercept)        indus  \n    -2.0637       0.5098  \n\nplot(model1)",
+    "text": "Voorwoord\nDit is het QuantCrim handboek waar je leert hoe je kwantitatieve data analyseert met R. Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.\n\nlibrary(MASS)\ndata(\"Boston\")\nmodel1 &lt;- lm(crim ~ indus, Boston)\nprint(model1)\n\n\nCall:\nlm(formula = crim ~ indus, data = Boston)\n\nCoefficients:\n(Intercept)        indus  \n    -2.0637       0.5098  \n\nplot(model1)",
     "crumbs": [
       "Voorwoord"
     ]

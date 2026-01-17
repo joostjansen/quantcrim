@@ -1,29 +1,26 @@
 project:
   type: book
   output-dir: docs
-  
-website:
-  navbar:
-    left:
-      - icon: github
-        href: https://github.com/joostjansen/QuantCrim
-        aria-label: GitHub
-      - href: index.qmd
-        text: Home
-      - href: book.pdf
-        icon: file-earmark-pdf
 
 book:
   title: "QuantCrim"
   subtitle: "Een open-web handboek voor kwantitatief onderzoek"
-  author: 
-  - name: Joost Jansen
-    orcid: 0000-0002-1226-2919
+  author:
+    - name: Joost Jansen
+      orcid: 0000-0002-1226-2919
   date: last-modified
+  downloads: [pdf, epub]
+  repo-url: https://github.com/joostjansen/QuantCrim
+  repo-actions: [source, issue]   # also possible: [edit, issue]
+  sidebar:
+    search: true
+    style: docked
+    background: light
+
   chapters:
     - index.qmd
     - part: "Benodigdheden"
-      chapters: 
+      chapters:
         - 002-setup.qmd
 
 bibliography: references.bib
@@ -33,9 +30,8 @@ format:
     theme:
       light: cosmo
       dark: darkly
-    coda-link: true
+    code-link: true
   pdf:
     documentclass: scrreprt
 
 editor: visual
-
