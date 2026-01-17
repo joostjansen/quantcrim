@@ -1,0 +1,4 @@
+\contentsline {chapter}{Voorwoord}{3}{chapter*.2}%
+\contentsline {part}{\numberline {I}Benodigdheden}{5}{part.1}%
+\contentsline {chapter}{\numberline {1}Setup}{6}{chapter.1}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

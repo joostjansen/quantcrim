@@ -9,7 +9,7 @@ book:
     - name: Joost Jansen
       orcid: 0000-0002-1226-2919
   date: last-modified
-  downloads: [pdf, epub]
+  downloads: [pdf]
   repo-url: https://github.com/joostjansen/QuantCrim
   repo-actions: [source, issue]   # also possible: [edit, issue]
   sidebar:
@@ -30,7 +30,6 @@ format:
     theme:
       light: cosmo
       dark: darkly
-    code-link: true
   pdf:
     documentclass: scrreprt
 

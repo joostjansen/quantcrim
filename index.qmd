@@ -2,7 +2,7 @@
 
 Dit is het QuantCrim handboek waar je leert hoe je kwantitatieve data analyseert met R. Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.
 
-```{r verbose = FALSE}}
+```{r}
 
 # load libraries and data
 library(MASS)

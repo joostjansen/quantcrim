@@ -3,7 +3,9 @@
   "result": {
     "engine": "knitr",
     "markdown": "# Setup\n\nVoor we aan de slag kunnen met kwantitatief onderzoek in R, moeten we alle benodigde software en libraries installeren. Rstudio is het programma waarin we de analyses draaien en resultaten opvragne. Github is zogenaamde versiebeheer software waar dit handboek open-source gehost is. Het voordeel daaarvan is dat het boek open toegangelijk is, makkelijk te updaten en voor jullie makkelijk om mee te werken tijdens de lessen.\n\nOm het werken met dit boek te vergemakkelijken, kun je het boek in jouw R inladen zodat je de code en bijbehorende data makkelijk kunt gebruiken voor de opdrachten tijdens de werkgroepen.\n\n**Software:**\n\n-   [Rstudio en R](https://posit.co/download/rstudio-desktop/)\n\n-   [Github Desktop](https://desktop.github.com/download/)\n\n**Stappenplan:**\n\n1.  Download en installeer\n2.  Maak een account aan op Github\n3.  \n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::\n\n",
-    "supporting": [],
+    "supporting": [
+      "002-setup_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
