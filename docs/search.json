@@ -1,0 +1,33 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quantcrim",
+    "section": "",
+    "text": "Voorwoord\nDit is het quantcrim handboek. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het boek is ontworpen door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel bachelor- als masterstudenten. Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.1\n# load libraries and data\nlibrary(MASS)\nlibrary(ggplot2) # this package needs to be installed in console\ndata(\"Boston\")\n\n# inspect dataframe\nknitr::kable(\n  Boston[1:5, ]\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncrim\nzn\nindus\nchas\nnox\nrm\nage\ndis\nrad\ntax\nptratio\nblack\nlstat\nmedv\n\n\n\n\n0.00632\n18\n2.31\n0\n0.538\n6.575\n65.2\n4.0900\n1\n296\n15.3\n396.90\n4.98\n24.0\n\n\n0.02731\n0\n7.07\n0\n0.469\n6.421\n78.9\n4.9671\n2\n242\n17.8\n396.90\n9.14\n21.6\n\n\n0.02729\n0\n7.07\n0\n0.469\n7.185\n61.1\n4.9671\n2\n242\n17.8\n392.83\n4.03\n34.7\n\n\n0.03237\n0\n2.18\n0\n0.458\n6.998\n45.8\n6.0622\n3\n222\n18.7\n394.63\n2.94\n33.4\n\n\n0.06905\n0\n2.18\n0\n0.458\n7.147\n54.2\n6.0622\n3\n222\n18.7\n396.90\n5.33\n36.2\n\n\n\n\n# fit linear model \nmodel1 &lt;- lm(crim ~ indus, Boston)\nprint(model1)\n\n\nCall:\nlm(formula = crim ~ indus, data = Boston)\n\nCoefficients:\n(Intercept)        indus  \n    -2.0637       0.5098  \n\n# plot w ggplot2\n#| column: margin\nggplot(Boston, aes(x = age, y = crim)) +\n  geom_point() + \n  geom_smooth()\n\n`geom_smooth()` using method = 'loess' and formula = 'y ~ x'",
+    "crumbs": [
+      "Voorwoord"
+    ]
+  },
+  {
+    "objectID": "index.html#hoe-nu-verder",
+    "href": "index.html#hoe-nu-verder",
+    "title": "quantcrim",
+    "section": "Hoe nu verder",
+    "text": "Hoe nu verder\nWe hopen dat je dit boek handig vindt om mee te werken. In het kader van Open Science hebben we geprobeerd dit boek volledig transparant en reproduceerbaar te ontwikkelen. De broncode is beschikbaar via https://github.com/joostjansen/QuantCrim. Als je vragen, suggesties of aanpassingen hebt, aarzel niet deze te stellen.2\n\n\n2 Het beste is om dit via GitHub te doen in onze Repository.",
+    "crumbs": [
+      "Voorwoord"
+    ]
+  },
+  {
+    "objectID": "002-setup.html",
+    "href": "002-setup.html",
+    "title": "1  Setup",
+    "section": "",
+    "text": "Voor we aan de slag kunnen met kwantitatief onderzoek in R, moeten we alle benodigde software en libraries installeren. Rstudio is het programma waarin we de analyses draaien en resultaten opvragne. Github is zogenaamde versiebeheer software waar dit handboek open-source gehost is. Het voordeel daaarvan is dat het boek open toegangelijk is, makkelijk te updaten en voor jullie makkelijk om mee te werken tijdens de lessen.\nOm het werken met dit boek te vergemakkelijken, kun je het boek in jouw R inladen zodat je de code en bijbehorende data makkelijk kunt gebruiken voor de opdrachten tijdens de werkgroepen.\nSoftware:\n\nRstudio en R\nGithub Desktop\n\nStappenplan:\n\nDownload en installeer\nMaak een account aan op Github\n\n\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Voorbereiding",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Setup</span>"
+    ]
+  }
+]
