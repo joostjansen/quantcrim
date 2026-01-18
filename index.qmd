@@ -1,10 +1,6 @@
-*Beschikbaar gesteld door: \
-Erasmus Universiteit Rotterdam\
-Department of Law, Society & Crime*
-
 # Voorwoord {.unnumbered}
 
-Dit is het quantcrim handboek. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het boek is ontworpen door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel bachelor- als masterstudenten. Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.[^index-1]
+Dit is het quantcrim handboek. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het boek is ontworpen en beschikbaar gesteld door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel bachelor- als masterstudenten. Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.[^index-1]
 
 [^index-1]: We gaan in een later hoofdstuk zien wat een regressiemodel precies is.
 
