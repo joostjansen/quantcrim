@@ -35,6 +35,7 @@ format:
       light: cosmo
       dark: darkly
     reference-location: margin
+    published-title: "Updated"
     link-citations: true
 
   pdf:
