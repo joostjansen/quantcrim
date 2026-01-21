@@ -16,6 +16,8 @@ Om het werken met dit boek te vergemakkelijken, kun je het boek in jouw R inlade
 2.  Maak een account aan op Github
 3.  
 
+Na installatie van de benodigde software moeten we R gereed maken door de juiste packages te installeren. Dat doe je door RStudio te openen en in je console het volgende te typen:
+
 ```{r}
-1 + 1
+# install.packages("ggplot2")
 ```
