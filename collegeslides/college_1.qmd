@@ -1,6 +1,8 @@
 ---
 title: "collegeslides"
-format: revealjs
+format:
+  revealjs:
+    embed-resources: true
 ---
 
 ## Agenda

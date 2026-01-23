@@ -1,0 +1,20 @@
+---
+title: "collegeslides"
+format:
+  revealjs:
+    embed-resources: true
+---
+
+## Agenda
+
+vandaag gaan we kijken hoe R werkt
+
+```{r}
+1+1
+```
+
+Zo makkelijk is R code
+
+## Theorie
+
+De theorie is vandaag zo

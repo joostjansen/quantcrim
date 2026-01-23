@@ -29,6 +29,9 @@ book:
     - part: "Voorbereiding"
       chapters:
         - 002-setup.qmd
+    - part: "Colleges"
+      chapters:
+        - 003-colleges.qmd
         
 license:
   text: "CC BY-NC 4.0"

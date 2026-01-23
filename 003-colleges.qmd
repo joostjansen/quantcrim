@@ -1,0 +1,8 @@
+---
+title: "colleges"
+format: html
+---
+
+# Hier de slides {#sec-colleges}
+
+Week 1: [College 1](collegeslides/college_1.html)
