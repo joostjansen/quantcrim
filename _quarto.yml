@@ -21,7 +21,7 @@ book:
     search: true
     style: docked
     background: light
-    footer: |
+    footer: |    
       Licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
 
   chapters:
