@@ -11,6 +11,8 @@ vandaag gaan we kijken hoe R werkt
 
 ```{r}
 1+1
+
+# library inladen 
 ```
 
 Zo makkelijk is R code
