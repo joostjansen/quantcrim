@@ -1,6 +1,6 @@
 # Voorwoord {.unnumbered}
 
-Welkom bij het quantcrim handboek Criminologie. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het boek is ontworpen en beschikbaar gesteld door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel bachelor- als masterstudenten.
+Welkom bij het [quantcrim handboek](quantcrim.pdf "PDF handboek") Criminologie. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het boek is ontworpen en beschikbaar gesteld door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel bachelor- als masterstudenten.
 
 Voor de pagina met collegeslides zie @sec-colleges.
 
