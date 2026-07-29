@@ -1,4 +1,4 @@
-# Setup
+# Setup test test
 
 Voor we aan de slag kunnen met kwantitatief onderzoek in R, moeten we alle benodigde software en libraries installeren. Rstudio is het programma waarin we de analyses draaien en resultaten opvragne. Github is zogenaamde versiebeheer software waar dit handboek open-source gehost is. Het voordeel daaarvan is dat het boek open toegangelijk is, makkelijk te updaten en voor jullie makkelijk om mee te werken tijdens de lessen.
 
@@ -6,9 +6,9 @@ Om het werken met dit boek te vergemakkelijken, kun je het boek in jouw R inlade
 
 **Software:**
 
--   [Rstudio en R](https://posit.co/download/rstudio-desktop/)
+- [Rstudio en R](https://posit.co/download/rstudio-desktop/)
 
--   [Github Desktop](https://desktop.github.com/download/)
+- [Github Desktop](https://desktop.github.com/download/)
 
 **Stappenplan:**
 
