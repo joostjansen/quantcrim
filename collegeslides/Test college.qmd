@@ -1,0 +1,110 @@
+---
+title: "College 1 - M&T I"
+author: "Gijs Custers & Robby Roks"
+date: "2025-11-12"
+format:
+  revealjs:
+    embed-resources: true
+---
+
+## College 1 - M&T I
+
+Gijs Custers & Robby Roks
+
+12-11-2025
+
+::: {.notes}
+Gijs – Robby
+Vandaag basis kwanti en kwali onderzoek
+:::
+
+## College vandaag
+
+Voorbeeld
+
+- Doelen en kenmerken van onderzoek
+- Kwantitatief
+- Kwalitatief
+
+::: {.notes}
+Voorbeelden: hoe bepaal je kwaliteit van onderzoek?
+:::
+
+## Voorbeeld eigen universiteit
+
+![](images/slide3_screenshot.jpg)
+
+[Link](https://www.eur.nl/nieuws/zeer-beperkt-aantal-samenwerkingen-tussen-eur-en-fossiele-industrie)
+
+::: {.notes}
+Voorbeeld van onze eigen universiteit.
+
+Slechts 0.05% samenwerkingen met organisaties met negatieve impact (van de ruim 61 duizend in totaal)
+
+Waren zorgen (en negatieve media aandacht) over samenwerkingen met partijen die bijdragen aan klimaatopwarming.
+Goed nieuws! Heel weinig samenwerkingen negatief!
+:::
+
+## Opdracht
+
+Beoordeel de meting van 'impact' die hier is gebruikt
+
+Beoordeel of het percentage van 0,05% correct is weergegeven
+
+::: {.notes}
+Ga jullie zo een stuk tekst laten zien met wat meer informatie over het onderzoek. (hoe tot 0,05%)
+
+Meting: is dit een goede meting om samenwerking te beoordelen?
+Correct weergeven: op een verantwoorde manier de onderzoeksgegevens weergeeft.
+:::
+
+## Meting van impact?
+
+![](images/slide5_screenshot.png)
+
+Meting van impact?
+
+Percentage van 0,05% correct?
+
+::: {.notes}
+Vragen aan studenten:
+
+1) Beoordeel de meting van 'impact' die hier is gebruikt
+2) Beoordeel of het percentage van 0,05% correct is weergeven
+:::
+
+## Meting van impact? (vervolg)
+
+![](images/slide5_screenshot.png)
+
+Meting van impact?
+
+Percentage van 0,05% correct?
+
+::: {.notes}
+Arceren van de tekst helpt (ook bij opdrachten)
+
+Meting: positieve cq negatieve impact (eerste deel)
+
+Heel veel samenwerkingen. Weten maar van weinig de impact
+:::
+
+## Opdracht
+
+Meting van impact?
+
+Percentage van 0,05% correct?
+
+- Meting: 'positieve' of 'negatieve' impact
+- Nominale variabele
+
+::: {.notes}
+Meting is wel heel grof.
+Grote organisaties indelen in positief of negatief is wel erg binair (bijv. Gemeente Rotterdam... doet zowel goede als slechte dingen)
+Wanneer is iets positief of negatief? Lastig te zeggen hier.
+Op basis van openbare lijsten => niet te doen voor alle organisaties. Maakt beoordelen heel lastig.
+
+Presentatie van cijfers misleidend:
+0,05% is alleen zo laag omdat er veel missende data is. Van 99,8 procent weten we het niet. Deze worden nu wel impliciet als positief beoordeeld.
+Als je alleen naar valide waardes kijkt, wat niet verstandig is om representatief beeld te krijgen, krijg je andere verhouding. Minder media gelikt waarschijnlijk.
+:::

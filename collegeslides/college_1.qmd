@@ -1,22 +1,56 @@
 ---
-title: "college week 1"
-format:
-  revealjs:
-    embed-resources: true
+title: "College 1 - M&T I"
+author: "Gijs Custers & Robby Roks"
+date: "2025-11-12"
 ---
 
-## Agenda
+## College 1 - M&T I
 
-vandaag gaan we kijken hoe R werkt
+Gijs Custers & Robby Roks
 
-```{r}
-1+1
+12-11-2025
 
-# library inladen 
-```
+## College vandaag
 
-Zo makkelijk is R code
+Voorbeeld
 
-## Theorie
+- Doelen en kenmerken van onderzoek
+- Kwantitatief
+- Kwalitatief
 
-De theorie is vandaag zo
+## Voorbeeld eigen universiteit
+
+![](images/slide3_screenshot.jpg)
+
+[Link](https://www.eur.nl/nieuws/zeer-beperkt-aantal-samenwerkingen-tussen-eur-en-fossiele-industrie)
+
+## Opdracht
+
+Beoordeel de meting van 'impact' die hier is gebruikt
+
+Beoordeel of het percentage van 0,05% correct is weergegeven
+
+## Meting van impact?
+
+![](images/slide5_screenshot.png)
+
+Meting van impact?
+
+Percentage van 0,05% correct?
+
+## Meting van impact? (vervolg)
+
+![](images/slide5_screenshot.png)
+
+Meting van impact?
+
+Percentage van 0,05% correct?
+
+## Opdracht
+
+Meting van impact?
+
+Percentage van 0,05% correct?
+
+- Meting: 'positieve' of 'negatieve' impact
+- Nominale variabele

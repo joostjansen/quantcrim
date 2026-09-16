@@ -29,6 +29,7 @@ book:
     - part: "Voorbereiding"
       chapters:
         - 002-setup.qmd
+        - Week 1.qmd
     - part: "Colleges"
       chapters:
         - 003-colleges.qmd
