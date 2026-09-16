@@ -1,0 +1,33 @@
+---
+title: "002-1-week1"
+format: html
+execute:
+  warning: false
+---
+
+## **Start**
+
+Dit is een test om te kijken of het lukt een inhoudelijke pagina te maken met lesstof
+
+We gaan kijken naar onze gegeneerde dataset en of we hier een mooie visual van kunnen maken
+
+We onderzoeken de relatie tussen geslacht en xtc gebruik (ooit), en maken daar een bar chart van
+
+```{r}
+# laden packages
+
+library(tidyverse) # voor datapreparatie
+library(ggplot2) # voor visualisatie
+
+# data laden
+drugs <- read_rds("data/drugsgebruik_jongeren.rds")
+
+# data inspecteren
+#View(drugs)
+
+# visual maken
+ggplot(drugs, aes(x = leeftijd, y = xtc_ooit)) +
+  geom_col()
+```
+
+Het is gelukt!
