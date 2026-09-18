@@ -114,18 +114,13 @@ geslacht <- sample(
   size = n, replace = TRUE, prob = c(0.504, 0.486, 0.010)
 ) |> factor(levels = c("man", "vrouw", "anders"))
 
-# Leeftijd 15-45. Vorm van de verdeling volgt het rapport voor 16-35 jaar
-# (16-19: 20%, 20-24: 47%, 25-29: 23%, 30-35: 10%) en krijgt een aflopende
-# staart voor 36-45 jaar (extrapolatie, zie toelichting hierboven) plus een
-# klein aandeel 15-jarigen.
+# Leeftijd 15-35. Vorm van de verdeling volgt het rapport voor 16-35 jaar
+# (16-19: 20%, 20-24: 47%, 25-29: 23%, 30-35: 10%)
 leeftijd_gewicht <- c(
-  "15" = 1,
   "16" = 5, "17" = 5, "18" = 5, "19" = 5,
   "20" = 9, "21" = 9, "22" = 9, "23" = 9, "24" = 9,
   "25" = 5, "26" = 5, "27" = 5, "28" = 5, "29" = 5,
-  "30" = 2, "31" = 2, "32" = 2, "33" = 2, "34" = 2, "35" = 2,
-  "36" = 1, "37" = 1, "38" = 1, "39" = 1, "40" = 1,
-  "41" = 0.5, "42" = 0.5, "43" = 0.5, "44" = 0.5, "45" = 0.5
+  "30" = 2, "31" = 2, "32" = 2, "33" = 2, "34" = 2, "35" = 2
 )
 leeftijd <- sample(
   as.integer(names(leeftijd_gewicht)), size = n, replace = TRUE,

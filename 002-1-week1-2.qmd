@@ -1,0 +1,55 @@
+---
+title: "002-1-week1-2"
+format: html
+execute:
+  warning: false
+---
+
+## **Meetniveaus en visualisaties**
+
+Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de sociale wetenschappen zijn er verschillende type variabelen. Deze bespreken we hier en daarbij gaan we meteen in op hoe we de data van deze variabelen het beste visueel kunnen presenteren.
+
+Doorgaans maken we onderscheid tussen **kwalitatieve** en **kwantitatieve** variabelen.
+
+Kwalitatieve variabelen bestaan uit categorieën die een kwalitatieve eigenschap van een observatie beschrijven. Deze eigenschappen zijn niet direct in cijfers uit te drukken, zoals bij kwantitatieve variabelen. Een belangrijk aspect is dat de categorieën discreet zijn: ze moeten elkaar uitsluiten.
+
+Laten we naar een voorbeeld kijken: geslacht. Stel dat we willen weten hoeveel mannen, vrouwen of anders-identificerenden er in de dataset zitten. Daarvoor kunnen we **staafdiagram** maken.
+
+```{r}
+# laden packages
+library(readr)
+library(ggplot2)
+
+# laden van de data
+data <- read_rds("data/middelengebruik_uitgaanders.rds")
+
+# staafdiagram maken
+ggplot(data, aes(x = geslacht)) +
+  geom_bar()
+```
+
+De staafdiagram geeft een visuele presentatie van het aantal mannen, vrouwen en anders-identificerenden in de dataset. Het mooie aan R is dat we de figuur visueel nog wat aantrekkelijker kunnen maken. Hiermee ga je meer oefenen tijdens de cursus.
+
+```{r}
+# staafdiagram met betere visualisatie
+ggplot(data, aes(x = geslacht)) +
+  geom_bar() +
+  theme_bw() + # witte achtergrond
+  ylab("aantal")  # label voor y-as
+```
+
+De figuur heeft nu een witte achtergrond en de y-as heeft een Nederlandstalig label. Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun je ook een simpele tabel maken.
+
+```{r}
+table(data$geslacht)
+```
+
+De dataset bevat in totaal dus xxx mannen, xxx vrouwen en xxx in de categorie 'anders'.
+
+Geslacht is een voorbeeld van een **nominale** variabele. Dit is een kwalitatieve variabele waarin geen rangorde bestaat tussen de categorieën. De variabele bestaat uit kwalitatieve eigenschappen die van elkaar verschillen, maar je kunt niet zeggen dat de ene categorie intrinsiek 'hoger' of 'lager' is dan de ander.
+
+Een kwalitatieve variabele waarbij er *wel* een bepaalde rangorde (hiërarchie) tussen de categorieen is, noemen we een **ordinale** variabele.
+
+(subjectieve gezondheid toevoegen als variabele)
+
+Kwantitatieve variabelen zijn numeriek en bestaan dus uit cijfers.

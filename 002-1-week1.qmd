@@ -7,19 +7,21 @@ execute:
 
 ## **Wat is data?**
 
-In de criminologie zijn we geinteresseerd in diverse vragen die we kunnen beantwoorden aan de hand van statististisch onderzoek. Denk aan de volgende vragen:
+In de criminologie zijn we geïnteresseerd in diverse vragen die we kunnen beantwoorden aan de hand van statistisch onderzoek. Denk aan de volgende vragen:
 
 - Hoeveel inbraken vinden er jaarlijks plaats in Kralingen?
-
-- Wat is het percentage vrouwen dat afgelopen jaar seksuele straatintimidatie heeft ervaren?
 
 - Wat is het gemiddelde geldbedrag waarvoor Nederlandse banken hebben geschikt in witwaszaken in 2025?
 
 - Hoeveel misdaadjournalisten zijn er vermoord het afgelopen decennium?
 
-Om deze vragen te beantwoorden, moeten we relevante data verzamelen. **Data** betreft een verzameling van waarden over een bepaalde eenheid. Oftewel, het geeft ons een stukje informatie over wat we willen weten. Dit kan gaan over gegevens van mensen (bijvoorbeeld hun lengte of geslacht), maar het kan bijvoorbeeld ook gaan over andere eenheden zoals delicten, organisaties of landen.
+- Wat is de associatie tussen drugsverslaving en delinquentie?
 
-In deze cursus werken we steeds met dezelfde dataset. Dit is gebaseerd op een onderzoek onder uitgaande jongeren, gebaseerd op het [Het Grote Uitgaansonderzoek](https://www.trimbos.nl/kennisbank/rapport-het-grote-uitgaansonderzoek-2023/) van het [Trimbos Instituut](https://www.trimbos.nl/). In dit onderzoek wordt onder andere gekeken hoe vaak jongeren uitgaan, naar wat soort feesten en gelegenheden, wat voor middelen ze gebruiken (bijvoorbeeld alcohol of andere drugs) en hoe ze denken over drugsgebruik. Om de data te verzamelen is een online enquete afgenomen via een gerichte wervingscampagne.
+- In hoeverre leidt seksuele straatintimidatie tot het vermijden van bepaalde plekken?
+
+Om deze vragen te beantwoorden, moeten we relevante data verzamelen. **Data** betreft een verzameling van waarden over een bepaalde eenheid. Oftewel, het geeft ons een stukje informatie over wat we willen weten. Dit kan gaan over gegevens van mensen (bijvoorbeeld hun lengte of geslacht), maar het kan bijvoorbeeld ook gaan over andere dingen zoals delicten, organisaties of landen. Dit noemen we de **analyse-eenheid**.
+
+In deze cursus werken we steeds met dezelfde dataset. Dit is gebaseerd op een onderzoek onder uitgaande jongeren, gebaseerd op het [Het Grote Uitgaansonderzoek](https://www.trimbos.nl/kennisbank/rapport-het-grote-uitgaansonderzoek-2023/) van het [Trimbos Instituut](https://www.trimbos.nl/). In dit onderzoek wordt onder andere gekeken hoe vaak jongeren uitgaan, naar wat soort feesten en gelegenheden, wat voor middelen ze gebruiken (bijvoorbeeld alcohol of andere drugs) en hoe ze denken over drugsgebruik. Om de data te verzamelen is een online enquête afgenomen via een gerichte wervingscampagne.
 
 Laten we eerst kijken hoe zo'n dataset eruitziet. Dat doen we met behulp van R. Zoals aangegeven in de introductie van dit online boek, het is niet erg als je nog niet snapt hoe dit werkt. Daarvoor volg je uiteraard deze cursus :)
 
@@ -38,7 +40,7 @@ gt() |>
   opt_stylize(style = 6, color = "blue") # lay-out bepalen
 ```
 
-Hierboven staat een 'sneak preview' van de dataset. Waar kijken we nu eigenlijk naar? De dataset weergeeft de informatie die we hebben over jongeren die hebben meegedaan aan de enquete. Elke rij representeert een respondent: een jongere die de enquete heeft ingevuld. Elke kolom bevat de waarde van die respondent met betrekking tot een kenmerk, een vraag die is gesteld in de enquete.
+Hierboven staat een 'sneak preview' van de dataset. Waar kijken we nu eigenlijk naar? De dataset weergeeft de informatie die we hebben over jongeren die hebben meegedaan aan de enquête. Elke rij representeert een respondent: een jongere die de enquête heeft ingevuld. De rijen zijn onze **observaties**. Elke kolom bevat de waarde van die respondent met betrekking tot een kenmerk, een vraag die is gesteld in de enquête. De kolommen zijn daarbij onze **variabelen**.
 
 We kunnen bijvoorbeeld zien dat de eerste respondent een xxx is, xx jaar oud, en een xxx opleidingsniveau heeft.
 
