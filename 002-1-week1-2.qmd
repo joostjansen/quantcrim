@@ -1,5 +1,5 @@
 ---
-title: "002-1-week1-2"
+title: "Meetniveaus en visualisaties"
 format: html
 execute:
   warning: false
