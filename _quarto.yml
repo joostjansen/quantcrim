@@ -28,9 +28,11 @@ book:
     - index.qmd
     - part: "Voorbereiding"
       chapters:
-        - 002-voorbereidingen.qmd
-        - 002-1-week1.qmd
-        - 002-1-week1-2.qmd
+        - 001-voorbereidingen.qmd
+    - part: "Data beschrijven"
+      chapters:
+        - 002-01-data.qmd
+        - 002-02-meetniveaus-visualisaties.qmd
     - part: "Colleges"
       chapters:
         - 003-colleges.qmd

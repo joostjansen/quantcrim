@@ -1,5 +1,5 @@
 ---
-title: "voorwoord"
+title: "Voorwoord"
 format: html
 execute:
   warning: false
@@ -13,10 +13,9 @@ Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, ee
 
 [^index-1]: We gaan in een later hoofdstuk zien wat een regressiemodel precies is.
 
-``` {r}
+```{r}
 # test
 ```
-
 
 ## Voor we verder gaan..
 

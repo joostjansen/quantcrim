@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Collegeslides – quantcrim</title>
+<title>2&nbsp; Voorbereidingen – quantcrim</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,8 +71,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./004-opdrachten.html" rel="next">
-<link href="./002-02-meetniveaus-visualisaties.html" rel="prev">
+<link href="./002-01-data.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -254,7 +289,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-colleges.html">Colleges</a></li><li class="breadcrumb-item"><a href="./003-colleges.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collegeslides</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./001-voorbereidingen.html">Voorbereiding</a></li><li class="breadcrumb-item"><a href="./001-voorbereidingen.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Voorbereidingen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -301,7 +336,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./001-voorbereidingen.html" class="sidebar-item-text sidebar-link">
+  <a href="./001-voorbereidingen.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Voorbereidingen</span></span></a>
   </div>
 </li>
@@ -341,7 +376,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-colleges.html" class="sidebar-item-text sidebar-link active">
+  <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
   </div>
 </li>
@@ -371,16 +406,22 @@ ul.task-list li input[type="checkbox"] {
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#voorbereidingen" id="toc-voorbereidingen" class="nav-link active" data-scroll-target="#voorbereidingen"><span class="header-section-number">3</span> Voorbereidingen</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/001-voorbereidingen.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-colleges.html">Colleges</a></li><li class="breadcrumb-item"><a href="./003-colleges.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collegeslides</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./001-voorbereidingen.html">Voorbereiding</a></li><li class="breadcrumb-item"><a href="./001-voorbereidingen.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Voorbereidingen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-colleges" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Voorbereidingen</span></h1>
 </div>
 
 
@@ -397,9 +438,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Week 1: <a href="collegeslides/college_1.html">College 1</a></p>
+<section id="voorbereidingen" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Voorbereidingen</h1>
+<p>Voor we tijdens de lessen aan de slag kunnen met het verrichten van kwantitatief onderzoek, moet de vereiste software geinstalleerd worden. We gaan werken met R (spreek uit op z’n Engels). R is een programmeertaal die veel statistici gebruiken om hun analyses mee te doen. De omgeving waarin je met R kan werken, heet RStudio. Zowel R als RStudio moeten apart geinstalleerd worden. Je vindt de installatielinks hieronder:</p>
+<ol type="1">
+<li><a href="https://cran.r-project.org/">R</a></li>
+<li><a href="https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads">RStudio</a></li>
+</ol>
+<p>Na installatie van de benodigde software moeten we R gereed maken door de juiste packages (ook wel: libraries) te installeren. Veel databewerkingen en analyses vergen namelijk speciaal daarvoor software. Een package waarmee je mooie visualisaties kan maken van je data heet bijvoorbeeld ggplot. Je installeert zo’n package door RStudio te openen en in je console de volgende code te typen en dan te ‘runnen’:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggplot2")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Als je het package geinstalleerd hebt (eenmalig) laadt je in het vervolg aan het begin van elke sessie het package in. Let op: in tegenstelling tot bij het installeren van een package, gebruik je bij het laden ervan geen aanhalingstekens. R is zeer gevoelig voor het verkeerd gebruik van leestekens. Wees daar dus scherp op.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -817,13 +873,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./002-02-meetniveaus-visualisaties.html" class="pagination-link" aria-label="Data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Voorwoord">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Voorwoord</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./004-opdrachten.html" class="pagination-link" aria-label="Opdrachten">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Opdrachten</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./002-01-data.html" class="pagination-link" aria-label="Meetniveaus en visualisaties">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -832,4 +888,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-colleges.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/001-voorbereidingen.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
