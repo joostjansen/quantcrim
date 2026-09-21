@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "quantcrim",
     "section": "",
-    "text": "Voorwoord\nWelkom bij het quantcrim handboek Criminologie. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het boek is ontworpen en beschikbaar gesteld door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel bachelor- als masterstudenten.\nHieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.1",
+    "text": "Voorwoord\nWelkom bij het quantcrim handboek Criminologie. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het boek is ontworpen en beschikbaar gesteld door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel bachelor- als masterstudenten.\nHieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.1\n# test",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>index</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>voorwoord</span>"
     ]
   },
   {
@@ -16,7 +16,7 @@
     "section": "0.1 Voor we verder gaan..",
     "text": "0.1 Voor we verder gaan..\nWe hopen dat je dit boek handig vindt om mee te werken. In het kader van Open Science hebben we geprobeerd dit boek volledig transparant en reproduceerbaar te ontwikkelen. De broncode is beschikbaar via https://github.com/joostjansen/quantcrim. Als je vragen, suggesties of aanpassingen hebt, aarzel niet deze te stellen.2\n\n\n2 Het beste is om dit via GitHub te doen in onze Repository.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>index</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>voorwoord</span>"
     ]
   },
   {
