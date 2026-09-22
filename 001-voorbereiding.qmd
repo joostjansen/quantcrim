@@ -1,0 +1,33 @@
+---
+title: "Voorbereiding"
+format: html
+execute:
+  warning: false
+---
+
+# Voorbereidingen {.unnumbered}
+
+Voor we tijdens de lessen aan de slag kunnen met het verrichten van kwantitatief onderzoek, moet de vereiste software geinstalleerd worden. We gaan werken met R (spreek uit op z'n Engels). R is een programmeertaal die veel statistici gebruiken om hun analyses mee te doen. De omgeving waarin je met R kan werken, heet RStudio. Zowel R als RStudio moeten apart geinstalleerd worden. Je vindt de installatielinks hieronder:
+
+1.  [R](https://cran.r-project.org/)
+2.  [RStudio](https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads)
+
+Na installatie van de benodigde software moeten we R gereed maken door de juiste packages (ook wel: libraries) te installeren. Veel databewerkingen en analyses vergen namelijk speciaal daarvoor software. Een package waarmee je mooie visualisaties kan maken van je data heet bijvoorbeeld ggplot. Je installeert zo'n package door RStudio te openen en in je console de volgende code te typen en dan te 'runnen':
+
+```{r}
+# install.packages("ggplot2")
+```
+
+Als je het package geinstalleerd hebt (eenmalig) laad je in het vervolg aan het begin van elke sessie het package in. Let op: in tegenstelling tot bij het installeren van een package, gebruik je bij het laden ervan geen aanhalingstekens. R is zeer gevoelig voor het verkeerd gebruik van leestekens. Wees daar dus scherp op.
+
+```{r}
+library(ggplot2)
+```
+
+Hieronder vind je een lijst met alle packages die je tijdens dit vak nodig hebt.
+
+```{r}
+# 
+# install.packages()
+# install.packages()
+```

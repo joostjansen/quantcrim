@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Collegeslides – quantcrim</title>
+<title>4&nbsp; Meetniveaus en visualisaties – quantcrim</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,8 +71,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./004-opdrachten.html" rel="next">
-<link href="./002-02-meetniveaus-visualisaties.html" rel="prev">
+<link href="./003-colleges.html" rel="next">
+<link href="./002-01-data.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -254,7 +289,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-colleges.html">Colleges</a></li><li class="breadcrumb-item"><a href="./003-colleges.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collegeslides</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./002-01-data.html">Data beschrijven</a></li><li class="breadcrumb-item"><a href="./002-02-meetniveaus-visualisaties.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -324,7 +359,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./002-02-meetniveaus-visualisaties.html" class="sidebar-item-text sidebar-link">
+  <a href="./002-02-meetniveaus-visualisaties.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span></a>
   </div>
 </li>
@@ -341,7 +376,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-colleges.html" class="sidebar-item-text sidebar-link active">
+  <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
   </div>
 </li>
@@ -371,16 +406,22 @@ ul.task-list li input[type="checkbox"] {
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#meetniveaus-en-visualisaties" id="toc-meetniveaus-en-visualisaties" class="nav-link active" data-scroll-target="#meetniveaus-en-visualisaties"><span class="header-section-number">4.1</span> <strong>Meetniveaus en visualisaties</strong></a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/002-02-meetniveaus-visualisaties.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-colleges.html">Colleges</a></li><li class="breadcrumb-item"><a href="./003-colleges.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collegeslides</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./002-01-data.html">Data beschrijven</a></li><li class="breadcrumb-item"><a href="./002-02-meetniveaus-visualisaties.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-colleges" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></h1>
 </div>
 
 
@@ -397,9 +438,63 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Week 1: <a href="collegeslides/college_1.html">College 1</a></p>
+<section id="meetniveaus-en-visualisaties" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="meetniveaus-en-visualisaties"><span class="header-section-number">4.1</span> <strong>Meetniveaus en visualisaties</strong></h2>
+<p>Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de sociale wetenschappen zijn er verschillende type variabelen. Deze bespreken we hier en daarbij gaan we meteen in op hoe we de data van deze variabelen het beste visueel kunnen presenteren.</p>
+<p>Doorgaans maken we onderscheid tussen <strong>kwalitatieve</strong> en <strong>kwantitatieve</strong> variabelen.</p>
+<p>Kwalitatieve variabelen bestaan uit categorieën die een kwalitatieve eigenschap van een observatie beschrijven. Deze eigenschappen zijn niet direct in cijfers uit te drukken, zoals bij kwantitatieve variabelen. Een belangrijk aspect is dat de categorieën discreet zijn: ze moeten elkaar uitsluiten.</p>
+<p>Laten we naar een voorbeeld kijken: geslacht. Stel dat we willen weten hoeveel mannen, vrouwen of anders-identificerenden er in de dataset zitten. Daarvoor kunnen we <strong>staafdiagram</strong> maken.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># laden van de data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/middelengebruik_uitgaanders.rds"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># staafdiagram maken</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> geslacht)) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="002-02-meetniveaus-visualisaties_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>De staafdiagram geeft een visuele presentatie van het aantal mannen, vrouwen en anders-identificerenden in de dataset. Het mooie aan R is dat we de figuur visueel nog wat aantrekkelijker kunnen maken. Hiermee ga je meer oefenen tijdens de cursus.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># staafdiagram met betere visualisatie</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> geslacht)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="co"># witte achtergrond</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"aantal"</span>)  <span class="co"># label voor y-as</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="002-02-meetniveaus-visualisaties_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>De figuur heeft nu een witte achtergrond en de y-as heeft een Nederlandstalig label. Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun je ook een simpele tabel maken.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>geslacht)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+   man  vrouw anders 
+   178    170      2 </code></pre>
+</div>
+</div>
+<p>De dataset bevat in totaal dus xxx mannen, xxx vrouwen en xxx in de categorie ‘anders’.</p>
+<p>Geslacht is een voorbeeld van een <strong>nominale</strong> variabele. Dit is een kwalitatieve variabele waarin geen rangorde bestaat tussen de categorieën. De variabele bestaat uit kwalitatieve eigenschappen die van elkaar verschillen, maar je kunt niet zeggen dat de ene categorie intrinsiek ‘hoger’ of ‘lager’ is dan de ander.</p>
+<p>Een kwalitatieve variabele waarbij er <em>wel</em> een bepaalde rangorde (hiërarchie) tussen de categorieen is, noemen we een <strong>ordinale</strong> variabele.</p>
+<p>(subjectieve gezondheid toevoegen als variabele)</p>
+<p>Kwantitatieve variabelen zijn numeriek en bestaan dus uit cijfers.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -817,13 +912,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./002-02-meetniveaus-visualisaties.html" class="pagination-link" aria-label="Meetniveaus en visualisaties">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span>
+      <a href="./002-01-data.html" class="pagination-link" aria-label="Data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./004-opdrachten.html" class="pagination-link" aria-label="Opdrachten">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Opdrachten</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./003-colleges.html" class="pagination-link" aria-label="Collegeslides">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collegeslides</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -832,4 +927,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-colleges.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/002-02-meetniveaus-visualisaties.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

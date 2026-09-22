@@ -1,5 +1,5 @@
 ---
-title: "index"
+title: "Voorwoord"
 format: html
 execute:
   warning: false
@@ -9,35 +9,12 @@ execute:
 
 Welkom bij het [quantcrim handboek](quantcrim.pdf "PDF handboek") Criminologie. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het boek is ontworpen en beschikbaar gesteld door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel bachelor- als masterstudenten.
 
-Voor de pagina met collegeslides zie @sec-colleges.
-
 Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.[^index-1]
 
 [^index-1]: We gaan in een later hoofdstuk zien wat een regressiemodel precies is.
 
 ```{r}
-
-# load libraries
-library(ggplot2) # this package needs to be installed in console
-library(readr)
-
-# import data
-data <- read_csv2("data/selfreport_delinquency_MT2.csv")
-
-# inspect dataframe
-knitr::kable(
-  data[1:5, ]
-)
-
-# fit linear model 
-model1 <- lm(crime_types ~ unsafe_nh, data)
-summary(model1)
-
-# plot w ggplot2
-#| column: margin
-ggplot(data, aes(x = unsafe_nh, y = crime_types)) +
-  geom_point() + 
-  geom_smooth()
+# test
 ```
 
 ## Voor we verder gaan..
