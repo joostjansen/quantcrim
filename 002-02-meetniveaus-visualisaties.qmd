@@ -29,8 +29,8 @@ library(tidyverse)
 data <- read_rds("data/middelengebruik_uitgaanders.rds")
 
 # staafdiagram maken
-ggplot(data, aes(x = geslacht)) +
-  geom_bar()
+ggplot(data, aes(x = geslacht)) + # data en variabele selecteren
+  geom_bar() # staafdiagram
 ```
 
 De staafdiagram geeft een visuele presentatie van het aantal mannen, vrouwen en anders-identificerenden in de dataset. Het mooie aan R is dat we de figuur visueel nog wat aantrekkelijker kunnen maken. Hiermee ga je meer oefenen tijdens de cursus.
@@ -76,10 +76,11 @@ drugs_verkrijgen <- data |>
   mutate(perc = n/sum(n)) # percentages berekenen
 
 # taartdiagram van hoe drugs worden verkregen
-ggplot(drugs_verkrijgen, aes(x="", y=perc, fill=manier_verkrijgen_drugs)) +
+ggplot(drugs_verkrijgen, aes(x="", y=perc, fill=manier_verkrijgen_drugs)) + 
+  # percentages en categorieen selecteren
   geom_bar(stat="identity", width=1) +
-  coord_polar("y", start = 0) +
-  theme_void()
+  coord_polar("y", start = 0) + # optie voor taartdiagram 
+  theme_void() # achtergrond weghalen
 ```
 
 De
