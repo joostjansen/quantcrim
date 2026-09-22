@@ -33,6 +33,12 @@ book:
       chapters:
         - 002-01-data.qmd
         - 002-02-meetniveaus-visualisaties.qmd
+    - part: "Kans en steekproeven"
+      chapters:
+        - 003-01-steekproeven.qmd
+        - 003-02-kans.qmd
+    - part: "Hypotheses"
+    - part: "Samenhang tussen variabelen"
     - part: "Colleges"
       chapters:
         - 003-colleges.qmd
