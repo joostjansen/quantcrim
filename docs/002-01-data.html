@@ -289,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./002-01-data.html">Data beschrijven</a></li><li class="breadcrumb-item"><a href="./002-01-data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./002-01-data.html">Data beschrijven</a></li><li class="breadcrumb-item"><a href="./002-01-data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -354,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./002-01-data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -411,7 +411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#wat-is-data" id="toc-wat-is-data" class="nav-link active" data-scroll-target="#wat-is-data"><span class="header-section-number">3.1</span> <strong>Wat is data?</strong></a></li>
+  <li><a href="#wat-zijn-data" id="toc-wat-zijn-data" class="nav-link active" data-scroll-target="#wat-zijn-data"><span class="header-section-number">3.1</span> <strong>Wat zijn data?</strong></a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/002-01-data.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -419,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./002-01-data.html">Data beschrijven</a></li><li class="breadcrumb-item"><a href="./002-01-data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./002-01-data.html">Data beschrijven</a></li><li class="breadcrumb-item"><a href="./002-01-data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data</span></h1>
 </div>
@@ -438,8 +438,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="wat-is-data" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="wat-is-data"><span class="header-section-number">3.1</span> <strong>Wat is data?</strong></h2>
+<section id="wat-zijn-data" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="wat-zijn-data"><span class="header-section-number">3.1</span> <strong>Wat zijn data?</strong></h2>
 <p>In de criminologie zijn we geïnteresseerd in diverse vragen die we kunnen beantwoorden aan de hand van statistisch onderzoek. Denk aan de volgende vragen:</p>
 <ul>
 <li><p>Hoeveel inbraken vinden er jaarlijks plaats in Kralingen?</p></li>
@@ -448,7 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Wat is de associatie tussen drugsverslaving en delinquentie?</p></li>
 <li><p>In hoeverre leidt seksuele straatintimidatie tot het vermijden van bepaalde plekken?</p></li>
 </ul>
-<p>Om deze vragen te beantwoorden, moeten we relevante data verzamelen. <strong>Data</strong> betreft een verzameling van waarden over een bepaalde eenheid. Oftewel, het geeft ons een stukje informatie over wat we willen weten. Dit kan gaan over gegevens van mensen (bijvoorbeeld hun lengte of geslacht), maar het kan bijvoorbeeld ook gaan over andere dingen zoals delicten, organisaties of landen. Dit noemen we de <strong>analyse-eenheid</strong>.</p>
+<p>Om deze vragen te beantwoorden, moeten we relevante data verzamelen. <strong>Data</strong> (van het Latijn ‘datum’, oftewel: gegeven) zijn verzamelingen van getalsmatige waarden over bepaalde eenheden. Oftewel, data geven ons een stukje getalsmatige informatie over wat we willen weten. Dit kan gaan over gegevens van mensen (bijvoorbeeld hun lengte of geslacht), maar het kan bijvoorbeeld ook gaan over andere dingen zoals delicten, organisaties of landen. Dit noemen we de <strong>analyse-eenheid</strong>.</p>
 <p>In deze cursus werken we steeds met dezelfde dataset. Dit is gebaseerd op een onderzoek onder uitgaande jongeren, gebaseerd op het <a href="https://www.trimbos.nl/kennisbank/rapport-het-grote-uitgaansonderzoek-2023/">Het Grote Uitgaansonderzoek</a> van het <a href="https://www.trimbos.nl/">Trimbos Instituut</a>. In dit onderzoek wordt onder andere gekeken hoe vaak jongeren uitgaan, naar wat soort feesten en gelegenheden, wat voor middelen ze gebruiken (bijvoorbeeld alcohol of andere drugs) en hoe ze denken over drugsgebruik. Om de data te verzamelen is een online enquête afgenomen via een gerichte wervingscampagne.</p>
 <p>Laten we eerst kijken hoe zo’n dataset eruitziet. Dat doen we met behulp van R. Zoals aangegeven in de introductie van dit online boek, het is niet erg als je nog niet snapt hoe dit werkt. Daarvoor volg je uiteraard deze cursus :)</p>
 <div class="cell">
@@ -465,23 +465,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Voorbeeld van de data"</span>) <span class="sc">|&gt;</span> <span class="co"># titel geven aan output</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_stylize</span>(<span class="at">style =</span> <span class="dv">6</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="co"># lay-out bepalen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="logpsgjopf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#logpsgjopf table {
+<div id="mhzskwazue" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mhzskwazue table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#logpsgjopf thead, #logpsgjopf tbody, #logpsgjopf tfoot, #logpsgjopf tr, #logpsgjopf td, #logpsgjopf th {
+#mhzskwazue thead, #mhzskwazue tbody, #mhzskwazue tfoot, #mhzskwazue tr, #mhzskwazue td, #mhzskwazue th {
   border-style: none;
 }
 
-#logpsgjopf p {
+#mhzskwazue p {
   margin: 0;
   padding: 0;
 }
 
-#logpsgjopf .gt_table {
+#mhzskwazue .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -507,12 +507,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#logpsgjopf .gt_caption {
+#mhzskwazue .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#logpsgjopf .gt_title {
+#mhzskwazue .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -524,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#logpsgjopf .gt_subtitle {
+#mhzskwazue .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -536,7 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#logpsgjopf .gt_heading {
+#mhzskwazue .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -548,13 +548,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#logpsgjopf .gt_bottom_border {
+#mhzskwazue .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #5F5F5F;
 }
 
-#logpsgjopf .gt_col_headings {
+#mhzskwazue .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #5F5F5F;
@@ -569,7 +569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#logpsgjopf .gt_col_heading {
+#mhzskwazue .gt_col_heading {
   color: #FFFFFF;
   background-color: #0076BA;
   font-size: 100%;
@@ -589,7 +589,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#logpsgjopf .gt_column_spanner_outer {
+#mhzskwazue .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #0076BA;
   font-size: 100%;
@@ -601,15 +601,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#logpsgjopf .gt_column_spanner_outer:first-child {
+#mhzskwazue .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#logpsgjopf .gt_column_spanner_outer:last-child {
+#mhzskwazue .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#logpsgjopf .gt_column_spanner {
+#mhzskwazue .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #5F5F5F;
@@ -621,11 +621,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#logpsgjopf .gt_spanner_row {
+#mhzskwazue .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#logpsgjopf .gt_group_heading {
+#mhzskwazue .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -651,7 +651,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#logpsgjopf .gt_empty_group_heading {
+#mhzskwazue .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -666,15 +666,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#logpsgjopf .gt_from_md > :first-child {
+#mhzskwazue .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#logpsgjopf .gt_from_md > :last-child {
+#mhzskwazue .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#logpsgjopf .gt_row {
+#mhzskwazue .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -693,7 +693,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#logpsgjopf .gt_stub {
+#mhzskwazue .gt_stub {
   color: #333333;
   background-color: #89D3FE;
   font-size: 100%;
@@ -706,7 +706,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#logpsgjopf .gt_stub_row_group {
+#mhzskwazue .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -720,15 +720,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#logpsgjopf .gt_row_group_first td {
+#mhzskwazue .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#logpsgjopf .gt_row_group_first th {
+#mhzskwazue .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#logpsgjopf .gt_summary_row {
+#mhzskwazue .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -738,16 +738,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#logpsgjopf .gt_first_summary_row {
+#mhzskwazue .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #5F5F5F;
 }
 
-#logpsgjopf .gt_first_summary_row.thick {
+#mhzskwazue .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#logpsgjopf .gt_last_summary_row {
+#mhzskwazue .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -757,7 +757,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #5F5F5F;
 }
 
-#logpsgjopf .gt_grand_summary_row {
+#mhzskwazue .gt_grand_summary_row {
   color: #333333;
   background-color: #D5D5D5;
   text-transform: inherit;
@@ -767,7 +767,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#logpsgjopf .gt_first_grand_summary_row {
+#mhzskwazue .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -777,7 +777,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #5F5F5F;
 }
 
-#logpsgjopf .gt_last_grand_summary_row_top {
+#mhzskwazue .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -787,11 +787,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #5F5F5F;
 }
 
-#logpsgjopf .gt_striped {
+#mhzskwazue .gt_striped {
   background-color: #EDF7FC;
 }
 
-#logpsgjopf .gt_table_body {
+#mhzskwazue .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #5F5F5F;
@@ -800,7 +800,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #5F5F5F;
 }
 
-#logpsgjopf .gt_footnotes {
+#mhzskwazue .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -814,7 +814,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#logpsgjopf .gt_footnote {
+#mhzskwazue .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -823,7 +823,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#logpsgjopf .gt_sourcenotes {
+#mhzskwazue .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -837,7 +837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#logpsgjopf .gt_sourcenote {
+#mhzskwazue .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -845,72 +845,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#logpsgjopf .gt_left {
+#mhzskwazue .gt_left {
   text-align: left;
 }
 
-#logpsgjopf .gt_center {
+#mhzskwazue .gt_center {
   text-align: center;
 }
 
-#logpsgjopf .gt_right {
+#mhzskwazue .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#logpsgjopf .gt_font_normal {
+#mhzskwazue .gt_font_normal {
   font-weight: normal;
 }
 
-#logpsgjopf .gt_font_bold {
+#mhzskwazue .gt_font_bold {
   font-weight: bold;
 }
 
-#logpsgjopf .gt_font_italic {
+#mhzskwazue .gt_font_italic {
   font-style: italic;
 }
 
-#logpsgjopf .gt_super {
+#mhzskwazue .gt_super {
   font-size: 65%;
 }
 
-#logpsgjopf .gt_footnote_marks {
+#mhzskwazue .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#logpsgjopf .gt_asterisk {
+#mhzskwazue .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#logpsgjopf .gt_indent_1 {
+#mhzskwazue .gt_indent_1 {
   text-indent: 5px;
 }
 
-#logpsgjopf .gt_indent_2 {
+#mhzskwazue .gt_indent_2 {
   text-indent: 10px;
 }
 
-#logpsgjopf .gt_indent_3 {
+#mhzskwazue .gt_indent_3 {
   text-indent: 15px;
 }
 
-#logpsgjopf .gt_indent_4 {
+#mhzskwazue .gt_indent_4 {
   text-indent: 20px;
 }
 
-#logpsgjopf .gt_indent_5 {
+#mhzskwazue .gt_indent_5 {
   text-indent: 25px;
 }
 
-#logpsgjopf .katex-display {
+#mhzskwazue .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#logpsgjopf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#mhzskwazue div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
