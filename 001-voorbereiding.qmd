@@ -1,5 +1,5 @@
 ---
-title: "Voorbereidingen"
+title: "Voorbereiding"
 format: html
 execute:
   warning: false
@@ -18,8 +18,16 @@ Na installatie van de benodigde software moeten we R gereed maken door de juiste
 # install.packages("ggplot2")
 ```
 
-Als je het package geinstalleerd hebt (eenmalig) laadt je in het vervolg aan het begin van elke sessie het package in. Let op: in tegenstelling tot bij het installeren van een package, gebruik je bij het laden ervan geen aanhalingstekens. R is zeer gevoelig voor het verkeerd gebruik van leestekens. Wees daar dus scherp op.
+Als je het package geinstalleerd hebt (eenmalig) laad je in het vervolg aan het begin van elke sessie het package in. Let op: in tegenstelling tot bij het installeren van een package, gebruik je bij het laden ervan geen aanhalingstekens. R is zeer gevoelig voor het verkeerd gebruik van leestekens. Wees daar dus scherp op.
 
 ```{r}
 library(ggplot2)
+```
+
+Hieronder vind je een lijst met alle packages die je tijdens dit vak nodig hebt. 
+
+```{r}
+# 
+# install.packages()
+# install.packages()
 ```

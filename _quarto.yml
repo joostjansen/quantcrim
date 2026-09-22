@@ -28,7 +28,7 @@ book:
     - index.qmd
     - part: "Voorbereiding"
       chapters:
-        - 001-voorbereidingen.qmd
+        - 001-voorbereiding.qmd
     - part: "Data beschrijven"
       chapters:
         - 002-01-data.qmd
