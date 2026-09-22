@@ -360,16 +360,35 @@ makkelijk_aan_drugs_komen   <- trek_stelling(z_verkrijgbaarheid, kans_weet_niet 
 
 ## 8. Algemene gezondheid -----------------------------------------------------
 # Bron: rapporttekst "Algemene gezondheid" (par. 6.1, doorlopende tekst, geen
-# apart tabel-/figuurnummer). Antwoord op de vraag naar ervaren gezondheid:
-#   zeer slecht 0,2% / slecht 4,1% / niet goed/niet slecht 20,8% /
-#   goed 58,9% / zeer goed 16,0%.
+# apart tabel-/figuurnummer). Het rapport vraagt naar ervaren gezondheid op
+# een 5-punts schaal "zeer slecht / slecht / niet goed·niet slecht / goed /
+# zeer goed": zeer slecht 0,2% / slecht 4,1% / niet goed/niet slecht 20,8% /
+# goed 58,9% / zeer goed 16,0%.
+#
+# Deze dataset gebruikt in plaats daarvan de standaard CBS/RIVM-schaal voor
+# ervaren gezondheid: Uitstekend / Zeer goed / Goed / Matig / Slecht. Omdat
+# het rapport GEEN percentages geeft op deze schaal, is de volgende
+# (docenten-)omrekening gemaakt, die de totaalverhouding "goed of beter" vs.
+# "matig/slecht" uit het rapport exact aanhoudt:
+#   - Matig            = rapport "niet goed/niet slecht"        = 20,8%
+#   - Slecht            = rapport "slecht" + "zeer slecht"        =  4,3%
+#   - Goed              = rapport "goed" (1-op-1)                 = 58,9%
+#   - Zeer goed + Uitstekend = rapport "zeer goed" (16,0%), opgesplitst
+#     in een aanname-ratio van 65/35: Zeer goed = 10,4%, Uitstekend = 5,6%
+#     (er is geen "Uitstekend"-categorie in het rapport om op te kalibreren;
+#     de aanname is dat de ruimere top van de rapportschaal, "zeer goed",
+#     zich op deze fijnere schaal verdeelt over de twee hoogste categorieen).
+# Totaal: 4,3 + 20,8 + 58,9 + 10,4 + 5,6 = 100%. Het aandeel "goed of beter"
+# (Goed+Zeer goed+Uitstekend = 74,9%) komt exact overeen met het rapport
+# (goed 58,9% + zeer goed 16,0% = 74,9%).
+#
 # Ter info (niet gebruikt als kalibratiedoel, want andere populatie): in de
 # algemene bevolking beoordeelt 87,7% (16-20 jr), 85,7% (20-30 jr) en 83,0%
 # (30-40 jr) de eigen gezondheid als (zeer) goed (CBS, 2022) - uitgaanders
-# scoren met 74,9% ((58,9+16,0)%) dus duidelijk lager dan leeftijdsgenoten in
-# de algemene bevolking. Een mooi gespreksonderwerp voor de collegezaal: hoe
-# kan een groep die er zelf tevreden uitziet toch systematisch lager scoren
-# dan de algemene bevolking?
+# scoren met 74,9% dus duidelijk lager dan leeftijdsgenoten in de algemene
+# bevolking. Een mooi gespreksonderwerp voor de collegezaal: hoe kan een
+# groep die er zelf tevreden uitziet toch systematisch lager scoren dan de
+# algemene bevolking?
 #
 # Het rapport geeft GEEN uitsplitsing van ervaren gezondheid naar geslacht,
 # leeftijd of middelengebruik. Om de variabele toch een realistische
@@ -382,8 +401,8 @@ makkelijk_aan_drugs_komen   <- trek_stelling(z_verkrijgbaarheid, kans_weet_niet 
 # hierboven is transparantie over wat wel en niet rechtstreeks uit het
 # rapport komt, essentieel bij het werken met een gesimuleerde dataset.
 
-gezondheid_labels <- c("zeer slecht", "slecht", "niet goed/niet slecht", "goed", "zeer goed")
-gezondheid_pct     <- c(0.2, 4.1, 20.8, 58.9, 16.0)
+gezondheid_labels <- c("Slecht", "Matig", "Goed", "Zeer goed", "Uitstekend")
+gezondheid_pct     <- c(4.3, 20.8, 58.9, 10.4, 5.6)
 
 # "Zwaar" gebruik = minstens een paar keer per week (NA/geen gebruik telt als 0)
 is_zwaar_gebruiker <- function(frequentie) {
@@ -469,7 +488,63 @@ manier_verkrijgen_drugs[hoofd_gebruikers] <- as.character(trek_frequentie(
 ))
 
 
-## 10. Dataset samenstellen ---------------------------------------------------
+## 10. Gemoedstoestand op dinsdag na XTC-gebruik in het weekend -------------
+# LET OP: dit is een volledig FICTIEVE variabele, NIET afkomstig uit het
+# rapport. Ze is toegevoegd op uitdrukkelijk verzoek van de docent, als
+# oefenmateriaal voor bijvoorbeeld correlatie- of regressie-opdrachten met
+# een continue uitkomstmaat. Score van 0 (negatief) tot 100 (positief).
+#
+# Populatie: alleen laatste-jaar-XTC-gebruikers (resultaten$xtc$laatste_jaar
+# == 1) - voor de rest van de steekproef is de variabele NA.
+#
+# Opgegeven specificatie:
+#   - gemiddelde ca. 60, standaardafwijking ca. 15
+#   - matig NEGATIEVE samenhang met de gebruiksfrequentie van XTC - conform de
+#     literatuur over de "midweek dip"/serotoninedepletie na MDMA-gebruik:
+#     frequentere gebruikers ervaren doorgaans een sterkere stemmingsdaling
+#     enkele dagen na gebruik (vgl. Parrott, 2001; Curran & Travill, 1997).
+#   - hogere leeftijd samenhangend met een relatief betere gemoedstoestand
+#   - ongeveer 40% van de respondenten rondt het antwoord af op een vijftal
+#     (0, 5, 10, ..., 100), de rest geeft een "los" getal.
+# De leeftijdssamenhang blijft een aanname van de docent (net als bij de
+# eerdere fictieve/deels-fictieve variabelen in dit script), niet uit het
+# rapport afgeleid; de richting van de samenhang met gebruiksfrequentie is nu
+# wel in lijn met de MDMA-literatuur.
+
+xtc_gebruikers <- which(resultaten$xtc$laatste_jaar == 1)
+freq_xtc_num   <- as.numeric(resultaten$xtc$frequentie[xtc_gebruikers])  # 1 = "een keer" ... 7 = "(bijna) elke dag"
+
+# Gestandaardiseerde voorspellers binnen de groep XTC-gebruikers
+freq_z     <- scale(freq_xtc_num)[, 1]
+leeftijd_z <- scale(leeftijd[xtc_gebruikers])[, 1]
+
+# Gewichten zo gekozen dat de samenhang met frequentie "matig negatief" is
+# (r ~ -0,3) en met leeftijd kleiner-positief ("relatief beter", r ~ 0,15);
+# de rest is ruis, zodanig geschaald dat de totale z-score ongeveer sd = 1
+# heeft.
+gewicht_freq     <- -0.30
+gewicht_leeftijd <- 0.15
+gewicht_ruis     <- sqrt(max(0, 1 - gewicht_freq^2 - gewicht_leeftijd^2))
+
+z_gemoed <- gewicht_freq * freq_z + gewicht_leeftijd * leeftijd_z +
+  gewicht_ruis * rnorm(length(xtc_gebruikers))
+
+# Terugschalen naar gemiddelde 60, sd 15, en begrenzen tot [0, 100]
+ruwe_score <- 60 + 15 * z_gemoed
+ruwe_score <- pmin(pmax(ruwe_score, 0), 100)
+
+# Afrondgedrag: ca. 40% rondt af op een vijftal, de rest geeft een willekeurig
+# geheel getal (zoals bij een 0-100-schaal in een vragenlijst vaak gebeurt).
+rondt_op_vijftal <- rbinom(length(xtc_gebruikers), 1, 0.25) == 1
+score_afgerond <- ifelse(rondt_op_vijftal,
+                         round(ruwe_score / 5) * 5,
+                         round(ruwe_score))
+
+gemoed_dinsdag_na_xtc <- rep(NA_integer_, n)
+gemoed_dinsdag_na_xtc[xtc_gebruikers] <- as.integer(score_afgerond)
+
+
+## 11. Dataset samenstellen ---------------------------------------------------
 
 drugs <- data.frame(
   respondentnr     = 1:n,
@@ -492,6 +567,7 @@ drugs$acceptatie_cocaine_vrienden  <- acceptatie_cocaine_vrienden
 drugs$makkelijk_aan_drugs_komen    <- makkelijk_aan_drugs_komen
 drugs$ervaren_gezondheid           <- ervaren_gezondheid
 drugs$manier_verkrijgen_drugs      <- manier_verkrijgen_drugs
+drugs$gemoed_dinsdag_na_xtc        <- gemoed_dinsdag_na_xtc
 
 # Optioneel: een beetje item-nonrespons, zodat studenten met NA's leren omgaan.
 voeg_missings_toe <- TRUE
@@ -502,7 +578,7 @@ if (voeg_missings_toe) {
 }
 
 
-## 11. Controle: kloppen de cijfers met het rapport? -------------------------
+## 12. Controle: kloppen de cijfers met het rapport? -------------------------
 
 cat("\n--- Gerealiseerde vs. gerapporteerde prevalenties (laatste jaar, %) ---\n")
 for (middel in names(parameters)) {
@@ -539,8 +615,10 @@ print(round(prop.table(table(drugs$acceptatie_cocaine_vrienden)) * 100, 1))
 cat("\n--- Samenhang: eigen cocainegebruik en acceptatie cocaine onder vrienden ---\n")
 print(round(prop.table(table(drugs$cocaine_laatste_jaar, drugs$acceptatie_cocaine_vrienden), 1) * 100, 1))
 
-cat("\n--- Ervaren gezondheid (%) (rapport: zeer slecht 0,2 / slecht 4,1 / niet goed-niet slecht 20,8 / goed 58,9 / zeer goed 16,0) ---\n")
+cat("\n--- Ervaren gezondheid (%) (doel, omgerekend uit rapport: Slecht 4,3 / Matig 20,8 / Goed 58,9 / Zeer goed 10,4 / Uitstekend 5,6) ---\n")
 print(round(prop.table(table(drugs$ervaren_gezondheid)) * 100, 1))
+cat(sprintf("Aandeel 'Goed of beter' gerealiseerd: %.1f%%  |  rapport (goed+zeer goed): 74,9%%\n",
+            mean(drugs$ervaren_gezondheid %in% c("Goed", "Zeer goed", "Uitstekend")) * 100))
 
 cat("\n--- Ervaren gezondheid naar zware tabak/cannabisgebruikers (docentenaanname, niet uit rapport) ---\n")
 print(round(prop.table(table(zwaar_tabak, drugs$ervaren_gezondheid), 1) * 100, 1))
@@ -551,8 +629,19 @@ print(round(prop.table(table(drugs$manier_verkrijgen_drugs)) * 100, 1))
 cat("\n--- Samenhang: gebruiksintensiteit (0 = geen van de vier drugs) en manier van verkrijgen (docentenaanname) ---\n")
 print(round(tapply(intensiteit_drugs, drugs$manier_verkrijgen_drugs, mean), 1))
 
+cat("\n--- Gemoedstoestand dinsdag na XTC-gebruik (FICTIEF, niet uit rapport) ---\n")
+cat(sprintf("gemiddelde: %.1f (doel ca. 60)  |  sd: %.1f (doel ca. 15)\n",
+            mean(drugs$gemoed_dinsdag_na_xtc, na.rm = TRUE),
+            sd(drugs$gemoed_dinsdag_na_xtc, na.rm = TRUE)))
+cat(sprintf("correlatie met XTC-gebruiksfrequentie: %.2f (doel: matig negatief, ca. -0,3 - conform de literatuur)\n",
+            cor(as.numeric(drugs$xtc_frequentie), drugs$gemoed_dinsdag_na_xtc, use = "pairwise.complete.obs")))
+cat(sprintf("correlatie met leeftijd: %.2f (doel: klein-matig positief, ca. 0,15)\n",
+            cor(drugs$leeftijd, drugs$gemoed_dinsdag_na_xtc, use = "pairwise.complete.obs")))
+cat(sprintf("aandeel score deelbaar door 5: %.1f%% (doel ca. 40%% + toevalstreffers vanuit de rest)\n",
+            mean(drugs$gemoed_dinsdag_na_xtc[!is.na(drugs$gemoed_dinsdag_na_xtc)] %% 5 == 0) * 100))
 
-## 12. Rijen husselen, met een niet-drinker in de eerste vijf rijen ----------
+
+## 13. Rijen husselen, met een niet-drinker in de eerste vijf rijen ----------
 # Puur voor onderwijsdoeleinden: bij 98% laatste-jaar-alcoholgebruik bestaat
 # anders een reele kans dat de eerste rijen (head(drugs)) allemaal precies
 # hetzelfde alcohol_laatste_jaar-patroon laten zien, wat bij het inspecteren
@@ -575,7 +664,7 @@ if (length(niet_drinkers) == 0) {
 head(drugs[, c("respondentnr", "geslacht", "leeftijd", "alcohol_laatste_jaar")])
 
 
-## 13. Opslaan ----------------------------------------------------------------
+## 14. Opslaan ----------------------------------------------------------------
 # Wordt weggeschreven naar een 'data/' submap van de werkmap; deze wordt
 # aangemaakt als hij nog niet bestaat.
 
