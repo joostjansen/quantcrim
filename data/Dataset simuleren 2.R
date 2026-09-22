@@ -1,5 +1,5 @@
 ###############################################################################
-# Simulatie fictieve dataset: middelengebruik onder uitgaanders (15-45 jaar)
+# Simulatie fictieve dataset: middelengebruik onder uitgaanders (16-35 jaar)
 #
 # Doel: oefendataset voor een introductiecursus statistiek & methoden
 #       (criminologie). Alle respondenten en waarnemingen zijn VERZONNEN.
@@ -24,17 +24,12 @@
 # representatieve steekproef van alle Nederlandse jongeren. Vertel dit
 # uw studenten erbij.
 #
-# Het rapport bestrijkt de leeftijd 16 t/m 35 jaar. Omdat de opdracht om
-# 15-45 jaar vraagt, is de leeftijdscurve voor 36-45 jaar GEEXTRAPOLEERD:
-# de gebruikspercentages lopen verder terug, in lijn met het algemene
-# criminologische/ontwikkelingspsychologische gegeven dat experimenteel en
-# recreatief (uitgaans)middelengebruik afneemt naarmate mensen ouder worden
-# en meer bindingen krijgen aan werk, partner en gezin ("maturing out";
-# vgl. Sampson & Laub's leeftijdsgebonden theorie van informele sociale
-# controle). Deze extrapolatie is een aanname van de docent, geen
-# rapportcijfer, en is een mooi gespreksonderwerp bij de bespreking van de
-# opdracht ("wat gebeurt er als je een model buiten het bereik van de data
-# gebruikt?").
+# De leeftijd in deze dataset is bewust beperkt tot 16 t/m 35 jaar, exact het
+# bereik dat het rapport zelf bestrijkt (par. 3.1). Een eerdere versie
+# extrapoleerde de leeftijdscurve tot 15-45 jaar, maar dat vereiste aannames
+# buiten het bereik van de brondata. Door de leeftijd bij 16-35 jaar te
+# houden, zijn alle leeftijdseffecten in deze dataset direct terug te voeren
+# op rapportcijfers (Tabel C.1), zonder extrapolatie.
 #
 # INGEBOUWDE SAMENHANGEN
 # -----------------------------------------------------------------------------
@@ -67,7 +62,8 @@ naar_logit <- function(pct) log(pct / (100 - pct))
 
 # Effect van leeftijd op de log-odds, geschat via een natuurlijke spline door
 # controlepunten (leeftijd, percentage). Zo volgt de curve de rapportcijfers
-# exact op 16-35 jaar en interpoleert/extrapoleert hij soepel naar 15 en 45.
+# exact op de vier leeftijdscategorieen uit Tabel C.1 (16-35 jaar) en
+# interpoleert hij soepel tussen de categorieen in.
 maak_leeftijdseffect <- function(leeftijd, ctrl_leeftijd, ctrl_pct) {
   f <- splinefun(ctrl_leeftijd, naar_logit(ctrl_pct), method = "natural")
   f(leeftijd)
@@ -114,8 +110,8 @@ geslacht <- sample(
   size = n, replace = TRUE, prob = c(0.504, 0.486, 0.010)
 ) |> factor(levels = c("man", "vrouw", "anders"))
 
-# Leeftijd 15-35. Vorm van de verdeling volgt het rapport voor 16-35 jaar
-# (16-19: 20%, 20-24: 47%, 25-29: 23%, 30-35: 10%)
+# Leeftijd 16-35, exact het bereik en de verdeling uit het rapport (par. 3.1):
+# 16-19 jaar: 20%, 20-24 jaar: 47%, 25-29 jaar: 23%, 30-35 jaar: 10%.
 leeftijd_gewicht <- c(
   "16" = 5, "17" = 5, "18" = 5, "19" = 5,
   "20" = 9, "21" = 9, "22" = 9, "23" = 9, "24" = 9,
@@ -165,9 +161,9 @@ aanleg <- list(
 
 
 ## 4. Parameters per middel, overgenomen uit het rapport ---------------------
-# lft_ctrl / lft_pct: controlepunten voor de leeftijdsspline. De eerste vijf
-# punten (17,5 t/m 32,5) zijn de rapportcijfers per leeftijdscategorie
-# (Tabel C.1); de laatste twee (40, 45) zijn de docentenextrapolatie.
+# lft_ctrl / lft_pct: controlepunten voor de leeftijdsspline - de vier
+# leeftijdscategorieen uit Tabel C.1 (16-19, 20-24, 25-29, 30-35 jaar),
+# met als x-waarde het midden van elke categorie (17,5 / 22 / 27 / 32,5).
 # freq: percentages in de volgorde van 'frequentie_labels' (Figuur 5.1).
 
 frequentie_labels <- c(
@@ -180,50 +176,50 @@ parameters <- list(
   alcohol = list(
     ooit = 99.4, jaar = 98.2, man = 98.3, vrouw = 98.2,
     opl = c(laag = 93.3, midden = 97.7, hoog = 98.7),
-    lft_ctrl = c(17.5, 22, 27, 32.5, 40, 45),
-    lft_pct  = c(97.6, 98.5, 98.6, 97.8, 92, 88),
+    lft_ctrl = c(17.5, 22, 27, 32.5),
+    lft_pct  = c(97.6, 98.5, 98.6, 97.8),
     freq = c(0.2, 3.7, 3.5, 15.6, 25.3, 47.1, 4.7)
   ),
   tabak = list(
     ooit = 73.2, jaar = 58.9, man = 61.4, vrouw = 56.3,
     opl = c(laag = 78.6, midden = 67.3, hoog = 54.6),
-    lft_ctrl = c(17.5, 22, 27, 32.5, 40, 45),
-    lft_pct  = c(58.8, 60.5, 58.8, 51.9, 48, 45),
+    lft_ctrl = c(17.5, 22, 27, 32.5),
+    lft_pct  = c(58.8, 60.5, 58.8, 51.9),
     freq = c(3.8, 19.2, 7.2, 10.1, 9.0, 13.3, 37.4)
   ),
   vapen = list(
     ooit = 59.9, jaar = 50.2, man = 47.9, vrouw = 52.5,
     opl = c(laag = 59.8, midden = 54.9, hoog = 47.8),
-    lft_ctrl = c(17.5, 22, 27, 32.5, 40, 45),
-    lft_pct  = c(61.6, 53.1, 43.3, 30.3, 20, 15),
+    lft_ctrl = c(17.5, 22, 27, 32.5),
+    lft_pct  = c(61.6, 53.1, 43.3, 30.3),
     freq = c(10.5, 33.8, 11.5, 13.4, 8.3, 10.4, 12.0)
   ),
   cannabis = list(
     ooit = 76.4, jaar = 46.9, man = 54.2, vrouw = 39.5,
     opl = c(laag = 53.1, midden = 49.1, hoog = 45.7),
-    lft_ctrl = c(17.5, 22, 27, 32.5, 40, 45),
-    lft_pct  = c(49.2, 49.6, 43.6, 37.9, 25, 18),
+    lft_ctrl = c(17.5, 22, 27, 32.5),
+    lft_pct  = c(49.2, 49.6, 43.6, 37.9),
     freq = c(12.0, 42.5, 10.7, 9.5, 6.5, 8.3, 10.5)
   ),
   xtc = list(
     ooit = 64.3, jaar = 53.8, man = 61.0, vrouw = 46.4,
     opl = c(laag = 53.2, midden = 48.6, hoog = 55.9),
-    lft_ctrl = c(17.5, 22, 27, 32.5, 40, 45),
-    lft_pct  = c(33.4, 55.7, 64.9, 59.9, 35, 22),
+    lft_ctrl = c(17.5, 22, 27, 32.5),
+    lft_pct  = c(33.4, 55.7, 64.9, 59.9),
     freq = c(15.3, 73.3, 7.9, 3.1, 0.3, 0.1, 0.0)
   ),
   cocaine = list(
     ooit = 43.6, jaar = 33.5, man = 40.5, vrouw = 26.2,
     opl = c(laag = 42.7, midden = 33.6, hoog = 33.0),
-    lft_ctrl = c(17.5, 22, 27, 32.5, 40, 45),
-    lft_pct  = c(14.9, 32.0, 47.8, 44.2, 30, 20),
+    lft_ctrl = c(17.5, 22, 27, 32.5),
+    lft_pct  = c(14.9, 32.0, 47.8, 44.2),
     freq = c(18.1, 54.6, 12.1, 11.3, 2.2, 1.3, 0.4)
   ),
   mmc = list(
     ooit = 41.2, jaar = 33.7, man = 39.6, vrouw = 27.5,
     opl = c(laag = 40.2, midden = 33.5, hoog = 33.5),
-    lft_ctrl = c(17.5, 22, 27, 32.5, 40, 45),
-    lft_pct  = c(22.3, 38.9, 35.5, 27.9, 15, 8),
+    lft_ctrl = c(17.5, 22, 27, 32.5),
+    lft_pct  = c(22.3, 38.9, 35.5, 27.9),
     freq = c(21.4, 47.9, 13.3, 12.1, 3.5, 1.4, 0.2)
   )
 )
@@ -362,7 +358,118 @@ makkelijk_aan_drugs_komen   <- trek_stelling(z_verkrijgbaarheid, kans_weet_niet 
                                              percentages = c(3.0, 4.3, 5.2, 27.1, 54.5))
 
 
-## 8. Dataset samenstellen ----------------------------------------------------
+## 8. Algemene gezondheid -----------------------------------------------------
+# Bron: rapporttekst "Algemene gezondheid" (par. 6.1, doorlopende tekst, geen
+# apart tabel-/figuurnummer). Antwoord op de vraag naar ervaren gezondheid:
+#   zeer slecht 0,2% / slecht 4,1% / niet goed/niet slecht 20,8% /
+#   goed 58,9% / zeer goed 16,0%.
+# Ter info (niet gebruikt als kalibratiedoel, want andere populatie): in de
+# algemene bevolking beoordeelt 87,7% (16-20 jr), 85,7% (20-30 jr) en 83,0%
+# (30-40 jr) de eigen gezondheid als (zeer) goed (CBS, 2022) - uitgaanders
+# scoren met 74,9% ((58,9+16,0)%) dus duidelijk lager dan leeftijdsgenoten in
+# de algemene bevolking. Een mooi gespreksonderwerp voor de collegezaal: hoe
+# kan een groep die er zelf tevreden uitziet toch systematisch lager scoren
+# dan de algemene bevolking?
+#
+# Het rapport geeft GEEN uitsplitsing van ervaren gezondheid naar geslacht,
+# leeftijd of middelengebruik. Om de variabele toch een realistische
+# samenhang met de rest van de dataset te geven, is - als aanname van de
+# docent, dus NIET uit het rapport - een negatief verband gelegd met de
+# algemene gebruiksgeneigdheid en met zwaar (frequent) gebruik van tabak en
+# cannabis, in lijn met de bredere gezondheidsliteratuur over de samenhang
+# tussen middelengebruik en ervaren gezondheid. Dit is een aanname die
+# expliciet te bespreken is met studenten: net als bij de leeftijdskeuze
+# hierboven is transparantie over wat wel en niet rechtstreeks uit het
+# rapport komt, essentieel bij het werken met een gesimuleerde dataset.
+
+gezondheid_labels <- c("zeer slecht", "slecht", "niet goed/niet slecht", "goed", "zeer goed")
+gezondheid_pct     <- c(0.2, 4.1, 20.8, 58.9, 16.0)
+
+# "Zwaar" gebruik = minstens een paar keer per week (NA/geen gebruik telt als 0)
+is_zwaar_gebruiker <- function(frequentie) {
+  ifelse(!is.na(frequentie) & frequentie %in% c("een paar keer per week", "(bijna) elke dag"), 1, 0)
+}
+zwaar_tabak    <- is_zwaar_gebruiker(resultaten$tabak$frequentie)
+zwaar_cannabis <- is_zwaar_gebruiker(resultaten$cannabis$frequentie)
+
+# Hogere z = betere ervaren gezondheid
+z_gezondheid <- -0.6 * algemene_aanleg - 0.4 * zwaar_tabak - 0.3 * zwaar_cannabis +
+  rnorm(n, sd = 0.8)
+
+ervaren_gezondheid <- trek_frequentie(z_gezondheid, gezondheid_pct, gezondheid_labels)
+
+
+## 9. Wijze waarop drugs verkregen worden ------------------------------------
+# Bron: Figuur 5.8 (par. 5.4, n = 4033 - laatste-jaar-gebruikers van drugs in
+# het algemeen): koopt van een dealer 40,8% / koopt van vrienden of
+# kennissen 27,2% / krijgt van vrienden of kennissen 25,6% / ontvangen via
+# de post 1,5% / dropping 0% / anders 4,9%.
+#
+# Populatie: alleen laatste-jaar-gebruikers van minstens een van de vier
+# "drugs" in deze dataset (cannabis, XTC, cocaine, 3-MMC) - net als in het
+# rapport gaat het hier om een algemene vraag over drugs, niet per middel.
+# Voor niet-gebruikers is deze variabele NA.
+#
+# Het rapport geeft geen uitsplitsing van deze wijze van verkrijgen naar
+# geslacht, leeftijd, opleiding of gebruiksintensiteit. Als aanname van de
+# docent (NIET uit het rapport, zie ook de kanttekeningen bij leeftijd en
+# ervaren gezondheid hierboven) is de keuze tussen dealer en vrienden
+# gekoppeld aan de gebruiksintensiteit over de vier drugs samen: frequentere/
+# zwaardere gebruikers hebben vaker een vaste dealer, incidentele gebruikers
+# krijgen of kopen vaker via vrienden (vgl. routine-activity- en
+# marktbetrokkenheidstheorie uit de criminologie). De kleine restcategorieen
+# (post, dropping, anders) zijn - bij gebrek aan een theoretische link -
+# onafhankelijk van de gebruiksintensiteit getrokken.
+
+verkrijgen_labels <- c(
+  "koopt van een dealer", "koopt van vrienden/kennissen",
+  "krijgt van vrienden/kennissen", "ontvangen via de post",
+  "dropping", "anders"
+)
+
+# Gebruikt minstens een van de vier drugs in het laatste jaar
+drug_gebruiker <- pmax(
+  resultaten$cannabis$laatste_jaar, resultaten$xtc$laatste_jaar,
+  resultaten$cocaine$laatste_jaar, resultaten$mmc$laatste_jaar
+)
+
+# Combinatiescore van gebruiksintensiteit over de vier drugs (0 voor
+# niet-gebruikers van dat middel, hoger voor frequenter/meervoudig gebruik)
+intensiteit_drugs <- rowSums(sapply(
+  list(resultaten$cannabis$frequentie, resultaten$xtc$frequentie,
+       resultaten$cocaine$frequentie, resultaten$mmc$frequentie),
+  function(f) ifelse(is.na(f), 0, as.numeric(f))
+))
+
+manier_verkrijgen_drugs <- factor(rep(NA_character_, n), levels = verkrijgen_labels)
+gebruikers_drugs <- which(drug_gebruiker == 1)
+
+# Stap 1: kleine restcategorie, los van gebruiksintensiteit (1,5+0+4,9=6,4%)
+is_restcategorie <- rbinom(length(gebruikers_drugs), 1, 0.064) == 1
+rest_gebruikers  <- gebruikers_drugs[is_restcategorie]
+manier_verkrijgen_drugs[rest_gebruikers] <- sample(
+  c("ontvangen via de post", "dropping", "anders"),
+  size = length(rest_gebruikers), replace = TRUE,
+  prob = c(1.5, 0, 4.9)
+)
+
+# Stap 2: overigen verdelen over dealer/vrienden, gekoppeld aan intensiteit.
+# De drie percentages (25,6 / 27,2 / 40,8) worden herschaald zodat ze precies
+# optellen tot 100% binnen deze subgroep (93,6% van alle drugsgebruikers).
+hoofd_gebruikers  <- gebruikers_drugs[!is_restcategorie]
+hoofd_percentages <- c(25.6, 27.2, 40.8)
+hoofd_percentages <- hoofd_percentages / sum(hoofd_percentages) * 100
+
+z_verkrijgen <- 0.7 * scale(intensiteit_drugs[hoofd_gebruikers])[, 1] +
+  0.5 * cluster_party[hoofd_gebruikers] + rnorm(length(hoofd_gebruikers), sd = 0.6)
+
+manier_verkrijgen_drugs[hoofd_gebruikers] <- as.character(trek_frequentie(
+  z_verkrijgen, hoofd_percentages,
+  c("krijgt van vrienden/kennissen", "koopt van vrienden/kennissen", "koopt van een dealer")
+))
+
+
+## 10. Dataset samenstellen ---------------------------------------------------
 
 drugs <- data.frame(
   respondentnr     = 1:n,
@@ -383,6 +490,8 @@ drugs$acceptatie_alcohol_vrienden  <- acceptatie_alcohol_vrienden
 drugs$acceptatie_xtc_vrienden      <- acceptatie_xtc_vrienden
 drugs$acceptatie_cocaine_vrienden  <- acceptatie_cocaine_vrienden
 drugs$makkelijk_aan_drugs_komen    <- makkelijk_aan_drugs_komen
+drugs$ervaren_gezondheid           <- ervaren_gezondheid
+drugs$manier_verkrijgen_drugs      <- manier_verkrijgen_drugs
 
 # Optioneel: een beetje item-nonrespons, zodat studenten met NA's leren omgaan.
 voeg_missings_toe <- TRUE
@@ -392,9 +501,8 @@ if (voeg_missings_toe) {
   drugs$cocaine_ooit[sample(n, 4)]     <- NA
 }
 
-# Zorgen dat eerste rij een alcohol 
 
-## 9. Controle: kloppen de cijfers met het rapport? --------------------------
+## 11. Controle: kloppen de cijfers met het rapport? -------------------------
 
 cat("\n--- Gerealiseerde vs. gerapporteerde prevalenties (laatste jaar, %) ---\n")
 for (middel in names(parameters)) {
@@ -431,19 +539,49 @@ print(round(prop.table(table(drugs$acceptatie_cocaine_vrienden)) * 100, 1))
 cat("\n--- Samenhang: eigen cocainegebruik en acceptatie cocaine onder vrienden ---\n")
 print(round(prop.table(table(drugs$cocaine_laatste_jaar, drugs$acceptatie_cocaine_vrienden), 1) * 100, 1))
 
+cat("\n--- Ervaren gezondheid (%) (rapport: zeer slecht 0,2 / slecht 4,1 / niet goed-niet slecht 20,8 / goed 58,9 / zeer goed 16,0) ---\n")
+print(round(prop.table(table(drugs$ervaren_gezondheid)) * 100, 1))
+
+cat("\n--- Ervaren gezondheid naar zware tabak/cannabisgebruikers (docentenaanname, niet uit rapport) ---\n")
+print(round(prop.table(table(zwaar_tabak, drugs$ervaren_gezondheid), 1) * 100, 1))
+
+cat("\n--- Manier waarop drugs verkregen worden (%) (rapport: dealer 40,8 / koopt vrienden 27,2 / krijgt vrienden 25,6 / post 1,5 / dropping 0 / anders 4,9) ---\n")
+print(round(prop.table(table(drugs$manier_verkrijgen_drugs)) * 100, 1))
+
+cat("\n--- Samenhang: gebruiksintensiteit (0 = geen van de vier drugs) en manier van verkrijgen (docentenaanname) ---\n")
+print(round(tapply(intensiteit_drugs, drugs$manier_verkrijgen_drugs, mean), 1))
+
+
+## 12. Rijen husselen, met een niet-drinker in de eerste vijf rijen ----------
+# Puur voor onderwijsdoeleinden: bij 98% laatste-jaar-alcoholgebruik bestaat
+# anders een reele kans dat de eerste rijen (head(drugs)) allemaal precies
+# hetzelfde alcohol_laatste_jaar-patroon laten zien, wat bij het inspecteren
+# van de dataset in college een vertekend beeld geeft. respondentnr blijft
+# het oorspronkelijke, unieke ID - alleen de rijvolgorde verandert.
+
 niet_drinkers <- which(drugs$alcohol_laatste_jaar == 0)
-gekozen_niet_drinker <- sample(niet_drinkers, 1)
-overige_rijen        <- sample(setdiff(seq_len(nrow(drugs)), gekozen_niet_drinker))
-positie               <- sample(1:5, 1)
-nieuwe_volgorde <- append(overige_rijen, gekozen_niet_drinker, after = positie - 1)
+if (length(niet_drinkers) == 0) {
+  warning("Geen enkele respondent met alcohol_laatste_jaar == 0 - herschikking overgeslagen.")
+} else {
+  gekozen_niet_drinker <- sample(niet_drinkers, 1)
+  overige_rijen        <- sample(setdiff(seq_len(nrow(drugs)), gekozen_niet_drinker))
+  positie               <- sample(1:5, 1)  # willekeurige plek tussen rij 1 en 5
+  nieuwe_volgorde <- append(overige_rijen, gekozen_niet_drinker, after = positie - 1)
+  
+  drugs <- drugs[nieuwe_volgorde, ]
+  rownames(drugs) <- NULL
+}
 
-drugs <- drugs[nieuwe_volgorde, ]
-rownames(drugs) <- NULL
+head(drugs[, c("respondentnr", "geslacht", "leeftijd", "alcohol_laatste_jaar")])
 
-## 10. Opslaan ----------------------------------------------------------------
 
+## 13. Opslaan ----------------------------------------------------------------
+# Wordt weggeschreven naar een 'data/' submap van de werkmap; deze wordt
+# aangemaakt als hij nog niet bestaat.
+
+dir.create("data", showWarnings = FALSE)
 write.csv2(drugs, "data/middelengebruik_uitgaanders.csv", row.names = FALSE)
 saveRDS(drugs, "data/middelengebruik_uitgaanders.rds")
 
 # Voor studenten die met SPSS werken:
-# haven::write_sav(drugs, "middelengebruik_uitgaanders.sav")
+# haven::write_sav(drugs, "data/middelengebruik_uitgaanders.sav")
