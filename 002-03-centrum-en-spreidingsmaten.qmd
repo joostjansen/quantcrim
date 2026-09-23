@@ -1,0 +1,72 @@
+---
+title: "Centrum- en spreidingsmaten"
+format: html
+execute:
+  warning: false
+---
+
+Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. Om data te beschrijven maken we verder gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.
+
+## Centrummaten
+
+### Gemiddelde
+
+Het gemiddelde van een variabele is simpelweg het optellen van alle waarden, gedeeld door het aantal observaties. Dit gaat middels de volgende formule.
+
+formule
+
+Formules berekenen en statistische toetsen uitvoeren kunnen we ook handmatig in R doen. Dit is leerzaam, omdat het intuïtie creëert voor hoe je statististisch onderzoek moet uitvoeren. In onderstaand voorbeeld berekenen we in R het gemiddelde van een cijferreeks.
+
+```{r}
+(3 + 5 + 5 + 7 + 10) / 5
+```
+
+Het gemiddelde van deze cijferreeks met 5 getallen is dus 6. In plaats van handmatig kun je het ook door een functie in R doen:
+
+```{r}
+# vector aanmaken
+x <- c(3, 5, 5, 7, 10)
+print(x)
+
+# gemiddelde berekenen
+mean(x)
+```
+
+Eerst hebben we een vector, of eigenlijk een variabele, aangemaakt met de vijf waardes. Via de functie *mean()* bereken je het gemiddelde.
+
+### Mediaan
+
+De mediaan is het getal waar het midden van het aantal observaties is bereikt (50%), oftewel de middelste observatie.
+
+Bij de cijferreeks (3, 5, [5]{.underline}, 7, 10) is dit 5.
+
+Bij een even aantal cijfers zoals (3, 5, 5, 6, 7, 10) neem je het midden van de middelste twee getallen. In dit geval is dat 5,5 (tussen 5 en 6).
+
+In R bereken je de mediaan via de functie *median().*
+
+```{r}
+# oneven aantal observaties
+median(x)
+
+# even aantal observaties
+y <- c(3, 5, 5, 6, 7, 10)
+print(y)
+
+median(y)
+```
+
+### Modus
+
+De modus is de waarde of categorie die het vaakst voorkomt in een variabele.
+
+Bij de cijferreeks (3, 5, 5, 7, 10) is dit 5 omdat deze tweemaal voorkomt en de rest slechts een keer.
+
+In R bereken je de modus via de functie *mfv().*
+
+```{r}
+# package laden
+library(modeest)
+
+# modus berekenen
+mfv(x)
+```

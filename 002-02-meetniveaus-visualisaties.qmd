@@ -5,13 +5,15 @@ execute:
   warning: false
 ---
 
-## **Meetniveaus en visualisaties**
-
-Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de sociale wetenschappen zijn er verschillende type variabelen. Deze bespreken we hier en daarbij gaan we meteen in op hoe we de data van deze variabelen het beste visueel kunnen presenteren.
+Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de sociale wetenschappen zijn er verschillende type variabelen, die ook wel **meetniveaus** worden genoemd. Deze bespreken we hier en daarbij gaan we meteen in op hoe we de data van deze variabelen het beste visueel kunnen presenteren.
 
 Doorgaans maken we onderscheid tussen **kwalitatieve** en **kwantitatieve** variabelen.
 
-Kwalitatieve variabelen bestaan uit categorieën die een kwalitatieve eigenschap van een observatie beschrijven. Deze eigenschappen zijn niet direct in cijfers uit te drukken, zoals bij kwantitatieve variabelen. Een belangrijk aspect is dat de categorieën discreet zijn: ze moeten elkaar uitsluiten.
+## Kwalitatieve variabelen
+
+Kwalitatieve variabelen bestaan uit categorieën die een kwalitatieve eigenschap van een observatie beschrijven. Deze eigenschappen zijn niet direct in cijfers uit te drukken, zoals bij kwantitatieve variabelen. Een belangrijk aspect is dat de categorieën *discreet* zijn: ze moeten elkaar uitsluiten.
+
+### Staafdiagram
 
 Laten we naar een voorbeeld kijken: geslacht. Stel dat we willen weten hoeveel mannen, vrouwen of anders-identificerenden er in de dataset zitten. Daarvoor kunnen we **staafdiagram** maken.
 
@@ -19,13 +21,14 @@ Laten we naar een voorbeeld kijken: geslacht. Stel dat we willen weten hoeveel m
 # laden packages
 library(readr)
 library(ggplot2)
+library(tidyverse)
 
 # laden van de data
 data <- read_rds("data/middelengebruik_uitgaanders.rds")
 
 # staafdiagram maken
-ggplot(data, aes(x = geslacht)) +
-  geom_bar()
+ggplot(data, aes(x = geslacht)) + # data en variabele selecteren
+  geom_bar() # staafdiagram
 ```
 
 De staafdiagram geeft een visuele presentatie van het aantal mannen, vrouwen en anders-identificerenden in de dataset. Het mooie aan R is dat we de figuur visueel nog wat aantrekkelijker kunnen maken. Hiermee ga je meer oefenen tijdens de cursus.
@@ -38,18 +41,126 @@ ggplot(data, aes(x = geslacht)) +
   ylab("aantal")  # label voor y-as
 ```
 
-De figuur heeft nu een witte achtergrond en de y-as heeft een Nederlandstalig label. Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun je ook een simpele tabel maken.
+De figuur heeft nu een witte achtergrond en de y-as heeft een Nederlandstalig label.
+
+### Simpele tabel
+
+Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun je ook een simpele tabel maken.
 
 ```{r}
+# tabel van geslacht
 table(data$geslacht)
 ```
 
-De dataset bevat in totaal dus xxx mannen, xxx vrouwen en xxx in de categorie 'anders'.
+De dataset bevat in totaal dus xxx mannen, xxx vrouwen en xxx in de categorie "anders".
+
+### Nominale variabele
 
 Geslacht is een voorbeeld van een **nominale** variabele. Dit is een kwalitatieve variabele waarin geen rangorde bestaat tussen de categorieën. De variabele bestaat uit kwalitatieve eigenschappen die van elkaar verschillen, maar je kunt niet zeggen dat de ene categorie intrinsiek 'hoger' of 'lager' is dan de ander.
 
-Een kwalitatieve variabele waarbij er *wel* een bepaalde rangorde (hiërarchie) tussen de categorieen is, noemen we een **ordinale** variabele.
+### Taartdiagram
 
-(subjectieve gezondheid toevoegen als variabele)
+Een andere manier om een nominale variabele te presenteren, is via een **taartdiagram**. Een taartdiagram kan snel een overzicht geven van de verhouding tussen categorieën binnen een bepaalde variabele. Doorgaans werkt een taartdiagram het beste als er een beperkt aantal categorieën zijn.
 
-Kwantitatieve variabelen zijn numeriek en bestaan dus uit cijfers.
+Hieronder staat een voorbeeld van taartdiagram van de variabele *manier_verkrijgen_drugs*. Dit gaat over de wijze waarop uitgaande jongeren meestal aan hun drugs komen.
+
+```{r}
+# samenvatten van de relevante data
+drugs_verkrijgen <- data |>
+  filter(!is.na(manier_verkrijgen_drugs)) |> # missende waarden verwijderen
+  group_by(manier_verkrijgen_drugs) |> # groeperen op variabele
+  summarise(n = n()) |> # aantal respondenten per categorie berekenen
+  mutate(perc = round(n/sum(n) * 100, 1)) # percentages berekenen en afronden op 1 decimaal
+
+# taartdiagram van hoe drugs worden verkregen
+ggplot(drugs_verkrijgen, aes(x= "", y = perc, fill = manier_verkrijgen_drugs)) + 
+  # percentages (y) en categorieen (fill) selecteren
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar("y", start = 0) + # optie voor taartdiagram 
+  theme_void() # achtergrond weghalen
+```
+
+De taartdiagram weergeeft het aandeel per categorie van hoe jongeren doorgaans aan hun drugs komen. We kunnen de presentatie van taartdiagram echter nog verbeteren.
+
+```{r}
+# taartdiagram van hoe drugs worden verkregen
+ggplot(drugs_verkrijgen, aes(x= "", y = perc, fill = manier_verkrijgen_drugs)) + 
+  geom_bar(stat = "identity", width = 1, colour = "white") + # witte randen toevoegen
+  coord_polar("y", start = 0) +
+  theme_void() + 
+  geom_text(aes(label = perc), position = position_stack(vjust = 0.5)) + # percentages als labels toevoegen   
+  labs(fill = "Manieren van drugs verkrijgen") + # titel voor legenda
+  ggtitle("Taartdiagram met manieren van drugs verkrijgen (%)") # titel voor figuur
+```
+
+We hebben nu een duidelijk inzicht in hoe jongeren die drugs gebruiken hier aan komen. Zo zien we bijvoorbeeld dat ongeveer xx procent dit via een dealer koopt, en ongeveer een kwart het koopt via vrienden/kennissen en een kwart het van deze krijgt.
+
+Dit toont meteen een relevante bevinding uit de literatuur over drugsgebruik onder jongeren, namelijk dat de helft van de jongeren hun drugs verkrijgen via "*sorting*" (zie [Parker et al., 2002](https://journals.sagepub.com/doi/10.1177/003803850203600408)). Dat wil zeggen, dat een bekende uit een vrienden- of kennissenkring iemand van drugs voorziet eerder dan een dealer.
+
+### Ordinale variabele
+
+Een kwalitatieve variabele waarbij er *wel* een bepaalde rangorde (hiërarchie) tussen de categorieën is, noemen we een **ordinale** variabele.
+
+Laten we weer naar een voorbeeld kijken. In de enquete is gevraagd hoe jongeren hun eigen gezondheid over het algemeen beoordelen. Voor een ordinale variabele maken we in principe altijd een staafdiagram.
+
+```{r}
+# staafdiagram van ervaren gezondheid
+ggplot(data, aes(x = ervaren_gezondheid)) +
+  geom_bar() +
+  theme_bw() + 
+  ylab("aantal") +
+  xlab ("ervaren gezondheid")
+```
+
+De staafdiagram toont dat het grootste deel hun gezondheid als "goed" beoordeelt. Een relatief klein deel van de jongeren beoordeelt hun gezondheid als "matig" of zelfs "slecht".
+
+Dit voorbeeld illustreert een relevant kenmerk van ordinale variabelen: er is een bepaalde rangorde tussen de categorieen, maar de afstand ertussen is niet per se gelijk. Zo is de stap van "matig" naar "goed" bijvoorbeeld kwalitatief anders dan de stap van "zeer goed" naar "uitstekend". Hierin verschilt een ordinale variabele van een kwantitatieve variabele, bij de laatste is de afstand tussen waarden (1-2-3 etc.) in principe altijd gelijk.
+
+## Kwantitatieve variabelen
+
+Kwantitatieve variabelen zijn numeriek en bestaan dus uit cijfers. De afstand tussen waarden is altijd gelijk en er zit een rangorde in. Bijvoorbeeld bij een rapportcijfer van 1 t/m 10 is de afstand tussen 2 en 3 hetzelfde als de afstand tussen 7 en 8. Kwantitatieve variabelen worden soms ook wel lineaire of continue variabelen genoemd.
+
+### Interval en ratio variabelen
+
+Er zijn twee types kwantitatieve variabelen: **interval** en **ratio**. Het verschil tussen deze twee types is dat een interval variabele geen *absoluut nulpunt* kent en een ratio variabele wel.
+
+Leeftijd is bijvoorbeeld een ratio variabele, je kunt namelijk niet jonger dan 0 jaar zijn. Geboortejaar, aan de andere kant, is weer een interval variabele. De christelijke jaartelling begint bij het jaar 0, maar dat is eigenlijk arbitrair omdat de jaren daarvoor ook geteld worden. Het specifieke karakter van de variabele bepaalt dus het meetniveau.
+
+Voor een lineaire variabele met relatief weinig unieke waarden gebruiken we meestal een staafdiagram. Zie hieronder een voorbeeld van de variabele leeftijd.
+
+```{r}
+# staafdiagram van leeftijd
+ggplot(data, aes(x = as.factor(leeftijd))) +
+  geom_bar() +
+  theme_bw() + 
+  ylab("aantal") +
+  xlab ("leeftijd")
+```
+
+De staafdiagram toont dat relatief veel respondenten tussen 21 en 24 jaar zijn, een leeftijd waarop jongeren veel uitgaan.
+
+### Histogram
+
+Voor een lineaire variabele met juist relatief veel unieke waarden gebruiken we meestal een histogram. Bij een een histogram worden bepaalde waardes gegroepeerd tot één staaf, waardoor de presentatie overzichtelijk blijft. Dit is hieronder weergeven voor de variabele *gemoed_dinsdag_na_xtc.* Dit is een score tussen de 0 en 100 die respondenten hebben gegeven hoe zich voelen op de dinsdag na xtc-gebruik in het weekend, waarbij 0 voor negatief staat en 100 voor positief.
+
+```{r}
+# histogram van gemoedstoestand op dinsdag na XTC gebruik
+ggplot(data, aes(x = gemoed_dinsdag_na_xtc)) +
+  geom_histogram(bins = 50) +
+  theme_bw() + 
+  ylab("aantal") +
+  xlab ("gemoedstoestand (negatief - positief)") +
+  xlim(0, 100)
+```
+
+## Samenvatting
+
+Het meetniveau gaat over het type variabele en wat voor soort informatie deze bevat. Zoals we later zullen zien, is dit belangrijk om te weten wat voor soort statistische toets we kunnen uitvoeren. We onderscheiden de volgende meetniveaus (tussenhaakjes staat welke figuur we meestal gebruiken):
+
+- nominaal (staaf- of taartdiagram)
+
+- ordinaal (staafdiagram)
+
+- interval (staafdiagram of histogram)
+
+- ratio (staafdiagram of histogram)
