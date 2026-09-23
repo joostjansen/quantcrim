@@ -5,7 +5,7 @@ execute:
   warning: false
 ---
 
-Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de basis zijn er vier manieren om eigenschappen meetbaar te maken (ook wel: operationaliseren). We noemen deze manieren **meetniveaus.** Niet ieder meetniveau geeft even veel informatie. Als we informatie willen over de leeftijden van onze respondenten, kunnen we dit op verschillende manieren uitvragen. We kunnen direct vragen naar hun leeftijd, maar we kunnen ze ook indelen in leeftijdscategorieen (bijv.: jonger dan 18 en 18 jaar en ouder). We bespreken hier de vier meetniveaus en daarbij gaan we meteen in op hoe we de informatie die de variabelen verschaffen het beste visueel kunnen presenteren.
+Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de basis zijn er vier manieren met variabelen eigenschappen meetbaar te maken (ook wel: operationaliseren). We noemen deze manieren **meetniveaus.** Niet ieder meetniveau geeft even veel informatie. Als we informatie willen over de leeftijden van onze respondenten, kunnen we dit op verschillende manieren uitvragen. We kunnen direct vragen naar hun leeftijd, maar we kunnen ze ook indelen in leeftijdscategorieen (bijv.: jonger dan 18 en 18 jaar en ouder). We bespreken hier de vier meetniveaus en daarbij gaan we meteen in op hoe we de informatie die de variabelen verschaffen het beste visueel kunnen presenteren.
 
 Doorgaans maken we onderscheid tussen **kwalitatieve** en **kwantitatieve** variabelen.
 
