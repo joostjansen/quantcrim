@@ -36,7 +36,7 @@ gt() |>
   opt_stylize(style = 6, color = "blue") # lay-out bepalen
 ```
 
-Hierboven staat een 'sneak preview' van de dataset. Waar kijken we nu eigenlijk naar? De dataset weergeeft de informatie die we hebben over jongeren die hebben meegedaan aan de enquête. Elke rij representeert een respondent: een jongere die de enquête heeft ingevuld. De rijen zijn onze **observaties**. Elke kolom bevat de waarde van die respondent met betrekking tot een kenmerk, een vraag die is gesteld in de enquête. De kolommen zijn daarbij onze **variabelen**.
+Hierboven staat een 'sneak preview' van de dataset. Waar kijken we nu eigenlijk naar? De dataset verschaft informatie die we verzameld hebben over jongeren die hebben meegedaan aan de enquête. Elke rij representeert een respondent: een jongere die de enquête heeft ingevuld. De rijen zijn onze **observaties**. Elke kolom bevat de waarde van die respondent met betrekking tot een kenmerk, bijvoorbeeld de waarde die hoort bij een antwoord dat een respondent gaf op een in de enquête gestelde vraag. De waarden van respondenten op kenmerken kunnen variëren van respondent tot respondent. Niet iedereen is even oud, gebruikt even vaak drugs, heeft dezelfde opleiding etc. De variatie in een bepaald kenmerk meten we met behulp van **variabelen**. Deze zien we terug in de kolommen. De kern van statistiek is dat we alle variatie in kenmerken gaan gebruiken om vragen zoals die hierboven te kunnen beantwoorden.
 
 We kunnen bijvoorbeeld zien dat de eerste respondent een xxx is, xx jaar oud, en een xxx opleidingsniveau heeft.
 

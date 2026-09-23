@@ -1,0 +1,891 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{anyfontsize}
+\usepackage{multirow}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={quantcrim},
+  pdfauthor={Joost Jansen; Gijs Custers},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{quantcrim}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Een open-web handboek voor kwantitatief criminologisch
+onderzoek}
+\author{Joost Jansen \and Gijs Custers}
+\date{2026-09-23}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Table of contents}
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\bookmarksetup{startatroot}
+
+\chapter{Voorwoord}\label{voorwoord}
+
+\bookmarksetup{startatroot}
+
+\chapter*{Voorwoord}\label{voorwoord-1}
+\addcontentsline{toc}{chapter}{Voorwoord}
+
+\markboth{Voorwoord}{Voorwoord}
+
+Welkom bij het \href{quantcrim.pdf}{quantcrim handboek} Criminologie.
+Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het
+boek is ontworpen en beschikbaar gesteld door docenten en onderzoekers
+van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is
+bedoeld voor zowel bachelor- als masterstudenten.
+
+Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te
+laden, een regressiemodel te schatten en de resultaten ervan te
+presenteren in een plot.\footnote{We gaan in een later hoofdstuk zien
+  wat een regressiemodel precies is.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# test}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Voor we verder gaan..}\label{voor-we-verder-gaan..}
+
+We hopen dat je dit boek handig vindt om mee te werken. In het kader van
+Open Science hebben we geprobeerd dit boek volledig transparant en
+reproduceerbaar te ontwikkelen. De broncode is beschikbaar via
+\href{https://github.com/joostjansen/QuantCrim}{https://github.com/joostjansen/quantcrim}.
+Als je vragen, suggesties of aanpassingen hebt, aarzel niet deze te
+stellen.\footnote{Het beste is om dit via GitHub te doen in onze
+  Repository.}
+
+\part{Voorbereiding}
+
+\chapter{Voorbereiding}\label{voorbereiding-1}
+
+\chapter*{Voorbereidingen}\label{voorbereidingen}
+\addcontentsline{toc}{chapter}{Voorbereidingen}
+
+\markboth{Voorbereidingen}{Voorbereidingen}
+
+Voor we tijdens de lessen aan de slag kunnen met het verrichten van
+kwantitatief onderzoek, moet de vereiste software geinstalleerd worden.
+We gaan werken met R (spreek uit op z'n Engels). R is een
+programmeertaal die veel statistici gebruiken om hun analyses mee te
+doen. De omgeving waarin je met R kan werken, heet RStudio. Zowel R als
+RStudio moeten apart geinstalleerd worden. Je vindt de installatielinks
+hieronder:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://cran.r-project.org/}{R}
+\item
+  \href{https://docs.posit.co/ide/user/\#rstudio-ide-oss-downloads}{RStudio}
+\end{enumerate}
+
+Na installatie van de benodigde software moeten we R gereed maken door
+de juiste packages (ook wel: libraries) te installeren. Veel
+databewerkingen en analyses vergen namelijk speciaal daarvoor software.
+Een package waarmee je mooie visualisaties kan maken van je data heet
+bijvoorbeeld ggplot. Je installeert zo'n package door RStudio te openen
+en in je console de volgende code te typen en dan te `runnen':
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("ggplot2")}
+\end{Highlighting}
+\end{Shaded}
+
+Als je het package geinstalleerd hebt (eenmalig) laad je in het vervolg
+aan het begin van elke sessie het package in. Let op: in tegenstelling
+tot bij het installeren van een package, gebruik je bij het laden ervan
+geen aanhalingstekens. R is zeer gevoelig voor het verkeerd gebruik van
+leestekens. Wees daar dus scherp op.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+Hieronder vind je een lijst met alle packages die je tijdens dit vak
+nodig hebt.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# }
+\CommentTok{\# install.packages()}
+\CommentTok{\# install.packages()}
+\end{Highlighting}
+\end{Shaded}
+
+\part{Data beschrijven}
+
+\chapter{Data}\label{data}
+
+\section{\texorpdfstring{\textbf{Wat zijn
+data?}}{Wat zijn data?}}\label{wat-zijn-data}
+
+In de criminologie zijn we geïnteresseerd in diverse vragen die we
+kunnen beantwoorden aan de hand van statistisch onderzoek. Denk aan de
+volgende vragen:
+
+\begin{itemize}
+\tightlist
+\item
+  Hoeveel inbraken vinden er jaarlijks plaats in Kralingen?
+\item
+  Wat is het gemiddelde geldbedrag waarvoor Nederlandse banken hebben
+  geschikt in witwaszaken in 2025?
+\item
+  Hoeveel misdaadjournalisten zijn er vermoord het afgelopen decennium?
+\item
+  Wat is de associatie tussen drugsverslaving en delinquentie?
+\item
+  In hoeverre leidt seksuele straatintimidatie tot het vermijden van
+  bepaalde plekken?
+\end{itemize}
+
+Om deze vragen te kunnen beantwoorden, werken we met \textbf{datasets}.
+Een set is in de wiskunde een verzameling van dingen. Een dataset is dus
+een verzameling van data. Het woord \textbf{data} is afkomstig uit het
+Latijnse `datum' wat letterlijk `gegeven' betekent. Een dataset is dus
+een verzameling gegevens. Dit kan gaan over gegevens van mensen
+(bijvoorbeeld hun lengte of geslacht), maar bijvoorbeeld ook over andere
+dingen zoals organisaties, steden of landen. Hetgene waar de data
+informatie over verschaffen (mensen, organisaties, steden, landen)
+noemen we de \textbf{analyse-eenheid}.
+
+In deze cursus werken we steeds met dezelfde dataset. Dit is gebaseerd
+op een onderzoek onder uitgaande jongeren, gebaseerd op het
+\href{https://www.trimbos.nl/kennisbank/rapport-het-grote-uitgaansonderzoek-2023/}{Het
+Grote Uitgaansonderzoek} van het \href{https://www.trimbos.nl/}{Trimbos
+Instituut}. In dit onderzoek wordt onder andere gekeken hoe vaak
+jongeren uitgaan, naar wat soort feesten en gelegenheden, wat voor
+middelen ze gebruiken (bijvoorbeeld alcohol of andere drugs) en hoe ze
+denken over drugsgebruik. Om de data te verzamelen is een online enquête
+afgenomen via een gerichte wervingscampagne.
+
+Laten we eerst kijken hoe zo'n dataset eruitziet. Dat doen we met behulp
+van R. Zoals aangegeven in de introductie van dit online boek, het is
+niet erg als je nog niet snapt hoe dit werkt. Daarvoor volg je uiteraard
+deze cursus :)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# laden packages}
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(gt)}
+
+\CommentTok{\# laden van de data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read\_rds}\NormalTok{(}\StringTok{"data/middelengebruik\_uitgaanders.rds"}\NormalTok{)}
+
+\CommentTok{\# data inspecteren}
+\FunctionTok{head}\NormalTok{(data[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{2}\SpecialCharTok{:}\DecValTok{6}\NormalTok{]) }\SpecialCharTok{|\textgreater{}} \CommentTok{\# eerste 5 rijen en kolommen}
+\FunctionTok{gt}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{tab\_header}\NormalTok{(}\AttributeTok{title =} \StringTok{"Voorbeeld van de data"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} \CommentTok{\# titel geven aan output}
+  \FunctionTok{opt\_stylize}\NormalTok{(}\AttributeTok{style =} \DecValTok{6}\NormalTok{, }\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\CommentTok{\# lay{-}out bepalen}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+\caption*{
+{\fontsize{20}{25}\selectfont  Voorbeeld van de data\fontsize{12}{15}\selectfont }
+} 
+\fontsize{12.0pt}{14.0pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}crcrr}
+\toprule
+geslacht & leeftijd & opleidingsniveau & alcohol\_ooit & alcohol\_laatste\_jaar \\ 
+\midrule\addlinespace[2.5pt]
+man & 22 & hoog & 1 & 1 \\ 
+vrouw & 23 & hoog & 1 & 1 \\ 
+vrouw & 18 & midden & 1 & 0 \\ 
+vrouw & 28 & hoog & 1 & 1 \\ 
+man & 19 & hoog & 1 & 1 \\ 
+\bottomrule
+\end{tabular*}
+\end{table}
+
+Hierboven staat een `sneak preview' van de dataset. Waar kijken we nu
+eigenlijk naar? De dataset verschaft informatie die we verzameld hebben
+over jongeren die hebben meegedaan aan de enquête. Elke rij
+representeert een respondent: een jongere die de enquête heeft ingevuld.
+De rijen zijn onze \textbf{observaties}. Elke kolom bevat de waarde van
+die respondent met betrekking tot een kenmerk, bijvoorbeeld de waarde
+die hoort bij een antwoord dat een respondent gaf op een in de enquête
+gestelde vraag. De waarden van respondenten op kenmerken kunnen variëren
+van respondent tot respondent. Niet iedereen is even oud, gebruikt even
+vaak drugs, heeft dezelfde opleiding etc. De variatie in een bepaald
+kenmerk meten we met behulp van \textbf{variabelen}. Deze zien we terug
+in de kolommen. De kern van statistiek is dat we alle variatie in
+kenmerken gaan gebruiken om vragen zoals die hierboven te kunnen
+beantwoorden.
+
+We kunnen bijvoorbeeld zien dat de eerste respondent een xxx is, xx jaar
+oud, en een xxx opleidingsniveau heeft.
+
+De vierde en vijfde kolom geven aan of iemand ooit alcohol heeft
+gedronken of in het afgelopen jaar. Hier staat een `1' voor ja en een
+`0' voor nee. Dit zul je vaker tegenkomen in het werken met datasets,
+dat cijfers worden gebruikt om kwalitatieve informatie uit te drukken.
+Hier komen we later nog meer op terug. De voorbeeld data toont dat vier
+respondenten het afgelopen jaar alcohol hebben gedronken en één
+respondent niet.
+
+\chapter{Meetniveaus en
+visualisaties}\label{meetniveaus-en-visualisaties}
+
+Op de vorige pagina heb je gezien wat een dataset is, en dat deze
+bestaat uit observaties (de rijen) en variabelen (de kolommen). In de
+sociale wetenschappen zijn er verschillende type variabelen, die ook wel
+\textbf{meetniveaus} worden genoemd. Deze bespreken we hier en daarbij
+gaan we meteen in op hoe we de data van deze variabelen het beste
+visueel kunnen presenteren.
+
+Doorgaans maken we onderscheid tussen \textbf{kwalitatieve} en
+\textbf{kwantitatieve} variabelen.
+
+\section{Kwalitatieve variabelen}\label{kwalitatieve-variabelen}
+
+Kwalitatieve variabelen bestaan uit categorieën die een kwalitatieve
+eigenschap van een observatie beschrijven. Deze eigenschappen zijn niet
+direct in cijfers uit te drukken, zoals bij kwantitatieve variabelen.
+Een belangrijk aspect is dat de categorieën \emph{discreet} zijn: ze
+moeten elkaar uitsluiten.
+
+\subsection{Staafdiagram}\label{staafdiagram}
+
+Laten we naar een voorbeeld kijken: geslacht. Stel dat we willen weten
+hoeveel mannen, vrouwen of anders-identificerenden er in de dataset
+zitten. Daarvoor kunnen we \textbf{staafdiagram} maken.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# laden packages}
+\FunctionTok{library}\NormalTok{(readr)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\CommentTok{\# laden van de data}
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{read\_rds}\NormalTok{(}\StringTok{"data/middelengebruik\_uitgaanders.rds"}\NormalTok{)}
+
+\CommentTok{\# staafdiagram maken}
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ geslacht)) }\SpecialCharTok{+} \CommentTok{\# data en variabele selecteren}
+  \FunctionTok{geom\_bar}\NormalTok{() }\CommentTok{\# staafdiagram}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-1-1.pdf}}
+
+De staafdiagram geeft een visuele presentatie van het aantal mannen,
+vrouwen en anders-identificerenden in de dataset. Het mooie aan R is dat
+we de figuur visueel nog wat aantrekkelijker kunnen maken. Hiermee ga je
+meer oefenen tijdens de cursus.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# staafdiagram met betere visualisatie}
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ geslacht)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} \CommentTok{\# witte achtergrond}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"aantal"}\NormalTok{)  }\CommentTok{\# label voor y{-}as}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-2-1.pdf}}
+
+De figuur heeft nu een witte achtergrond en de y-as heeft een
+Nederlandstalig label.
+
+\subsection{Simpele tabel}\label{simpele-tabel}
+
+Als je wilt weten hoeveel respondenten er precies in elke categorie
+zitten, kun je ook een simpele tabel maken.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# tabel van geslacht}
+\FunctionTok{table}\NormalTok{(data}\SpecialCharTok{$}\NormalTok{geslacht)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+   man  vrouw anders 
+   178    170      2 
+\end{verbatim}
+
+De dataset bevat in totaal dus xxx mannen, xxx vrouwen en xxx in de
+categorie ``anders''.
+
+\subsection{Nominale variabele}\label{nominale-variabele}
+
+Geslacht is een voorbeeld van een \textbf{nominale} variabele. Dit is
+een kwalitatieve variabele waarin geen rangorde bestaat tussen de
+categorieën. De variabele bestaat uit kwalitatieve eigenschappen die van
+elkaar verschillen, maar je kunt niet zeggen dat de ene categorie
+intrinsiek `hoger' of `lager' is dan de ander.
+
+\subsection{Taartdiagram}\label{taartdiagram}
+
+Een andere manier om een nominale variabele te presenteren, is via een
+\textbf{taartdiagram}. Een taartdiagram kan snel een overzicht geven van
+de verhouding tussen categorieën binnen een bepaalde variabele.
+Doorgaans werkt een taartdiagram het beste als er een beperkt aantal
+categorieën zijn.
+
+Hieronder staat een voorbeeld van taartdiagram van de variabele
+\emph{manier\_verkrijgen\_drugs}. Dit gaat over de wijze waarop
+uitgaande jongeren meestal aan hun drugs komen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# samenvatten van de relevante data}
+\NormalTok{drugs\_verkrijgen }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(manier\_verkrijgen\_drugs)) }\SpecialCharTok{|\textgreater{}} \CommentTok{\# missende waarden verwijderen}
+  \FunctionTok{group\_by}\NormalTok{(manier\_verkrijgen\_drugs) }\SpecialCharTok{|\textgreater{}} \CommentTok{\# groeperen op variabele}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n =} \FunctionTok{n}\NormalTok{()) }\SpecialCharTok{|\textgreater{}} \CommentTok{\# aantal respondenten per categorie berekenen}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{perc =} \FunctionTok{round}\NormalTok{(n}\SpecialCharTok{/}\FunctionTok{sum}\NormalTok{(n) }\SpecialCharTok{*} \DecValTok{100}\NormalTok{, }\DecValTok{1}\NormalTok{)) }\CommentTok{\# percentages berekenen en afronden op 1 decimaal}
+
+\CommentTok{\# taartdiagram van hoe drugs worden verkregen}
+\FunctionTok{ggplot}\NormalTok{(drugs\_verkrijgen, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=} \StringTok{""}\NormalTok{, }\AttributeTok{y =}\NormalTok{ perc, }\AttributeTok{fill =}\NormalTok{ manier\_verkrijgen\_drugs)) }\SpecialCharTok{+} 
+  \CommentTok{\# percentages (y) en categorieen (fill) selecteren}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{width =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{coord\_polar}\NormalTok{(}\StringTok{"y"}\NormalTok{, }\AttributeTok{start =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\# optie voor taartdiagram }
+  \FunctionTok{theme\_void}\NormalTok{() }\CommentTok{\# achtergrond weghalen}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-4-1.pdf}}
+
+De taartdiagram weergeeft het aandeel per categorie van hoe jongeren
+doorgaans aan hun drugs komen. We kunnen de presentatie van taartdiagram
+echter nog verbeteren.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# taartdiagram van hoe drugs worden verkregen}
+\FunctionTok{ggplot}\NormalTok{(drugs\_verkrijgen, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=} \StringTok{""}\NormalTok{, }\AttributeTok{y =}\NormalTok{ perc, }\AttributeTok{fill =}\NormalTok{ manier\_verkrijgen\_drugs)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{width =} \DecValTok{1}\NormalTok{, }\AttributeTok{colour =} \StringTok{"white"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\# witte randen toevoegen}
+  \FunctionTok{coord\_polar}\NormalTok{(}\StringTok{"y"}\NormalTok{, }\AttributeTok{start =} \DecValTok{0}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_void}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =}\NormalTok{ perc), }\AttributeTok{position =} \FunctionTok{position\_stack}\NormalTok{(}\AttributeTok{vjust =} \FloatTok{0.5}\NormalTok{)) }\SpecialCharTok{+} \CommentTok{\# percentages als labels toevoegen   }
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{fill =} \StringTok{"Manieren van drugs verkrijgen"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\# titel voor legenda}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Taartdiagram met manieren van drugs verkrijgen (\%)"}\NormalTok{) }\CommentTok{\# titel voor figuur}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-5-1.pdf}}
+
+We hebben nu een duidelijk inzicht in hoe jongeren die drugs gebruiken
+hier aan komen. Zo zien we bijvoorbeeld dat ongeveer xx procent dit via
+een dealer koopt, en ongeveer een kwart het koopt via vrienden/kennissen
+en een kwart het van deze krijgt.
+
+Dit toont meteen een relevante bevinding uit de literatuur over
+drugsgebruik onder jongeren, namelijk dat de helft van de jongeren hun
+drugs verkrijgen via ``\emph{sorting}'' (zie
+\href{https://journals.sagepub.com/doi/10.1177/003803850203600408}{Parker
+et al., 2002}). Dat wil zeggen, dat een bekende uit een vrienden- of
+kennissenkring iemand van drugs voorziet eerder dan een dealer.
+
+\subsection{Ordinale variabele}\label{ordinale-variabele}
+
+Een kwalitatieve variabele waarbij er \emph{wel} een bepaalde rangorde
+(hiërarchie) tussen de categorieën is, noemen we een \textbf{ordinale}
+variabele.
+
+Laten we weer naar een voorbeeld kijken. In de enquete is gevraagd hoe
+jongeren hun eigen gezondheid over het algemeen beoordelen. Voor een
+ordinale variabele maken we in principe altijd een staafdiagram.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# staafdiagram van ervaren gezondheid}
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ ervaren\_gezondheid)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"aantal"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{ (}\StringTok{"ervaren gezondheid"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-6-1.pdf}}
+
+De staafdiagram toont dat het grootste deel hun gezondheid als ``goed''
+beoordeelt. Een relatief klein deel van de jongeren beoordeelt hun
+gezondheid als ``matig'' of zelfs ``slecht''.
+
+Dit voorbeeld illustreert een relevant kenmerk van ordinale variabelen:
+er is een bepaalde rangorde tussen de categorieen, maar de afstand
+ertussen is niet per se gelijk. Zo is de stap van ``matig'' naar
+``goed'' bijvoorbeeld kwalitatief anders dan de stap van ``zeer goed''
+naar ``uitstekend''. Hierin verschilt een ordinale variabele van een
+kwantitatieve variabele, bij de laatste is de afstand tussen waarden
+(1-2-3 etc.) in principe altijd gelijk.
+
+\section{Kwantitatieve variabelen}\label{kwantitatieve-variabelen}
+
+Kwantitatieve variabelen zijn numeriek en bestaan dus uit cijfers. De
+afstand tussen waarden is altijd gelijk en er zit een rangorde in.
+Bijvoorbeeld bij een rapportcijfer van 1 t/m 10 is de afstand tussen 2
+en 3 hetzelfde als de afstand tussen 7 en 8. Kwantitatieve variabelen
+worden soms ook wel lineaire of continue variabelen genoemd.
+
+\subsection{Interval en ratio
+variabelen}\label{interval-en-ratio-variabelen}
+
+Er zijn twee types kwantitatieve variabelen: \textbf{interval} en
+\textbf{ratio}. Het verschil tussen deze twee types is dat een interval
+variabele geen \emph{absoluut nulpunt} kent en een ratio variabele wel.
+
+Leeftijd is bijvoorbeeld een ratio variabele, je kunt namelijk niet
+jonger dan 0 jaar zijn. Geboortejaar, aan de andere kant, is weer een
+interval variabele. De christelijke jaartelling begint bij het jaar 0,
+maar dat is eigenlijk arbitrair omdat de jaren daarvoor ook geteld
+worden. Het specifieke karakter van de variabele bepaalt dus het
+meetniveau.
+
+Voor een lineaire variabele met relatief weinig unieke waarden gebruiken
+we meestal een staafdiagram. Zie hieronder een voorbeeld van de
+variabele leeftijd.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# staafdiagram van leeftijd}
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{as.factor}\NormalTok{(leeftijd))) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"aantal"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{ (}\StringTok{"leeftijd"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-7-1.pdf}}
+
+De staafdiagram toont dat relatief veel respondenten tussen 21 en 24
+jaar zijn, een leeftijd waarop jongeren veel uitgaan.
+
+\subsection{Histogram}\label{histogram}
+
+Voor een lineaire variabele met juist relatief veel unieke waarden
+gebruiken we meestal een histogram. Bij een een histogram worden
+bepaalde waardes gegroepeerd tot één staaf, waardoor de presentatie
+overzichtelijk blijft. Dit is hieronder weergeven voor de variabele
+\emph{gemoed\_dinsdag\_na\_xtc.} Dit is een score tussen de 0 en 100 die
+respondenten hebben gegeven hoe zich voelen op de dinsdag na xtc-gebruik
+in het weekend, waarbij 0 voor negatief staat en 100 voor positief.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# histogram van gemoedstoestand op dinsdag na XTC gebruik}
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ gemoed\_dinsdag\_na\_xtc)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{50}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"aantal"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{ (}\StringTok{"gemoedstoestand (negatief {-} positief)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlim}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-8-1.pdf}}
+
+\section{Samenvatting}\label{samenvatting}
+
+Het meetniveau gaat over het type variabele en wat voor soort informatie
+deze bevat. Zoals we later zullen zien, is dit belangrijk om te weten
+wat voor soort statistische toets we kunnen uitvoeren. We onderscheiden
+de volgende meetniveaus (tussenhaakjes staat welke figuur we meestal
+gebruiken):
+
+\begin{itemize}
+\item
+  nominaal (staaf- of taartdiagram)
+\item
+  ordinaal (staafdiagram)
+\item
+  interval (staafdiagram of histogram)
+\item
+  ratio (staafdiagram of histogram)
+\end{itemize}
+
+\chapter{Centrum- en spreidingsmaten}\label{centrum--en-spreidingsmaten}
+
+Inmiddels zijn we bekend met datasets, observaties, variabelen,
+meetniveaus en figuren. Om data te beschrijven maken we verder gebruik
+van diverse centrum- en spreidingsmaten. De meeste hiervan zul je
+herkennen van eerdere wiskundelessen die je hebt gehad.
+
+\section{Centrummaten}\label{centrummaten}
+
+\subsection{Gemiddelde}\label{gemiddelde}
+
+Het gemiddelde van een variabele is simpelweg het optellen van alle
+waarden, gedeeld door het aantal observaties. Dit gaat middels de
+volgende formule.
+
+formule
+
+Formules berekenen en statistische toetsen uitvoeren kunnen we ook
+handmatig in R doen. Dit is leerzaam, omdat het intuïtie creëert voor
+hoe je statististisch onderzoek moet uitvoeren. In onderstaand voorbeeld
+berekenen we in R het gemiddelde van een cijferreeks.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DecValTok{3} \SpecialCharTok{+} \DecValTok{5} \SpecialCharTok{+} \DecValTok{5} \SpecialCharTok{+} \DecValTok{7} \SpecialCharTok{+} \DecValTok{10}\NormalTok{) }\SpecialCharTok{/} \DecValTok{5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 6
+\end{verbatim}
+
+Het gemiddelde van deze cijferreeks met 5 getallen is dus 6. In plaats
+van handmatig kun je het ook door een functie in R doen:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# vector aanmaken}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  3  5  5  7 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# gemiddelde berekenen}
+\FunctionTok{mean}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 6
+\end{verbatim}
+
+Eerst hebben we een vector, of eigenlijk een variabele, aangemaakt met
+de vijf waardes. Via de functie \emph{mean()} bereken je het gemiddelde.
+
+\subsection{Mediaan}\label{mediaan}
+
+De mediaan is het getal waar het midden van het aantal observaties is
+bereikt (50\%), oftewel de middelste observatie.
+
+Bij de cijferreeks (3, 5, \ul{5}, 7, 10) is dit 5.
+
+Bij een even aantal cijfers zoals (3, 5, 5, 6, 7, 10) neem je het midden
+van de middelste twee getallen. In dit geval is dat 5,5 (tussen 5 en 6).
+
+In R bereken je de mediaan via de functie \emph{median().}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# oneven aantal observaties}
+\FunctionTok{median}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# even aantal observaties}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1]  3  5  5  6  7 10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{median}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5.5
+\end{verbatim}
+
+\subsection{Modus}\label{modus}
+
+De modus is de waarde of categorie die het vaakst voorkomt in een
+variabele.
+
+Bij de cijferreeks (3, 5, 5, 7, 10) is dit 5 omdat deze tweemaal
+voorkomt en de rest slechts een keer.
+
+In R bereken je de modus via de functie \emph{mfv().}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# package laden}
+\FunctionTok{library}\NormalTok{(modeest)}
+
+\CommentTok{\# modus berekenen}
+\FunctionTok{mfv}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5
+\end{verbatim}
+
+\part{Kans en steekproeven}
+
+\chapter{Steekproeven}\label{steekproeven}
+
+\chapter{Kans}\label{kans}
+
+\part{Hypotheses}
+
+\part{Samenhang tussen variabelen}
+
+\part{Colleges}
+
+\chapter{Collegeslides}\label{sec-colleges}
+
+Week 1: \href{collegeslides/college_1.html}{College 1}
+
+\part{Opdrachten}
+
+\chapter{Opdrachten}\label{opdrachten-1}
+
+Deze week gaan jullie aan de slag met \ldots{}
+
+
+
+
+\end{document}

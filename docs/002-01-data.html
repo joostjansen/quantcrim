@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4d5af44521e8d2ac69805030d7e05dc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-deb916046d57902448ef8317134ba92a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-34cfa9cfa9935202557e813e66c18837.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-deb916046d57902448ef8317134ba92a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -363,6 +363,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-03-centrum-en-spreidingsmaten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Centrum- en spreidingsmaten</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -377,13 +383,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-01-steekproeven.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Steekproeven</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Steekproeven</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-02-kans.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Kans</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Kans</span></span></a>
   </div>
 </li>
       </ul>
@@ -408,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
   </div>
 </li>
       </ul>
@@ -425,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./004-opdrachten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
   </div>
 </li>
       </ul>
@@ -496,23 +502,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">"Voorbeeld van de data"</span>) <span class="sc">|&gt;</span> <span class="co"># titel geven aan output</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">opt_stylize</span>(<span class="at">style =</span> <span class="dv">6</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="co"># lay-out bepalen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="gfwiodbjvm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gfwiodbjvm table {
+<div id="ksdzdtmewm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ksdzdtmewm table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gfwiodbjvm thead, #gfwiodbjvm tbody, #gfwiodbjvm tfoot, #gfwiodbjvm tr, #gfwiodbjvm td, #gfwiodbjvm th {
+#ksdzdtmewm thead, #ksdzdtmewm tbody, #ksdzdtmewm tfoot, #ksdzdtmewm tr, #ksdzdtmewm td, #ksdzdtmewm th {
   border-style: none;
 }
 
-#gfwiodbjvm p {
+#ksdzdtmewm p {
   margin: 0;
   padding: 0;
 }
 
-#gfwiodbjvm .gt_table {
+#ksdzdtmewm .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -538,12 +544,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#gfwiodbjvm .gt_caption {
+#ksdzdtmewm .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gfwiodbjvm .gt_title {
+#ksdzdtmewm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -555,7 +561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#gfwiodbjvm .gt_subtitle {
+#ksdzdtmewm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -567,7 +573,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#gfwiodbjvm .gt_heading {
+#ksdzdtmewm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -579,13 +585,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#gfwiodbjvm .gt_bottom_border {
+#ksdzdtmewm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #5F5F5F;
 }
 
-#gfwiodbjvm .gt_col_headings {
+#ksdzdtmewm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #5F5F5F;
@@ -600,7 +606,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#gfwiodbjvm .gt_col_heading {
+#ksdzdtmewm .gt_col_heading {
   color: #FFFFFF;
   background-color: #0076BA;
   font-size: 100%;
@@ -620,7 +626,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#gfwiodbjvm .gt_column_spanner_outer {
+#ksdzdtmewm .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #0076BA;
   font-size: 100%;
@@ -632,15 +638,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#gfwiodbjvm .gt_column_spanner_outer:first-child {
+#ksdzdtmewm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gfwiodbjvm .gt_column_spanner_outer:last-child {
+#ksdzdtmewm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gfwiodbjvm .gt_column_spanner {
+#ksdzdtmewm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #5F5F5F;
@@ -652,11 +658,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#gfwiodbjvm .gt_spanner_row {
+#ksdzdtmewm .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gfwiodbjvm .gt_group_heading {
+#ksdzdtmewm .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -682,7 +688,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#gfwiodbjvm .gt_empty_group_heading {
+#ksdzdtmewm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -697,15 +703,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#gfwiodbjvm .gt_from_md > :first-child {
+#ksdzdtmewm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gfwiodbjvm .gt_from_md > :last-child {
+#ksdzdtmewm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gfwiodbjvm .gt_row {
+#ksdzdtmewm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -724,7 +730,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#gfwiodbjvm .gt_stub {
+#ksdzdtmewm .gt_stub {
   color: #333333;
   background-color: #89D3FE;
   font-size: 100%;
@@ -737,7 +743,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#gfwiodbjvm .gt_stub_row_group {
+#ksdzdtmewm .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -751,15 +757,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#gfwiodbjvm .gt_row_group_first td {
+#ksdzdtmewm .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gfwiodbjvm .gt_row_group_first th {
+#ksdzdtmewm .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gfwiodbjvm .gt_summary_row {
+#ksdzdtmewm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -769,16 +775,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#gfwiodbjvm .gt_first_summary_row {
+#ksdzdtmewm .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #5F5F5F;
 }
 
-#gfwiodbjvm .gt_first_summary_row.thick {
+#ksdzdtmewm .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gfwiodbjvm .gt_last_summary_row {
+#ksdzdtmewm .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -788,7 +794,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #5F5F5F;
 }
 
-#gfwiodbjvm .gt_grand_summary_row {
+#ksdzdtmewm .gt_grand_summary_row {
   color: #333333;
   background-color: #D5D5D5;
   text-transform: inherit;
@@ -798,7 +804,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#gfwiodbjvm .gt_first_grand_summary_row {
+#ksdzdtmewm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -808,7 +814,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #5F5F5F;
 }
 
-#gfwiodbjvm .gt_last_grand_summary_row_top {
+#ksdzdtmewm .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -818,11 +824,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #5F5F5F;
 }
 
-#gfwiodbjvm .gt_striped {
+#ksdzdtmewm .gt_striped {
   background-color: #EDF7FC;
 }
 
-#gfwiodbjvm .gt_table_body {
+#ksdzdtmewm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #5F5F5F;
@@ -831,7 +837,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #5F5F5F;
 }
 
-#gfwiodbjvm .gt_footnotes {
+#ksdzdtmewm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -845,7 +851,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#gfwiodbjvm .gt_footnote {
+#ksdzdtmewm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -854,7 +860,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#gfwiodbjvm .gt_sourcenotes {
+#ksdzdtmewm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -868,7 +874,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#gfwiodbjvm .gt_sourcenote {
+#ksdzdtmewm .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -876,72 +882,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#gfwiodbjvm .gt_left {
+#ksdzdtmewm .gt_left {
   text-align: left;
 }
 
-#gfwiodbjvm .gt_center {
+#ksdzdtmewm .gt_center {
   text-align: center;
 }
 
-#gfwiodbjvm .gt_right {
+#ksdzdtmewm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gfwiodbjvm .gt_font_normal {
+#ksdzdtmewm .gt_font_normal {
   font-weight: normal;
 }
 
-#gfwiodbjvm .gt_font_bold {
+#ksdzdtmewm .gt_font_bold {
   font-weight: bold;
 }
 
-#gfwiodbjvm .gt_font_italic {
+#ksdzdtmewm .gt_font_italic {
   font-style: italic;
 }
 
-#gfwiodbjvm .gt_super {
+#ksdzdtmewm .gt_super {
   font-size: 65%;
 }
 
-#gfwiodbjvm .gt_footnote_marks {
+#ksdzdtmewm .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gfwiodbjvm .gt_asterisk {
+#ksdzdtmewm .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gfwiodbjvm .gt_indent_1 {
+#ksdzdtmewm .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gfwiodbjvm .gt_indent_2 {
+#ksdzdtmewm .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gfwiodbjvm .gt_indent_3 {
+#ksdzdtmewm .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gfwiodbjvm .gt_indent_4 {
+#ksdzdtmewm .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gfwiodbjvm .gt_indent_5 {
+#ksdzdtmewm .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gfwiodbjvm .katex-display {
+#ksdzdtmewm .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gfwiodbjvm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ksdzdtmewm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -961,36 +967,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_center" headers="geslacht">vrouw</td>
+<td class="gt_row gt_center" headers="geslacht">man</td>
 <td class="gt_row gt_right" headers="leeftijd">22</td>
 <td class="gt_row gt_center" headers="opleidingsniveau">hoog</td>
 <td class="gt_row gt_right" headers="alcohol_ooit">1</td>
 <td class="gt_row gt_right" headers="alcohol_laatste_jaar">1</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center gt_striped" headers="geslacht">man</td>
-<td class="gt_row gt_right gt_striped" headers="leeftijd">30</td>
-<td class="gt_row gt_center gt_striped" headers="opleidingsniveau">hoog</td>
-<td class="gt_row gt_right gt_striped" headers="alcohol_ooit">1</td>
-<td class="gt_row gt_right gt_striped" headers="alcohol_laatste_jaar">1</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="geslacht">man</td>
-<td class="gt_row gt_right" headers="leeftijd">30</td>
-<td class="gt_row gt_center" headers="opleidingsniveau">midden</td>
-<td class="gt_row gt_right" headers="alcohol_ooit">1</td>
-<td class="gt_row gt_right" headers="alcohol_laatste_jaar">0</td>
-</tr>
-<tr class="even">
 <td class="gt_row gt_center gt_striped" headers="geslacht">vrouw</td>
-<td class="gt_row gt_right gt_striped" headers="leeftijd">16</td>
+<td class="gt_row gt_right gt_striped" headers="leeftijd">23</td>
 <td class="gt_row gt_center gt_striped" headers="opleidingsniveau">hoog</td>
 <td class="gt_row gt_right gt_striped" headers="alcohol_ooit">1</td>
 <td class="gt_row gt_right gt_striped" headers="alcohol_laatste_jaar">1</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_center" headers="geslacht">vrouw</td>
-<td class="gt_row gt_right" headers="leeftijd">28</td>
+<td class="gt_row gt_right" headers="leeftijd">18</td>
+<td class="gt_row gt_center" headers="opleidingsniveau">midden</td>
+<td class="gt_row gt_right" headers="alcohol_ooit">1</td>
+<td class="gt_row gt_right" headers="alcohol_laatste_jaar">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center gt_striped" headers="geslacht">vrouw</td>
+<td class="gt_row gt_right gt_striped" headers="leeftijd">28</td>
+<td class="gt_row gt_center gt_striped" headers="opleidingsniveau">hoog</td>
+<td class="gt_row gt_right gt_striped" headers="alcohol_ooit">1</td>
+<td class="gt_row gt_right gt_striped" headers="alcohol_laatste_jaar">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="geslacht">man</td>
+<td class="gt_row gt_right" headers="leeftijd">19</td>
 <td class="gt_row gt_center" headers="opleidingsniveau">hoog</td>
 <td class="gt_row gt_right" headers="alcohol_ooit">1</td>
 <td class="gt_row gt_right" headers="alcohol_laatste_jaar">1</td>
@@ -1001,7 +1007,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Hierboven staat een ‘sneak preview’ van de dataset. Waar kijken we nu eigenlijk naar? De dataset weergeeft de informatie die we hebben over jongeren die hebben meegedaan aan de enquête. Elke rij representeert een respondent: een jongere die de enquête heeft ingevuld. De rijen zijn onze <strong>observaties</strong>. Elke kolom bevat de waarde van die respondent met betrekking tot een kenmerk, een vraag die is gesteld in de enquête. De kolommen zijn daarbij onze <strong>variabelen</strong>.</p>
+<p>Hierboven staat een ‘sneak preview’ van de dataset. Waar kijken we nu eigenlijk naar? De dataset verschaft informatie die we verzameld hebben over jongeren die hebben meegedaan aan de enquête. Elke rij representeert een respondent: een jongere die de enquête heeft ingevuld. De rijen zijn onze <strong>observaties</strong>. Elke kolom bevat de waarde van die respondent met betrekking tot een kenmerk, bijvoorbeeld de waarde die hoort bij een antwoord dat een respondent gaf op een in de enquête gestelde vraag. De waarden van respondenten op kenmerken kunnen variëren van respondent tot respondent. Niet iedereen is even oud, gebruikt even vaak drugs, heeft dezelfde opleiding etc. De variatie in een bepaald kenmerk meten we met behulp van <strong>variabelen</strong>. Deze zien we terug in de kolommen. De kern van statistiek is dat we alle variatie in kenmerken gaan gebruiken om vragen zoals die hierboven te kunnen beantwoorden.</p>
 <p>We kunnen bijvoorbeeld zien dat de eerste respondent een xxx is, xx jaar oud, en een xxx opleidingsniveau heeft.</p>
 <p>De vierde en vijfde kolom geven aan of iemand ooit alcohol heeft gedronken of in het afgelopen jaar. Hier staat een ‘1’ voor ja en een ‘0’ voor nee. Dit zul je vaker tegenkomen in het werken met datasets, dat cijfers worden gebruikt om kwalitatieve informatie uit te drukken. Hier komen we later nog meer op terug. De voorbeeld data toont dat vier respondenten het afgelopen jaar alcohol hebben gedronken en één respondent niet.</p>
 
