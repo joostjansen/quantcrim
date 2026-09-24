@@ -1,0 +1,24 @@
+[
+  {
+    "objectID": "formuleblad.html",
+    "href": "formuleblad.html",
+    "title": "10  Symbolen en formules",
+    "section": "",
+    "text": "10.1 Belangrijke symbolen en formules\nHier vind je een overzicht van alle belangrijke symbolen en formules die we gebruiken.",
+    "crumbs": [
+      "Symbolen en formules",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Symbolen en formules</span>"
+    ]
+  },
+  {
+    "objectID": "formuleblad.html#belangrijke-symbolen-en-formules",
+    "href": "formuleblad.html#belangrijke-symbolen-en-formules",
+    "title": "10  Symbolen en formules",
+    "section": "",
+    "text": "Symbool\nBetekenis\n\n\n\n\n\\(\\sum_{i=1}^n\\)\nGriekse hoofdletter sigma, staat voor ‘sommatie’: alles bij elkaar optellen. De \\(i\\) betekent dat je begint met tellen bij de eerste waarneming, de \\(n\\) dat je stopt bij de laatste.\n\n\n\\(\\alpha\\)\nAlpha, het significantieniveau\n\n\n\\(\\mu\\)\nMu, het gemiddelde in de populatie (vaak onbekend)\n\n\n\\(\\sigma\\)\nSigma, de standaarddeviatie in een populatie (vaak onbekend)\n\n\n\\(\\sigma^2\\)\nSigma kwadraat, de variantie in een populatie\n\n\n\\(\\sigma_{\\bar{x}}\\)\nSigma mean, standaardfout vna het gemiddelde",
+    "crumbs": [
+      "Symbolen en formules",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Symbolen en formules</span>"
+    ]
+  }
+]

@@ -10,7 +10,7 @@ execute:
 Hier vind je een overzicht van alle belangrijke symbolen en formules die we gebruiken.
 
 | Symbool | Betekenis |
-|--------------|----------------------------------------------------------|
+|-----------|-------------------------------------------------------|
 | $\sum_{i=1}^n$ | Griekse hoofdletter sigma, staat voor 'sommatie': alles bij elkaar optellen. De $i$ betekent dat je begint met tellen bij de eerste waarneming, de $n$ dat je stopt bij de laatste. |
 | $\alpha$ | Alpha, het significantieniveau |
 | $\mu$ | Mu, het gemiddelde in de *populatie* (vaak onbekend) |
