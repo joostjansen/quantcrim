@@ -46,6 +46,9 @@ book:
     - part: "Opdrachten"
       chapters: 
         - 004-opdrachten.qmd
+    - part: "Symbolen en formules"
+      chapters: 
+        - formuleblad.qmd
 license:
   text: "CC BY-NC 4.0"
   url: "https://creativecommons.org/licenses/by-nc/4.0/"
