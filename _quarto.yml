@@ -26,9 +26,7 @@ book:
 
   chapters:
     - index.qmd
-    - part: "Voorbereiding"
-      chapters:
-        - 001-voorbereiding.qmd
+    - 001-voorbereiding.qmd
     - part: "Data beschrijven"
       chapters:
         - 002-01-data.qmd
@@ -46,8 +44,7 @@ book:
     - part: "Opdrachten"
       chapters: 
         - 004-opdrachten.qmd
-    - part: "Symbolen en formules"
-      chapters: 
+  appendices: 
         - formuleblad.qmd
 license:
   text: "CC BY-NC 4.0"
