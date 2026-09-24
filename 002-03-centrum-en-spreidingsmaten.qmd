@@ -5,7 +5,7 @@ execute:
   warning: false
 ---
 
-Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. Om data te beschrijven maken we verder gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.
+Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook gezegd dat statistiek draait om het analyseren van variatie met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, leeftijden en opleidingsniveau. We maken hiervoor gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.
 
 ## Centrummaten
 
@@ -61,9 +61,9 @@ median(y)
 
 De modus is de waarde of categorie die het vaakst voorkomt in een variabele.
 
-Bij de cijferreeks (3, 5, 5, 7, 10) is dit 5 omdat deze tweemaal voorkomt en de rest slechts een keer.
+Bij de cijferreeks (3, 5, 5, 7, 10) is dit 5 omdat deze tweemaal voorkomt en de rest slechts een kIneer.
 
-In R bereken je de modus via de functie *mfv().*
+R bereken je de modus via de functie *mfv().*
 
 ```{r}
 # package laden
