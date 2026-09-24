@@ -732,9 +732,12 @@ gebruiken):
 \chapter{Centrum- en spreidingsmaten}\label{centrum--en-spreidingsmaten}
 
 Inmiddels zijn we bekend met datasets, observaties, variabelen,
-meetniveaus en figuren. Om data te beschrijven maken we verder gebruik
-van diverse centrum- en spreidingsmaten. De meeste hiervan zul je
-herkennen van eerdere wiskundelessen die je hebt gehad.
+meetniveaus en figuren. We hebben ook benoemd dat statistiek draait om
+het analyseren van \emph{variatie} met behulp van de variabelen die in
+onze dataset zitten. Denk aan: variatie in drugsgebruik, leeftijden en
+opleidingsniveau. Om de variatie te analyseren maken we gebruik van
+diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen
+van eerdere wiskundelessen die je hebt gehad.
 
 \section{Centrummaten}\label{centrummaten}
 
@@ -746,6 +749,22 @@ observaties \emph{n}. Dit gaat middels de volgende formule.
 
 \[
 \bar{x}=\frac{\sum_{i=1}^{n}{x_i}}{n}
+\]
+
+\[
+S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
+\]
+
+\[
+\sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N}
+\]
+
+\[
+z=\frac{x-\bar{x}}{S}
+\]
+
+\[
+s.e. =\frac{S}{\sqrt{n}}
 \]
 
 Formules berekenen en statistische toetsen uitvoeren kunnen we ook
@@ -845,7 +864,7 @@ variabele.
 Bij de cijferreeks (3, 5, 5, 7, 10) is dit 5 omdat deze tweemaal
 voorkomt en de rest slechts een keer.
 
-In R bereken je de modus via de functie \emph{mfv().}
+R bereken je de modus via de functie \emph{mfv().}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -882,6 +901,42 @@ Week 1: \href{collegeslides/college_1.html}{College 1}
 \chapter{Opdrachten}\label{opdrachten-1}
 
 Deze week gaan jullie aan de slag met \ldots{}
+
+\part{Symbolen en formules}
+
+\chapter{Symbolen en formules}\label{symbolen-en-formules-1}
+
+\section{Belangrijke symbolen en
+formules}\label{belangrijke-symbolen-en-formules}
+
+Hier vind je een overzicht van alle belangrijke symbolen en formules die
+we gebruiken.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.1944}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.8056}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Symbool
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Betekenis
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\sum_{i=1}^n\) & Griekse hoofdletter sigma, staat voor `sommatie':
+alles bij elkaar optellen. De \(i\) betekent dat je begint met tellen
+bij de eerste waarneming, de \(n\) dat je stopt bij de laatste. \\
+\(\alpha\) & Alpha, het significantieniveau \\
+\(\mu\) & Mu, het gemiddelde in de \emph{populatie} (vaak onbekend) \\
+\(\sigma\) & Sigma, de standaarddeviatie in een \emph{populatie} (vaak
+onbekend) \\
+\(\sigma^2\) & Sigma kwadraat, de variantie in een \emph{populatie} \\
+\(\sigma_{\bar{x}}\) & Sigma mean, standaardfout vna het gemiddelde \\
+\end{longtable}
+}
 
 
 
