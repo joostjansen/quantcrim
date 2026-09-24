@@ -11,9 +11,11 @@ Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en f
 
 ### Gemiddelde
 
-Het gemiddelde van een variabele is simpelweg het optellen van alle waarden, gedeeld door het aantal observaties. Dit gaat middels de volgende formule.
+Het gemiddelde van een variabele berekenen we simpelweg door alle waardes bij elkaar op te tellen en dan de som te delen door het aantal observaties *n*. Dit gaat middels de volgende formule.
 
-formule
+$$
+\bar{x}=\frac{\sum_{i=1}^{n}{x_i}}{n}
+$$
 
 Formules berekenen en statistische toetsen uitvoeren kunnen we ook handmatig in R doen. Dit is leerzaam, omdat het intuïtie creëert voor hoe je statististisch onderzoek moet uitvoeren. In onderstaand voorbeeld berekenen we in R het gemiddelde van een cijferreeks.
 
