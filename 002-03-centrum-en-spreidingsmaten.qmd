@@ -5,7 +5,7 @@ execute:
   warning: false
 ---
 
-Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook gezegd dat statistiek draait om het analyseren van variatie met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, leeftijden en opleidingsniveau. We maken hiervoor gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.
+Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook benoemd dat statistiek draait om het analyseren van *variatie* met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, leeftijden en opleidingsniveau. Om de variatie te analyseren maken we gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.
 
 ## Centrummaten
 
@@ -15,6 +15,22 @@ Het gemiddelde van een variabele berekenen we simpelweg door alle waardes bij el
 
 $$
 \bar{x}=\frac{\sum_{i=1}^{n}{x_i}}{n}
+$$
+
+$$
+S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
+$$
+
+$$
+\sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N}
+$$
+
+$$
+z=\frac{x-\bar{x}}{S}
+$$
+
+$$
+s.e. =\frac{S}{\sqrt{n}}
 $$
 
 Formules berekenen en statistische toetsen uitvoeren kunnen we ook handmatig in R doen. Dit is leerzaam, omdat het intuïtie creëert voor hoe je statististisch onderzoek moet uitvoeren. In onderstaand voorbeeld berekenen we in R het gemiddelde van een cijferreeks.
@@ -61,7 +77,7 @@ median(y)
 
 De modus is de waarde of categorie die het vaakst voorkomt in een variabele.
 
-Bij de cijferreeks (3, 5, 5, 7, 10) is dit 5 omdat deze tweemaal voorkomt en de rest slechts een kIneer.
+Bij de cijferreeks (3, 5, 5, 7, 10) is dit 5 omdat deze tweemaal voorkomt en de rest slechts een keer.
 
 R bereken je de modus via de functie *mfv().*
 

@@ -509,7 +509,7 @@ window.Quarto = {
 </header>
 
 
-<p>Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook gezegd dat statistiek draait om het analyseren van variatie met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, leeftijden en opleidingsniveau. We maken hiervoor gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.</p>
+<p>Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook benoemd dat statistiek draait om het analyseren van <em>variatie</em> met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, leeftijden en opleidingsniveau. Om de variatie te analyseren maken we gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.</p>
 <section id="centrummaten" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="centrummaten"><span class="header-section-number">5.1</span> Centrummaten</h2>
 <section id="gemiddelde" class="level3" data-number="5.1.1">
@@ -517,6 +517,18 @@ window.Quarto = {
 <p>Het gemiddelde van een variabele berekenen we simpelweg door alle waardes bij elkaar op te tellen en dan de som te delen door het aantal observaties <em>n</em>. Dit gaat middels de volgende formule.</p>
 <p><span class="math display">\[
 \bar{x}=\frac{\sum_{i=1}^{n}{x_i}}{n}
+\]</span></p>
+<p><span class="math display">\[
+S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
+\]</span></p>
+<p><span class="math display">\[
+\sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N}
+\]</span></p>
+<p><span class="math display">\[
+z=\frac{x-\bar{x}}{S}
+\]</span></p>
+<p><span class="math display">\[
+s.e. =\frac{S}{\sqrt{n}}
 \]</span></p>
 <p>Formules berekenen en statistische toetsen uitvoeren kunnen we ook handmatig in R doen. Dit is leerzaam, omdat het intuïtie creëert voor hoe je statististisch onderzoek moet uitvoeren. In onderstaand voorbeeld berekenen we in R het gemiddelde van een cijferreeks.</p>
 <div class="cell">
@@ -568,7 +580,7 @@ window.Quarto = {
 <section id="modus" class="level3" data-number="5.1.3">
 <h3 data-number="5.1.3" class="anchored" data-anchor-id="modus"><span class="header-section-number">5.1.3</span> Modus</h3>
 <p>De modus is de waarde of categorie die het vaakst voorkomt in een variabele.</p>
-<p>Bij de cijferreeks (3, 5, 5, 7, 10) is dit 5 omdat deze tweemaal voorkomt en de rest slechts een kIneer.</p>
+<p>Bij de cijferreeks (3, 5, 5, 7, 10) is dit 5 omdat deze tweemaal voorkomt en de rest slechts een keer.</p>
 <p>R bereken je de modus via de functie <em>mfv().</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># package laden</span></span>
