@@ -8,11 +8,11 @@ book:
   author:
     - name: Joost Jansen
       orcid: 0000-0002-1226-2919
-#    - name: Malouke Kuiper
- #     orcid: 0000-0002-1827-7126
+#   - name: Malouke Kuiper
+#     orcid: 0000-0002-1827-7126
     - name: Gijs Custers
       orcid: 0000-0002-2716-3104
-#    - name: Simone Kruit
+#   - name: Simone Kruit
   date: last-modified
   downloads: [pdf]
   repo-url: https://github.com/joostjansen/quantcrim
@@ -26,9 +26,7 @@ book:
 
   chapters:
     - index.qmd
-    - part: "Voorbereiding"
-      chapters:
-        - 001-voorbereiding.qmd
+    - 001-voorbereiding.qmd
     - part: "Data beschrijven"
       chapters:
         - 002-01-data.qmd
@@ -46,6 +44,8 @@ book:
     - part: "Opdrachten"
       chapters: 
         - 004-opdrachten.qmd
+  appendices: 
+        - formuleblad.qmd
 license:
   text: "CC BY-NC 4.0"
   url: "https://creativecommons.org/licenses/by-nc/4.0/"
