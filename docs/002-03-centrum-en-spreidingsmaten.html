@@ -489,6 +489,16 @@ window.Quarto = {
   <li><a href="#mediaan" id="toc-mediaan" class="nav-link" data-scroll-target="#mediaan"><span class="header-section-number">5.1.2</span> Mediaan</a></li>
   <li><a href="#modus" id="toc-modus" class="nav-link" data-scroll-target="#modus"><span class="header-section-number">5.1.3</span> Modus</a></li>
   </ul></li>
+  <li><a href="#spreidingsmaten" id="toc-spreidingsmaten" class="nav-link" data-scroll-target="#spreidingsmaten"><span class="header-section-number">5.2</span> Spreidingsmaten</a>
+  <ul class="collapse">
+  <li><a href="#bereik-minimum-en-maximum" id="toc-bereik-minimum-en-maximum" class="nav-link" data-scroll-target="#bereik-minimum-en-maximum"><span class="header-section-number">5.2.1</span> Bereik, minimum en maximum</a></li>
+  <li><a href="#variantie" id="toc-variantie" class="nav-link" data-scroll-target="#variantie"><span class="header-section-number">5.2.2</span> Variantie</a></li>
+  <li><a href="#standaarddeviatie" id="toc-standaarddeviatie" class="nav-link" data-scroll-target="#standaarddeviatie"><span class="header-section-number">5.2.3</span> Standaarddeviatie</a></li>
+  </ul></li>
+  <li><a href="#toepassing-op-de-dataset" id="toc-toepassing-op-de-dataset" class="nav-link" data-scroll-target="#toepassing-op-de-dataset"><span class="header-section-number">5.3</span> Toepassing op de dataset</a>
+  <ul class="collapse">
+  <li><a href="#doosdiagram" id="toc-doosdiagram" class="nav-link" data-scroll-target="#doosdiagram"><span class="header-section-number">5.3.1</span> Doosdiagram</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/002-03-centrum-en-spreidingsmaten.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -520,73 +530,64 @@ window.Quarto = {
 <h2 data-number="5.1" class="anchored" data-anchor-id="centrummaten"><span class="header-section-number">5.1</span> Centrummaten</h2>
 <section id="gemiddelde" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="gemiddelde"><span class="header-section-number">5.1.1</span> Gemiddelde</h3>
-<p>Het gemiddelde van een variabele berekenen we simpelweg door alle waardes bij elkaar op te tellen en dan de som te delen door het aantal observaties <em>n</em>. Dit gaat middels de volgende formule.</p>
+<p>Het gemiddelde (<span class="math inline">\(\bar{x}\)</span>) berekenen we simpelweg door voor de variabele <span class="math inline">\(x\)</span> alle observaties bij elkaar op te tellen <span class="math inline">\(\sum_{i=1}^n{x_i}\)</span> en dan te delen door het aantal observaties <span class="math inline">\(n\)</span>. Dit gaat middels de volgende formule.</p>
 <p><span class="math display">\[
 \bar{x}=\frac{\sum_{i=1}^{n}{x_i}}{n}
 \]</span></p>
-<p><span class="math display">\[
-S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
-\]</span></p>
-<p><span class="math display">\[
-\sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N}
-\]</span></p>
-<p><span class="math display">\[
-z=\frac{x-\bar{x}}{S}
-\]</span></p>
-<p><span class="math display">\[
-s.e. =\frac{S}{\sqrt{n}}
-\]</span></p>
-<p>Formules berekenen en statistische toetsen uitvoeren kunnen we ook handmatig in R doen. Dit is leerzaam, omdat het intuïtie creëert voor hoe je statististisch onderzoek moet uitvoeren. In onderstaand voorbeeld berekenen we in R het gemiddelde van een cijferreeks.</p>
+<p>Formules berekenen en statistische toetsen uitvoeren kunnen we ook handmatig in R doen. Dit is leerzaam, omdat het intuïtie creëert voor hoe je statistisch onderzoek moet uitvoeren.</p>
+<p>Stel we nemen vijf respondenten uit de dataset en bekijken hun leeftijd. We vinden de volgende observaties voor leeftijd: 16, 22, 22, 28 en 33.</p>
+<p>Hieronder berekenen we in R de gemiddelde leeftijd van deze vijf respondenten.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">7</span> <span class="sc">+</span> <span class="dv">10</span>) <span class="sc">/</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># handmatig gemiddelde berekenen</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">16</span> <span class="sc">+</span> <span class="dv">22</span> <span class="sc">+</span> <span class="dv">22</span> <span class="sc">+</span> <span class="dv">28</span> <span class="sc">+</span> <span class="dv">33</span>) <span class="sc">/</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 24.2</code></pre>
 </div>
 </div>
-<p>Het gemiddelde van deze cijferreeks met 5 getallen is dus 6. In plaats van handmatig kun je het ook door een functie in R doen:</p>
+<p>De gemiddelde leeftijd van deze vijf respondenten is is dus 24,2. In plaats een handmatige berekening kun je het ook berekenen middels een functie in R:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vector aanmaken</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">28</span>, <span class="dv">33</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  3  5  5  7 10</code></pre>
+<pre><code>[1] 16 22 22 28 33</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gemiddelde berekenen</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 24.2</code></pre>
 </div>
 </div>
-<p>Eerst hebben we een vector, of eigenlijk een variabele, aangemaakt met de vijf waardes. Via de functie <em>mean()</em> bereken je het gemiddelde.</p>
+<p>Eerst hebben we een vector, of eigenlijk een variabele, aangemaakt met de vijf observaties. Via de functie <em>mean()</em> bereken je vervolgens het gemiddelde.</p>
 </section>
 <section id="mediaan" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="mediaan"><span class="header-section-number">5.1.2</span> Mediaan</h3>
 <p>De mediaan is het getal waar het midden van het aantal observaties is bereikt (50%), oftewel de middelste observatie.</p>
-<p>Bij de cijferreeks (3, 5, <u>5</u>, 7, 10) is dit 5.</p>
-<p>Bij een even aantal cijfers zoals (3, 5, 5, 6, 7, 10) neem je het midden van de middelste twee getallen. In dit geval is dat 5,5 (tussen 5 en 6).</p>
+<p>Bij de leeftijdsreeks (16, 22, <u>22</u>, 28, 33) is dit 22 jaar.</p>
+<p>Bij een even aantal cijfers zoals (16, 22, 22, 25, 28, 33) neem je het midden van de middelste twee getallen. In dit geval is dat 23,5 (tussen 22 en 25 jaar).</p>
 <p>In R bereken je de mediaan via de functie <em>median().</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># oneven aantal observaties</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 22</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># even aantal observaties</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">10</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">33</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  3  5  5  6  7 10</code></pre>
+<pre><code>[1] 16 22 22 25 28 33</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5.5</code></pre>
+<pre><code>[1] 23.5</code></pre>
 </div>
 </div>
 </section>
 <section id="modus" class="level3" data-number="5.1.3">
 <h3 data-number="5.1.3" class="anchored" data-anchor-id="modus"><span class="header-section-number">5.1.3</span> Modus</h3>
-<p>De modus is de waarde of categorie die het vaakst voorkomt in een variabele.</p>
-<p>Bij de cijferreeks (3, 5, 5, 7, 10) is dit 5 omdat deze tweemaal voorkomt en de rest slechts een keer.</p>
+<p>De modus is de waarde die het vaakst voorkomt in een variabele.</p>
+<p>Bij de leeftijdsreeks (16, <u>22</u>, <u>22</u>, 28, 33) is dit 22 jaar omdat deze leeftijd tweemaal voorkomt en de rest slechts één keer.</p>
 <p>R bereken je de modus via de functie <em>mfv().</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># package laden</span></span>
@@ -595,9 +596,287 @@ s.e. =\frac{S}{\sqrt{n}}
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># modus berekenen</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mfv</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
+<pre><code>[1] 22</code></pre>
 </div>
 </div>
+</section>
+</section>
+<section id="spreidingsmaten" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="spreidingsmaten"><span class="header-section-number">5.2</span> Spreidingsmaten</h2>
+<p>Tekst toevoegen over belang spreiding</p>
+<section id="bereik-minimum-en-maximum" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="bereik-minimum-en-maximum"><span class="header-section-number">5.2.1</span> Bereik, minimum en maximum</h3>
+<p>Het bereik <span class="math inline">\(R\)</span> van een variabele is de afstand tussen laagste (minimum: <span class="math inline">\(x_{min}\)</span>) en hoogste (maximum: <span class="math inline">\(x_{max}\)</span>) waarde. Dit bereken je eenvoudig door de laagste waarde minus de hoogste waarde te nemen:</p>
+<p><span class="math display">\[R=x_{min}-x_{max}\]</span></p>
+<p>Bij de leeftijdsreeks (16, 22, 22, 28, 33) is het minimum 16 en het maximum 33. Het bereik is dus <span class="math inline">\(R=x_{min}-x_{max}=33-16=17\)</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># handmatig bereik berekenen</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dv">33</span> <span class="sc">-</span> <span class="dv">16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 17</code></pre>
+</div>
+</div>
+<p>De kunt in R het minimum en maximum opvragen met functies <em>min()</em> en <em>max()</em>. Ook kun je allebei tegelijk krijgen met de functie <em>range()</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum opvragen</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># maximum opvragen</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 33</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum en maximm opvragen</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16 33</code></pre>
+</div>
+</div>
+<p>De functie <em>range()</em> geeft je alleen het minimum en maximum. Als je het bereik wilt weten, moet je zelf het minimum van het maximum aftrekken:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bereik berekenen</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 17</code></pre>
+</div>
+</div>
+</section>
+<section id="variantie" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="variantie"><span class="header-section-number">5.2.2</span> Variantie</h3>
+<p>De variantie is een maat voor de spreiding van een variabele die aangeeft hoeveel de waardes onderling van elkaar verschillen. In de statistiek van de sociale wetenschappen zijn er twee soorten variantie: de populatievariantie en steekproefvariantie. Hier komen we later op terug, we rekenen nu voorlopig verder met de steekproefvariantie. De formule daarvoor is:</p>
+<p><span class="math display">\[
+S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
+\]</span> De steekproefvariantie <span class="math inline">\(S^2\)</span> kun je bereken in een aantal stappen.</p>
+<p>Dit doen we aan de hand van de leeftijdsreeks (16, 22, 22, 28, 33) en het gemiddelde hiervan <span class="math inline">\(\bar{x}=24,2\)</span></p>
+<p>Eerst berekenen we voor elke observatie de afstand tot het gemiddelde (de deviatie):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x_i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(x_i-\bar{x}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">16 - 24,2 = -8,2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">22 - 24,2 = -2,2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">22 - 24,2 = -2,2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">28 - 24,2 = 3,8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">33</td>
+<td style="text-align: center;">33 - 24,2 = 8,8</td>
+</tr>
+</tbody>
+</table>
+<p>De optelsom van alle deviaties moet altijd nul zijn: -8,2 + -2,2 + -2,2 + 3,8 + 8,8 = 0</p>
+<p>In de volgende stap kwadrateren we alle deviaties:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x_i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(x_i-\bar{x}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\((x_i-\bar{x})^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">16 - 24,2 = -8,2</td>
+<td style="text-align: center;"><span class="math inline">\((-8,2)^2 = 67,24\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">22 - 24,2 = -2,2</td>
+<td style="text-align: center;"><span class="math inline">\((-2,2)^2 = 4,84\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">22 - 24,2 = -2,2</td>
+<td style="text-align: center;"><span class="math inline">\((-2,2)^2 = 4,84\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">28</td>
+<td style="text-align: center;">28 - 24,2 = 3,8</td>
+<td style="text-align: center;"><span class="math inline">\(3,8^2 = 14,44\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">33</td>
+<td style="text-align: center;">33 - 24,2 = 8,8</td>
+<td style="text-align: center;"><span class="math inline">\(8,8^2 = 77,44\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Daarvan nemen we de som der kwadraten ( <span class="math inline">\(\sum_{i=1}^{n}{(x_i-\bar{x})^2}\)</span> ) : 67,24 + 4,84 + 4,84 + 14,44 + 77,44 = 168,8</p>
+<p>In de laatste stap delen we de som der kwadraten door het aantal observaties minus één (<span class="math inline">\(n-1\)</span>) :</p>
+<p>168,8 / (5-1) = 42,2</p>
+<p>De steekproefvariantie van de leeftijd van vijf respondenten is dus 42,2.</p>
+<p>Deze stappen kunnen we ook in R uitvoeren.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># deviatie voor elke leeftijd</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x_deviatie <span class="ot">&lt;-</span> x <span class="sc">-</span> <span class="fu">mean</span>(x) </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x_deviatie)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -8.2 -2.2 -2.2  3.8  8.8</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># kwadrateren van deviaties</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>x_deviatie_kwa <span class="ot">&lt;-</span> x_deviatie<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x_deviatie_kwa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 67.24  4.84  4.84 14.44 77.44</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># som der kwadraten</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x_deviatie_kwa) <span class="co"># sum() neemt de som van een vector</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 168.8</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># steekproefvariantie berekenen</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>variantie_stkpr <span class="ot">&lt;-</span> <span class="fu">sum</span>(x_deviatie_kwa) <span class="sc">/</span> (<span class="fu">length</span>(x) <span class="sc">-</span> <span class="dv">1</span>) <span class="co"># length() berekent het aantal rijen</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(variantie_stkpr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42.2</code></pre>
+</div>
+</div>
+<p>In R kun je met de functie <em>var()</em> de steekproefvariantie ook direct berekenen</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># steekproefvariantie </span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42.2</code></pre>
+</div>
+</div>
+</section>
+<section id="standaarddeviatie" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="standaarddeviatie"><span class="header-section-number">5.2.3</span> Standaarddeviatie</h3>
+<p>De variantie is een handig getal om mee te rekenen, maar heeft meestal op zichzelf niet zoveel betekenis. Daarom wordt in onderzoek gebruik gemaakt van de standaarddeviatie (ook wel standaardafwijking genoemd). In combinatie met het gemiddelde en het bereik, geeft de standaarddeviatie meestal wel een redelijke indicatie van de spreiding van een lineair variabele (hier komen we later weer op terug). Hoewel wiskundig niet helemaal correct, wordt de standaarddeviatie ook wel gezien als ‘de gemiddelde afstand tot het gemiddelde’.</p>
+<p>De standaarddeviatie is de wortel van de steekproefvariantie:</p>
+<p><span class="math display">\[
+S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
+\]</span></p>
+<p>De standaarddeviatie van ons voorbeeld met de leeftijd van vijf respondenten is:</p>
+<p><span class="math inline">\(S=\sqrt{42,2}=6,50\)</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standaarddeviatie berekenen</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(variantie_stkpr) <span class="co"># sqrt() berekent de wortel over een getal/vector</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.496153</code></pre>
+</div>
+</div>
+<p>Je kunt de standaarddeviatie ook direct in R krijgen met <em>sd()</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standaarddeviatie</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.496153</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="toepassing-op-de-dataset" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="toepassing-op-de-dataset"><span class="header-section-number">5.3</span> Toepassing op de dataset</h2>
+<p>We hebben hierboven middels een eenvoudig voorbeeld laten zien hoe de centrum- en spreidingsmaten berekend worden. In onderzoek willen we deze informatie voor variabelen in de hele dataset weten, zodat we snel kunnen zien hoe onze data in elkaar zit.</p>
+<p>We vragen hier het gemiddelde, de mediaan en de modus op voor leeftijd in de dataset.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden package</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># laden van de data</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/middelengebruik_uitgaanders.rds"</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># centrummaten opvragen</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>leeftijd) <span class="co"># gemiddelde</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 23.52</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>leeftijd) <span class="co"># mediaan</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 23</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfv</span>(data<span class="sc">$</span>leeftijd) <span class="co"># modus</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 22</code></pre>
+</div>
+</div>
+<p>De gemiddelde leeftijd is 23,5 jaar, de mediaan is 23 jaar en de modus is 22 jaar. Deze waarden liggen dus dicht bij elkaar.</p>
+<p>We kunnen ook het minimum, maximum, bereik en standaarddeviatie berekenen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spreidingsmaten opvragen</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>leeftijd) <span class="co"># minimum en maximum</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16 35</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(data<span class="sc">$</span>leeftijd) <span class="sc">-</span> <span class="fu">min</span>(data<span class="sc">$</span>leeftijd) <span class="co"># bereik</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>leeftijd) <span class="co">#standaarddeviatie</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.782178</code></pre>
+</div>
+</div>
+<p>De minimumleeftijd is 16 jaar, de maximumleeftijd is 35 jaar en het leeftijdsbereik is 19 jaar. De standaarddeviatie is 4,8 jaar.</p>
+<p>Veel van deze statistieken (min, max, mediaan, gemiddelde) kun je ook in één keer bekijken middels de functie <em>summary()</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># meerdere statistieken tegelijkertijd opvragen</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>leeftijd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  16.00   20.00   23.00   23.52   27.00   35.00 </code></pre>
+</div>
+</div>
+<p>Je ziet dat de <em>summary()</em> functie ook de waardes voor 1st Qu. en 3rd Qu. geeft. Dit zijn het eerste en derde kwartiel, de grenzen waarbij respectievelijk 25% (Q1) en 75% (Q3) van de data ligt. In dit geval dus 20,0 en 27,0 jaar. Het tweede kwartiel (Q2) is de mediaan, dit is op de grens van 50% van de data.</p>
+<section id="doosdiagram" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="doosdiagram"><span class="header-section-number">5.3.1</span> Doosdiagram</h3>
+<p>Ten slotte is er ook een manier om de spreiding van een lineaire variabele te visualiseren. Dit is via een <strong>doosdiagram</strong>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden package</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># doosdiagram maken</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> leeftijd)) <span class="sc">+</span> </span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="co"># doosdiagram</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="002-03-centrum-en-spreidingsmaten_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>De presentatie kan nog verbeterd worden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden package</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># doosdiagram maken</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> leeftijd)) <span class="sc">+</span> </span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="co"># doosdiagram</span></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">16</span>, <span class="dv">35</span>, <span class="at">by =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="002-03-centrum-en-spreidingsmaten_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Toepassing op dataset</p>
+<p><span class="math display">\[ \sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N} \]</span></p>
+<p><span class="math display">\[ z=\frac{x-\bar{x}}{S} \]</span></p>
+<p><span class="math display">\[ s.e. =\frac{S}{\sqrt{n}} \]</span></p>
 
 
 </section>

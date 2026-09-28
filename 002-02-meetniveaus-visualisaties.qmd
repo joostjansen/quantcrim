@@ -5,7 +5,7 @@ execute:
   warning: false
 ---
 
-Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de basis zijn er vier manieren met variabelen eigenschappen meetbaar te maken (ook wel: operationaliseren). We noemen deze manieren **meetniveaus.** Niet ieder meetniveau geeft even veel informatie. Als we informatie willen over de leeftijden van onze respondenten, kunnen we dit op verschillende manieren uitvragen. We kunnen direct vragen naar hun leeftijd, maar we kunnen ze ook indelen in leeftijdscategorieen (bijv.: jonger dan 18 en 18 jaar en ouder). We bespreken hier de vier meetniveaus en daarbij gaan we meteen in op hoe we de informatie die de variabelen verschaffen het beste visueel kunnen presenteren.
+Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de basis zijn er vier manieren om variabelen meetbaar te maken (ook wel: operationaliseren). We noemen deze manieren **meetniveaus.** Niet ieder meetniveau geeft even veel informatie. Als we informatie willen over de leeftijden van onze respondenten, kunnen we dit op verschillende manieren uitvragen. We kunnen direct vragen naar hun leeftijd, maar we kunnen ze ook indelen in leeftijdscategorieen (bijv.: jonger dan 18 en 18 jaar en ouder). We bespreken hier de vier meetniveaus en daarbij gaan we meteen in op hoe we de informatie die de variabelen verschaffen het beste visueel kunnen presenteren.
 
 Doorgaans maken we onderscheid tussen **kwalitatieve** en **kwantitatieve** variabelen.
 
@@ -80,7 +80,7 @@ ggplot(drugs_verkrijgen, aes(x= "", y = perc, fill = manier_verkrijgen_drugs)) +
   theme_void() # achtergrond weghalen
 ```
 
-De taartdiagram weergeeft het aandeel per categorie van hoe jongeren doorgaans aan hun drugs komen. We kunnen de presentatie van taartdiagram echter nog verbeteren.
+De taartdiagram weergeeft het aandeel per categorie van hoe jongeren doorgaans aan hun drugs komen. We kunnen de presentatie van de taartdiagram echter nog verbeteren.
 
 ```{r}
 # taartdiagram van hoe drugs worden verkregen
@@ -101,7 +101,7 @@ Dit toont meteen een relevante bevinding uit de literatuur over drugsgebruik ond
 
 Een kwalitatieve variabele waarbij er *wel* een bepaalde rangorde (hiërarchie) tussen de categorieën is, noemen we een **ordinale** variabele.
 
-Laten we weer naar een voorbeeld kijken. In de enquete is gevraagd hoe jongeren hun eigen gezondheid over het algemeen beoordelen. Voor een ordinale variabele maken we in principe altijd een staafdiagram.
+Laten we weer naar een voorbeeld kijken. In de enquête is gevraagd hoe jongeren hun eigen gezondheid over het algemeen beoordelen. Voor een ordinale variabele maken we in principe altijd een staafdiagram.
 
 ```{r}
 # staafdiagram van ervaren gezondheid
@@ -114,7 +114,7 @@ ggplot(data, aes(x = ervaren_gezondheid)) +
 
 De staafdiagram toont dat het grootste deel hun gezondheid als "goed" beoordeelt. Een relatief klein deel van de jongeren beoordeelt hun gezondheid als "matig" of zelfs "slecht".
 
-Dit voorbeeld illustreert een relevant kenmerk van ordinale variabelen: er is een bepaalde rangorde tussen de categorieen, maar de afstand ertussen is niet per se gelijk. Zo is de stap van "matig" naar "goed" bijvoorbeeld kwalitatief anders dan de stap van "zeer goed" naar "uitstekend". Hierin verschilt een ordinale variabele van een kwantitatieve variabele, bij de laatste is de afstand tussen waarden (1-2-3 etc.) in principe altijd gelijk.
+Dit voorbeeld illustreert een relevant kenmerk van ordinale variabelen: er is een bepaalde rangorde tussen de categorieën, maar de afstand ertussen is niet per se gelijk. Zo is de stap van "matig" naar "goed" bijvoorbeeld kwalitatief anders dan de stap van "zeer goed" naar "uitstekend". Hierin verschilt een ordinale variabele van een kwantitatieve variabele, bij de laatste is de afstand tussen waarden (1-2-3 etc.) in principe altijd gelijk.
 
 ## Kwantitatieve variabelen
 
