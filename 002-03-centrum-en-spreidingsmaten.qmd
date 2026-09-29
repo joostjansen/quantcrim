@@ -5,13 +5,13 @@ execute:
   warning: false
 ---
 
-Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook benoemd dat statistiek draait om het analyseren van *variatie* met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, leeftijden en opleidingsniveau. Om de variatie te analyseren maken we gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.
+Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook benoemd dat statistiek draait om het analyseren van *variatie* met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, uitgaangsgedrag, leeftijden en opleidingsniveau. Om de variatie te analyseren maken we gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.
 
 ## Centrummaten
 
 ### Gemiddelde
 
-Het gemiddelde ($\bar{x}$) berekenen we simpelweg door voor de variabele $x$ alle observaties bij elkaar op te tellen $\sum_{i=1}^n{x_i}$ en dan te delen door het aantal observaties $n$. Dit gaat middels de volgende formule.
+Het gemiddelde $\bar{x}$ berekenen we simpelweg door voor de variabele $x$ alle observaties bij elkaar op te tellen $\sum_{i=1}^n{x_i}$ en dan te delen door het aantal observaties $n$. Dit gaat middels de volgende formule.
 
 $$
 \bar{x}=\frac{\sum_{i=1}^{n}{x_i}}{n}
@@ -28,7 +28,7 @@ Hieronder berekenen we in R de gemiddelde leeftijd van deze vijf respondenten.
 (16 + 22 + 22 + 28 + 33) / 5
 ```
 
-De gemiddelde leeftijd van deze vijf respondenten is is dus 24,2. In plaats een handmatige berekening kun je het ook berekenen middels een functie in R:
+De gemiddelde leeftijd van deze vijf respondenten is is dus 24,2. In plaats een handmatige berekening kun je het ook berekenen middels de functie *mean()* in R:
 
 ```{r}
 # vector aanmaken
@@ -84,11 +84,11 @@ Tekst toevoegen over belang spreiding
 
 ### Bereik, minimum en maximum
 
-Het bereik $R$ van een variabele is de afstand tussen laagste (minimum: $x_{min}$) en hoogste (maximum: $x_{max}$) waarde. Dit bereken je eenvoudig door de laagste waarde minus de hoogste waarde te nemen:
+Het bereik $R$ van een variabele is de afstand tussen laagste (minimum: $x_{min}$) en hoogste (maximum: $x_{max}$) waarde. Dit bereken je eenvoudig door de hoogste waarde minus de laagste waarde te nemen:
 
-$$R=x_{min}-x_{max}$$
+$$R=x_{max}-x_{min}$$
 
-Bij de leeftijdsreeks (16, 22, 22, 28, 33) is het minimum 16 en het maximum 33. Het bereik is dus $R=x_{min}-x_{max}=33-16=17$
+Bij de leeftijdsreeks (16, 22, 22, 28, 33) is het minimum 16 en het maximum 33. Het bereik is dus $R=x_{max}-x_{min}=33-16=17$
 
 ```{r}
 # handmatig bereik berekenen
@@ -121,10 +121,9 @@ De variantie is een maat voor de spreiding van een variabele die aangeeft hoevee
 
 $$
 S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
-$$
-De steekproefvariantie $S^2$ kun je bereken in een aantal stappen.
+$$ De steekproefvariantie $S^2$ kun je bereken in een aantal stappen.
 
-Dit doen we aan de hand van de leeftijdsreeks (16, 22, 22, 28, 33) en het gemiddelde hiervan $\bar{x}=24,2$
+Dit doen we aan de hand van de leeftijdsreeks (16, 22, 22, 28, 33) en het gemiddelde hiervan $\bar{x}$ = 24,2
 
 Eerst berekenen we voor elke observatie de afstand tot het gemiddelde (de deviatie):
 
@@ -148,7 +147,7 @@ In de volgende stap kwadrateren we alle deviaties:
 |  28   | 28 - 24,2 = 3,8  |  $3,8^2 = 14,44$   |
 |  33   | 33 - 24,2 = 8,8  |  $8,8^2 = 77,44$   |
 
-Daarvan nemen we de som der kwadraten ( $\sum_{i=1}^{n}{(x_i-\bar{x})^2}$ ) : 67,24 + 4,84 + 4,84 + 14,44 + 77,44 = 168,8
+Daarvan nemen we de som der kwadraten $\sum_{i=1}^{n}{(x_i-\bar{x})^2}$ : 67,24 + 4,84 + 4,84 + 14,44 + 77,44 = 168,8
 
 In de laatste stap delen we de som der kwadraten door het aantal observaties minus één ($n-1$) :
 
@@ -160,11 +159,11 @@ Deze stappen kunnen we ook in R uitvoeren.
 
 ```{r}
 # deviatie voor elke leeftijd
-x_deviatie <- x - mean(x) 
+x_deviatie <- x - mean(x) # voor elke waarde van x minus het gemiddelde
 print(x_deviatie)
 
 # kwadrateren van deviaties
-x_deviatie_kwa <- x_deviatie^2
+x_deviatie_kwa <- x_deviatie^2 # voor elke deviatie het kwadraat nemen
 print(x_deviatie_kwa)
 
 # som der kwadraten
@@ -184,7 +183,7 @@ var(x)
 
 ### Standaarddeviatie
 
-De variantie is een handig getal om mee te rekenen, maar heeft meestal op zichzelf niet zoveel betekenis. Daarom wordt in onderzoek gebruik gemaakt van de standaarddeviatie (ook wel standaardafwijking genoemd). In combinatie met het gemiddelde en het bereik, geeft de standaarddeviatie meestal wel een redelijke indicatie van de spreiding van een lineair variabele (hier komen we later weer op terug). Hoewel wiskundig niet helemaal correct, wordt de standaarddeviatie ook wel gezien als 'de gemiddelde afstand tot het gemiddelde'.
+De variantie is een handig getal om mee te rekenen, maar heeft meestal op zichzelf niet zoveel betekenis. Daarom wordt in onderzoek gebruik gemaakt van de standaarddeviatie (ook wel standaardafwijking genoemd). In combinatie met het gemiddelde en het bereik, geeft de standaarddeviatie meestal een redelijke indicatie van de spreiding van een lineaire variabele (hier komen we later weer op terug). Hoewel wiskundig niet helemaal correct, wordt de standaarddeviatie ook wel gezien als 'de gemiddelde afstand tot het gemiddelde'.
 
 De standaarddeviatie is de wortel van de steekproefvariantie:
 
@@ -195,6 +194,8 @@ $$
 De standaarddeviatie van ons voorbeeld met de leeftijd van vijf respondenten is:
 
 $S=\sqrt{42,2}=6,50$
+
+Je zou dus kunnen zeggen dat een willekeurige persoon van de vijf respondenten 'gemiddeld' 6,5 jaar afwijkt van de gemiddelde leeftijd van 24,2 jaar.
 
 ```{r}
 # standaarddeviatie berekenen
@@ -212,7 +213,7 @@ sd(x)
 
 We hebben hierboven middels een eenvoudig voorbeeld laten zien hoe de centrum- en spreidingsmaten berekend worden. In onderzoek willen we deze informatie voor variabelen in de hele dataset weten, zodat we snel kunnen zien hoe onze data in elkaar zit.
 
-We vragen hier het gemiddelde, de mediaan en de modus op voor leeftijd in de dataset.
+We vragen hier het gemiddelde, de mediaan en de modus op voor leeftijd in de complete dataset.
 
 ```{r}
 # laden package
@@ -229,7 +230,7 @@ mfv(data$leeftijd) # modus
 
 De gemiddelde leeftijd is 23,5 jaar, de mediaan is 23 jaar en de modus is 22 jaar. Deze waarden liggen dus dicht bij elkaar.
 
-We kunnen ook het minimum, maximum, bereik en standaarddeviatie berekenen.
+We kunnen ook het minimum, maximum, bereik en de standaarddeviatie berekenen.
 
 ```{r}
 # spreidingsmaten opvragen
@@ -240,7 +241,7 @@ sd(data$leeftijd) #standaarddeviatie
 
 De minimumleeftijd is 16 jaar, de maximumleeftijd is 35 jaar en het leeftijdsbereik is 19 jaar. De standaarddeviatie is 4,8 jaar.
 
-Veel van deze statistieken (min, max, mediaan, gemiddelde) kun je ook in één keer bekijken middels de functie *summary()*
+Veel van deze statistieken (min., max., mediaan, gemiddelde) kun je ook in één keer bekijken middels de functie *summary()*
 
 ```{r}
 # meerdere statistieken tegelijkertijd opvragen
@@ -262,20 +263,25 @@ ggplot(data, aes(x = leeftijd)) +
   geom_boxplot() # doosdiagram
 ```
 
-De presentatie kan nog verbeterd worden.
+Zoals we inmiddels hebben gezien, kan de presentatie van de figuur kan nog verbeterd worden.
 
 ```{r}
-# laden package
-library(ggplot2)
-
 # doosdiagram maken
 ggplot(data, aes(x = leeftijd)) + 
   geom_boxplot() + # doosdiagram
   theme_bw() +
-  scale_x_continuous(breaks = seq(16, 35, by = 1))
+  scale_x_continuous(breaks = seq(16, 35, by = 1)) + # aanpassen labels x-as, van 16 tot 35 met steeds 1 eenheid ertussen (1 jaar)
+  scale_y_continuous(breaks = NULL) # verwijderen labels y-as (hebben geen betekenis hier)
+
 ```
 
-Toepassing op dataset
+Een doosdiagram weergeeft de spreiding van van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel, mediaan en 3rde kwartiel.
+
+Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarde tussen het 1ste kwartiel en mediaan tussen de 20 en 23 jaar liggen. Het hoogste kwartiel (Q4) omvat relatief veel leeftijden, van 27 tot 35 jaar.
+
+Vergelijk deze doosdiagram met de staafdiagram van leeftijd uit het vorige hoofdstuk. Je ziet dat er verschillende manieren zijn om data te visualiseren.
+
+Nog toe te voegen aan formuleblad:
 
 $$ \sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N} $$
 
