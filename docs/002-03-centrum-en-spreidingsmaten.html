@@ -525,12 +525,12 @@ window.Quarto = {
 </header>
 
 
-<p>Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook benoemd dat statistiek draait om het analyseren van <em>variatie</em> met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, leeftijden en opleidingsniveau. Om de variatie te analyseren maken we gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.</p>
+<p>Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook benoemd dat statistiek draait om het analyseren van <em>variatie</em> met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, uitgaangsgedrag, leeftijden en opleidingsniveau. Om de variatie te analyseren maken we gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.</p>
 <section id="centrummaten" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="centrummaten"><span class="header-section-number">5.1</span> Centrummaten</h2>
 <section id="gemiddelde" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="gemiddelde"><span class="header-section-number">5.1.1</span> Gemiddelde</h3>
-<p>Het gemiddelde (<span class="math inline">\(\bar{x}\)</span>) berekenen we simpelweg door voor de variabele <span class="math inline">\(x\)</span> alle observaties bij elkaar op te tellen <span class="math inline">\(\sum_{i=1}^n{x_i}\)</span> en dan te delen door het aantal observaties <span class="math inline">\(n\)</span>. Dit gaat middels de volgende formule.</p>
+<p>Het gemiddelde <span class="math inline">\(\bar{x}\)</span> berekenen we simpelweg door voor de variabele <span class="math inline">\(x\)</span> alle observaties bij elkaar op te tellen <span class="math inline">\(\sum_{i=1}^n{x_i}\)</span> en dan te delen door het aantal observaties <span class="math inline">\(n\)</span>. Dit gaat middels de volgende formule.</p>
 <p><span class="math display">\[
 \bar{x}=\frac{\sum_{i=1}^{n}{x_i}}{n}
 \]</span></p>
@@ -544,7 +544,7 @@ window.Quarto = {
 <pre><code>[1] 24.2</code></pre>
 </div>
 </div>
-<p>De gemiddelde leeftijd van deze vijf respondenten is is dus 24,2. In plaats een handmatige berekening kun je het ook berekenen middels een functie in R:</p>
+<p>De gemiddelde leeftijd van deze vijf respondenten is is dus 24,2. In plaats een handmatige berekening kun je het ook berekenen middels de functie <em>mean()</em> in R:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vector aanmaken</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">28</span>, <span class="dv">33</span>)</span>
@@ -606,9 +606,9 @@ window.Quarto = {
 <p>Tekst toevoegen over belang spreiding</p>
 <section id="bereik-minimum-en-maximum" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="bereik-minimum-en-maximum"><span class="header-section-number">5.2.1</span> Bereik, minimum en maximum</h3>
-<p>Het bereik <span class="math inline">\(R\)</span> van een variabele is de afstand tussen laagste (minimum: <span class="math inline">\(x_{min}\)</span>) en hoogste (maximum: <span class="math inline">\(x_{max}\)</span>) waarde. Dit bereken je eenvoudig door de laagste waarde minus de hoogste waarde te nemen:</p>
-<p><span class="math display">\[R=x_{min}-x_{max}\]</span></p>
-<p>Bij de leeftijdsreeks (16, 22, 22, 28, 33) is het minimum 16 en het maximum 33. Het bereik is dus <span class="math inline">\(R=x_{min}-x_{max}=33-16=17\)</span></p>
+<p>Het bereik <span class="math inline">\(R\)</span> van een variabele is de afstand tussen laagste (minimum: <span class="math inline">\(x_{min}\)</span>) en hoogste (maximum: <span class="math inline">\(x_{max}\)</span>) waarde. Dit bereken je eenvoudig door de hoogste waarde minus de laagste waarde te nemen:</p>
+<p><span class="math display">\[R=x_{max}-x_{min}\]</span></p>
+<p>Bij de leeftijdsreeks (16, 22, 22, 28, 33) is het minimum 16 en het maximum 33. Het bereik is dus <span class="math inline">\(R=x_{max}-x_{min}=33-16=17\)</span></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># handmatig bereik berekenen</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dv">33</span> <span class="sc">-</span> <span class="dv">16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -649,7 +649,7 @@ window.Quarto = {
 <p><span class="math display">\[
 S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 \]</span> De steekproefvariantie <span class="math inline">\(S^2\)</span> kun je bereken in een aantal stappen.</p>
-<p>Dit doen we aan de hand van de leeftijdsreeks (16, 22, 22, 28, 33) en het gemiddelde hiervan <span class="math inline">\(\bar{x}=24,2\)</span></p>
+<p>Dit doen we aan de hand van de leeftijdsreeks (16, 22, 22, 28, 33) en het gemiddelde hiervan <span class="math inline">\(\bar{x}\)</span> = 24,2</p>
 <p>Eerst berekenen we voor elke observatie de afstand tot het gemiddelde (de deviatie):</p>
 <table class="caption-top table">
 <thead>
@@ -719,20 +719,20 @@ S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </tr>
 </tbody>
 </table>
-<p>Daarvan nemen we de som der kwadraten ( <span class="math inline">\(\sum_{i=1}^{n}{(x_i-\bar{x})^2}\)</span> ) : 67,24 + 4,84 + 4,84 + 14,44 + 77,44 = 168,8</p>
+<p>Daarvan nemen we de som der kwadraten <span class="math inline">\(\sum_{i=1}^{n}{(x_i-\bar{x})^2}\)</span> : 67,24 + 4,84 + 4,84 + 14,44 + 77,44 = 168,8</p>
 <p>In de laatste stap delen we de som der kwadraten door het aantal observaties minus één (<span class="math inline">\(n-1\)</span>) :</p>
 <p>168,8 / (5-1) = 42,2</p>
 <p>De steekproefvariantie van de leeftijd van vijf respondenten is dus 42,2.</p>
 <p>Deze stappen kunnen we ook in R uitvoeren.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># deviatie voor elke leeftijd</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x_deviatie <span class="ot">&lt;-</span> x <span class="sc">-</span> <span class="fu">mean</span>(x) </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x_deviatie <span class="ot">&lt;-</span> x <span class="sc">-</span> <span class="fu">mean</span>(x) <span class="co"># voor elke waarde van x minus het gemiddelde</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x_deviatie)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -8.2 -2.2 -2.2  3.8  8.8</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># kwadrateren van deviaties</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>x_deviatie_kwa <span class="ot">&lt;-</span> x_deviatie<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>x_deviatie_kwa <span class="ot">&lt;-</span> x_deviatie<span class="sc">^</span><span class="dv">2</span> <span class="co"># voor elke deviatie het kwadraat nemen</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x_deviatie_kwa)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 67.24  4.84  4.84 14.44 77.44</code></pre>
@@ -760,13 +760,14 @@ S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </section>
 <section id="standaarddeviatie" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="standaarddeviatie"><span class="header-section-number">5.2.3</span> Standaarddeviatie</h3>
-<p>De variantie is een handig getal om mee te rekenen, maar heeft meestal op zichzelf niet zoveel betekenis. Daarom wordt in onderzoek gebruik gemaakt van de standaarddeviatie (ook wel standaardafwijking genoemd). In combinatie met het gemiddelde en het bereik, geeft de standaarddeviatie meestal wel een redelijke indicatie van de spreiding van een lineair variabele (hier komen we later weer op terug). Hoewel wiskundig niet helemaal correct, wordt de standaarddeviatie ook wel gezien als ‘de gemiddelde afstand tot het gemiddelde’.</p>
+<p>De variantie is een handig getal om mee te rekenen, maar heeft meestal op zichzelf niet zoveel betekenis. Daarom wordt in onderzoek gebruik gemaakt van de standaarddeviatie (ook wel standaardafwijking genoemd). In combinatie met het gemiddelde en het bereik, geeft de standaarddeviatie meestal een redelijke indicatie van de spreiding van een lineaire variabele (hier komen we later weer op terug). Hoewel wiskundig niet helemaal correct, wordt de standaarddeviatie ook wel gezien als ‘de gemiddelde afstand tot het gemiddelde’.</p>
 <p>De standaarddeviatie is de wortel van de steekproefvariantie:</p>
 <p><span class="math display">\[
 S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 \]</span></p>
 <p>De standaarddeviatie van ons voorbeeld met de leeftijd van vijf respondenten is:</p>
 <p><span class="math inline">\(S=\sqrt{42,2}=6,50\)</span></p>
+<p>Je zou dus kunnen zeggen dat een willekeurige persoon van de vijf respondenten ‘gemiddeld’ 6,5 jaar afwijkt van de gemiddelde leeftijd van 24,2 jaar.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standaarddeviatie berekenen</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(variantie_stkpr) <span class="co"># sqrt() berekent de wortel over een getal/vector</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -787,7 +788,7 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 <section id="toepassing-op-de-dataset" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="toepassing-op-de-dataset"><span class="header-section-number">5.3</span> Toepassing op de dataset</h2>
 <p>We hebben hierboven middels een eenvoudig voorbeeld laten zien hoe de centrum- en spreidingsmaten berekend worden. In onderzoek willen we deze informatie voor variabelen in de hele dataset weten, zodat we snel kunnen zien hoe onze data in elkaar zit.</p>
-<p>We vragen hier het gemiddelde, de mediaan en de modus op voor leeftijd in de dataset.</p>
+<p>We vragen hier het gemiddelde, de mediaan en de modus op voor leeftijd in de complete dataset.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden package</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -810,7 +811,7 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </div>
 </div>
 <p>De gemiddelde leeftijd is 23,5 jaar, de mediaan is 23 jaar en de modus is 22 jaar. Deze waarden liggen dus dicht bij elkaar.</p>
-<p>We kunnen ook het minimum, maximum, bereik en standaarddeviatie berekenen.</p>
+<p>We kunnen ook het minimum, maximum, bereik en de standaarddeviatie berekenen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spreidingsmaten opvragen</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>leeftijd) <span class="co"># minimum en maximum</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -827,7 +828,7 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </div>
 </div>
 <p>De minimumleeftijd is 16 jaar, de maximumleeftijd is 35 jaar en het leeftijdsbereik is 19 jaar. De standaarddeviatie is 4,8 jaar.</p>
-<p>Veel van deze statistieken (min, max, mediaan, gemiddelde) kun je ook in één keer bekijken middels de functie <em>summary()</em></p>
+<p>Veel van deze statistieken (min., max., mediaan, gemiddelde) kun je ook in één keer bekijken middels de functie <em>summary()</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># meerdere statistieken tegelijkertijd opvragen</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>leeftijd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -855,16 +856,14 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </div>
 </div>
 </div>
-<p>De presentatie kan nog verbeterd worden.</p>
+<p>Zoals we inmiddels hebben gezien, kan de presentatie van de figuur kan nog verbeterd worden.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden package</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># doosdiagram maken</span></span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> leeftijd)) <span class="sc">+</span> </span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="co"># doosdiagram</span></span>
-<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">16</span>, <span class="dv">35</span>, <span class="at">by =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># doosdiagram maken</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> leeftijd)) <span class="sc">+</span> </span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="co"># doosdiagram</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">16</span>, <span class="dv">35</span>, <span class="at">by =</span> <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># aanpassen labels x-as, van 16 tot 35 met steeds 1 eenheid ertussen (1 jaar)</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="co"># verwijderen labels y-as (hebben geen betekenis hier)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -873,7 +872,10 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </div>
 </div>
 </div>
-<p>Toepassing op dataset</p>
+<p>Een doosdiagram weergeeft de spreiding van van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel, mediaan en 3rde kwartiel.</p>
+<p>Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarde tussen het 1ste kwartiel en mediaan tussen de 20 en 23 jaar liggen. Het hoogste kwartiel (Q4) omvat relatief veel leeftijden, van 27 tot 35 jaar.</p>
+<p>Vergelijk deze doosdiagram met de staafdiagram van leeftijd uit het vorige hoofdstuk. Je ziet dat er verschillende manieren zijn om data te visualiseren.</p>
+<p>Nog toe te voegen aan formuleblad:</p>
 <p><span class="math display">\[ \sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N} \]</span></p>
 <p><span class="math display">\[ z=\frac{x-\bar{x}}{S} \]</span></p>
 <p><span class="math display">\[ s.e. =\frac{S}{\sqrt{n}} \]</span></p>
