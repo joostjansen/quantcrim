@@ -44,3 +44,5 @@ Elke kolom bevat de waarde van die respondent met betrekking tot een kenmerk, bi
 We kunnen bijvoorbeeld zien dat de eerste respondent een xxx is, xx jaar oud, en een xxx opleidingsniveau heeft.
 
 De vierde en vijfde kolom geven aan of iemand ooit alcohol heeft gedronken of in het afgelopen jaar. Hier staat een '1' voor ja en een '0' voor nee. Dit zul je vaker tegenkomen in het werken met datasets, dat cijfers worden gebruikt om kwalitatieve informatie uit te drukken. Hier komen we later nog meer op terug. De voorbeeld data toont dat vier respondenten het afgelopen jaar alcohol hebben gedronken en één respondent niet.
+
+### Missende waarden??

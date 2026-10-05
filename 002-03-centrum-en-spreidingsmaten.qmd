@@ -68,7 +68,7 @@ De modus is de waarde die het vaakst voorkomt in een variabele.
 
 Bij de leeftijdsreeks (16, [22]{.underline}, [22]{.underline}, 28, 33) is dit 22 jaar omdat deze leeftijd tweemaal voorkomt en de rest slechts één keer.
 
-R bereken je de modus via de functie *mfv().*
+In R bereken je de modus via de functie *mfv().*
 
 ```{r}
 # package laden
@@ -84,7 +84,7 @@ Tekst toevoegen over belang spreiding
 
 ### Bereik, minimum en maximum
 
-Het bereik $R$ van een variabele is de afstand tussen laagste (minimum: $x_{min}$) en hoogste (maximum: $x_{max}$) waarde. Dit bereken je eenvoudig door de hoogste waarde minus de laagste waarde te nemen:
+Het bereik $R$ van een variabele is de afstand tussen de laagste (minimum: $x_{min}$) en hoogste (maximum: $x_{max}$) waarde. Dit bereken je eenvoudig door de hoogste waarde minus de laagste waarde te nemen:
 
 $$R=x_{max}-x_{min}$$
 
@@ -95,7 +95,7 @@ Bij de leeftijdsreeks (16, 22, 22, 28, 33) is het minimum 16 en het maximum 33. 
 33 - 16
 ```
 
-De kunt in R het minimum en maximum opvragen met functies *min()* en *max()*. Ook kun je allebei tegelijk krijgen met de functie *range()*
+Je kunt in R het minimum en maximum opvragen met de functies *min()* en *max()*. Ook kun je allebei tegelijk krijgen met de functie *range()*
 
 ```{r}
 # minimum opvragen
@@ -104,7 +104,7 @@ min(x)
 # maximum opvragen
 max(x)
 
-# minimum en maximm opvragen
+# minimum en maximum opvragen
 range(x)
 ```
 
@@ -275,7 +275,7 @@ ggplot(data, aes(x = leeftijd)) +
 
 ```
 
-Een doosdiagram weergeeft de spreiding van van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel, mediaan en 3rde kwartiel.
+Een doosdiagram weergeeft de spreiding van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel, mediaan en 3rde kwartiel.
 
 Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarde tussen het 1ste kwartiel en mediaan tussen de 20 en 23 jaar liggen. Het hoogste kwartiel (Q4) omvat relatief veel leeftijden, van 27 tot 35 jaar.
 

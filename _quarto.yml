@@ -32,6 +32,7 @@ book:
         - 002-01-data.qmd
         - 002-02-meetniveaus-visualisaties.qmd
         - 002-03-centrum-en-spreidingsmaten.qmd
+        - 002-04-relatiesvariabelen.qmd
     - part: "Kans en steekproeven"
       chapters:
         - 003-01-steekproeven.qmd

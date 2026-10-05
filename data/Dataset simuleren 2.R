@@ -535,7 +535,7 @@ ruwe_score <- pmin(pmax(ruwe_score, 0), 100)
 
 # Afrondgedrag: ca. 40% rondt af op een vijftal, de rest geeft een willekeurig
 # geheel getal (zoals bij een 0-100-schaal in een vragenlijst vaak gebeurt).
-rondt_op_vijftal <- rbinom(length(xtc_gebruikers), 1, 0.25) == 1
+rondt_op_vijftal <- rbinom(length(xtc_gebruikers), 1, 0.40) == 1
 score_afgerond <- ifelse(rondt_op_vijftal,
                          round(ruwe_score / 5) * 5,
                          round(ruwe_score))
@@ -661,10 +661,24 @@ if (length(niet_drinkers) == 0) {
   rownames(drugs) <- NULL
 }
 
+## 14. Ja/nee-variabelen omzetten naar nominale factoren --------------------
+# Alle 0/1-gebruiksvariabelen (ooit en laatste jaar, voor alle zeven middelen)
+# worden omgezet naar een nominale factor met de categorieen "nee" en "ja".
+# Dit gebeurt bewust pas helemaal aan het eind, zodat alle berekeningen en
+# controles hierboven op de numerieke 0/1-codering kunnen rekenen. Ontbrekende
+# waarden (NA) blijven NA. De volgorde van de levels is nee, ja (dus nee =
+# referentiecategorie in bijvoorbeeld een logistische regressie).
+
+ja_nee_variabelen <- grep("_(ooit|laatste_jaar)$", names(drugs), value = TRUE)
+
+for (variabele in ja_nee_variabelen) {
+  drugs[[variabele]] <- factor(drugs[[variabele]], levels = c(0, 1), labels = c("nee", "ja"))
+}
+
 head(drugs[, c("respondentnr", "geslacht", "leeftijd", "alcohol_laatste_jaar")])
 
 
-## 14. Opslaan ----------------------------------------------------------------
+## 15. Opslaan ----------------------------------------------------------------
 # Wordt weggeschreven naar een 'data/' submap van de werkmap; deze wordt
 # aangemaakt als hij nog niet bestaat.
 

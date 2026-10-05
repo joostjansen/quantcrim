@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./003-01-steekproeven.html" rel="next">
+<link href="./002-04-relatiesvariabelen.html" rel="next">
 <link href="./002-02-meetniveaus-visualisaties.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -387,6 +387,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Centrum- en spreidingsmaten</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-04-relatiesvariabelen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -401,13 +407,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-01-steekproeven.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Steekproeven</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Steekproeven</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-02-kans.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Kans</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></span></a>
   </div>
 </li>
       </ul>
@@ -432,7 +438,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
   </div>
 </li>
       </ul>
@@ -449,7 +455,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./004-opdrachten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
   </div>
 </li>
       </ul>
@@ -588,7 +594,7 @@ window.Quarto = {
 <h3 data-number="5.1.3" class="anchored" data-anchor-id="modus"><span class="header-section-number">5.1.3</span> Modus</h3>
 <p>De modus is de waarde die het vaakst voorkomt in een variabele.</p>
 <p>Bij de leeftijdsreeks (16, <u>22</u>, <u>22</u>, 28, 33) is dit 22 jaar omdat deze leeftijd tweemaal voorkomt en de rest slechts één keer.</p>
-<p>R bereken je de modus via de functie <em>mfv().</em></p>
+<p>In R bereken je de modus via de functie <em>mfv().</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># package laden</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modeest)</span>
@@ -606,7 +612,7 @@ window.Quarto = {
 <p>Tekst toevoegen over belang spreiding</p>
 <section id="bereik-minimum-en-maximum" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="bereik-minimum-en-maximum"><span class="header-section-number">5.2.1</span> Bereik, minimum en maximum</h3>
-<p>Het bereik <span class="math inline">\(R\)</span> van een variabele is de afstand tussen laagste (minimum: <span class="math inline">\(x_{min}\)</span>) en hoogste (maximum: <span class="math inline">\(x_{max}\)</span>) waarde. Dit bereken je eenvoudig door de hoogste waarde minus de laagste waarde te nemen:</p>
+<p>Het bereik <span class="math inline">\(R\)</span> van een variabele is de afstand tussen de laagste (minimum: <span class="math inline">\(x_{min}\)</span>) en hoogste (maximum: <span class="math inline">\(x_{max}\)</span>) waarde. Dit bereken je eenvoudig door de hoogste waarde minus de laagste waarde te nemen:</p>
 <p><span class="math display">\[R=x_{max}-x_{min}\]</span></p>
 <p>Bij de leeftijdsreeks (16, 22, 22, 28, 33) is het minimum 16 en het maximum 33. Het bereik is dus <span class="math inline">\(R=x_{max}-x_{min}=33-16=17\)</span></p>
 <div class="cell">
@@ -616,7 +622,7 @@ window.Quarto = {
 <pre><code>[1] 17</code></pre>
 </div>
 </div>
-<p>De kunt in R het minimum en maximum opvragen met functies <em>min()</em> en <em>max()</em>. Ook kun je allebei tegelijk krijgen met de functie <em>range()</em></p>
+<p>Je kunt in R het minimum en maximum opvragen met de functies <em>min()</em> en <em>max()</em>. Ook kun je allebei tegelijk krijgen met de functie <em>range()</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum opvragen</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -628,7 +634,7 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 33</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum en maximm opvragen</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum en maximum opvragen</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16 33</code></pre>
@@ -872,7 +878,7 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </div>
 </div>
 </div>
-<p>Een doosdiagram weergeeft de spreiding van van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel, mediaan en 3rde kwartiel.</p>
+<p>Een doosdiagram weergeeft de spreiding van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel, mediaan en 3rde kwartiel.</p>
 <p>Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarde tussen het 1ste kwartiel en mediaan tussen de 20 en 23 jaar liggen. Het hoogste kwartiel (Q4) omvat relatief veel leeftijden, van 27 tot 35 jaar.</p>
 <p>Vergelijk deze doosdiagram met de staafdiagram van leeftijd uit het vorige hoofdstuk. Je ziet dat er verschillende manieren zijn om data te visualiseren.</p>
 <p>Nog toe te voegen aan formuleblad:</p>
@@ -1305,8 +1311,8 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./003-01-steekproeven.html" class="pagination-link" aria-label="Steekproeven">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Steekproeven</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./002-04-relatiesvariabelen.html" class="pagination-link" aria-label="Relaties tussen variabelen">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

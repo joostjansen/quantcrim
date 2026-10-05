@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Kans – quantcrim</title>
+<title>6&nbsp; Relaties tussen variabelen – quantcrim</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -36,8 +71,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./003-colleges.html" rel="next">
-<link href="./003-01-steekproeven.html" rel="prev">
+<link href="./003-01-steekproeven.html" rel="next">
+<link href="./002-03-centrum-en-spreidingsmaten.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -254,7 +289,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-02-kans.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./002-01-data.html">Data beschrijven</a></li><li class="breadcrumb-item"><a href="./002-04-relatiesvariabelen.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -325,7 +360,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./002-04-relatiesvariabelen.html" class="sidebar-item-text sidebar-link">
+  <a href="./002-04-relatiesvariabelen.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></span></a>
   </div>
 </li>
@@ -348,7 +383,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-02-kans.html" class="sidebar-item-text sidebar-link active">
+  <a href="./003-02-kans.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></span></a>
   </div>
 </li>
@@ -420,16 +455,22 @@ ul.task-list li input[type="checkbox"] {
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#kwalitatief-vs.-kwalitatief" id="toc-kwalitatief-vs.-kwalitatief" class="nav-link active" data-scroll-target="#kwalitatief-vs.-kwalitatief"><span class="header-section-number">6.0.1</span> Kwalitatief vs.&nbsp;kwalitatief</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/002-04-relatiesvariabelen.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-02-kans.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./002-01-data.html">Data beschrijven</a></li><li class="breadcrumb-item"><a href="./002-04-relatiesvariabelen.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></h1>
 </div>
 
 
@@ -446,8 +487,118 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>We hebben tot nu toe gekeken naar wat voor verschillende variabelen er zijn (meetniveaus), hoe we de onderliggende data kunnen visualiseren, en met welke statistische maten we deze variabelen kunnen beschrijven. In onderzoek zijn we niet alleen geïnteresseerd in variabelen zelf, maar nog meer in de <strong>relaties</strong> daartussen. Voor onze dataset zouden we bijvoorbeeld de volgende vragen kunnen stellen:</p>
+<ul>
+<li><p>Wat is het verschil tussen mannen en vrouwen in drugsgebruik?</p></li>
+<li><p>Wat is de relatie tussen leeftijd en drugsgebruik?</p></li>
+<li><p>Wat is de relatie tussen leeftijd en acceptatie van drugsgebruik?</p></li>
+</ul>
+<p>Om dergelijke vragen te beantwoorden, moeten we data van verschillende variabelen met elkaar combineren. Daarbij moeten we ons steeds afvragen hoe we deze relaties inzichtelijk willen maken. Het is goed om te realiseren dat hier niet altijd één juist antwoord voor is. Er zijn meerdere manieren om data en relaties te presenteren, waarbij de creativiteit van de onderzoeker relevant is. Over het algemeen zijn er wel gebaande paden die we kunnen volgen.</p>
+<p>We letten bij het onderzoeken van relaties tussen variabelen vooral op hun meetniveau. Hebben we bijvoorbeeld te maken met twee kwalitatieve variabelen, één kwalitatief en één kwantitatief, of twee kwantitatieve variabelen? Daaruit kunnen we vaak afleiden wat de handigste manier is om een relatie te presenteren. Denk dus altijd eerst goed na wat het meetniveau van een variabele is.</p>
+<section id="kwalitatief-vs.-kwalitatief" class="level3" data-number="6.0.1">
+<h3 data-number="6.0.1" class="anchored" data-anchor-id="kwalitatief-vs.-kwalitatief"><span class="header-section-number">6.0.1</span> Kwalitatief vs.&nbsp;kwalitatief</h3>
+<section id="nominaal-vs.-nominaal" class="level4" data-number="6.0.1.1">
+<h4 data-number="6.0.1.1" class="anchored" data-anchor-id="nominaal-vs.-nominaal"><span class="header-section-number">6.0.1.1</span> nominaal vs.&nbsp;nominaal</h4>
+<p>Als we de relatie tussen twee nominale variabelen willen presenteren, kunnen we een eenvoudige kruistabel maken in R. We kijken in dit voorbeeld naar de relatie tussen geslacht (man/vrouw/anders) en of men heeft gevapet in het afgelopen jaar (ja/nee). We gaan er hier vanuit dat er gaan intrinsieke rangorde bestaat tussen wel of niet vapen en het dus een nominale variabele betreft.</p>
+<p>In hoofdstuk xxx hebben we al een tabel gemaakt voor geslacht. We kunnen aan het commando table() een variabele (<em>vapen_laatste_jaar</em>) toevoegen om een kruistabel te krijgen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># laden van de data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/middelengebruik_uitgaanders.rds"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># kruistabel tussen geslacht en vapen laatste jaar</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>vapen_laatste_jaar, data<span class="sc">$</span>geslacht) <span class="co"># vapen in de rijen, </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     
+      man vrouw anders
+  nee  85    73      0
+  ja   93    97      2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>                                              <span class="co"># geslacht in de kolommen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We zien in bovenstaande tabel hoe vaak personen van een bepaald geslacht hebben gevapet het afgelopen jaar. Zo kun je zien dat 73 vrouwen niet hebben gevapet en 97 wel.</p>
+<p>Visueel krijgen we vaak een beter gevoel voor de verhoudingen. We kunnen de verdeling op vapen daarom apart weergeven in een figuur voor geslacht.</p>
+<p>Dit doen we hier stapgewijs door eerst de relatie</p>
+<p>filter op ‘anders’</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># samenvatten van de relevante data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>geslacht_vapen <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(geslacht <span class="sc">!=</span> <span class="st">"anders"</span>) <span class="sc">|&gt;</span> <span class="co"># categorie 'anders' eruit laten </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(geslacht, vapen_laatste_jaar) <span class="sc">|&gt;</span> <span class="co"># groeperen op variabelen</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="co"># aantal respondenten per categorie berekenen</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># staafdiagramen maken voor </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(geslacht_vapen, <span class="fu">aes</span>(<span class="at">x =</span> geslacht, <span class="at">y =</span> n, <span class="at">fill =</span> vapen_laatste_jaar)) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="002-04-relatiesvariabelen_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Alleen de absolute aantallen geven niet zo veel inzicht in wat precies de relatie is tussen geslacht en vapen. Daarom is het handiger op de kolompercentages te bereken. Dit doen we <em>prop.table()</em> toe te voegen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># kolompercentages voor kruistabel</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>vapen_laatste_jaar, data<span class="sc">$</span>geslacht) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">2</span>) <span class="co"># 2 voor kolompercentages (1 voor rijpercentages)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     
+            man     vrouw    anders
+  nee 0.4775281 0.4294118 0.0000000
+  ja  0.5224719 0.5705882 1.0000000</code></pre>
+</div>
+</div>
+<p>We zien nu dat 57,1% van de vrouwen wel heeft gevapet en 42,9% niet. Bij de mannen ligt dit percentage iets lager (52,2% vs.&nbsp;47,8%). Je zou dus al (voorzichtig) kunnen concluderen dat vrouwen iets meer vapen dan mannen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vapen frequentie</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data<span class="sc">$</span>vapen_frequentie, data<span class="sc">$</span>geslacht) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prop.table</span>(<span class="dv">2</span>) <span class="co"># 2 voor kolompercentages (1 voor rijpercentages)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                         
+                                 man      vrouw     anders
+  een keer                0.08602151 0.12371134 0.00000000
+  minder dan maandelijks  0.39784946 0.28865979 0.00000000
+  eens per maand          0.12903226 0.10309278 0.00000000
+  een paar keer per maand 0.06451613 0.20618557 0.00000000
+  eens per week           0.07526882 0.08247423 0.50000000
+  een paar keer per week  0.08602151 0.11340206 0.50000000
+  (bijna) elke dag        0.16129032 0.08247423 0.00000000</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>geslacht_vapen_freq <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(geslacht <span class="sc">!=</span> <span class="st">"anders"</span> <span class="sc">&amp;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(vapen_frequentie)) <span class="sc">|&gt;</span> <span class="co"># categorie 'anders' eruit laten </span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(geslacht, vapen_frequentie) <span class="sc">|&gt;</span> <span class="co"># groeperen op variabelen</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> <span class="co"># aantal respondenten per categorie berekenen</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">1</span>))</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># staafdiagramen maken voor </span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(geslacht_vapen_freq, <span class="fu">aes</span>(<span class="at">x =</span> geslacht, <span class="at">y =</span> perc, <span class="at">fill =</span> vapen_frequentie)) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="002-04-relatiesvariabelen_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nominaal-vs.-ordinaal" class="level4" data-number="6.0.1.2">
+<h4 data-number="6.0.1.2" class="anchored" data-anchor-id="nominaal-vs.-ordinaal"><span class="header-section-number">6.0.1.2</span> nominaal vs.&nbsp;ordinaal</h4>
+<p>(principes voor ordinaal vs.&nbsp;ordinaal kan ook)</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -865,13 +1016,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./003-01-steekproeven.html" class="pagination-link" aria-label="Steekproeven">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Steekproeven</span></span>
+      <a href="./002-03-centrum-en-spreidingsmaten.html" class="pagination-link" aria-label="Centrum- en spreidingsmaten">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Centrum- en spreidingsmaten</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./003-colleges.html" class="pagination-link" aria-label="Collegeslides">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Collegeslides</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./003-01-steekproeven.html" class="pagination-link" aria-label="Steekproeven">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Steekproeven</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -880,4 +1031,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-02-kans.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/002-04-relatiesvariabelen.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -1,0 +1,94 @@
+---
+title: "Relaties tussen variabelen"
+format: html
+execute:
+  warning: false
+---
+
+We hebben tot nu toe gekeken naar wat voor verschillende variabelen er zijn (meetniveaus), hoe we de onderliggende data kunnen visualiseren, en met welke statistische maten we deze variabelen kunnen beschrijven. In onderzoek zijn we niet alleen geïnteresseerd in variabelen zelf, maar nog meer in de **relaties** daartussen. Voor onze dataset zouden we bijvoorbeeld de volgende vragen kunnen stellen:
+
+- Wat is het verschil tussen mannen en vrouwen in drugsgebruik?
+
+- Wat is de relatie tussen leeftijd en drugsgebruik?
+
+- Wat is de relatie tussen leeftijd en acceptatie van drugsgebruik?
+
+Om dergelijke vragen te beantwoorden, moeten we data van verschillende variabelen met elkaar combineren. Daarbij moeten we ons steeds afvragen hoe we deze relaties inzichtelijk willen maken. Het is goed om te realiseren dat hier niet altijd één juist antwoord voor is. Er zijn meerdere manieren om data en relaties te presenteren, waarbij de creativiteit van de onderzoeker relevant is. Over het algemeen zijn er wel gebaande paden die we kunnen volgen.
+
+We letten bij het onderzoeken van relaties tussen variabelen vooral op hun meetniveau. Hebben we bijvoorbeeld te maken met twee kwalitatieve variabelen, één kwalitatief en één kwantitatief, of twee kwantitatieve variabelen? Daaruit kunnen we vaak afleiden wat de handigste manier is om een relatie te presenteren. Denk dus altijd eerst goed na wat het meetniveau van een variabele is.
+
+### Kwalitatief vs. kwalitatief
+
+#### nominaal vs. nominaal
+
+Als we de relatie tussen twee nominale variabelen willen presenteren, kunnen we een eenvoudige kruistabel maken in R. We kijken in dit voorbeeld naar de relatie tussen geslacht (man/vrouw/anders) en of men heeft gevapet in het afgelopen jaar (ja/nee). We gaan er hier vanuit dat er gaan intrinsieke rangorde bestaat tussen wel of niet vapen en het dus een nominale variabele betreft.
+
+In hoofdstuk xxx hebben we al een tabel gemaakt voor geslacht. We kunnen aan het commando table() een variabele (*vapen_laatste_jaar*) toevoegen om een kruistabel te krijgen.
+
+```{r}
+# laden packages
+library(readr)
+library(tidyverse)
+library(ggplot2)
+
+# laden van de data
+data <- read_rds("data/middelengebruik_uitgaanders.rds")
+
+# kruistabel tussen geslacht en vapen laatste jaar
+table(data$vapen_laatste_jaar, data$geslacht) # vapen in de rijen, 
+                                              # geslacht in de kolommen
+```
+
+We zien in bovenstaande tabel hoe vaak personen van een bepaald geslacht hebben gevapet het afgelopen jaar. Zo kun je zien dat 73 vrouwen niet hebben gevapet en 97 wel.
+
+Visueel krijgen we vaak een beter gevoel voor de verhoudingen. We kunnen de verdeling op vapen daarom apart weergeven in een figuur voor geslacht.
+
+Dit doen we hier stapgewijs door eerst de relatie
+
+filter op 'anders'
+
+```{r}
+# samenvatten van de relevante data
+geslacht_vapen <- data |>
+  filter(geslacht != "anders") |> # categorie 'anders' eruit laten 
+  group_by(geslacht, vapen_laatste_jaar) |> # groeperen op variabelen
+  summarise(n = n()) # aantal respondenten per categorie berekenen
+
+# staafdiagramen maken voor 
+ggplot(geslacht_vapen, aes(x = geslacht, y = n, fill = vapen_laatste_jaar)) +
+  geom_col(position = "dodge")
+```
+
+Alleen de absolute aantallen geven niet zo veel inzicht in wat precies de relatie is tussen geslacht en vapen. Daarom is het handiger op de kolompercentages te bereken. Dit doen we *prop.table()* toe te voegen.
+
+```{r}
+# kolompercentages voor kruistabel
+table(data$vapen_laatste_jaar, data$geslacht) |>
+  prop.table(2) # 2 voor kolompercentages (1 voor rijpercentages)
+```
+
+We zien nu dat 57,1% van de vrouwen wel heeft gevapet en 42,9% niet. Bij de mannen ligt dit percentage iets lager (52,2% vs. 47,8%). Je zou dus al (voorzichtig) kunnen concluderen dat vrouwen iets meer vapen dan mannen.
+
+```{r}
+# vapen frequentie
+table(data$vapen_frequentie, data$geslacht) |>
+  prop.table(2) # 2 voor kolompercentages (1 voor rijpercentages)
+```
+
+```{r}
+# 
+geslacht_vapen_freq <- data |>
+filter(geslacht != "anders" &
+         !is.na(vapen_frequentie)) |> # categorie 'anders' eruit laten 
+  group_by(geslacht, vapen_frequentie) |> # groeperen op variabelen
+  summarise(n = n()) |> # aantal respondenten per categorie berekenen
+  mutate(perc = round(n/sum(n) * 100, 1))
+
+# staafdiagramen maken voor 
+ggplot(geslacht_vapen_freq, aes(x = geslacht, y = perc, fill = vapen_frequentie)) +
+  geom_col()
+```
+
+#### nominaal vs. ordinaal
+
+(principes voor ordinaal vs. ordinaal kan ook)

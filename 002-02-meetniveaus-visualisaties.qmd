@@ -5,7 +5,7 @@ execute:
   warning: false
 ---
 
-Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de basis zijn er vier manieren om variabelen meetbaar te maken (ook wel: operationaliseren). We noemen deze manieren **meetniveaus.** Niet ieder meetniveau geeft even veel informatie. Als we informatie willen over de leeftijden van onze respondenten, kunnen we dit op verschillende manieren uitvragen. We kunnen direct vragen naar hun leeftijd, maar we kunnen ze ook indelen in leeftijdscategorieen (bijv.: jonger dan 18 en 18 jaar en ouder). We bespreken hier de vier meetniveaus en daarbij gaan we meteen in op hoe we de informatie die de variabelen verschaffen het beste visueel kunnen presenteren.
+Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de basis zijn er vier manieren om variabelen meetbaar te maken (ook wel: **operationaliseren**). We noemen deze manieren **meetniveaus.** Elk meetniveau verschaft een ander soort informatie. We bespreken hier de vier meetniveaus en daarbij gaan we meteen in op hoe we de informatie die de variabelen verschaffen het beste visueel kunnen presenteren.
 
 Doorgaans maken we onderscheid tussen **kwalitatieve** en **kwantitatieve** variabelen.
 
@@ -45,7 +45,7 @@ De figuur heeft nu een witte achtergrond en de y-as heeft een Nederlandstalig la
 
 ### Simpele tabel
 
-Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun je ook een simpele tabel maken.
+Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun je ook een simpele tabel maken met de functie *table()*.
 
 ```{r}
 # tabel van geslacht
@@ -63,6 +63,8 @@ Geslacht is een voorbeeld van een **nominale** variabele. Dit is een kwalitatiev
 Een andere manier om een nominale variabele te presenteren, is via een **taartdiagram**. Een taartdiagram kan snel een overzicht geven van de verhouding tussen categorieën binnen een bepaalde variabele. Doorgaans werkt een taartdiagram het beste als er een beperkt aantal categorieën zijn.
 
 Hieronder staat een voorbeeld van taartdiagram van de variabele *manier_verkrijgen_drugs*. Dit gaat over de wijze waarop uitgaande jongeren meestal aan hun drugs komen.
+
+(komen later op terug op alle stappen hieronder)
 
 ```{r}
 # samenvatten van de relevante data
@@ -152,6 +154,16 @@ ggplot(data, aes(x = gemoed_dinsdag_na_xtc)) +
   xlab ("gemoedstoestand (negatief - positief)") +
   xlim(0, 100)
 ```
+
+## Opties in meetniveaus en transformaties
+
+Stuk tekst over dat variabele niet per se meetniveau bepaalt (bijv leeftijd)
+
+Over variabelen in elkaar omgezet kunnen worden, dus in andere meetniveaus
+
+En nog nadenken over plek dichotome variabele.
+
+Niet ieder meetniveau geeft even veel informatie. Als we informatie willen over de leeftijden van onze respondenten, kunnen we dit op verschillende manieren uitvragen. We kunnen direct vragen naar hun leeftijd, maar we kunnen ze ook indelen in leeftijdscategorieen (bijv.: jonger dan 18 en 18 jaar en ouder).
 
 ## Samenvatting
 

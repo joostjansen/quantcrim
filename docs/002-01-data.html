@@ -358,6 +358,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Centrum- en spreidingsmaten</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-04-relatiesvariabelen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -372,13 +378,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-01-steekproeven.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Steekproeven</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Steekproeven</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-02-kans.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Kans</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></span></a>
   </div>
 </li>
       </ul>
@@ -403,7 +409,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
   </div>
 </li>
       </ul>
@@ -420,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./004-opdrachten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
   </div>
 </li>
       </ul>
@@ -454,7 +460,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#wat-zijn-data" id="toc-wat-zijn-data" class="nav-link active" data-scroll-target="#wat-zijn-data"><span class="header-section-number">3.1</span> <strong>Wat zijn data?</strong></a></li>
+  <li><a href="#wat-zijn-data" id="toc-wat-zijn-data" class="nav-link active" data-scroll-target="#wat-zijn-data"><span class="header-section-number">3.1</span> <strong>Wat zijn data?</strong></a>
+  <ul class="collapse">
+  <li><a href="#missende-waarden" id="toc-missende-waarden" class="nav-link" data-scroll-target="#missende-waarden"><span class="header-section-number">3.1.1</span> Missende waarden??</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/002-01-data.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -506,11 +515,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  geslacht leeftijd opleidingsniveau alcohol_ooit alcohol_laatste_jaar
-1      man       22             hoog            1                    1
-2    vrouw       23             hoog            1                    1
-3    vrouw       18           midden            1                    0
-4    vrouw       28             hoog            1                    1
-5      man       19             hoog            1                    1</code></pre>
+1      man       22             hoog           ja                   ja
+2    vrouw       23             hoog           ja                   ja
+3    vrouw       18           midden           ja                  nee
+4    vrouw       28             hoog           ja                   ja
+5      man       19             hoog           ja                   ja</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|&gt; # eerste 5 rijen en kolommen</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#gt() |&gt;</span></span>
@@ -521,8 +530,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Elke kolom bevat de waarde van die respondent met betrekking tot een kenmerk, bijvoorbeeld de waarde die hoort bij een antwoord dat een respondent gaf op een in de enquête gestelde vraag. De waarden van respondenten op kenmerken kunnen variëren van respondent tot respondent. Niet iedereen is even oud, gebruikt even vaak drugs, heeft dezelfde opleiding etc. De variatie in een bepaald kenmerk meten we met behulp van <strong>variabelen</strong>. Deze zien we terug in de kolommen. De kern van statistiek is dat we alle variatie in kenmerken gaan gebruiken om vragen zoals die hierboven te kunnen beantwoorden.</p>
 <p>We kunnen bijvoorbeeld zien dat de eerste respondent een xxx is, xx jaar oud, en een xxx opleidingsniveau heeft.</p>
 <p>De vierde en vijfde kolom geven aan of iemand ooit alcohol heeft gedronken of in het afgelopen jaar. Hier staat een ‘1’ voor ja en een ‘0’ voor nee. Dit zul je vaker tegenkomen in het werken met datasets, dat cijfers worden gebruikt om kwalitatieve informatie uit te drukken. Hier komen we later nog meer op terug. De voorbeeld data toont dat vier respondenten het afgelopen jaar alcohol hebben gedronken en één respondent niet.</p>
+<section id="missende-waarden" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="missende-waarden"><span class="header-section-number">3.1.1</span> Missende waarden??</h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
