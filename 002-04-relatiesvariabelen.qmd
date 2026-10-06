@@ -8,9 +8,7 @@ execute:
 We hebben tot nu toe gekeken naar wat voor verschillende variabelen er zijn (meetniveaus), hoe we de onderliggende data kunnen visualiseren, en met welke statistische maten we deze variabelen kunnen beschrijven. In onderzoek zijn we niet alleen geïnteresseerd in variabelen zelf, maar nog meer in de **relaties** daartussen. Voor onze dataset zouden we bijvoorbeeld de volgende vragen kunnen stellen:
 
 - Wat is het verschil tussen mannen en vrouwen in drugsgebruik?
-
 - Wat is de relatie tussen leeftijd en drugsgebruik?
-
 - Wat is de relatie tussen leeftijd en acceptatie van drugsgebruik?
 
 Om dergelijke vragen te beantwoorden, moeten we data van verschillende variabelen met elkaar combineren. Daarbij moeten we ons steeds afvragen hoe we deze relaties inzichtelijk willen maken. Het is goed om te realiseren dat hier niet altijd één juist antwoord voor is. Er zijn meerdere manieren om data en relaties te presenteren, waarbij de creativiteit van de onderzoeker relevant is. Over het algemeen zijn er wel gebaande paden die we kunnen volgen.
@@ -23,7 +21,7 @@ We letten bij het onderzoeken van relaties tussen variabelen vooral op hun meetn
 
 Als we de relatie tussen twee nominale variabelen willen presenteren, kunnen we een eenvoudige kruistabel maken in R. We kijken in dit voorbeeld naar de relatie tussen geslacht (man/vrouw/anders) en of men heeft gevapet in het afgelopen jaar (ja/nee). We gaan er hier vanuit dat er gaan intrinsieke rangorde bestaat tussen wel of niet vapen en het dus een nominale variabele betreft.
 
-In hoofdstuk xxx hebben we al een tabel gemaakt voor geslacht. We kunnen aan het commando table() een variabele (*vapen_laatste_jaar*) toevoegen om een kruistabel te krijgen.
+In hoofdstuk xxx hebben we al een tabel gemaakt voor geslacht. We kunnen aan het commando *table()* een variabele (*vapen_laatste_jaar*) toevoegen om een kruistabel te krijgen.
 
 ```{r}
 # laden packages

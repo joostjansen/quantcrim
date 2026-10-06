@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4d5af44521e8d2ac69805030d7e05dc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-deb916046d57902448ef8317134ba92a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-34cfa9cfa9935202557e813e66c18837.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-deb916046d57902448ef8317134ba92a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -489,9 +489,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>We hebben tot nu toe gekeken naar wat voor verschillende variabelen er zijn (meetniveaus), hoe we de onderliggende data kunnen visualiseren, en met welke statistische maten we deze variabelen kunnen beschrijven. In onderzoek zijn we niet alleen geïnteresseerd in variabelen zelf, maar nog meer in de <strong>relaties</strong> daartussen. Voor onze dataset zouden we bijvoorbeeld de volgende vragen kunnen stellen:</p>
 <ul>
-<li><p>Wat is het verschil tussen mannen en vrouwen in drugsgebruik?</p></li>
-<li><p>Wat is de relatie tussen leeftijd en drugsgebruik?</p></li>
-<li><p>Wat is de relatie tussen leeftijd en acceptatie van drugsgebruik?</p></li>
+<li>Wat is het verschil tussen mannen en vrouwen in drugsgebruik?</li>
+<li>Wat is de relatie tussen leeftijd en drugsgebruik?</li>
+<li>Wat is de relatie tussen leeftijd en acceptatie van drugsgebruik?</li>
 </ul>
 <p>Om dergelijke vragen te beantwoorden, moeten we data van verschillende variabelen met elkaar combineren. Daarbij moeten we ons steeds afvragen hoe we deze relaties inzichtelijk willen maken. Het is goed om te realiseren dat hier niet altijd één juist antwoord voor is. Er zijn meerdere manieren om data en relaties te presenteren, waarbij de creativiteit van de onderzoeker relevant is. Over het algemeen zijn er wel gebaande paden die we kunnen volgen.</p>
 <p>We letten bij het onderzoeken van relaties tussen variabelen vooral op hun meetniveau. Hebben we bijvoorbeeld te maken met twee kwalitatieve variabelen, één kwalitatief en één kwantitatief, of twee kwantitatieve variabelen? Daaruit kunnen we vaak afleiden wat de handigste manier is om een relatie te presenteren. Denk dus altijd eerst goed na wat het meetniveau van een variabele is.</p>
@@ -500,7 +500,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="nominaal-vs.-nominaal" class="level4" data-number="6.0.1.1">
 <h4 data-number="6.0.1.1" class="anchored" data-anchor-id="nominaal-vs.-nominaal"><span class="header-section-number">6.0.1.1</span> nominaal vs.&nbsp;nominaal</h4>
 <p>Als we de relatie tussen twee nominale variabelen willen presenteren, kunnen we een eenvoudige kruistabel maken in R. We kijken in dit voorbeeld naar de relatie tussen geslacht (man/vrouw/anders) en of men heeft gevapet in het afgelopen jaar (ja/nee). We gaan er hier vanuit dat er gaan intrinsieke rangorde bestaat tussen wel of niet vapen en het dus een nominale variabele betreft.</p>
-<p>In hoofdstuk xxx hebben we al een tabel gemaakt voor geslacht. We kunnen aan het commando table() een variabele (<em>vapen_laatste_jaar</em>) toevoegen om een kruistabel te krijgen.</p>
+<p>In hoofdstuk xxx hebben we al een tabel gemaakt voor geslacht. We kunnen aan het commando <em>table()</em> een variabele (<em>vapen_laatste_jaar</em>) toevoegen om een kruistabel te krijgen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
