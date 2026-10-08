@@ -596,11 +596,8 @@ window.Quarto = {
 <p>Bij de leeftijdsreeks (16, <u>22</u>, <u>22</u>, 28, 33) is dit 22 jaar omdat deze leeftijd tweemaal voorkomt en de rest slechts één keer.</p>
 <p>In R bereken je de modus via de functie <em>mfv().</em></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># package laden</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modeest)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># modus berekenen</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mfv</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># modus berekenen</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mfv</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 22</code></pre>
 </div>
@@ -609,7 +606,7 @@ window.Quarto = {
 </section>
 <section id="spreidingsmaten" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="spreidingsmaten"><span class="header-section-number">5.2</span> Spreidingsmaten</h2>
-<p>Tekst toevoegen over belang spreiding</p>
+<p>Tekst toevoegen over belang spreiding =&gt; Joost</p>
 <section id="bereik-minimum-en-maximum" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="bereik-minimum-en-maximum"><span class="header-section-number">5.2.1</span> Bereik, minimum en maximum</h3>
 <p>Het bereik <span class="math inline">\(R\)</span> van een variabele is de afstand tussen de laagste (minimum: <span class="math inline">\(x_{min}\)</span>) en hoogste (maximum: <span class="math inline">\(x_{max}\)</span>) waarde. Dit bereken je eenvoudig door de hoogste waarde minus de laagste waarde te nemen:</p>
@@ -796,22 +793,16 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 <p>We hebben hierboven middels een eenvoudig voorbeeld laten zien hoe de centrum- en spreidingsmaten berekend worden. In onderzoek willen we deze informatie voor variabelen in de hele dataset weten, zodat we snel kunnen zien hoe onze data in elkaar zit.</p>
 <p>We vragen hier het gemiddelde, de mediaan en de modus op voor leeftijd in de complete dataset.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden package</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># laden van de data</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/middelengebruik_uitgaanders.rds"</span>)</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># centrummaten opvragen</span></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data<span class="sc">$</span>leeftijd) <span class="co"># gemiddelde</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># centrummaten opvragen</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data_uitgaan<span class="sc">$</span>leeftijd) <span class="co"># gemiddelde</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 23.52</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data<span class="sc">$</span>leeftijd) <span class="co"># mediaan</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(data_uitgaan<span class="sc">$</span>leeftijd) <span class="co"># mediaan</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 23</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfv</span>(data<span class="sc">$</span>leeftijd) <span class="co"># modus</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mfv</span>(data_uitgaan<span class="sc">$</span>leeftijd) <span class="co"># modus</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 22</code></pre>
 </div>
@@ -820,15 +811,15 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 <p>We kunnen ook het minimum, maximum, bereik en de standaarddeviatie berekenen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spreidingsmaten opvragen</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data<span class="sc">$</span>leeftijd) <span class="co"># minimum en maximum</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(data_uitgaan<span class="sc">$</span>leeftijd) <span class="co"># minimum en maximum</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16 35</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(data<span class="sc">$</span>leeftijd) <span class="sc">-</span> <span class="fu">min</span>(data<span class="sc">$</span>leeftijd) <span class="co"># bereik</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(data_uitgaan<span class="sc">$</span>leeftijd) <span class="sc">-</span> <span class="fu">min</span>(data_uitgaan<span class="sc">$</span>leeftijd) <span class="co"># bereik</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data<span class="sc">$</span>leeftijd) <span class="co">#standaarddeviatie</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(data_uitgaan<span class="sc">$</span>leeftijd) <span class="co">#standaarddeviatie</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4.782178</code></pre>
 </div>
@@ -837,7 +828,7 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 <p>Veel van deze statistieken (min., max., mediaan, gemiddelde) kun je ook in één keer bekijken middels de functie <em>summary()</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># meerdere statistieken tegelijkertijd opvragen</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data<span class="sc">$</span>leeftijd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_uitgaan<span class="sc">$</span>leeftijd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   16.00   20.00   23.00   23.52   27.00   35.00 </code></pre>
@@ -848,28 +839,9 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="doosdiagram"><span class="header-section-number">5.3.1</span> Doosdiagram</h3>
 <p>Ten slotte is er ook een manier om de spreiding van een lineaire variabele te visualiseren. Dit is via een <strong>doosdiagram</strong>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden package</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># doosdiagram maken</span></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> leeftijd)) <span class="sc">+</span> </span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="co"># doosdiagram</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="002-03-centrum-en-spreidingsmaten_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Zoals we inmiddels hebben gezien, kan de presentatie van de figuur kan nog verbeterd worden.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># doosdiagram maken</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> leeftijd)) <span class="sc">+</span> </span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="co"># doosdiagram</span></span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">16</span>, <span class="dv">35</span>, <span class="at">by =</span> <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># aanpassen labels x-as, van 16 tot 35 met steeds 1 eenheid ertussen (1 jaar)</span></span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="co"># verwijderen labels y-as (hebben geen betekenis hier)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># doosdiagram maken</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_uitgaan, <span class="fu">aes</span>(<span class="at">x =</span> leeftijd)) <span class="sc">+</span> </span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="co"># doosdiagram</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -878,8 +850,24 @@ S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </div>
 </div>
 </div>
-<p>Een doosdiagram weergeeft de spreiding van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel, mediaan en 3rde kwartiel.</p>
-<p>Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarde tussen het 1ste kwartiel en mediaan tussen de 20 en 23 jaar liggen. Het hoogste kwartiel (Q4) omvat relatief veel leeftijden, van 27 tot 35 jaar.</p>
+<p>Zoals we inmiddels hebben gezien, kan de presentatie van de figuur kan nog verbeterd worden.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># doosdiagram maken</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_uitgaan, <span class="fu">aes</span>(<span class="at">x =</span> leeftijd)) <span class="sc">+</span> </span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="co"># doosdiagram</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">16</span>, <span class="dv">35</span>, <span class="at">by =</span> <span class="dv">1</span>)) <span class="sc">+</span> <span class="co"># aanpassen labels x-as, van 16 tot 35 met steeds 1 eenheid ertussen (1 jaar)</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>) <span class="co"># verwijderen labels y-as (hebben geen betekenis hier)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="002-03-centrum-en-spreidingsmaten_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Een doosdiagram weergeeft de spreiding van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel (Q1), mediaan (Q2) en 3de kwartiel (Q3). De afstand tussen het 1ste en 3de kwartiel wordt ook wel de <strong>interkwartielafstand</strong> genoemd.</p>
+<p>Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarden tussen het 1ste kwartiel en mediaan tussen de 20 en 23 jaar liggen. Het hoogste kwartiel (Q4) omvat relatief veel leeftijden, van 27 tot 35 jaar.</p>
 <p>Vergelijk deze doosdiagram met de staafdiagram van leeftijd uit het vorige hoofdstuk. Je ziet dat er verschillende manieren zijn om data te visualiseren.</p>
 <p>Nog toe te voegen aan formuleblad:</p>
 <p><span class="math display">\[ \sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N} \]</span></p>

@@ -1,0 +1,7 @@
+```{r}
+#| include: false
+library(tidyverse)
+library(modeest)
+
+data_uitgaan <- read_rds("data/middelengebruik_uitgaanders.rds")
+```

@@ -5,90 +5,166 @@ execute:
   warning: false
 ---
 
+{{< include _setup.qmd >}}
+
 We hebben tot nu toe gekeken naar wat voor verschillende variabelen er zijn (meetniveaus), hoe we de onderliggende data kunnen visualiseren, en met welke statistische maten we deze variabelen kunnen beschrijven. In onderzoek zijn we niet alleen geïnteresseerd in variabelen zelf, maar nog meer in de **relaties** daartussen. Voor onze dataset zouden we bijvoorbeeld de volgende vragen kunnen stellen:
 
 - Wat is het verschil tussen mannen en vrouwen in drugsgebruik?
+- In hoeverre denken gebruikers anders over de acceptatie van drugs dan niet-gebruikers?
+- Wat is de relatie tussen verschillende soorten drugsgebruik?
 
-- Wat is de relatie tussen leeftijd en drugsgebruik?
-
-- Wat is de relatie tussen leeftijd en acceptatie van drugsgebruik?
-
-Om dergelijke vragen te beantwoorden, moeten we data van verschillende variabelen met elkaar combineren. Daarbij moeten we ons steeds afvragen hoe we deze relaties inzichtelijk willen maken. Het is goed om te realiseren dat hier niet altijd één juist antwoord voor is. Er zijn meerdere manieren om data en relaties te presenteren, waarbij de creativiteit van de onderzoeker relevant is. Over het algemeen zijn er wel gebaande paden die we kunnen volgen.
+Om dergelijke vragen te beantwoorden, moeten we data van verschillende variabelen met elkaar combineren. Daarbij moeten we ons steeds afvragen hoe we deze relaties inzichtelijk willen maken. Het is goed om te realiseren dat hier niet altijd één juist antwoord voor is. Er zijn meerdere manieren om data en relaties te presenteren, waarbij de creativiteit van de onderzoeker ertoe doet. Over het algemeen zijn er wel gebaande paden die we kunnen volgen.
 
 We letten bij het onderzoeken van relaties tussen variabelen vooral op hun meetniveau. Hebben we bijvoorbeeld te maken met twee kwalitatieve variabelen, één kwalitatief en één kwantitatief, of twee kwantitatieve variabelen? Daaruit kunnen we vaak afleiden wat de handigste manier is om een relatie te presenteren. Denk dus altijd eerst goed na wat het meetniveau van een variabele is.
 
-### Kwalitatief vs. kwalitatief
+## Kwalitatief vs. kwalitatief
 
-#### nominaal vs. nominaal
+### Nominaal vs. nominaal
 
-Als we de relatie tussen twee nominale variabelen willen presenteren, kunnen we een eenvoudige kruistabel maken in R. We kijken in dit voorbeeld naar de relatie tussen geslacht (man/vrouw/anders) en of men heeft gevapet in het afgelopen jaar (ja/nee). We gaan er hier vanuit dat er gaan intrinsieke rangorde bestaat tussen wel of niet vapen en het dus een nominale variabele betreft.
+Als we de relatie tussen twee nominale variabelen willen presenteren, kunnen we een eenvoudige kruistabel maken in R. We kijken in dit voorbeeld naar de relatie tussen geslacht (man/vrouw/anders) en of men heeft gevapet in het afgelopen jaar (ja/nee). We gaan er hier vanuit dat er geen rangorde bestaat tussen wel of niet vapen en het dus een nominale variabele betreft.
 
-In hoofdstuk xxx hebben we al een tabel gemaakt voor geslacht. We kunnen aan het commando table() een variabele (*vapen_laatste_jaar*) toevoegen om een kruistabel te krijgen.
+In hoofdstuk xxx hebben we al een tabel gemaakt voor geslacht. We kunnen aan het commando *table()* een variabele (vapen_laatste_jaar) toevoegen om een kruistabel te krijgen.
 
 ```{r}
-# laden packages
-library(readr)
-library(tidyverse)
-library(ggplot2)
-
-# laden van de data
-data <- read_rds("data/middelengebruik_uitgaanders.rds")
-
 # kruistabel tussen geslacht en vapen laatste jaar
-table(data$vapen_laatste_jaar, data$geslacht) # vapen in de rijen, 
+table(data_uitgaan$vapen_laatste_jaar, data_uitgaan$geslacht) # vapen in de rijen, 
                                               # geslacht in de kolommen
 ```
 
 We zien in bovenstaande tabel hoe vaak personen van een bepaald geslacht hebben gevapet het afgelopen jaar. Zo kun je zien dat 73 vrouwen niet hebben gevapet en 97 wel.
 
-Visueel krijgen we vaak een beter gevoel voor de verhoudingen. We kunnen de verdeling op vapen daarom apart weergeven in een figuur voor geslacht.
-
-Dit doen we hier stapgewijs door eerst de relatie
-
-filter op 'anders'
+Visueel krijgen we vaak een beter inzicht in de verdeling van variabelen en de relaties daartussen. We kunnen de verdeling voor vapen_laatste_jaar uitgesplitst naar geslacht daarom apart weergeven in een figuur. De meest gangbare manier om de relatie tussen twee variabelen visueel te weergeven is een staafdiagram. We laten voor eenvoud de categorie 'anders' even buiten beschouwing hier.
 
 ```{r}
 # samenvatten van de relevante data
-geslacht_vapen <- data |>
+geslacht_vapen <- data_uitgaan |>
   filter(geslacht != "anders") |> # categorie 'anders' eruit laten 
   group_by(geslacht, vapen_laatste_jaar) |> # groeperen op variabelen
   summarise(n = n()) # aantal respondenten per categorie berekenen
 
-# staafdiagramen maken voor 
+# staafdiagram maken voor relatie geslacht en vapen 
 ggplot(geslacht_vapen, aes(x = geslacht, y = n, fill = vapen_laatste_jaar)) +
-  geom_col(position = "dodge")
+  geom_col(position = "dodge") +
+  theme_bw() +
+  ylab("aantal") +
+  labs(fill = "Vapen laatste jaar")
 ```
 
-Alleen de absolute aantallen geven niet zo veel inzicht in wat precies de relatie is tussen geslacht en vapen. Daarom is het handiger op de kolompercentages te bereken. Dit doen we *prop.table()* toe te voegen.
+We zien nu in een oogoopslag wat de verschillen zijn in aantallen tussen mannen en vrouwen die vapeten het laatste jaar.
+
+De absolute aantallen geven slechts gedeeltelijk inzicht in wat verhoudingen zijn binnen de relatie tussen geslacht en vapen. Daarom is het handig ook de kolompercentages te bereken. Dit doen we door *prop.table()* toe te voegen aan de kruistabel.
 
 ```{r}
 # kolompercentages voor kruistabel
-table(data$vapen_laatste_jaar, data$geslacht) |>
+table(data_uitgaan$vapen_laatste_jaar, data_uitgaan$geslacht) |>
   prop.table(2) # 2 voor kolompercentages (1 voor rijpercentages)
 ```
 
-We zien nu dat 57,1% van de vrouwen wel heeft gevapet en 42,9% niet. Bij de mannen ligt dit percentage iets lager (52,2% vs. 47,8%). Je zou dus al (voorzichtig) kunnen concluderen dat vrouwen iets meer vapen dan mannen.
+We zien nu dat 57,1% van de vrouwen heeft gevapet en 42,9% niet. Bij de mannen ligt dit percentage iets lager (52,2% vs. 47,8%). Je zou dus al (voorzichtig) kunnen concluderen dat vrouwen relatief meer vapen dan mannen.
+
+### Nominaal vs. ordinaal
+
+De werkwijze bij het onderzoeken van een relatie tussen nominaal en ordinaal is in principe hetzelfde. We nemen hier de relatie tussen volgende twee variabelen: xtc_laatste_jaar en acceptatie_xtc_vrienden. De eerste variabele meet of respondenten het laatste jaar xtc hebben gebruikt en de tweede variabele meet in hoeverre respondenten het eens zijn met de stelling dat het gebruik van xtc onder vrienden geaccepteerd is.
+
+We bekijken eerst weer de aantallen in een kruistabel.
 
 ```{r}
-# vapen frequentie
-table(data$vapen_frequentie, data$geslacht) |>
-  prop.table(2) # 2 voor kolompercentages (1 voor rijpercentages)
+# kruistabel tussen xtc gebruik en acceptatie onder vrienden
+table(data_uitgaan$acceptatie_xtc_vrienden, data_uitgaan$xtc_laatste_jaar) 
 ```
+
+Vervolgens kijken we naar de kolompercentages
 
 ```{r}
-# 
-geslacht_vapen_freq <- data |>
-filter(geslacht != "anders" &
-         !is.na(vapen_frequentie)) |> # categorie 'anders' eruit laten 
-  group_by(geslacht, vapen_frequentie) |> # groeperen op variabelen
-  summarise(n = n()) |> # aantal respondenten per categorie berekenen
-  mutate(perc = round(n/sum(n) * 100, 1))
-
-# staafdiagramen maken voor 
-ggplot(geslacht_vapen_freq, aes(x = geslacht, y = perc, fill = vapen_frequentie)) +
-  geom_col()
+# kolompercentages voor kruistabel
+table(data_uitgaan$acceptatie_xtc_vrienden, data_uitgaan$xtc_laatste_jaar) |>
+  prop.table(2)
 ```
 
-#### nominaal vs. ordinaal
+Hier tekent zich al een duidelijk patroon af: onder jongeren die xtc hebben gebruikt, is de acceptatie onder vrienden ook hoog. Bijna alle respondenten in de rechterkolom geven aan het eens (16,4%) of helemaal mee eens (78,5%) met de stelling te zijn. Bij jongeren die niet hebben gebruikt is de acceptatie wat meer verdeeld, al geeft een meerderheid aan dat het gebruik van xtc is geaccepteerd onder hun vrienden (eens: 41,9%, helemaal mee eens: 14,8%).
+
+Als we deze relatie willen visualiseren, kunnen we het beste voor een zogenaamde gestapelde staafdiagram kiezen. Hierin worden de antwoordcategorieën op een variabele als het ware gestapeld binnen een staaf. We kunnen zo'n gestapelde staafdiagram maken voor de kolompercentages.
+
+```{r}
+# samenvatten van de relevante data
+xtc_gebruik_acceptatie <- data_uitgaan |>
+  group_by(xtc_laatste_jaar, acceptatie_xtc_vrienden) |> 
+  summarise(n = n()) |>
+  mutate(perc = round(n/sum(n) * 100, 1)) # percentages berekenen en afronden op 1 decimaal
+
+# staafdiagram maken voor relatie geslacht en vapen 
+ggplot(xtc_gebruik_acceptatie, 
+       aes(x = xtc_laatste_jaar, y = perc, 
+           fill = acceptatie_xtc_vrienden)) +
+  geom_col() + #
+  theme_bw() +
+  ylab("percentage") +
+  xlab("xtc gebruik laatste jaar") +
+  labs(fill = "Acceptatie xtc gebruik \n door vrienden ") +
+  scale_fill_brewer(palette = 1)  # kleur bepalen van licht naar donkerblauw 
+
+```
+
+Wederom krijgen we direct een indruk van de relatie tussen deze twee variabelen. Acceptie van xtc gebruik is over het algemeen hoog onder vrienden, maar relatief veel meer bij vrienden van jongeren die zelf xtc gebruiken.
+
+Kruistabellen en (gestapelde) staafdiagrammen zijn ook goed toepasbaar voor het onderzoeken van de relatie tussen twee ordinale variabelen (dit behandelen we niet verder hier). Alleen als je variabelen heel veel categorieën hebben, moet je wellicht nadenken over een alternatief.
+
+## Kwalitatief vs. kwantitatief
+
+We beschikken over verschillende opties wanneer we de relatie tussen een kwalitatieve en kwantitatieve variabele willen onderzoeken. De meest eenvoudige optie is om naar het verschil in gemiddeldes te kijken. Als voorbeeld kijken we hier naar geslacht en het aantal sigaretten dat men rookt tijdens het uitgaan (sigaretten_uitgaansdag). Let op dat hier alleen gaat over jongeren die minimaal één sigaret roken tijdens het uitgaan (rokers).
+
+We berekenen het gemiddelde door de data eerst te groeperen en daarna het gemiddelde per groep te berekenen. Hoe je dat moet doen, leer je in het practicum.
+
+```{r}
+# gemiddelde berekenen van van aantal sigaretten voor geslacht
+data_uitgaan |> group_by(geslacht) |>
+  filter(!is.na(sigaretten_uitgaansdag)) |> # respondenten die niet roken eruit laten
+  summarise(gem_sigaretten = mean(sigaretten_uitgaansdag)) # summarise() en mean() voor gemiddelde berekenen
+```
+
+Je ziet dat zowel mannen als vrouwen gemiddeld zo'n 11 sigaretten per uitgaansdag roken. Er is dus niet echt een verschil tussen deze groepen. Bij de anders-identificerenden ligt dit aantal hoger (20), maar dit is een kleine groep wat betekent dat het meer afhankelijk is van wie er toevallig in de dataset zit.
+
+Het verschil in gemiddeldes geeft nog niet zoveel inzicht in de distributie van verschillende groepen. Het kan zijn dat er onderling variatie is in het rookgedrag tussen mannen en vrouwen. Je kunt een doosdiagram voor beide groepen maken om hier meer inzicht in te krijgen.
+
+```{r}
+# doosdiagram met aantal sigaretten naar geslacht
+ggplot(data_uitgaan, aes(x = geslacht, y = sigaretten_uitgaansdag)) +
+  geom_boxplot() +
+  theme_bw() +
+  ylab("aantal sigaretten uitgaansdag") 
+```
+
+Deze doosdiagrammen zien er wat anders uit dan in hoofdstuk xxx, omdat we hier met meer extreme waarden te maken hebben. Zo geeft de bovenste punt bij de mannen aan dat één respondent meer dan 100 sigaretten heeft gerookt. Gelet op de spreiding, is de afstand tussen Q1, Q2 en Q3 wat groter bij vrouwen dan mannen. Het lijkt er dus op dat bij de mannen meer extreme waarden voorkomen, terwijl bij de vrouwen er in het midden van de verdeling (interkwartielafstand) wat meer spreiding is.
+
+Ook hier geldt weer: het onderzoeken van een beschrijvende relatie tussen ordinaal vs. kwantitatief kan doorgaans op dezelfde wijze als bij nominaal vs. kwantitatief.
+
+## Kwantitatief vs. kwantitatief
+
+Als laatste onderzoeken we de relatie tussen twee kwantitatieve variabelen. Het makkelijkst is om deze relatie direct te visualiseren (later in de cursus kijken we naar correlatie, een associatiemaat voor de sterkte van de relatie). We nemen de relatie tussen het aantal glazen alcohol op een uitgaansdag (glazen_alcohol_uitgaansdag) en het aantal gerookte sigaretten. Het gaat hier om mensen die dus zowel alcohol drinken als roken tijdens het uitgaan. Verder zijn dit twee ratio variabelen (bedenk waarom).
+
+Om de relatie te visualiseren, maken we eerst gebruik van een spreidingsdiagram.
+
+```{r}
+# spreidingsdiagram met aantal glazen alcohol en sigaretten
+ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) +
+  geom_point() +
+  theme_bw() +
+  xlab("aantal glazen alcohol uitgaansdag") +
+  ylab("aantal sigaretten uitgaansdag")
+
+```
+
+Elke punt
 
 (principes voor ordinaal vs. ordinaal kan ook)
+
+```{r}
+# spreidingsdiagram met aantal glazen alcohol en sigaretten
+ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) +
+  geom_point(position = "jitter") +
+  theme_bw() +
+  xlab("aantal glazen alcohol uitgaansdag") +
+  ylab("aantal sigaretten uitgaansdag") #+
+  #stat_smooth(method = lm, se = FALSE) +
+  #ylim(0,65)
+```

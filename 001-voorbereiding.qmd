@@ -30,4 +30,9 @@ Hieronder vind je een lijst met alle packages die je tijdens dit vak nodig hebt.
 # 
 # install.packages()
 # install.packages()
+
+# laden packages
+library(readr)
+library(ggplot2)
+library(tidyverse)
 ```

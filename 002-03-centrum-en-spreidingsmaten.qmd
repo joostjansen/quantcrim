@@ -5,6 +5,8 @@ execute:
   warning: false
 ---
 
+{{< include _setup.qmd >}}
+
 Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook benoemd dat statistiek draait om het analyseren van *variatie* met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, uitgaangsgedrag, leeftijden en opleidingsniveau. Om de variatie te analyseren maken we gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.
 
 ## Centrummaten
@@ -71,16 +73,13 @@ Bij de leeftijdsreeks (16, [22]{.underline}, [22]{.underline}, 28, 33) is dit 22
 In R bereken je de modus via de functie *mfv().*
 
 ```{r}
-# package laden
-library(modeest)
-
 # modus berekenen
 mfv(x)
 ```
 
 ## Spreidingsmaten
 
-Tekst toevoegen over belang spreiding
+Tekst toevoegen over belang spreiding =\> Joost
 
 ### Bereik, minimum en maximum
 
@@ -216,16 +215,10 @@ We hebben hierboven middels een eenvoudig voorbeeld laten zien hoe de centrum- e
 We vragen hier het gemiddelde, de mediaan en de modus op voor leeftijd in de complete dataset.
 
 ```{r}
-# laden package
-library(readr)
-
-# laden van de data
-data <- read_rds("data/middelengebruik_uitgaanders.rds")
-
 # centrummaten opvragen
-mean(data$leeftijd) # gemiddelde
-median(data$leeftijd) # mediaan
-mfv(data$leeftijd) # modus
+mean(data_uitgaan$leeftijd) # gemiddelde
+median(data_uitgaan$leeftijd) # mediaan
+mfv(data_uitgaan$leeftijd) # modus
 ```
 
 De gemiddelde leeftijd is 23,5 jaar, de mediaan is 23 jaar en de modus is 22 jaar. Deze waarden liggen dus dicht bij elkaar.
@@ -234,9 +227,9 @@ We kunnen ook het minimum, maximum, bereik en de standaarddeviatie berekenen.
 
 ```{r}
 # spreidingsmaten opvragen
-range(data$leeftijd) # minimum en maximum
-max(data$leeftijd) - min(data$leeftijd) # bereik
-sd(data$leeftijd) #standaarddeviatie
+range(data_uitgaan$leeftijd) # minimum en maximum
+max(data_uitgaan$leeftijd) - min(data_uitgaan$leeftijd) # bereik
+sd(data_uitgaan$leeftijd) #standaarddeviatie
 ```
 
 De minimumleeftijd is 16 jaar, de maximumleeftijd is 35 jaar en het leeftijdsbereik is 19 jaar. De standaarddeviatie is 4,8 jaar.
@@ -245,7 +238,7 @@ Veel van deze statistieken (min., max., mediaan, gemiddelde) kun je ook in één
 
 ```{r}
 # meerdere statistieken tegelijkertijd opvragen
-summary(data$leeftijd)
+summary(data_uitgaan$leeftijd)
 ```
 
 Je ziet dat de *summary()* functie ook de waardes voor 1st Qu. en 3rd Qu. geeft. Dit zijn het eerste en derde kwartiel, de grenzen waarbij respectievelijk 25% (Q1) en 75% (Q3) van de data ligt. In dit geval dus 20,0 en 27,0 jaar. Het tweede kwartiel (Q2) is de mediaan, dit is op de grens van 50% van de data.
@@ -255,11 +248,8 @@ Je ziet dat de *summary()* functie ook de waardes voor 1st Qu. en 3rd Qu. geeft.
 Ten slotte is er ook een manier om de spreiding van een lineaire variabele te visualiseren. Dit is via een **doosdiagram**.
 
 ```{r}
-# laden package
-library(ggplot2)
-
 # doosdiagram maken
-ggplot(data, aes(x = leeftijd)) + 
+ggplot(data_uitgaan, aes(x = leeftijd)) + 
   geom_boxplot() # doosdiagram
 ```
 
@@ -267,7 +257,7 @@ Zoals we inmiddels hebben gezien, kan de presentatie van de figuur kan nog verbe
 
 ```{r}
 # doosdiagram maken
-ggplot(data, aes(x = leeftijd)) + 
+ggplot(data_uitgaan, aes(x = leeftijd)) + 
   geom_boxplot() + # doosdiagram
   theme_bw() +
   scale_x_continuous(breaks = seq(16, 35, by = 1)) + # aanpassen labels x-as, van 16 tot 35 met steeds 1 eenheid ertussen (1 jaar)
@@ -275,9 +265,9 @@ ggplot(data, aes(x = leeftijd)) +
 
 ```
 
-Een doosdiagram weergeeft de spreiding van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel, mediaan en 3rde kwartiel.
+Een doosdiagram weergeeft de spreiding van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel (Q1), mediaan (Q2) en 3de kwartiel (Q3). De afstand tussen het 1ste en 3de kwartiel wordt ook wel de **interkwartielafstand** genoemd.
 
-Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarde tussen het 1ste kwartiel en mediaan tussen de 20 en 23 jaar liggen. Het hoogste kwartiel (Q4) omvat relatief veel leeftijden, van 27 tot 35 jaar.
+Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarden tussen het 1ste kwartiel en mediaan tussen de 20 en 23 jaar liggen. Het hoogste kwartiel (Q4) omvat relatief veel leeftijden, van 27 tot 35 jaar.
 
 Vergelijk deze doosdiagram met de staafdiagram van leeftijd uit het vorige hoofdstuk. Je ziet dat er verschillende manieren zijn om data te visualiseren.
 

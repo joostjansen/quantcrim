@@ -462,7 +462,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#wat-zijn-data" id="toc-wat-zijn-data" class="nav-link active" data-scroll-target="#wat-zijn-data"><span class="header-section-number">3.1</span> <strong>Wat zijn data?</strong></a>
   <ul class="collapse">
-  <li><a href="#missende-waarden" id="toc-missende-waarden" class="nav-link" data-scroll-target="#missende-waarden"><span class="header-section-number">3.1.1</span> Missende waarden??</a></li>
+  <li><a href="#missende-waarden" id="toc-missende-waarden" class="nav-link" data-scroll-target="#missende-waarden"><span class="header-section-number">3.1.1</span> Missende waarden</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/002-01-data.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -504,34 +504,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In deze cursus werken we steeds met dezelfde dataset. Dit is gebaseerd op een onderzoek onder uitgaande jongeren, <a href="https://www.trimbos.nl/kennisbank/rapport-het-grote-uitgaansonderzoek-2023/">Het Grote Uitgaansonderzoek</a> van het <a href="https://www.trimbos.nl/">Trimbos Instituut</a>. In dit onderzoek wordt onder andere gekeken hoe vaak jongeren uitgaan, wat voor soort feesten en gelegenheden ze bezoeken, wat voor middelen ze gebruiken (bijvoorbeeld alcohol of andere drugs) en hoe ze denken over drugsgebruik. Om de data te verzamelen is een online enquête afgenomen via een gerichte wervingscampagne.</p>
 <p>Laten we eerst kijken hoe zo’n dataset eruitziet. Dat doen we met behulp van R. Zoals aangegeven in de introductie van dit online boek, het is niet erg als je nog niet snapt hoe dit werkt. Daarvoor volg je uiteraard deze cursus :)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># laden van de data</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/middelengebruik_uitgaanders.rds"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># data inspecteren</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>]) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden van de voorbeeld data</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>voorbeeld_data <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/voorbeeld_data.rds"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># data inspecteren</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(voorbeeld_data) <span class="co"># head() voor bekijken bovenste rijen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  geslacht leeftijd opleidingsniveau alcohol_ooit alcohol_laatste_jaar
-1      man       22             hoog           ja                   ja
-2    vrouw       23             hoog           ja                   ja
-3    vrouw       18           midden           ja                  nee
-4    vrouw       28             hoog           ja                   ja
-5      man       19             hoog           ja                   ja</code></pre>
+1    vrouw       30           midden           ja                   ja
+2      man       21             laag           ja                   ja
+3    vrouw       35           midden           ja                  nee
+4      man       16             hoog           ja                   ja
+5      man       26             &lt;NA&gt;           ja                   ja
+6    vrouw       18             laag           ja                   ja</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|&gt; # eerste 5 rijen en kolommen</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#gt() |&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#tab_header(title = "Voorbeeld van de data") |&gt; # titel geven aan output</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#opt_stylize(style = 6, color = "blue") # lay-out bepalen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Hierboven staat een ‘sneak preview’ van de dataset. Waar kijken we nu eigenlijk naar? De dataset verschaft informatie die we verzameld hebben over jongeren die hebben meegedaan aan de enquête. Elke rij representeert een respondent: een jongere die de enquête heeft ingevuld. De rijen zijn onze <strong>observaties</strong>.</p>
-<p>Elke kolom bevat de waarde van die respondent met betrekking tot een kenmerk, bijvoorbeeld de waarde die hoort bij een antwoord dat een respondent gaf op een in de enquête gestelde vraag. De waarden van respondenten op kenmerken kunnen variëren van respondent tot respondent. Niet iedereen is even oud, gebruikt even vaak drugs, heeft dezelfde opleiding etc. De variatie in een bepaald kenmerk meten we met behulp van <strong>variabelen</strong>. Deze zien we terug in de kolommen. De kern van statistiek is dat we alle variatie in kenmerken gaan gebruiken om vragen zoals die hierboven te kunnen beantwoorden.</p>
-<p>We kunnen bijvoorbeeld zien dat de eerste respondent een xxx is, xx jaar oud, en een xxx opleidingsniveau heeft.</p>
-<p>De vierde en vijfde kolom geven aan of iemand ooit alcohol heeft gedronken of in het afgelopen jaar. Hier staat een ‘1’ voor ja en een ‘0’ voor nee. Dit zul je vaker tegenkomen in het werken met datasets, dat cijfers worden gebruikt om kwalitatieve informatie uit te drukken. Hier komen we later nog meer op terug. De voorbeeld data toont dat vier respondenten het afgelopen jaar alcohol hebben gedronken en één respondent niet.</p>
+<p>Elke kolom bevat de waarde van die respondent met betrekking tot een kenmerk, de waarde die hoort bij een antwoord dat een respondent gaf op een in de enquête gestelde vraag. De waarden van respondenten op kenmerken kunnen variëren van respondent tot respondent. Niet iedereen is even oud, gebruikt even vaak drugs, heeft dezelfde opleiding etc. De variatie in een bepaald kenmerk meten we met behulp van <strong>variabelen</strong>. Deze zien we terug in de kolommen. De kern van statistiek is dat we alle variatie in kenmerken gaan gebruiken om onderzoeksvragen zoals die hierboven te kunnen beantwoorden.</p>
+<p>We kunnen bijvoorbeeld zien dat de eerste respondent een vrouw is, 30 jaar oud, en een middelbaar opleidingsniveau heeft.</p>
+<p>De vierde en vijfde kolom geven aan of iemand ooit alcohol heeft gedronken of in het afgelopen jaar. De voorbeeld data toont dat vijf respondenten het afgelopen jaar alcohol hebben gedronken en één respondent niet.</p>
 <section id="missende-waarden" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="missende-waarden"><span class="header-section-number">3.1.1</span> Missende waarden??</h3>
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="missende-waarden"><span class="header-section-number">3.1.1</span> Missende waarden</h3>
+<p>Wat je misschien ook is opgevallen, is dat in de vijfde rij bij opleidingsniveau ‘NA’ staat. Dit staat voor Not Available en geeft aan dat er geen valide waarde is voor deze respondent op dit kenmerk. Van deze persoon weten we het opleidingsniveau dus niet. Dit noemen we een <strong>missende waarde</strong>.</p>
+<p>Missende waarden komen vaak voor in onderzoek om diverse redenen. Zo kunnen mensen een vraag verkeerd invullen, een vraag per ongeluk overslaan, of een vraag niet willen beantwoorden. Dit laatste zien we vaker bij gevoelige vragen, bijvoorbeeld over gedrag dat maatschappelijk wordt afgekeurd (drugsgebruik!).</p>
+<p>Missende waarden hoeven niet altijd een probleem te zijn. Dit hangt af van de de aard van missende waarden en de hoeveelheid. In de practica besteden we hier meer aandacht aan.</p>
 
 
 </section>

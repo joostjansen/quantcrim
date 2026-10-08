@@ -67,3 +67,4 @@ format:
     link-citations: true
 
 editor: visual
+number-sections: true
