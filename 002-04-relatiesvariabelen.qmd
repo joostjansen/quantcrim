@@ -140,7 +140,7 @@ Ook hier geldt weer: het onderzoeken van een beschrijvende relatie tussen ordina
 
 ## Kwantitatief vs. kwantitatief
 
-Als laatste onderzoeken we de relatie tussen twee kwantitatieve variabelen. Het makkelijkst is om deze relatie direct te visualiseren (later in de cursus kijken we naar correlatie, een associatiemaat voor de sterkte van de relatie). We nemen de relatie tussen het aantal glazen alcohol op een uitgaansdag (glazen_alcohol_uitgaansdag) en het aantal gerookte sigaretten. Het gaat hier om mensen die dus zowel alcohol drinken als roken tijdens het uitgaan. Verder zijn dit twee ratio variabelen (bedenk waarom).
+Als laatste onderzoeken we de relatie tussen twee kwantitatieve variabelen. Het makkelijkst is om deze relatie direct te visualiseren (later in de cursus kijken we naar correlatie, een associatiemaat voor de sterkte van de relatie). We nemen de relatie tussen het aantal glazen alcohol op een uitgaansdag (glazen_alcohol_uitgaansdag) en het aantal gerookte sigaretten. Het gaat hier om jongeren die dus zowel alcohol drinken als roken tijdens het uitgaan. Verder zijn dit twee ratio variabelen (bedenk waarom).
 
 Om de relatie te visualiseren, maken we eerst gebruik van een spreidingsdiagram.
 
@@ -151,12 +151,22 @@ ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaans
   theme_bw() +
   xlab("aantal glazen alcohol uitgaansdag") +
   ylab("aantal sigaretten uitgaansdag")
-
 ```
 
-Elke punt
+Elke punt vertegenwoordigd een respondent in deze diagram, die laat zien hoe ze scoren op aantal glazen alcohol (x-as) en aantal sigaretten (y-as) tijdens het uitgaan. Er komt hier nog niet een heel duidelijk patroon uit naar voren. Zowel bij jongeren die relatief weinig drinken (10\< glazen) zijn er wat uitschieters naar boven qua roken (\>30 sigaretten), maar ook bij jongeren die relatief veel drinken. De dichste concentratie van punten zit linksonder, wat betekent dat de meeste respondenten rond de 5-15 glazen alcohol drinken en 1-15 sigaretten roken.
 
-(principes voor ordinaal vs. ordinaal kan ook)
+We kunnen de spreidingsdiagram nog wat aanpassen om beter inzicht te krijgen in de relatie. Sommige punten zijn nu niet goed te zien omdat ze dicht op elkaar zitten. Met die optie "*jitter"* wordt de puntenwolk wat meer uitgespreid.
+
+```{r}
+# spreidingsdiagram met aantal glazen alcohol en sigaretten
+ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) +
+  geom_point(position = "jitter") + # jitter toevoegen
+  theme_bw() +
+  xlab("aantal glazen alcohol uitgaansdag") +
+  ylab("aantal sigaretten uitgaansdag")
+```
+
+Je ziet nu iets beter waar de concentratie van datapunten zit. Verder kun je kijken in hoeverre er een (lineair) verband is tussen aantal glazen alcohol en aantal sigaretten. Je kunt een zogenoemde regressielijn 'fitten' op de data met *stat_smooth().*
 
 ```{r}
 # spreidingsdiagram met aantal glazen alcohol en sigaretten
@@ -164,7 +174,17 @@ ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaans
   geom_point(position = "jitter") +
   theme_bw() +
   xlab("aantal glazen alcohol uitgaansdag") +
-  ylab("aantal sigaretten uitgaansdag") #+
-  #stat_smooth(method = lm, se = FALSE) +
-  #ylim(0,65)
+  ylab("aantal sigaretten uitgaansdag") +
+  stat_smooth(method = loess, se = FALSE)
 ```
+
+De lijn toont dat er geen duidelijk verband is tussen aantal glazen alcohol en aantal sigaretten. Over het algemeen blijft deze vrij vlak en gaat niet duidelijk één richting op.
+
+## Tot slot
+
+Dit hoofdstuk heeft geïllustreerd hoe je relaties tussen variabelen kan beschrijven, zowel door tabellen en visualisaties. Daarbij is het belangrijk om het meetniveau van beide variabelen te weten. Besteed ook aandacht aan de interpretatie: waaraan kun je aflezen hoe een bepaalde relatie in elkaar zit? Daarvan zijn enkele voorbeelden gegeven. Zo weet je na dit hoofdstuk bijvoorbeeld:
+
+- Dat vrouwen iets vaker vapen dan mannen
+- Acceptatie onder vrienden van xtc hoger is onder gebruikers dan niet-gebruikers
+- Mannen en vrouwen gemiddeld evenveel roken, maar de onderlinge variatie net wat anders is
+- Er geen duidelijke relatie is tussen het aantal glazen alcohol dat men drinkt en aantal sigaretten dat men rookt op een uitgaansdag
