@@ -467,6 +467,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#kwalitatief-vs.-kwantitatief" id="toc-kwalitatief-vs.-kwantitatief" class="nav-link" data-scroll-target="#kwalitatief-vs.-kwantitatief"><span class="header-section-number">6.2</span> Kwalitatief vs.&nbsp;kwantitatief</a></li>
   <li><a href="#kwantitatief-vs.-kwantitatief" id="toc-kwantitatief-vs.-kwantitatief" class="nav-link" data-scroll-target="#kwantitatief-vs.-kwantitatief"><span class="header-section-number">6.3</span> Kwantitatief vs.&nbsp;kwantitatief</a></li>
+  <li><a href="#tot-slot" id="toc-tot-slot" class="nav-link" data-scroll-target="#tot-slot"><span class="header-section-number">6.4</span> Tot slot</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/002-04-relatiesvariabelen.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -660,7 +661,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="kwantitatief-vs.-kwantitatief" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="kwantitatief-vs.-kwantitatief"><span class="header-section-number">6.3</span> Kwantitatief vs.&nbsp;kwantitatief</h2>
-<p>Als laatste onderzoeken we de relatie tussen twee kwantitatieve variabelen. Het makkelijkst is om deze relatie direct te visualiseren (later in de cursus kijken we naar correlatie, een associatiemaat voor de sterkte van de relatie). We nemen de relatie tussen het aantal glazen alcohol op een uitgaansdag (glazen_alcohol_uitgaansdag) en het aantal gerookte sigaretten. Het gaat hier om mensen die dus zowel alcohol drinken als roken tijdens het uitgaan. Verder zijn dit twee ratio variabelen (bedenk waarom).</p>
+<p>Als laatste onderzoeken we de relatie tussen twee kwantitatieve variabelen. Het makkelijkst is om deze relatie direct te visualiseren (later in de cursus kijken we naar correlatie, een associatiemaat voor de sterkte van de relatie). We nemen de relatie tussen het aantal glazen alcohol op een uitgaansdag (glazen_alcohol_uitgaansdag) en het aantal gerookte sigaretten. Het gaat hier om jongeren die dus zowel alcohol drinken als roken tijdens het uitgaan. Verder zijn dit twee ratio variabelen (bedenk waarom).</p>
 <p>Om de relatie te visualiseren, maken we eerst gebruik van een spreidingsdiagram.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spreidingsdiagram met aantal glazen alcohol en sigaretten</span></span>
@@ -677,15 +678,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Elke punt</p>
-<p>(principes voor ordinaal vs.&nbsp;ordinaal kan ook)</p>
+<p>Elke punt vertegenwoordigd een respondent in deze diagram, die laat zien hoe ze scoren op aantal glazen alcohol (x-as) en aantal sigaretten (y-as) tijdens het uitgaan. Er komt hier nog niet een heel duidelijk patroon uit naar voren. Zowel bij jongeren die relatief weinig drinken (10&lt; glazen) zijn er wat uitschieters naar boven qua roken (&gt;30 sigaretten), maar ook bij jongeren die relatief veel drinken. De dichste concentratie van punten zit linksonder, wat betekent dat de meeste respondenten rond de 5-15 glazen alcohol drinken en 1-15 sigaretten roken.</p>
+<p>We kunnen de spreidingsdiagram nog wat aanpassen om beter inzicht te krijgen in de relatie. Sommige punten zijn nu niet goed te zien omdat ze dicht op elkaar zitten. Met die optie “<em>jitter”</em> wordt de puntenwolk wat meer uitgespreid.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spreidingsdiagram met aantal glazen alcohol en sigaretten</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_uitgaan, <span class="fu">aes</span>(<span class="at">x =</span> glazen_alcohol_uitgaansdag, <span class="at">y =</span> sigaretten_uitgaansdag)) <span class="sc">+</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span> <span class="co"># jitter toevoegen</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"aantal glazen alcohol uitgaansdag"</span>) <span class="sc">+</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"aantal sigaretten uitgaansdag"</span>) <span class="co">#+</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"aantal sigaretten uitgaansdag"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -693,9 +694,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#stat_smooth(method = lm, se = FALSE) +</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ylim(0,65)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<p>Je ziet nu iets beter waar de concentratie van datapunten zit. Verder kun je kijken in hoeverre er een (lineair) verband is tussen aantal glazen alcohol en aantal sigaretten. Je kunt een zogenoemde regressielijn ‘fitten’ op de data met <em>stat_smooth().</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spreidingsdiagram met aantal glazen alcohol en sigaretten</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_uitgaan, <span class="fu">aes</span>(<span class="at">x =</span> glazen_alcohol_uitgaansdag, <span class="at">y =</span> sigaretten_uitgaansdag)) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">"jitter"</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"aantal glazen alcohol uitgaansdag"</span>) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"aantal sigaretten uitgaansdag"</span>) <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> loess, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="002-04-relatiesvariabelen_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>De lijn toont dat er geen duidelijk verband is tussen aantal glazen alcohol en aantal sigaretten. Over het algemeen blijft deze vrij vlak en gaat niet duidelijk één richting op.</p>
+</section>
+<section id="tot-slot" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="tot-slot"><span class="header-section-number">6.4</span> Tot slot</h2>
+<p>Dit hoofdstuk heeft geïllustreerd hoe je relaties tussen variabelen kan beschrijven, zowel door tabellen en visualisaties. Daarbij is het belangrijk om het meetniveau van beide variabelen te weten. Besteed ook aandacht aan de interpretatie: waaraan kun je aflezen hoe een bepaalde relatie in elkaar zit? Daarvan zijn enkele voorbeelden gegeven. Zo weet je na dit hoofdstuk bijvoorbeeld:</p>
+<ul>
+<li>Dat vrouwen iets vaker vapen dan mannen</li>
+<li>Acceptatie onder vrienden van xtc hoger is onder gebruikers dan niet-gebruikers</li>
+<li>Mannen en vrouwen gemiddeld evenveel roken, maar de onderlinge variatie net wat anders is</li>
+<li>Er geen duidelijke relatie is tussen het aantal glazen alcohol dat men drinkt en aantal sigaretten dat men rookt op een uitgaansdag</li>
+</ul>
 
 
 </section>
