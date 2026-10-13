@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Steekproeven – quantcrim</title>
+<title>7&nbsp; Inferentie en steekproeven – quantcrim</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -80,6 +115,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -254,7 +318,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-01-steekproeven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Steekproeven</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-01-steekproeven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -343,7 +407,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-01-steekproeven.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Steekproeven</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -420,16 +484,23 @@ ul.task-list li input[type="checkbox"] {
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#populatie-en-steekproef" id="toc-populatie-en-steekproef" class="nav-link active" data-scroll-target="#populatie-en-steekproef"><span class="header-section-number">7.1</span> Populatie en steekproef</a></li>
+  <li><a href="#steekproevenverdeling-en-centrale-limietstelling" id="toc-steekproevenverdeling-en-centrale-limietstelling" class="nav-link" data-scroll-target="#steekproevenverdeling-en-centrale-limietstelling"><span class="header-section-number">7.2</span> <strong>Steekproevenverdeling en centrale limietstelling</strong></a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-01-steekproeven.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-01-steekproeven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Steekproeven</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-01-steekproeven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Steekproeven</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></h1>
 </div>
 
 
@@ -446,8 +517,109 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="populatie-en-steekproef" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="populatie-en-steekproef"><span class="header-section-number">7.1</span> Populatie en steekproef</h2>
+<p>We zijn tot nu toe met beschrijvende statistiek bezig geweest. Je hebt nu een idee hoe we data kunnen samenvatten en visualiseren, en hoe we de relaties tussen variabelen kunnen analyseren. Dit zijn nuttige skills voor de rest voor de cursus en wellicht ook voor later in je carrière als criminoloog.</p>
+<p>We hebben ons in de vorige hoofdstukken gericht op de xxx respondenten die in de dataset zitten. Hoewel interessant, vertelt dit ons nog vrij weinig over de bredere populatie van uitgaande jongeren. Terwijl dit juist het centrale doel is van statistisch onderzoek: op basis van een steekproef uit een bepaalde populatie willen we uitspraken doen die voor deze gehele populatie gelden! Dit noemen we ook wel <strong>inferentie</strong>, of <strong>inferentiële statistiek</strong>. Om dit te begrijpen, is het handig de begrippen populatie en steekproef kort uit te leggen.</p>
+<p><strong>Populatie</strong>: De complete groep van analyse-eenheden waarin we geïnteresseerd zijn. In de criminologie gaat dit vaak om personen in een groep die we zo helder mogelijk proberen te identificeren en af te bakenen. Bijvoorbeeld alle leden van criminele motorclub of smokkelnetwerk. In deze cursus richten we ons in principe op alle jongeren in Nederland die weleens op stap gaan.</p>
+<p><strong>Steekproef</strong>: Een willekeurige selectie van eenheden uit de populatie. Willekeurige selectie (<em>random sampling</em>) betekent dat iedereen evenveel kans heeft om onderdeel te zijn van de steekproef. De steekproef is daarmee in principe een juiste afspiegeling is van de populatie. De steekproef bestaat uit onze observaties in de dataset, in dit geval alle jongeren die de vragenlijst hebben ingevuld.</p>
+<p>Het idee achter inferentie is eigenlijk vrij simpel. In de praktijk is het vaak lastig om data over de hele populatie te verzamelen. We kunnen onmogelijk alle uitgaande jongeren in Nederland interviewen, dat gaat om miljoenen mensen! Toch willen we iets zinnigs kunnen zeggen over deze populatie. Bijvoorbeeld over het aandeel jongeren dat een bepaalde drugs gebruikt. Op basis van statistische kennis weten we dat als we slechts een klein deel van die jongeren onderzoeken (de steekproef), we toch met bepaalde zekerheid (en onder bepaalde assumpties) iets kunnen zeggen over de populatie als geheel.</p>
+<p>Dit brengt echter de nodige uitdagingen met zich mee. Hoe kun je de gegevens uit de steekproef gebruiken om iets te zeggen over de populatie, en hoe weet je zeker dat dit vervolgens klopt? En welke aannames maken we daarbij? Dit omvat vele aspecten van meetmethode en statistiek. Daar gaan we in dit hoofdstuk verder op in. Ook zullen we tijdens de onderwijsgroepen en colleges hier meer bij stilstaan. Het is echter goed te realiseren dat we niet al deze complexiteit kunnen behandelen.</p>
+</section>
+<section id="steekproevenverdeling-en-centrale-limietstelling" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="steekproevenverdeling-en-centrale-limietstelling"><span class="header-section-number">7.2</span> <strong>Steekproevenverdeling en centrale limietstelling</strong></h2>
+<p>Stel, we willen weten welk aandeel uitgaande jongeren in Nederland weleens xtc heeft gebruikt. Daarvoor kunnen we een proportie berekenen: welk aandeel jongeren van het totaal aantal het betreft. Ons doel is hier om de proportie xtc-gebruikers in de Nederlandse populatie van uitgaande jongeren te <em>schatten</em> (bij benadering), we zullen immers nooit zeker weten wat deze precieze proportie is. Daar zouden we alle uitgaande jongeren in de populatie voor moeten bevragen.</p>
+<p>Een proportie is een voorbeeld van een <strong>parameter</strong>: een kwantiteit die we schatten die ons informatie geeft over de populatie. Dit kan een proportie zijn, maar bijvoorbeeld ook een gemiddelde of een correlatie.</p>
+<p>We geven eerst kort wat notatie. We zijn geïnteresseerd in wat de proportie xtc-gebruikers is in de populatie uitgaande jongeren, deze populatieparameter noteren we als <span class="math inline">\(P\)</span> . Omdat we deze parameter niet direct weten, nemen we een steekproef van jongeren uit deze populatie. De proportie xtc-gebruikers in deze steekproef wordt genoteerd als <span class="math inline">\(\hat{p}\)</span>.</p>
+<p>Om het proces van het schatten van de populatieparameter <span class="math inline">\(P\)</span> (proportie xtc-gebruikers) uit te leggen, doen we geheel volgens wetenschappelijke traditie een klein gedachte-experiment, maar deze keer ook met praktische toepassing. Voor dit experiment doen we alsof we wel data voor de gehele populatie hebben. In dit geval is deze populatie alle jongeren die onze dataset zitten (wat origineel de steekproef was). We berekenen eerst de proportie <span class="math inline">\(P\)</span> voor deze populatie.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># proportie xtc-gebruikers berekenen</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_uitgaan<span class="sc">$</span>xtc_ooit) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+      nee        ja 
+0.3150289 0.6849711 </code></pre>
+</div>
+</div>
+<p>We zien dat deze proportie 0,685 bedraagt, oftewel 68,5% van de uitgaande jongeren heeft ooit xtc geprobeerd.</p>
+<p>Voor het gedachte-experiment gaan we er even vanuit dat we proportie van de populatie niet kennen, maar juist willen schatten. Daarom trekken we uit de populatie een steekproef van 30 personen. Vervolgens berekenen we daarvoor de proportie xtc-gebruikers <span class="math inline">\(\hat{p}\)</span> .</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed() om voorbeeld te reproduceren</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">010</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># steekproef trekken van 30 personen uit populatie</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>sample_30 <span class="ot">&lt;-</span> <span class="fu">slice_sample</span>(data_uitgaan, <span class="at">n =</span> <span class="dv">30</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># proportie xtc-gebruikers berekenen</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sample_30<span class="sc">$</span>xtc_ooit) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+      nee        ja 
+0.3448276 0.6551724 </code></pre>
+</div>
+</div>
+<p>We zien dat voor deze steekproef van 30 personen de proportie 0,655 is (65,5%). Dit lijkt dus op de populatie proportie van 0,685, maar er zit wel een klein verschil tussen (0,685 - 0,655 = 0,03; 3% om precies te zijn).</p>
+<p>Dit verschil tussen <span class="math inline">\(P\)</span> en <span class="math inline">\(\hat{p}\)</span> treedt in principe altijd op bij een willekeurige steekproef en varieert per genomen steekproef. Laten we dit nader te bekijken. We trekken nu tien willekeurige steekproeven en berekenen alle steekproefproporties van xtc gebruikers.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">010</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 keer een steekproef van 30 trekken en de proportie xtc-gebruikers berekenen</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>proporties_xtc <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">10</span>, {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  sample_30 <span class="ot">&lt;-</span> <span class="fu">slice_sample</span>(data_uitgaan, <span class="at">n =</span> <span class="dv">30</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(sample_30<span class="sc">$</span>xtc_ooit <span class="sc">==</span> <span class="st">"ja"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># na.rm om eventuele missenden waarden te verwijderen</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># proporties bekijken</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(proporties_xtc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0.6551724 0.6666667 0.7586207 0.7333333 0.5333333 0.8000000 0.6666667
+ [8] 0.6896552 0.7586207 0.5862069</code></pre>
+</div>
+</div>
+<p>Je ziet dat sommige proporties <span class="math inline">\(\hat{p}\)</span> vrij dicht bij <span class="math inline">\(P\)</span> liggen (bijvoorbeeld 0,690) terwijl anderen er ver weg van liggen (0,533). We zien dus dat er variatie is in de proportie van steekproeven.</p>
+<p>Een uitgangspunt van inferentiële statistiek is dat een steekproef één mogelijke uitkomst is van een denkbeeldig universum met een oneindig aantal uitkomsten. Deze uitkomsten zijn willekeurige variaties op een onderliggende ‘ware’ populatieparameter (in dit geval <span class="math inline">\(P\)</span> ). Als we steekproeven oneindig zouden blijven herhalen, dan zal uiteindelijk het gemiddelde van alle mogelijke uitkomsten deze ware populatieparameter weergeven. Dit omdat eventuele afwijkingen het gevolg zijn van willekeurige variatie.</p>
+<p>Als je hoofd inmiddels begint te duizelen, geen paniek. We komen hier later meer op terug. Ook zullen we vooral kijken naar wat dit in praktijk betekent.</p>
+<p>Zoals je wellicht kunt voorstellen, is het niet mogelijk om oneindig steekproeven te blijven trekken. Daarom doen we dat hier bij benadering door ‘slechts’ 10.000 steekproeven te trekken van 30 personen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">010</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 keer een steekproef van 30 trekken en de proportie xtc-gebruikers berekenen</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>proporties_xtc_10k <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">10000</span>, {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  sample_30 <span class="ot">&lt;-</span> <span class="fu">slice_sample</span>(data_uitgaan, <span class="at">n =</span> <span class="dv">30</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(sample_30<span class="sc">$</span>xtc_ooit <span class="sc">==</span> <span class="st">"ja"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># na.rm om eventuele missenden waarden te verwijderen</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Vervolgens visualiseren we de proporties xtc-gebruikers van al deze steekproeven in een histogram, en berekenen we enkele centrum- en spreidingsmaten.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram maken</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(proporties_xtc_10k), </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> proporties_xtc_10k)) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">22</span>, <span class="at">fill =</span> <span class="st">"grey"</span>, <span class="at">colour =</span> <span class="st">"black"</span>) <span class="sc">+</span>  </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"aantal steekproeven"</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span> (<span class="st">"proporties xtc-gebruikers"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="003-01-steekproeven_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen centrum- en spreidingsmaten</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(proporties_xtc_10k)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.3000  0.6333  0.6897  0.6849  0.7333  0.9667 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(proporties_xtc_10k)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.08147867</code></pre>
+</div>
+</div>
+<p>Wat je hierboven ziet, staat ook wel bekend als de <strong>steekproevenverdeling</strong>. Dat wil zeggen, de verdeling van mogelijke uitkomsten van herhaalde steekproeven. In dit geval betreft het 10.000 steekproeven van 30 personen betreffende de proportie xtc-gebruikers.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -880,4 +1052,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-01-steekproeven.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-01-steekproeven.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
