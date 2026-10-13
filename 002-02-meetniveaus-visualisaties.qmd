@@ -153,7 +153,7 @@ Voor een lineaire variabele met juist relatief veel unieke waarden gebruiken we 
 ```{r}
 # histogram van gemoedstoestand op dinsdag na XTC gebruik
 ggplot(data_uitgaan, aes(x = gemoed_dinsdag_na_xtc)) +
-  geom_histogram(bins = 50) +
+  geom_histogram(bins = 25, fill = "grey", colour = "black") +
   theme_bw() + 
   ylab("aantal") +
   xlab ("gemoedstoestand (negatief - positief)") +

@@ -17,6 +17,8 @@ Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, ee
 # test
 ```
 
+Stuk tekst van McElrath over waarom werken met R en code
+
 ## Voor we verder gaan..
 
 We hopen dat je dit boek handig vindt om mee te werken. In het kader van Open Science hebben we geprobeerd dit boek volledig transparant en reproduceerbaar te ontwikkelen. De broncode is beschikbaar via [https://github.com/joostjansen/quantcrim](https://github.com/joostjansen/QuantCrim){.uri}. Als je vragen, suggesties of aanpassingen hebt, aarzel niet deze te stellen.[^index-2]
