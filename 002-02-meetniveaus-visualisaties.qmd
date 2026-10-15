@@ -1,5 +1,5 @@
 ---
-title: "Meetniveaus en visualisaties"
+title: "Meetniveaus en visualisaties" 
 format: html
 execute:
   warning: false
@@ -146,7 +146,7 @@ ggplot(data_uitgaan, aes(x = as.factor(leeftijd))) +
 
 De staafdiagram toont dat relatief veel respondenten tussen 21 en 24 jaar zijn, een leeftijd waarop jongeren veel uitgaan.
 
-### Histogram
+### Histogram {#sec-histogram}
 
 Voor een lineaire variabele met juist relatief veel unieke waarden gebruiken we meestal een histogram. Bij een een histogram worden bepaalde waardes gegroepeerd tot één staaf, waardoor de presentatie overzichtelijk blijft. Dit is hieronder weergeven voor de variabele gemoed_dinsdag_na_xtc*.* Dit is een score tussen de 0 en 100 die respondenten hebben gegeven hoe zich voelen op de dinsdag na xtc-gebruik in het weekend, waarbij 0 voor negatief staat en 100 voor positief.
 

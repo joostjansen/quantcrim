@@ -1,5 +1,5 @@
 ---
-title: "Centrum- en spreidingsmaten"
+title: "Centrum- en spreidingsmaten, normale verdeling en z-score"
 format: html
 execute:
   warning: false
@@ -7,7 +7,7 @@ execute:
 
 {{< include _setup.qmd >}}
 
-Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook benoemd dat statistiek draait om het analyseren van *variatie* met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, uitgaangsgedrag, leeftijden en opleidingsniveau. Om de variatie te analyseren maken we gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.
+Inmiddels zijn we bekend met datasets, observaties, variabelen, meetniveaus en figuren. We hebben ook benoemd dat statistiek draait om het analyseren van *variatie* met behulp van de variabelen die in onze dataset zitten. Denk aan: variatie in drugsgebruik, uitgaansgedrag, leeftijden en opleidingsniveau. Om de variatie te analyseren maken we gebruik van diverse centrum- en spreidingsmaten. De meeste hiervan zul je herkennen van eerdere wiskundelessen die je hebt gehad.
 
 ## Centrummaten
 
@@ -187,12 +187,12 @@ De variantie is een handig getal om mee te rekenen, maar heeft meestal op zichze
 De standaarddeviatie is de wortel van de steekproefvariantie:
 
 $$
-S=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
+s=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 $$
 
 De standaarddeviatie van ons voorbeeld met de leeftijd van vijf respondenten is:
 
-$S=\sqrt{42,2}=6,50$
+$s=\sqrt{42,2}=6,50$
 
 Je zou dus kunnen zeggen dat een willekeurige persoon van de vijf respondenten 'gemiddeld' 6,5 jaar afwijkt van de gemiddelde leeftijd van 24,2 jaar.
 
@@ -245,7 +245,7 @@ Je ziet dat de *summary()* functie ook de waardes voor 1st Qu. en 3rd Qu. geeft.
 
 ### Doosdiagram
 
-Ten slotte is er ook een manier om de spreiding van een lineaire variabele te visualiseren. Dit is via een **doosdiagram**.
+Er bestaat ook een manier om de spreiding van een lineaire variabele te visualiseren. Dit is via een **doosdiagram**.
 
 ```{r}
 # doosdiagram maken
@@ -271,10 +271,55 @@ Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarden tussen het 1s
 
 Vergelijk deze doosdiagram met de staafdiagram van leeftijd uit het vorige hoofdstuk. Je ziet dat er verschillende manieren zijn om data te visualiseren.
 
-Nog toe te voegen aan formuleblad:
+## Normale verdeling {#sec-normaleverdeling}
 
-$$ \sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N} $$
+We hebben diverse centrum- en spreidingsmaten besproken. Deze kunnen we gebruiken om de verdeling van een variabele te visualiseren, afhankelijk van het meetniveau van de variabele (zie ook [Meetniveaus en visualisaties](002-02-meetniveaus-visualisaties.qmd)). Een van de meest bekende verdelingen in de statistiek is de **normale verdeling** (of normaalverdeling). Deze wordt gebruikt om verdeling van kwantitatieve variabelen te beschrijven, denk bijvoorbeeld aan lengte of IQ.
 
-$$ z=\frac{x-\bar{x}}{S} $$
+De normale verdeling heeft een aantal kenmerken:
 
-$$ s.e. =\frac{S}{\sqrt{n}} $$
+- De verdeling bestaat uit een gemiddelde $\bar{x}$ en standaarddeviatie $s$
+- Het gemiddelde en de mediaan zijn in principe gelijk aan elkaar. Dit betekent dat de verdeling symmetrisch is (50% van de observaties bevindt zich links van het gemiddelde, en 50% rechts)
+
+Hieronder staat een afbeelding van de normale verdeling. ![Normale verdeling](afbeeldingen/Normale_verdeling.jpg)
+
+De notatie in deze afbeelding is iets anders dan je tot nu toe gewend bent. Het gemiddelde wordt aangegeven met $\mu$ (spreek je uit als: mu) en de standaardafwijking met $\sigma$ (spreek je uit als: sigma). Deze symbolen zijn eigenlijk hetzelfde als $\bar{x}$ en $s$ , alleen gebruiken we $\mu$ en $\sigma$ om eigenschappen van de populatie te beschrijven terwijl $\bar{x}$ en $s$ gelden voor de steekproef (zie ook [Formuleblad](formuleblad.qmd)). Dit verschil komt terug bij [Inferentiële statistiek](003-01-steekproeven.qmd). Voor nu kun je er even van uitgaan dat ze hetzelfde betekenen.
+
+De normaalverdeling noemen we ook wel een *kans*verdeling, omdat (onder bepaalde assumpties) een bepaald oppervlak onder de grafiek correspondeert met de kans op een waarde of uitkomst. Zo kun in de afbeelding bijvoorbeeld zien dat tussen één standaarddeviatie onder het gemiddelde ($-1\sigma$) en één standaarddeviatie boven het gemiddelde ($1\sigma$) 68,2% van alle waarden liggen. Verder geldt:
+
+- tussen $-2\sigma$ en $2\sigma$ liggen 95,4% van alle observaties
+
+- tussen $-3\sigma$ en $3\sigma$ liggen 99,7% van alle observaties
+
+Dat een bepaald bereik op basis van standaarddeviaties correspondeert met een zeker percentage van alle observaties, staat ook wel bekend als **de empirische regel.** Je zult later bij het berekenen van een betrouwbaarheidsinterval en hypothese toetsen gaan zien waarom dit relevant is.
+
+Het is belangrijk om op te merken dat in de praktijk variabelen zelden exact normaal verdeeld zijn, ze volgen dus niet precies de verdeling zoals hierboven weergeven. Zo kunnen kwantitatieve variabelen ook linksscheef of rechtsscheef verdeeld zijn, die daarvoor deze [link](https://www.scribbr.nl/statistiek/skewness-scheefheid/).
+
+## Z-score
+
+Om inzicht te krijgen in de relatieve positie van een bepaalde observatie ten opzichte van het gemiddelde, kunnen we ten slotte een z-score berekenen. Een z-score is een gestandaardiseerde maat die aangeeft hoeveel standaarddeviaties een waarde van het gemiddelde afligt. Daarbij geldt dat, door het standaardiseren, het gemiddelde altijd 0 is en de standaardafwijking 1. De z-score heeft de volgende formule:
+
+$$ z=\frac{x-\bar{x}}{s} $$
+
+De berekening is vrij eenvoudig: je trekt het gemiddelde $\bar{x}$ af van de specifieke waarde $x$ en deelt dit door de standaardafwijking $s$ van de originele variabele.
+
+Laten we dit illustreren aan de hand van een voorbeeld. Bij [Histogram](002-02-meetniveaus-visualisaties.qmd#sec-histogram) zag je de variabele gemoed_dinsdag_na_xtc*,* die staat voor score tussen de 0 en 100 hoe positief respondenten hoe zich voelen op de dinsdag na xtc-gebruik in het weekend. We vragen eerst het gemiddelde en standaardafwijking op.
+
+```{r}
+# gemiddelde en standaarddeviatie (met verwijderen missende waarden via na.rm)
+mean(data_uitgaan$gemoed_dinsdag_na_xtc, na.rm = TRUE)
+sd(data_uitgaan$gemoed_dinsdag_na_xtc, na.rm = TRUE)
+```
+
+We nemen als voorbeeld iemand die score 30 heeft ingevuld. Dan weten we in principe alle relevante informatie en kunnen we dit invullen in de formule:
+
+$$ z=\frac{x-\bar{x}}{s}=\frac{30-58,3}{14,0} $$
+
+We kunnen R gebruiken om dit uit te rekenen:
+
+```{r}
+(30-58.3)/14.0
+```
+
+De persoon met score 30 bevindt dus ongeveer 2 standaarddeviaties onder het gemiddelde. Zoals de normale verdeling laat zien, is dit een vrij extreme score (slechts 2,2% van de waardes ligt nog onder 2 standaarddeviaties).[^002-03-centrum-en-spreidingsmaten-1] Deze partyprins of -prinses voelt zich dus niet zo lekker vergeleken met de rest op de dinsdag na een wild weekend!
+
+[^002-03-centrum-en-spreidingsmaten-1]: Vergelijk dit ook visueel met de verdeling van gemoed_dinsdag_na_xtc bij [Histogram](002-02-meetniveaus-visualisaties.qmd#sec-histogram). Waar ligt score 30 t.o.v. de rest van de verdeling?

@@ -17,3 +17,11 @@ Hier vind je een overzicht van alle belangrijke symbolen en formules die we gebr
 | $\sigma$ | Sigma, de standaarddeviatie in een *populatie* (vaak onbekend) |
 | $\sigma^2$ | Sigma kwadraat, de variantie in een *populatie* |
 | $\sigma_{\bar{x}}$ | Sigma mean, standaardfout vna het gemiddelde |
+
+Nog toe te voegen aan formuleblad:
+
+$$ \sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N} $$
+
+$$ z=\frac{x-\bar{x}}{S} $$
+
+$$ s.e. =\frac{S}{\sqrt{n}} $$

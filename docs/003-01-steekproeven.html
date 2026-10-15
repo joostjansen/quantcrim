@@ -147,7 +147,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -384,7 +384,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./002-03-centrum-en-spreidingsmaten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Centrum- en spreidingsmaten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Centrum- en spreidingsmaten, normale verdeling en z-score</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -491,11 +491,12 @@ window.Quarto = {
   <ul>
   <li><a href="#populatie-en-steekproef" id="toc-populatie-en-steekproef" class="nav-link active" data-scroll-target="#populatie-en-steekproef"><span class="header-section-number">7.1</span> Populatie en steekproef</a></li>
   <li><a href="#steekproevenverdeling-en-centrale-limietstelling" id="toc-steekproevenverdeling-en-centrale-limietstelling" class="nav-link" data-scroll-target="#steekproevenverdeling-en-centrale-limietstelling"><span class="header-section-number">7.2</span> <strong>Steekproevenverdeling en centrale limietstelling</strong></a></li>
+  <li><a href="#één-steekproef-en-de-standaardfout" id="toc-één-steekproef-en-de-standaardfout" class="nav-link" data-scroll-target="#één-steekproef-en-de-standaardfout"><span class="header-section-number">7.3</span> Één steekproef en de standaardfout</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-01-steekproeven.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-01-steekproeven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></a></li></ol></nav>
@@ -519,19 +520,19 @@ window.Quarto = {
 
 <section id="populatie-en-steekproef" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="populatie-en-steekproef"><span class="header-section-number">7.1</span> Populatie en steekproef</h2>
-<p>We zijn tot nu toe met beschrijvende statistiek bezig geweest. Je hebt nu een idee hoe we data kunnen samenvatten en visualiseren, en hoe we de relaties tussen variabelen kunnen analyseren. Dit zijn nuttige skills voor de rest voor de cursus en wellicht ook voor later in je carrière als criminoloog.</p>
-<p>We hebben ons in de vorige hoofdstukken gericht op de xxx respondenten die in de dataset zitten. Hoewel interessant, vertelt dit ons nog vrij weinig over de bredere populatie van uitgaande jongeren. Terwijl dit juist het centrale doel is van statistisch onderzoek: op basis van een steekproef uit een bepaalde populatie willen we uitspraken doen die voor deze gehele populatie gelden! Dit noemen we ook wel <strong>inferentie</strong>, of <strong>inferentiële statistiek</strong>. Om dit te begrijpen, is het handig de begrippen populatie en steekproef kort uit te leggen.</p>
+<p>We zijn tot nu toe met beschrijvende statistiek bezig geweest. Je hebt nu een idee hoe we data kunnen samenvatten en visualiseren, en hoe we de relaties tussen variabelen kunnen analyseren. Dit zijn nuttige skills voor de rest van de cursus en (wellicht) ook voor later in je carrière als criminoloog.</p>
+<p>We hebben ons in de vorige hoofdstukken gericht op de xxx respondenten die in de dataset zitten. Hoewel interessant, vertelt dit ons nog vrij weinig over de bredere populatie van uitgaande jongeren. Terwijl dit juist het centrale doel is van statistisch onderzoek: op basis van een steekproef willen we uitspraken doen die voor deze gehele populatie gelden! Dit noemen we ook wel <strong>inferentie</strong>, of <strong>inferentiële statistiek</strong>. Om dit te begrijpen, is het handig de begrippen populatie en steekproef kort uit te leggen.</p>
 <p><strong>Populatie</strong>: De complete groep van analyse-eenheden waarin we geïnteresseerd zijn. In de criminologie gaat dit vaak om personen in een groep die we zo helder mogelijk proberen te identificeren en af te bakenen. Bijvoorbeeld alle leden van criminele motorclub of smokkelnetwerk. In deze cursus richten we ons in principe op alle jongeren in Nederland die weleens op stap gaan.</p>
-<p><strong>Steekproef</strong>: Een willekeurige selectie van eenheden uit de populatie. Willekeurige selectie (<em>random sampling</em>) betekent dat iedereen evenveel kans heeft om onderdeel te zijn van de steekproef. De steekproef is daarmee in principe een juiste afspiegeling is van de populatie. De steekproef bestaat uit onze observaties in de dataset, in dit geval alle jongeren die de vragenlijst hebben ingevuld.</p>
-<p>Het idee achter inferentie is eigenlijk vrij simpel. In de praktijk is het vaak lastig om data over de hele populatie te verzamelen. We kunnen onmogelijk alle uitgaande jongeren in Nederland interviewen, dat gaat om miljoenen mensen! Toch willen we iets zinnigs kunnen zeggen over deze populatie. Bijvoorbeeld over het aandeel jongeren dat een bepaalde drugs gebruikt. Op basis van statistische kennis weten we dat als we slechts een klein deel van die jongeren onderzoeken (de steekproef), we toch met bepaalde zekerheid (en onder bepaalde assumpties) iets kunnen zeggen over de populatie als geheel.</p>
+<p><strong>Steekproef</strong>: Een willekeurige selectie van eenheden uit de populatie. Willekeurige selectie betekent dat iedereen evenveel kans heeft om onderdeel te zijn van de steekproef (<em>random sample</em>). De steekproef is daarmee in principe een representatieve afspiegeling is van de populatie. De steekproef bestaat uit onze observaties in de dataset, in dit geval alle jongeren die de vragenlijst hebben ingevuld.</p>
+<p>Het idee achter inferentie is eigenlijk vrij simpel. In de praktijk is het vaak lastig om data over de hele populatie te verzamelen. We kunnen onmogelijk alle uitgaande jongeren in Nederland interviewen, dat gaat om miljoenen mensen! Toch willen we iets zinnigs kunnen zeggen over deze populatie. Bijvoorbeeld over het aandeel jongeren dat een bepaalde drugs gebruikt. Op basis van statistische kennis weten we dat we met slechts een klein deel van die jongeren (de steekproef) toch met bepaalde zekerheid (en onder bepaalde assumpties) iets kunnen zeggen over de populatie als geheel.</p>
 <p>Dit brengt echter de nodige uitdagingen met zich mee. Hoe kun je de gegevens uit de steekproef gebruiken om iets te zeggen over de populatie, en hoe weet je zeker dat dit vervolgens klopt? En welke aannames maken we daarbij? Dit omvat vele aspecten van meetmethode en statistiek. Daar gaan we in dit hoofdstuk verder op in. Ook zullen we tijdens de onderwijsgroepen en colleges hier meer bij stilstaan. Het is echter goed te realiseren dat we niet al deze complexiteit kunnen behandelen.</p>
 </section>
-<section id="steekproevenverdeling-en-centrale-limietstelling" class="level2" data-number="7.2">
+<section id="steekproevenverdeling-en-centrale-limietstelling" class="level2 page-columns page-full" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="steekproevenverdeling-en-centrale-limietstelling"><span class="header-section-number">7.2</span> <strong>Steekproevenverdeling en centrale limietstelling</strong></h2>
 <p>Stel, we willen weten welk aandeel uitgaande jongeren in Nederland weleens xtc heeft gebruikt. Daarvoor kunnen we een proportie berekenen: welk aandeel jongeren van het totaal aantal het betreft. Ons doel is hier om de proportie xtc-gebruikers in de Nederlandse populatie van uitgaande jongeren te <em>schatten</em> (bij benadering), we zullen immers nooit zeker weten wat deze precieze proportie is. Daar zouden we alle uitgaande jongeren in de populatie voor moeten bevragen.</p>
 <p>Een proportie is een voorbeeld van een <strong>parameter</strong>: een kwantiteit die we schatten die ons informatie geeft over de populatie. Dit kan een proportie zijn, maar bijvoorbeeld ook een gemiddelde of een correlatie.</p>
-<p>We geven eerst kort wat notatie. We zijn geïnteresseerd in wat de proportie xtc-gebruikers is in de populatie uitgaande jongeren, deze populatieparameter noteren we als <span class="math inline">\(P\)</span> . Omdat we deze parameter niet direct weten, nemen we een steekproef van jongeren uit deze populatie. De proportie xtc-gebruikers in deze steekproef wordt genoteerd als <span class="math inline">\(\hat{p}\)</span>.</p>
-<p>Om het proces van het schatten van de populatieparameter <span class="math inline">\(P\)</span> (proportie xtc-gebruikers) uit te leggen, doen we geheel volgens wetenschappelijke traditie een klein gedachte-experiment, maar deze keer ook met praktische toepassing. Voor dit experiment doen we alsof we wel data voor de gehele populatie hebben. In dit geval is deze populatie alle jongeren die onze dataset zitten (wat origineel de steekproef was). We berekenen eerst de proportie <span class="math inline">\(P\)</span> voor deze populatie.</p>
+<p>We geven eerst kort wat notatie. We zijn geïnteresseerd in wat de proportie xtc-gebruikers is in de populatie uitgaande jongeren, deze populatieparameter noteren we als <span class="math inline">\(P\)</span> . Omdat we deze parameter niet direct weten, nemen we een steekproef van jongeren uit deze populatie. De proportie xtc-gebruikers in deze steekproef wordt genoteerd als <span class="math inline">\(\hat{p}\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Hetzelfde principe geldt voor andere parameters waarin we mogelijk geinteresseerd zijn. Als je het gemiddelde van een populatie (<span class="math inline">\(\mu\)</span>) wil schatten, trek je daarvoor een steekproef die uiteraard ook zijn eigen gemiddelde heeft (<span class="math inline">\(\bar{x}\)</span>)</p></div></div><p>Om het proces van het schatten van de populatieparameter <span class="math inline">\(P\)</span> (proportie xtc-gebruikers) uit te leggen, doen we geheel volgens wetenschappelijke traditie een klein gedachte-experiment, maar deze keer ook met praktische toepassing. Voor dit experiment doen we alsof we wel data voor de gehele populatie hebben. In dit geval is deze populatie alle jongeren die onze dataset zitten (wat origineel de steekproef was). We berekenen eerst de proportie <span class="math inline">\(P\)</span> voor deze populatie.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># proportie xtc-gebruikers berekenen</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_uitgaan<span class="sc">$</span>xtc_ooit) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -542,7 +543,7 @@ window.Quarto = {
 </div>
 </div>
 <p>We zien dat deze proportie 0,685 bedraagt, oftewel 68,5% van de uitgaande jongeren heeft ooit xtc geprobeerd.</p>
-<p>Voor het gedachte-experiment gaan we er even vanuit dat we proportie van de populatie niet kennen, maar juist willen schatten. Daarom trekken we uit de populatie een steekproef van 30 personen. Vervolgens berekenen we daarvoor de proportie xtc-gebruikers <span class="math inline">\(\hat{p}\)</span> .</p>
+<p>Voor het gedachte-experiment gaan we er even vanuit dat we de proportie van de populatie niet kennen, maar juist willen schatten. Daarom trekken we uit de populatie een steekproef van 30 personen. Vervolgens berekenen we daarvoor de proportie xtc-gebruikers <span class="math inline">\(\hat{p}\)</span> .</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># set.seed() om voorbeeld te reproduceren</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">010</span>)</span>
@@ -558,8 +559,8 @@ window.Quarto = {
 0.3448276 0.6551724 </code></pre>
 </div>
 </div>
-<p>We zien dat voor deze steekproef van 30 personen de proportie 0,655 is (65,5%). Dit lijkt dus op de populatie proportie van 0,685, maar er zit wel een klein verschil tussen (0,685 - 0,655 = 0,03; 3% om precies te zijn).</p>
-<p>Dit verschil tussen <span class="math inline">\(P\)</span> en <span class="math inline">\(\hat{p}\)</span> treedt in principe altijd op bij een willekeurige steekproef en varieert per genomen steekproef. Laten we dit nader te bekijken. We trekken nu tien willekeurige steekproeven en berekenen alle steekproefproporties van xtc gebruikers.</p>
+<p>We zien dat voor deze steekproef van 30 personen de proportie 0,655 is (65,5%). Dit lijkt dus op de populatie proportie <span class="math inline">\(P\)</span> van 0,685, maar er zit wel een klein verschil tussen (0,685 - 0,655 = 0,030; 3,0% om precies te zijn).</p>
+<p>Dit verschil tussen <span class="math inline">\(P\)</span> en <span class="math inline">\(\hat{p}\)</span> treedt in principe altijd op bij een willekeurige steekproef en de grootte ervan varieert per genomen steekproef. Laten we dit nader te bekijken. We trekken nu tien willekeurige steekproeven van 30 personen en berekenen alle steekproefproporties van xtc gebruikers.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">010</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -576,10 +577,10 @@ window.Quarto = {
  [8] 0.6896552 0.7586207 0.5862069</code></pre>
 </div>
 </div>
-<p>Je ziet dat sommige proporties <span class="math inline">\(\hat{p}\)</span> vrij dicht bij <span class="math inline">\(P\)</span> liggen (bijvoorbeeld 0,690) terwijl anderen er ver weg van liggen (0,533). We zien dus dat er variatie is in de proportie van steekproeven.</p>
-<p>Een uitgangspunt van inferentiële statistiek is dat een steekproef één mogelijke uitkomst is van een denkbeeldig universum met een oneindig aantal uitkomsten. Deze uitkomsten zijn willekeurige variaties op een onderliggende ‘ware’ populatieparameter (in dit geval <span class="math inline">\(P\)</span> ). Als we steekproeven oneindig zouden blijven herhalen, dan zal uiteindelijk het gemiddelde van alle mogelijke uitkomsten deze ware populatieparameter weergeven. Dit omdat eventuele afwijkingen het gevolg zijn van willekeurige variatie.</p>
+<p>Je ziet dat sommige proporties <span class="math inline">\(\hat{p}\)</span> vrij dicht bij <span class="math inline">\(P\)</span> liggen (bijvoorbeeld 0,690) terwijl anderen er ver weg van liggen (0,533). We zien dus dat er variatie is tussen steekproeven in de proporties.</p>
+<p>Een uitgangspunt van inferentiële statistiek is dat een steekproef één mogelijke uitkomst is van een denkbeeldig universum met een oneindig aantal uitkomsten. Deze uitkomsten zijn willekeurige variaties op een onderliggende ‘ware’ populatieparameter (in dit geval <span class="math inline">\(P\)</span>). Als we steekproeven oneindig zouden blijven herhalen, dan zal uiteindelijk het gemiddelde van alle mogelijke uitkomsten deze ware populatieparameter weergeven. Dit omdat eventuele afwijkingen het gevolg zijn van willekeurige variatie.</p>
 <p>Als je hoofd inmiddels begint te duizelen, geen paniek. We komen hier later meer op terug. Ook zullen we vooral kijken naar wat dit in praktijk betekent.</p>
-<p>Zoals je wellicht kunt voorstellen, is het niet mogelijk om oneindig steekproeven te blijven trekken. Daarom doen we dat hier bij benadering door ‘slechts’ 10.000 steekproeven te trekken van 30 personen.</p>
+<p>Zoals je wellicht kunt voorstellen, is het logisch niet mogelijk om oneindig steekproeven te blijven trekken. Daarom doen we dat hier bij benadering door ‘slechts’ 10.000 steekproeven te trekken van 30 personen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">010</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -616,10 +617,31 @@ window.Quarto = {
 <pre><code>[1] 0.08147867</code></pre>
 </div>
 </div>
-<p>Wat je hierboven ziet, staat ook wel bekend als de <strong>steekproevenverdeling</strong>. Dat wil zeggen, de verdeling van mogelijke uitkomsten van herhaalde steekproeven. In dit geval betreft het 10.000 steekproeven van 30 personen betreffende de proportie xtc-gebruikers.</p>
+<p>Wat je hierboven ziet, staat ook wel bekend als de <strong>steekproevenverdeling</strong>. Dat wil zeggen, de verdeling van de mogelijke uitkomsten (hier: proporties) van herhaalde steekproeven (in dit geval: 10.000 steekproeven van 30 personen betreffende de proportie xtc-gebruikers).</p>
+<p>Er vallen een paar dingen op als we bovenstaande gegevens kijken. Ten eerste lijkt de verdeling van steekproefproporties nagenoeg op een normale verdeling, zoals we eerder hebben gezien (<a href="./002-03-centrum-en-spreidingsmaten.html#sec-normaleverdeling">Normale verdeling</a>). Dit betekent dat de steekproevenverdeling dezelfde eigenschappen heeft als een normale verdeling, zoals dat het kansverdeling is (we kunnen de kans op een bepaalde uitkomst berekenen) en dat het een gemiddelde en een standaarddeviatie heeft. Je kunt verder zien dat het gemiddelde van 0,685 nagenoeg gelijk is aan de mediaan van 0,690, wat verder indiceert dat we hier met een normale verdeling te maken hebben. Het minimum (0,300) en maximum (0,967) tonen verder bij enkele steekproeven de proportie juist ver af zit van het populatiegemiddelde, maar de verdeling toont tevens dat dit uitzonderlijke uitkomsten zijn.</p>
+<p>Het meest interessant is echter dat de steekproevenverdeling van proporties allesbehalve willekeurig is. Het resulteert immers in een normale verdeling! En dat niet alleen: het de gemiddelde proportie van de steekproevenverdeling (<span class="math inline">\(\bar{x}_\hat{p}=0,685\)</span>) is afgerond gelijk aan <span class="math inline">\(P=0,685\)</span>. Meer algemeen geldt dat het gemiddelde van de steekproevenverdeling gelijk is aan het populatiegemiddelde.</p>
+<p>Hoe komt dat? Stel dat je een steekproef trekt die op alle denkbare kenmerken gelijk is aan populatie. Het is met andere woorden een perfecte afspiegeling van de populatie. In dit geval vind je dat <span class="math inline">\(P=\hat{p}\)</span> . Dit is echter bijna nooit het geval. Omdat een steekproef willekeurig wordt getrokken, zul je bijna altijd toevallige afwijkingen hebben. Dat je bijvoorbeeld iets meer xtc-gebruikers selecteert dan niet-gebruikers ten opzichte van de verhouding in de populatie. Echter, ervan uitgaande dat elke afwijking willekeurig is, zal bij oneindige herhaling van steekproeven het gemiddelde van alle afwijkingen 0 zijn (het is immers willekeurig of je een hogere of lagere proportie krijgt in een steekproef).</p>
+<p>Een ander interessant gegeven is dat de steekproevenverdeling naast een gemiddelde zijn eigen standaarddeviatie heeft. Dit is een speciale variant van de standaarddeviatie, en wordt de <strong>standaardfout</strong> genoemd. Deze noteren we als <span class="math inline">\(\sigma_{\hat{p}}\)</span> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;En <span class="math inline">\(\sigma_{\bar{x}}\)</span> als we het hebben over de standaardfout van steekproefgemiddeldes in plaats van steekproefproporties.</p></div></div><p>De ‘fout’ geeft dus eigenlijk aan in hoeverre een steekproefuitkomst (proportie v/d steekproef) afwijkt van de populatieparameter (proportie v/d de populatie). De standaardfout is belangrijk omdat we deze, zoals we later zullen zien, kunnen gebruiken om te berekenen wat de foutmarge van onze steekproef is met betrekking tot het schatten van de populatieparameter.</p>
+<p>Wat we zojuist hebben aangetoond, is de <strong>centrale limietstelling</strong>. Deze houdt in dat:</p>
+<ul>
+<li>Als een oneindig aantal willekeurige steekproeven bestaat uit ongeveer 30 observaties of meer, dan…</li>
+<li>Is het gemiddelde van de steekproevenverdeling gelijk aan het populatiegemiddelde</li>
+<li>Is de steekproevenverdeling normaal verdeeld (met eigen standaardfout)</li>
+<li>Zelfs als de oorspronkelijke variabele niet normaal verdeeld is! (zoals bijvoorbeeld “xtc-gebruik ooit”; dit is een dichotome variabele)</li>
+</ul>
+<p>De regels rondom de centrale limietstelling zijn net wet anders bij minder dan 30 observaties, zie daarvoor bijvoorbeeld <em>Statistiek als hulpmiddel</em> of het internet.</p>
+<p>Doordat we de standaardfout kennen, kunnen we in combinatie met <a href="./002-03-centrum-en-spreidingsmaten.html#sec-normaleverdeling">de empirische regel</a> bepalen hoe waarschijnlijk een bepaalde (willekeurige) steekproefuitkomst voorkomt. Daar gaan we zo mee verder. Eerst laten we de magie van de steekproevenverdeling en centrale limietstelling even op ons inwerken.</p>
+<p><img src="afbeeldingen/Mind_blown.gif" class="img-fluid"></p>
+</section>
+<section id="één-steekproef-en-de-standaardfout" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="één-steekproef-en-de-standaardfout"><span class="header-section-number">7.3</span> Één steekproef en de standaardfout</h2>
+<p>Degenen die een beetje bij zijn gekomen van het conceptueel geweld hierboven (en wellicht ook degenen voor wie de verwarring compleet is), zullen wellicht inmiddels aan het denken zijn: ja dat is allemaal leuk en aardig die 10.000 steekproeven, maar in de praktijk helemaal niet werkbaar. We kunnen immers niet voor elk onderzoek 10.000 steekproeven uitvoeren, dat kost tijd en geld en na steekproef nummer drie is de lol er eigenlijk ook wel een beetje vanaf.</p>
+<p>Gelukkig is hier een eenvoudige oplossing voor. Het blijkt namelijk statistisch zo te zijn dat we de standaardfout kunnen berekenen op basis van één steekproef. We hoeven dus helemaal geen 10.000 steekproeven te trekken om de standaardfout te berekenen!</p>
 
 
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
