@@ -125,7 +125,7 @@ Dan wordt vaak aangenomen dat de afstand tussen de categorieën gelijk is. Zie v
 
 Kwantitatieve variabelen zijn numeriek en bestaan dus uit cijfers. De afstand tussen waarden is altijd gelijk en er zit een rangorde in. Bijvoorbeeld bij een rapportcijfer van 1 t/m 10 is de afstand tussen 2 en 3 hetzelfde als de afstand tussen 7 en 8. Kwantitatieve variabelen worden soms ook wel lineaire of continue variabelen genoemd.
 
-### Interval en ratio variabelen
+### Interval en ratio variabelen {#sec-intervalratio}
 
 Er zijn twee types kwantitatieve variabelen: **interval** en **ratio**. Het verschil tussen deze twee types is dat een interval variabele geen *absoluut nulpunt* kent en een ratio variabele wel. Een absoluut nulpunt is wanneer de laagste waarde van een variabele nul is en het niet mogelijk is dat er een nog logische waarde daaronder bestaat.
 

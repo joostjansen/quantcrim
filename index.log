@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.10.15)  15 OCT 2026 21:09
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.10.15)  16 OCT 2026 17:13
  restricted system commands enabled.
 **index.tex
 (./index.tex
@@ -1130,13 +1130,13 @@ LaTeX Warning: Reference `sec-meetniveaubepalen' on page 16 undefined on input l
 <002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-8-1.pdf, id=135, 397.485pt x 252.945pt>
 File: 002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 <use 002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-8-1.pdf>
-Package luatex.def Info: 002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-8-1.pdf  used on input line 717.
+Package luatex.def Info: 002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-8-1.pdf  used on input line 716.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 [16]
 <002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-9-1.pdf, id=143, 397.485pt x 252.945pt>
 File: 002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use 002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-9-1.pdf>
-Package luatex.def Info: 002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-9-1.pdf  used on input line 744.
+Package luatex.def Info: 002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-9-1.pdf  used on input line 743.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 [17<./002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-8-1.pdf>] [18<./002-02-meetniveaus-visualisaties_files/figure-pdf/unnamed-chunk-9-1.pdf>] [19] [20]
 chapter 5.
@@ -1146,14 +1146,14 @@ chapter 5.
 Lua-only attribute luaul1 = 5 [22] [23] [24]
 
 Package longtable Warning: Column widths have changed
-(longtable)                in none 1 on input line 1127.
+(longtable)                in none 1 on input line 1126.
 
 
 Package longtable Warning: Column widths have changed
-(longtable)                in none 2 on input line 1148.
+(longtable)                in none 2 on input line 1147.
 
 [25]
-Overfull \hbox (87.8736pt too wide) detected at line 1203
+Overfull \hbox (87.8736pt too wide) detected at line 1202
 \TU/lmtt/m/n/10.95 variantie_stkpr <- sum(x_deviatie_kwa) / (length(x) - 1) # length() berekent het aantal rijen 
  []
 
@@ -1161,77 +1161,80 @@ Overfull \hbox (87.8736pt too wide) detected at line 1203
 <002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-16-1.pdf, id=214, 397.485pt x 252.945pt>
 File: 002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-16-1.pdf Graphic file (type pdf)
 <use 002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-16-1.pdf>
-Package luatex.def Info: 002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-16-1.pdf  used on input line 1391.
+Package luatex.def Info: 002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-16-1.pdf  used on input line 1390.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 [28]
-Overfull \hbox (300.5773pt too wide) detected at line 1402
+Overfull \hbox (300.5773pt too wide) detected at line 1401
   \TU/lmtt/m/n/10.95 scale_x_continuous(breaks = seq(16, 35, by = 1)) + # aanpassen labels x-as, van 16 tot 35 met steeds 1 eenheid ertussen (1 jaar) 
  []
 
 
-Overfull \hbox (70.62735pt too wide) detected at line 1403
+Overfull \hbox (70.62735pt too wide) detected at line 1402
   \TU/lmtt/m/n/10.95 scale_y_continuous(breaks = NULL) # verwijderen labels y-as (hebben geen betekenis hier) 
  []
 
 <002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-17-1.pdf, id=220, 397.485pt x 252.945pt>
 File: 002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-17-1.pdf Graphic file (type pdf)
 <use 002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-17-1.pdf>
-Package luatex.def Info: 002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-17-1.pdf  used on input line 1407.
+Package luatex.def Info: 002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-17-1.pdf  used on input line 1406.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 [29<./002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-16-1.pdf>]
 
-LaTeX Warning: Hyper reference `meetniveaus-en-visualisaties' on page 30 undefined on input line 1428.
+LaTeX Warning: Hyper reference `sec-intervalratioux5cux257D' on page 30 undefined on input line 1419.
+
+
+LaTeX Warning: Hyper reference `meetniveaus-en-visualisaties' on page 30 undefined on input line 1427.
 
 [30<./002-03-centrum-en-spreidingsmaten_files/figure-pdf/unnamed-chunk-17-1.pdf>]
 <afbeeldingen/Normale_verdeling.jpg, id=238, 445.665pt x 316.18124pt>
 File: afbeeldingen/Normale_verdeling.jpg Graphic file (type jpg)
 <use afbeeldingen/Normale_verdeling.jpg>
-Package luatex.def Info: afbeeldingen/Normale_verdeling.jpg  used on input line 1448.
+Package luatex.def Info: afbeeldingen/Normale_verdeling.jpg  used on input line 1447.
 (luatex.def)             Requested size: 445.66391pt x 316.18047pt.
 
-Overfull \hbox (274.1556pt too wide) in paragraph at lines 1447--1449
+Overfull \hbox (274.1556pt too wide) in paragraph at lines 1446--1448
 []\TU/lmr/m/n/10.95 Hi-eron-der staat een af-beeld-ing van de nor-male verdel-ing. [] 
  []
 
 [31<./afbeeldingen/Normale_verdeling.jpg>]
 
-LaTeX Warning: Hyper reference `sec-histogram' on page 32 undefined on input line 1503.
+LaTeX Warning: Hyper reference `sec-histogram' on page 32 undefined on input line 1501.
 
 [32]
 
-LaTeX Warning: Hyper reference `sec-histogram' on page 33 undefined on input line 1552.
+LaTeX Warning: Hyper reference `sec-histogram' on page 33 undefined on input line 1551.
 
 [33]
 chapter 6.
 [34
 
 ]
-Overfull \hbox (30.38611pt too wide) detected at line 1609
+Overfull \hbox (30.38611pt too wide) detected at line 1608
 \TU/lmtt/m/n/10.95 table(data_uitgaan$vapen_laatste_jaar, data_uitgaan$geslacht) # vapen in de rijen,  
  []
 
 <002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-3-1.pdf, id=268, 397.485pt x 252.945pt>
 File: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-3-1.pdf>
-Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-3-1.pdf  used on input line 1654.
+Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-3-1.pdf  used on input line 1653.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 [35] [36<./002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-3-1.pdf>] [37]
-Overfull \hbox (76.3761pt too wide) detected at line 1755
+Overfull \hbox (76.3761pt too wide) detected at line 1754
   \TU/lmtt/m/n/10.95 mutate(perc = round(n/sum(n) * 100, 1)) # percentages berekenen en afronden op 1 decimaal 
  []
 
 <002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-7-1.pdf, id=287, 397.485pt x 252.945pt>
 File: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-7-1.pdf Graphic file (type pdf)
 <use 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-7-1.pdf>
-Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-7-1.pdf  used on input line 1770.
+Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-7-1.pdf  used on input line 1769.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 [38<./002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-7-1.pdf>]
-Overfull \hbox (41.8836pt too wide) detected at line 1801
+Overfull \hbox (41.8836pt too wide) detected at line 1800
   \TU/lmtt/m/n/10.95 filter(!is.na(sigaretten_uitgaansdag)) |> # respondenten die niet roken eruit laten 
  []
 
 
-Overfull \hbox (174.10483pt too wide) detected at line 1802
+Overfull \hbox (174.10483pt too wide) detected at line 1801
   \TU/lmtt/m/n/10.95 summarise(gem_sigaretten = mean(sigaretten_uitgaansdag)) # summarise() en mean() voor gemiddelde berekenen 
  []
 
@@ -1239,43 +1242,43 @@ Overfull \hbox (174.10483pt too wide) detected at line 1802
 <002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-9-1.pdf, id=301, 397.485pt x 252.945pt>
 File: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-9-1.pdf>
-Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-9-1.pdf  used on input line 1836.
+Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-9-1.pdf  used on input line 1835.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 [40<./002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-9-1.pdf>]
-Overfull \hbox (53.3811pt too wide) detected at line 1868
+Overfull \hbox (53.3811pt too wide) detected at line 1867
 \TU/lmtt/m/n/10.95 ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) + 
  []
 
 <002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-10-1.pdf, id=311, 397.485pt x 252.945pt>
 File: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-10-1.pdf>
-Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-10-1.pdf  used on input line 1876.
+Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-10-1.pdf  used on input line 1875.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 [41<./002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-10-1.pdf>]
-Overfull \hbox (53.3811pt too wide) detected at line 1896
+Overfull \hbox (53.3811pt too wide) detected at line 1895
 \TU/lmtt/m/n/10.95 ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) + 
  []
 
 <002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-11-1.pdf, id=321, 397.485pt x 252.945pt>
 File: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-11-1.pdf Graphic file (type pdf)
 <use 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-11-1.pdf>
-Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-11-1.pdf  used on input line 1904.
+Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-11-1.pdf  used on input line 1903.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 
-Overfull \hbox (53.3811pt too wide) detected at line 1914
+Overfull \hbox (53.3811pt too wide) detected at line 1913
 \TU/lmtt/m/n/10.95 ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) + 
  []
 
 <002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-12-1.pdf, id=322, 397.485pt x 252.945pt>
 File: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-12-1.pdf>
-Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-12-1.pdf  used on input line 1923.
+Package luatex.def Info: 002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-12-1.pdf  used on input line 1922.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 [42<./002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-11-1.pdf>] [43<./002-04-relatiesvariabelen_files/figure-pdf/unnamed-chunk-12-1.pdf>]
 part II.
 Package scrkbase Info: You've told me to use the font selection of the element
 (scrkbase)             `partprefix' that is an alias of element `partnumber'
-(scrkbase)              on input line 1953.
+(scrkbase)              on input line 1952.
 [44
 
 ]
@@ -1283,47 +1286,48 @@ chapter 7.
 [45
 
 ] [46]
-Overfull \hbox (13.13986pt too wide) detected at line 2096
+Overfull \hbox (13.13986pt too wide) detected at line 2095
 \TU/lmtt/m/n/10.95 # 10 keer een steekproef van 30 trekken en de proportie xtc-gebruikers berekenen 
  []
 
 
-Overfull \hbox (139.61234pt too wide) detected at line 2099
+Overfull \hbox (139.61234pt too wide) detected at line 2098
   \TU/lmtt/m/n/10.95 mean(sample_30$xtc_ooit == "ja", na.rm = TRUE) # na.rm om eventuele missenden waarden te verwijderen 
  []
 
 [47]
-Overfull \hbox (13.13986pt too wide) detected at line 2138
+Overfull \hbox (13.13986pt too wide) detected at line 2137
 \TU/lmtt/m/n/10.95 # 10 keer een steekproef van 30 trekken en de proportie xtc-gebruikers berekenen 
  []
 
 
-Overfull \hbox (139.61234pt too wide) detected at line 2141
+Overfull \hbox (139.61234pt too wide) detected at line 2140
   \TU/lmtt/m/n/10.95 mean(sample_30$xtc_ooit == "ja", na.rm = TRUE) # na.rm om eventuele missenden waarden te verwijderen 
  []
 
 <003-01-steekproeven_files/figure-pdf/unnamed-chunk-6-1.pdf, id=363, 397.485pt x 252.945pt>
 File: 003-01-steekproeven_files/figure-pdf/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use 003-01-steekproeven_files/figure-pdf/unnamed-chunk-6-1.pdf>
-Package luatex.def Info: 003-01-steekproeven_files/figure-pdf/unnamed-chunk-6-1.pdf  used on input line 2162.
+Package luatex.def Info: 003-01-steekproeven_files/figure-pdf/unnamed-chunk-6-1.pdf  used on input line 2161.
 (luatex.def)             Requested size: 397.48402pt x 252.94438pt.
 [48]
 
-LaTeX Warning: Hyper reference `sec-normaleverdeling' on page 49 undefined on input line 2195.
+LaTeX Warning: Hyper reference `sec-normaleverdeling' on page 49 undefined on input line 2194.
 
+[49<./003-01-steekproeven_files/figure-pdf/unnamed-chunk-6-1.pdf>]
 ! Missing { inserted.
 <to be read again> 
 \Umathaccent 
-l.2209 de steekproevenverdeling (\(\bar{x}_\hat
-                                             {p}=0,685\)) is afgerond gelijk
+l.2208 steekproevenverdeling (\(\bar{x}_\hat
+                                          {p}=0,685\)) is afgerond gelijk aan
 
 Here is how much of LuaTeX's memory you used:
- 25443 strings out of 475604
+ 25445 strings out of 475604
  100000,1373583 words of node,token memory allocated
- 28664 words of node memory still in use:
-   64 hlist, 5 vlist, 9 rule, 71 disc, 8 local_par, 2 dir, 346 glue, 105 kern, 72 penalty, 1 accent, 3 math_char, 11 margin_kern, 1384 glyph, 5108 attribute, 67 glue_spec, 1792 attribute_list, 2 temp, 1 pdf_action nodes
-   avail lists: 1:1,2:6391,3:681,4:44,5:347,6:36,7:4069,8:22,9:318,10:13,11:280,12:1
- 47821 multiletter control sequences out of 65536+600000
+ 5276 words of node memory still in use:
+   16 hlist, 1 vlist, 4 rule, 9 disc, 2 local_par, 2 dir, 58 glue, 13 kern, 3 penalty, 1 accent, 3 math_char, 2 margin_kern, 298 glyph, 699 attribute, 67 glue_spec, 283 attribute_list, 2 temp, 1 pdf_action nodes
+   avail lists: 1:1,2:12321,3:750,4:53,5:439,6:42,7:5449,8:22,9:375,10:13,11:342,12:1
+ 47822 multiletter control sequences out of 65536+600000
  67 fonts using 19701667 bytes
  108i,8n,114p,11226b,498s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

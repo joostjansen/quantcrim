@@ -870,7 +870,7 @@ s=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </div>
 <p>Een doosdiagram weergeeft de spreiding van een variabele en bevat het minimum en maximum, en de grenzen van het 1ste kwartiel (Q1), mediaan (Q2) en 3de kwartiel (Q3). De afstand tussen het 1ste en 3de kwartiel wordt ook wel de <strong>interkwartielafstand</strong> genoemd.</p>
 <p>Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarden tussen het 1ste kwartiel en mediaan tussen de 20 en 23 jaar liggen. Het hoogste kwartiel (Q4) omvat relatief veel leeftijden, van 27 tot 35 jaar.</p>
-<p>Vergelijk deze doosdiagram met de staafdiagram van leeftijd uit het vorige hoofdstuk. Je ziet dat er verschillende manieren zijn om data te visualiseren.</p>
+<p>Vergelijk deze doosdiagram met de staafdiagram van leeftijd (<a href="{002-02-meetniveaus-visualisaties.qmd#sec-intervalratio}">Staafdigram leeftijd</a>). Je ziet dat er verschillende manieren zijn om data te visualiseren.</p>
 </section>
 </section>
 <section id="sec-normaleverdeling" class="level2" data-number="5.4">
@@ -893,10 +893,10 @@ s=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </section>
 <section id="z-score" class="level2 page-columns page-full" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="z-score"><span class="header-section-number">5.5</span> Z-score</h2>
-<p>Om inzicht te krijgen in de relatieve positie van een bepaalde observatie ten opzichte van het gemiddelde, kunnen we ten slotte een z-score berekenen. Een z-score is een gestandaardiseerde maat die aangeeft hoeveel standaarddeviaties een waarde van het gemiddelde afligt. Daarbij geldt dat, door het standaardiseren, het gemiddelde altijd 0 is en de standaardafwijking 1. De z-score heeft de volgende formule:</p>
+<p>Om inzicht te krijgen in de relatieve positie van een bepaalde observatie ten opzichte van het gemiddelde, kunnen we ten slotte een z-score berekenen. Een z-score is een gestandaardiseerde maat die aangeeft hoeveel standaarddeviaties een waarde van het gemiddelde ligt. Daarbij geldt dat, door het standaardiseren, het gemiddelde altijd 0 is en de standaardafwijking 1. De z-score heeft de volgende formule:</p>
 <p><span class="math display">\[ z=\frac{x-\bar{x}}{s} \]</span></p>
 <p>De berekening is vrij eenvoudig: je trekt het gemiddelde <span class="math inline">\(\bar{x}\)</span> af van de specifieke waarde <span class="math inline">\(x\)</span> en deelt dit door de standaardafwijking <span class="math inline">\(s\)</span> van de originele variabele.</p>
-<p>Laten we dit illustreren aan de hand van een voorbeeld. Bij <a href="./002-02-meetniveaus-visualisaties.html#sec-histogram">Histogram</a> zag je de variabele gemoed_dinsdag_na_xtc<em>,</em> die staat voor score tussen de 0 en 100 hoe positief respondenten hoe zich voelen op de dinsdag na xtc-gebruik in het weekend. We vragen eerst het gemiddelde en standaardafwijking op.</p>
+<p>Laten we dit illustreren aan de hand van een voorbeeld. Bij <a href="./002-02-meetniveaus-visualisaties.html#sec-histogram">Histogram</a> zag je de variabele gemoed_dinsdag_na_xtc<em>,</em> die staat voor een score tussen de 0 en 100 over hoe positief respondenten zich voelen op de dinsdag na xtc-gebruik in het weekend. We vragen eerst het gemiddelde en de standaarddeviatie op.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gemiddelde en standaarddeviatie (met verwijderen missende waarden via na.rm)</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data_uitgaan<span class="sc">$</span>gemoed_dinsdag_na_xtc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
