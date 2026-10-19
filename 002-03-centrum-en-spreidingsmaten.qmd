@@ -294,7 +294,7 @@ Dat een bepaald bereik op basis van standaarddeviaties correspondeert met een ze
 
 Het is belangrijk om op te merken dat in de praktijk variabelen zelden exact normaal verdeeld zijn, ze volgen dus niet precies de verdeling zoals hierboven weergeven. Zo kunnen kwantitatieve variabelen ook linksscheef of rechtsscheef verdeeld zijn, die daarvoor deze [link](https://www.scribbr.nl/statistiek/skewness-scheefheid/).
 
-## Z-score
+## Z-score {#sec-zscore}
 
 Om inzicht te krijgen in de relatieve positie van een bepaalde observatie ten opzichte van het gemiddelde, kunnen we ten slotte een z-score berekenen. Een z-score is een gestandaardiseerde maat die aangeeft hoeveel standaarddeviaties een waarde van het gemiddelde ligt. Daarbij geldt dat, door het standaardiseren, het gemiddelde altijd 0 is en de standaardafwijking 1. De z-score heeft de volgende formule:
 
