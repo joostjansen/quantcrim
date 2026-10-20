@@ -2293,8 +2293,8 @@ trekken om de standaardfout te berekenen!
 
 Voor een het berekenen van de standaardfout van proporties
 \(\sigma_{\hat{p}}\) geldt\footnote{Voor het berekenen van de
-  standaardfout van steekproefgemiddeldes geldt een andere formule (zie
-  \href{formuleblad.qmd}{Formuleblad})}:
+  standaardfout van steekproefgemiddeldes \(\sigma_{\bar{x}}\) geldt een
+  andere formule (zie \href{formuleblad.qmd}{Formuleblad})}:
 
 \[\sigma_{\hat{p}}=\sqrt\frac{\hat{p}(1-\hat{p})}{n}\]
 
@@ -2842,7 +2842,7 @@ naast zaten, namelijk in 5\% procent van de steekproeven.
 Hopelijk heb je inmiddels een beetje feeling gekregen voor
 betrouwbaarheidsintervallen. Het vorige voorbeeld was leerzaam, maar de
 uitkomst was een beetje teleurstellend. Dat we op basis van een
-steekproef van 30 personen weten dat met 95\% zekerheid de
+steekproef van 30 personen weten dat in 95\% van de steekproeven de
 populatieproportie xtc-gebruikers ergens tussen de 0,461 en 0,805 ligt
 is nog niet zo informatief. Het kan namelijk 0,461 zijn, of 0,805, of
 alles daar tussen in. Het maakt nogal uit of het 46,1\% gebruikers gaat
@@ -2935,8 +2935,8 @@ mogelijke populatieproportie xtc-gebruikers. Dit zou alles tussen de
 
 Het 95\%-bhi van de steekproef met 100 personen is daarentegen veel
 smaller: \([0,485; 0,679]\). Afgaande op dit interval, zou je stellen
-dat je met 95\% zekerheid kan aannemen dat de proportie xtc-gebruikers
-in de populatie tussen de 48,5\% en 67,9\% ligt. Dit is nog steeds een
+dat in 95\% van de herhaalde steekproeven de proportie xtc-gebruikers in
+de populatie tussen de 48,5\% en 67,9\% ligt. Dit is nog steeds een
 redelijk breed interval, maar wel al nauwkeuriger dan wat we eerder
 hebben gezien. Toevallig valt de populatieproportie (0,685) buiten dit
 interval, we hebben dus een 5\% misser hier!
@@ -2960,7 +2960,7 @@ dataset.
 [1] 0.6363343 0.7336657
 \end{verbatim}
 
-Onze schatting is dat we met 95\% zekerheid kunnen zeggen dat de
+Onze schatting is dat we met 95\% van de gevallen kunnen zeggen dat de
 proportie xtc-gebruikers in de populatie uitgaande jongeren tussen 0,636
 en 0,737 ligt, bij herhaalde steekproeven van xxx personen. Dus ergens
 tussen de 63,3\% en 73,7\%. Dat komt al aardig in de buurt van een vrij
@@ -2969,8 +2969,190 @@ precies resultaat!
 \section{Betrouwbaarheidsinterval voor
 gemiddeldes}\label{betrouwbaarheidsinterval-voor-gemiddeldes}
 
+Het is voor het oudere publiek wel even slikken, dat waarschijnlijk
+tussen 63,3\% en 73,7\% van de uitgaande jongeren weleens xtc heeft
+gebruikt. Je zal inmiddels wel redelijk klaar zijn met het schatten van
+de proportie xtc-gebruikers. Daarom gaan we nu naar een ander voorbeeld
+kijken.
+
+We hebben ons tot nu toe vooral met proporties schatten bezig gehouden.
+Een proportie is een aandeel van iets dat in een score tussen de 0 en 1
+wordt uitgedrukt, en is toepasbaar op veel variabelen. Naast xtc-gebruik
+zou je bijvoorbeeld ook naar het ooit-gebruik van sigaretten (ja/nee) of
+cocaine (ja/nee) kunnen kijken. Andere variabelen vragen echter om een
+andere statistiek, zoals leeftijd, aantal sigaretten of aantal glazen
+alcohol op een uitgaansdag. Daarvoor schatten we een gemiddelde, wat we
+nu zullen doen voor aantal glazen alcohol.
+
+De formule voor een bhi van een populatiegemiddelde is net wat anders:
+
+\[ bhi = \bar{x} \pm z\times\sigma_{\bar{x}}  \]
+
+We nemen nu dus het gemiddelde van de steekproef \(\bar{x}\) en de
+standaardfout van gemiddeldes \(\sigma_{\bar{x}}\) . Deze laatste
+berekenen we volgens de formule:
+
+\[ \sigma_{\bar{x}}=\frac{s}{\sqrt{n}} \]
+
+We kunnen nu vrij eenvoudig schatten wat het gemiddeld aantal glazen
+alcohol is dat uitgaande jongeren drinken op een uitgaansdag. Let op dat
+deze statistiek alleen van toepassing is op mensen die minimaal één glas
+hebben gedronken. Eerst berekenen we het gemiddelde en standaarddeviatie
+in de dataset.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# gemiddelde aantal glazen alcohohol}
+\FunctionTok{mean}\NormalTok{(data\_uitgaan}\SpecialCharTok{$}\NormalTok{glazen\_alcohol\_uitgaansdag, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 10.66471
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# gemiddelde aantal glazen alcohohol}
+\FunctionTok{sd}\NormalTok{(data\_uitgaan}\SpecialCharTok{$}\NormalTok{glazen\_alcohol\_uitgaansdag, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5.823302
+\end{verbatim}
+
+Het gemiddelde is \(10,7\) en de standaarddeviatie \(5,8\). We weten al
+dat het aantal respondenten xxx is. Dan hebben we alle gegevens om een
+95\%-bhi te berekenen. Dit doen we als volgt:
+
+\[ bhi = \bar{x} \pm z\times(\frac{s}{\sqrt{n}}) =10,7 \pm 1,96\times(\frac{5,8}{\sqrt{350}})  \]
+
+We berekenen weer eerst het gedeelte achter \(\pm\)
+(\(1,96\times(\frac{5,8}{\sqrt{350}})\))
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#gedeelte achter +{-}}
+\FloatTok{1.96}\SpecialCharTok{*}\NormalTok{(}\FloatTok{5.8}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{350}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.6076452
+\end{verbatim}
+
+En dit tellen we op/trekken we af van het gemiddelde:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 95\%{-}bhi berekenen}
+\FloatTok{10.7{-}0.61}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 10.09
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{10.7+0.61}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 11.31
+\end{verbatim}
+
+Op basis van steekproef, kunnen we zeggen dat in 95\% van herhaalde
+steekproeven (van 350 personen) het populatiegemiddelde van aantal
+glazen alcohol ergens tussen de \(10,1\) en \(11,3\) zal liggen. We
+kunnen dus wel redelijk zeker stellen dat het gemiddeld aantal glazen
+alcohol dat men drinkt zo 10 à 11 per uitgaansdag is. Je ziet dat het
+schatten van een populatiegemiddelde niet veel anders is dan het
+schatten van een proportie in de populatie.
+
 \section{Interpretatie
 betrouwbaarheidsinterval}\label{interpretatie-betrouwbaarheidsinterval}
+
+We hebben hierboven al een aantal keer een interpretatie van een
+betrouwbaarheidsinterval gegeven. Daarbij hebben we het er een beetje
+makkelijk vanaf gebracht, want een bhi heeft een meer uitgebreide
+interpretatie nodig dan we tot nu toe hebben gedaan. Een technische
+correcte interpretatie van een 95\%-bhi is:
+
+\begin{quote}
+Als we steekproeven oneindig herhalen en we berekenen een 95\%-bhi voor
+voor alle steekproeven, dan zullen 95\% van deze bhi's de ware
+populatieparameter bevatten (terwijl 5\% van de bhi's deze niet
+bevatten).
+\end{quote}
+
+Deze wat langdradige formulering weerspiegelt de achterliggende aannames
+van een bhi. Namelijk dat deze
+
+1) één uitkomst is van een serie van mogelijke steekproeven die we
+kunnen we trekken uit de populatie en \ldots{}
+
+2) dat er zoiets bestaat als een constante, vaste populatieparameter die
+het bhi wel of niet bevat.
+
+Omdat we vaak maar één steekproef hebben in onderzoek, formuleren we de
+interpretatie van een bhi als volgt:
+
+\begin{quote}
+We kunnen met 95\% betrouwbaarheid stellen dat de ware
+populatieparameter ergens tussen {[}ondergrens{]} en {[}bovengrens{]}
+ligt, gebaseerd op (hypothetische) herhaalde steekproeven.
+\end{quote}
+
+Vertalen we dit door naar ons voorbeeld over de proportie
+xtc-gebruikers, dan zou je de volgende interpretatie kunnen geven:
+\emph{we kunnen met 95\% betrouwbaarheid stellen dat de proportie
+uitgaande jongeren die ooit xtc hebben gebruikt ergens tussen de 0,636
+en 0,737 ligt, gebaseerd op (hypothetische) herhaalde steekproeven.}
+
+Een veelgemaakte fout bij het interpreteren van een bhi is dat men stelt
+dat er een 95\% kans bestaat dat de populatieparameter in het interval
+ligt. Dit is niet juist, omdat de populatieparameter een vaste waarde is
+die \emph{wel} of \emph{niet} binnen het interval ligt. De kans is dat
+een betrouwbaarheidsinterval de ware populatieparameter bevat is daarmee
+100\% of 0\%. Om deze reden zeggen we juist dat 95\% van alle bhi's de
+populatieparameter zal bevatten.
+
+We maken het ten slotte wederom nog een stukje ingewikkelder (sorry!).
+De uitspraak ``met 95\% betrouwbaarheid stellen we dat de proportie
+uitgaande jongeren die ooit xtc hebben gebruikt ergens tussen de 0,636
+en 0,737 ligt, gebaseerd op (hypothetische) herhaalde steekproeven'' is
+statistisch correct, maar niet per se neutraal of zelfs overeenkomstig
+met de werkelijkheid. De uitspraak is puur gebaseerd op het onderzoek,
+maar neemt geen eerdere kennis in overweging.
+
+Stel dat eerdere onderzoeken hebben aangetoond dat de proportie
+xtc-gebruik onder uitgaande jongeren lager ligt, rond de 30-40\%. Is het
+dan echt nog zo aannemelijk dat we in 95\% van de herhaalde steekproeven
+een populatiewaarde zo hoog als het onze zullen vinden in het interval?
+De eerdere kennis van het onderwerp heeft dus invloed op hoe we het bhi
+interpreteren en de geloofwaardigheid daarvan. We kunnen deze kennis
+niet zomaar aan de kant schuiven.
+
+De gedachtegang hier geeft aan dat de interpretatie van een bhi
+subjectiever kan zijn dan we vaak denken. Er even hypothetisch van
+uitgaand dat de daadwerkelijke populatieproportie van xtc-gebruik veel
+lager ligt dan ons interval lijkt aan geven, zou een persoon met kennis
+hiervan die 95\% betrouwbaarheid in twijfel trekken. Iemand zonder
+kennis zal het daarentegen wellicht een plausibel resultaat vinden. Een
+meer accurate interpretatie van een bhi is daarom:
+
+\begin{quote}
+We kunnen met 95\% betrouwbaarheid stellen dat de ware
+populatieparameter ergens tussen {[}ondergrens{]} en {[}bovengrens{]}
+ligt, gebaseerd op (hypothetische) herhaalde steekproeven \emph{en geen
+additionele relevante kennis}.
+\end{quote}
+
+Slotstuk over wat studenten hiermee moeten.
 
 \part{Hypotheses}
 

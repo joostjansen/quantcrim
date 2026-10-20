@@ -141,7 +141,7 @@ Gelukkig is hier een eenvoudige oplossing voor. Het blijkt namelijk statistisch 
 
 Voor een het berekenen van de standaardfout van proporties $\sigma_{\hat{p}}$ geldt[^003-01-steekproeven-3]:
 
-[^003-01-steekproeven-3]: Voor het berekenen van de standaardfout van steekproefgemiddeldes geldt een andere formule (zie [Formuleblad](formuleblad.qmd))
+[^003-01-steekproeven-3]: Voor het berekenen van de standaardfout van steekproefgemiddeldes $\sigma_{\bar{x}}$ geldt een andere formule (zie [Formuleblad](formuleblad.qmd))
 
 $$\sigma_{\hat{p}}=\sqrt\frac{\hat{p}(1-\hat{p})}{n}$$
 
