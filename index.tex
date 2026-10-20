@@ -226,7 +226,7 @@
 \subtitle{Een open-web handboek voor kwantitatief criminologisch
 onderzoek}
 \author{Joost Jansen \and Gijs Custers}
-\date{2026-10-19}
+\date{2026-10-20}
 \begin{document}
 \maketitle
 
@@ -2545,14 +2545,14 @@ komt het erop neer dat:
 
 \chapter{Betrouwbaarheidsinterval}\label{betrouwbaarheidsinterval}
 
-We zijn in het vorige hoofdstuk ingegaan op de de principes van
-inferentiële statistiek, de steekproevenverdeling, de standaardfout en
+We zijn in het vorige hoofdstuk ingegaan op de principes van
+inferentiële statistiek, de steekproevenverdeling, de standaardfout,
 assumpties en mogelijke fouten die kunnen plaatsvinden.
 
-We moeten nu nog een concrete stap maken, namelijk die van het trekken
-van één steekproef naar het schatten van de populatieparameter. Omdat we
-nooit helemaal zeker weten wat het populatieparameter is, schatten we
-met behulp van de standaardfout hoe dicht we in de buurt zitten (de
+We moeten nu een volgende stap maken, namelijk die van het trekken van
+één steekproef naar het schatten van de populatieparameter. Omdat we
+nooit helemaal zeker weten wat de populatieparameter is, schatten we met
+behulp van de standaardfout hoe dicht we in de buurt zitten (de
 foutmarge). Dit doen we aan de hand van een
 \textbf{betrouwbaarheidsinterval} (afkorting: bhi). We zullen in dit
 hoofdstuk in een aantal concrete stappen laten we zien we hoe dit doen.
@@ -2564,14 +2564,15 @@ proporties}\label{betrouwbaarheidsinterval-voor-proporties}
 
 We beginnen met een denkbeeldig voorbeeld. We gaan er net als bij het
 vorige hoofdstuk vanuit dat we het populatieproportie en de
-standaardfout al kennen van xtc-gebruik onder uitgaande jongeren. Dit is
-uiteraard zelden het geval (daarom doen we onderzoek!), maar voor de
-uitleg die volgt is dit wel handig.
+standaardfout al kennen van xtc-gebruik onder uitgaande jongeren,
+waarbij we de dataset als populatie beschouwen. Dit is uiteraard zelden
+het geval (daarom doen we onderzoek!), maar voor de uitleg die volgt is
+dit wel handig.
 
 Als we volgens de centrale limietstelling oneindig steekproeven trekken
 van 30 personen, willen we weten wat het bereik is van 95\% van de
 steekproefuitkomsten (proporties in dit geval) rondom het
-populatiegemiddelde. Dan hebben we een aardig beeld van wat voor
+populatiegemiddelde. Met 95\% hebben we een aardig beeld van wat voor
 proporties de meeste steekproeven zouden opleveren. Dat is hieronder
 gevisualiseerd.
 
@@ -2581,7 +2582,7 @@ De afbeelding hierboven is afgeleid van het
 \hyperref[sec-steekproefcentraallimiet]{voorbeeld} uit het vorige
 hoofdstuk. Het toont dat we als herhaalde steekproeven zouden doen
 waarbij de proportie in de populatie van xtc-gebruik 0,685 is, dat 95\%
-van de steekproeven een proportie tussen de 0,521 en 0,849 zou
+van de steekproeven een proportie tussen de 0,518 en 0,852 zou
 opleveren.
 
 Waarom kiezen we hier voor 95\%? Dat is afgeleid uit de empirische regel
@@ -2592,9 +2593,9 @@ liggen. 95\% wordt vaak als conventioneel interval gebruikt, omdat het
 een breed interval betreft dat veel mogelijke uitkomsten bevat zonder
 dat het betekenisloos wordt.\footnote{Andere veelgebruikte
   betrouwbaarheidsintervallen zijn 90\% en 99\%. De bijbehorende
-  standaarddeviaties zijn hierbij respectievelijk 1,65 en 2,58.} Het
-95\%-betrouwbaarheidsinterval correspondeert met 1,96 standaarddeviaties
-boven en onder het midden van de verdeling.
+  standaarddeviaties zijn hierbij respectievelijk 1,65 en 2,58 (op basis
+  van z-scores).} Het 95\%-betrouwbaarheidsinterval correspondeert met
+1,96 standaarddeviaties boven en onder het midden van de verdeling.
 
 Aan de hand van de formule van betrouwbaarheidsinterval kunnen we zien
 hoe we dit berekenen:
@@ -2634,15 +2635,15 @@ We weten voor dit voorbeeld dat:
   \(z=1,96\) (we hebben gekozen voor een 95\%-bhi)
 \end{itemize}
 
-Je hebt eerder gezien hoe je \hyperref[sec-standaardfout]{standaardfout}
-berekent voor proporties. Je hoeft alleen de proportie en aantal
-respondenten in te vullen:
+Je hebt eerder gezien hoe je de
+\hyperref[sec-standaardfout]{standaardfout} berekent voor proporties. Je
+hoeft alleen de proportie en aantal respondenten in te vullen:
 
 \[\sigma_{\hat{p}}=\sqrt\frac{\hat{p}(1-\hat{p})}{n}=\sqrt\frac{0,685(1-0,685)}{30}\]
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# berekenen standaardfout voor steekproeven met 30 respondenten}
+\CommentTok{\# berekenen standaardfout voor voorbeeld}
 \FunctionTok{sqrt}\NormalTok{(}\FloatTok{0.685}\SpecialCharTok{*}\NormalTok{(}\DecValTok{1}\FloatTok{{-}0.685}\NormalTok{)}\SpecialCharTok{/}\DecValTok{30}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -2661,8 +2662,7 @@ bhi = P \pm z\times\sigma_{\hat{p}} = 0,685 \pm 1,96\times0,085
 \]
 
 We berekenen eerst het deel achter de \(\pm\)
-(\(z\times\sigma_{\hat{p}}\) ) en tellen dat op/trekken dat af van
-0,685.
+(\(z\times\sigma_{\hat{p}}\) ):
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2675,33 +2675,34 @@ We berekenen eerst het deel achter de \(\pm\)
 [1] 0.1666
 \end{verbatim}
 
+Dit is dus 0,167. Het bereik van het 95\%-bhi ligt 0,167 boven en onder
+de populatieproportie van 0,685. Dit tellen we op/trekken we af van
+0,685.
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# berekenen bhi}
-\FloatTok{0.685{-}0.1666} \CommentTok{\# ondergrens}
+\FloatTok{0.685{-}0.167} \CommentTok{\# ondergrens}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-[1] 0.5184
+[1] 0.518
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FloatTok{0.685+0.1666} \CommentTok{\# bovengrens}
+\FloatTok{0.685+0.167} \CommentTok{\# bovengrens}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-[1] 0.8516
+[1] 0.852
 \end{verbatim}
-
-Het bereik van het 95\%-bhi ligt 0,167 boven en onder de
-populatieproportie van 0,685.
 
 Voilà! We weten nu dus dat als we oneindig willekeurige steekproeven
 zouden trekken van 30 personen uit een populatie uitgaande jongeren, dat
-de proporties xtc-gebruik in 95\% van de steekproeven tussen de 0,512 en
+de proporties xtc-gebruik in 95\% van de steekproeven tussen de 0,518 en
 0,852 zouden liggen (als overige assumpties kloppen).
 
 \subsection{Reëel voorbeeld}\label{reuxebel-voorbeeld}
@@ -2712,7 +2713,7 @@ het in principe niet meer nodig een betrouwbaarheidsinterval te
 berekenen.
 
 We weten nu echter ook het volgende: omdat 95\% van de verdeling van
-mogelijke steekproefproporties tussen 0,512 en 0,852 ligt (0,167 boven
+mogelijke steekproefproporties tussen 0,518 en 0,852 ligt (0,167 boven
 of onder 0,685), is de kans 95\% dat een proportie van een willekeurige
 steekproef binnen dit bereik valt. Dit betekent dat als we herhaaldelijk
 een proportie \(\hat{p}\) berekenen op basis van een willekeurige
@@ -2759,7 +2760,8 @@ xtc-gebruikers in deze steekproef.
 0.3666667 0.6333333 
 \end{verbatim}
 
-Eerst berekenen we de nieuwe standaardfout:
+De proportie xtc-gebruikers in deze steekproef is dus 0,633. Eerst
+berekenen we de nieuwe standaardfout:
 
 \[\sigma_{\hat{p}}=\sqrt\frac{\hat{p}(1-\hat{p})}{n}=\sqrt\frac{0,633(1-0,633)}{30}\]
 
@@ -2774,7 +2776,8 @@ Eerst berekenen we de nieuwe standaardfout:
 [1] 0.0879983
 \end{verbatim}
 
-En dan berekenen we het 95\%-betrouwbaarheidsinterval:
+De standaardfout is 0,088. Dan hebben we alle relevante gegevens om het
+95\%-betrouwbaarheidsinterval te berekenen:
 
 \[
 bhi = \hat{p} \pm z\times\sigma_{\hat{p}} = 0,633 \pm 1,96\times0,088
@@ -2818,19 +2821,19 @@ concluderen we (voorlopig) dat in 95\% van de herhaalde steekproeven de
 populatieproportie tussen deze twee waarden zou moeten liggen. In dit
 geval is dat correct: 0,685 ligt tussen 0,461 en 0,805.
 
-Dit principe is hieronder uitgebeeld. Deze grafiek toont een simulatie
-waarin we 100 keer een steekproef hebben getrokken van 30 personen en
-voor elke steekproef het 95\%-bhi hebben berekend. Wanneer een interval
-de populatieproportie bevat, dan overlapt het interval (horizontale
-grijze streep) met de verticale gestippelde lijn die de
-populatieproportie presenteert. In 5\% van de steekproeven zie je dat
-het interval en de populatieproportie niet overlappen. Dit zijn
+Het principe van een 95\%-bhi is hieronder uitgebeeld. Deze grafiek
+toont een simulatie waarin we 100 keer een steekproef hebben getrokken
+van 30 personen en voor elke steekproef het 95\%-bhi hebben berekend.
+Wanneer een interval de populatieproportie bevat, dan overlapt het
+interval (horizontale grijze streep) met de verticale gestippelde lijn
+die de populatieproportie presenteert. In 5\% van de steekproeven zie je
+dat het interval en de populatieproportie niet overlappen. Dit zijn
 steekproeven die toevallig een hele hoge of lage proportie van
-xtc-gebruikers bevatten. Uitgaande van een 95\%-bhi, valt de
+xtc-gebruikers hebben (rode kleur). Uitgaande van een 95\%-bhi, valt de
 populatiewaarde dan buiten het interval bij deze steekproeven. We zitten
-er ook weleens naast met een steekproef, ook al is aan alle assumpties
-voldaan. Het voordeel is wel dat we weten hoe vaak we er naast zaten,
-namelijk in 5\% procent van de steekproeven.
+er dus ook weleens naast met een steekproef, ook al is aan alle
+assumpties voldaan. Het voordeel is wel dat we weten hoe vaak we er
+naast zaten, namelijk in 5\% procent van de steekproeven.
 
 \pandocbounded{\includegraphics[keepaspectratio]{afbeeldingen/simulatie_betrouwbaarheidsintervallen.png}}
 
@@ -2838,8 +2841,8 @@ namelijk in 5\% procent van de steekproeven.
 
 Hopelijk heb je inmiddels een beetje feeling gekregen voor
 betrouwbaarheidsintervallen. Het vorige voorbeeld was leerzaam, maar de
-uitkomst was eigenlijk een beetje teleurstellend. Dat we op basis van
-een steekproef van 30 personen weten dat met 95\% zekerheid de
+uitkomst was een beetje teleurstellend. Dat we op basis van een
+steekproef van 30 personen weten dat met 95\% zekerheid de
 populatieproportie xtc-gebruikers ergens tussen de 0,461 en 0,805 ligt
 is nog niet zo informatief. Het kan namelijk 0,461 zijn, of 0,805, of
 alles daar tussen in. Het maakt nogal uit of het 46,1\% gebruikers gaat
@@ -2858,7 +2861,7 @@ te berekenen.
 \begin{Highlighting}[]
 \CommentTok{\# functie schrijven voor 95\%{-}bhi}
 \NormalTok{bhi\_95 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(p, n) \{}
-\NormalTok{  p }\SpecialCharTok{+} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.975}\NormalTok{) }\SpecialCharTok{*} \FunctionTok{sqrt}\NormalTok{(p }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ p) }\SpecialCharTok{/}\NormalTok{ n)}
+\NormalTok{  p }\SpecialCharTok{+} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{) }\SpecialCharTok{*} \FloatTok{1.96} \SpecialCharTok{*} \FunctionTok{sqrt}\NormalTok{(p }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ p) }\SpecialCharTok{/}\NormalTok{ n)}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -2909,7 +2912,7 @@ steekproeven.
 \end{Shaded}
 
 \begin{verbatim}
-[1] 0.4159742 0.9840258
+[1] 0.415969 0.984031
 \end{verbatim}
 
 \begin{Shaded}
@@ -2919,24 +2922,24 @@ steekproeven.
 \end{Shaded}
 
 \begin{verbatim}
-[1] 0.4853287 0.6786713
+[1] 0.4853269 0.6786731
 \end{verbatim}
 
 Je ziet grote verschillen tussen deze betrouwbaarheidsintervallen. De
 steekproef van 10 personen heeft een 95\%-bhi tussen \([0,416; 0,984]\).
 Dit is een heel breed interval. De populatieproportie van 0,685 valt er
-wel binnen, maar zal sowieso in 95\% van de steekproeven het geval zijn.
-Op basis van het interval zelf kunnen we niet veel zeggen over de
-mogelijke proportie xtc-gebruikers. Dit alles tussen de 41,6\% en 98,4\%
-kunnen zijn.
+wel binnen, maar dit zal sowieso in 95\% van de steekproeven het geval
+zijn. Op basis van het interval zelf kunnen we niet veel zeggen over de
+mogelijke populatieproportie xtc-gebruikers. Dit zou alles tussen de
+41,6\% en 98,4\% kunnen zijn.
 
-Het 95\%-bhi is daarentegen veel smaller: \([0,485; 0,679]\). Afgaande
-op dit interval, zou je stellen dat je met 95\% zekerheid kan aannemen
-dat de proportie xtc-gebruikers in de populatie tussen de 48,5\% en
-67,9\% ligt. Dit is nog steeds een redelijk breed interval, maar wel al
-nauwkeuriger dan wat we eerder hebben gezien. Toevallig valt de
-populatieproportie (0,685) wel buiten dit interval, we hebben dus een
-5\% misser hier!
+Het 95\%-bhi van de steekproef met 100 personen is daarentegen veel
+smaller: \([0,485; 0,679]\). Afgaande op dit interval, zou je stellen
+dat je met 95\% zekerheid kan aannemen dat de proportie xtc-gebruikers
+in de populatie tussen de 48,5\% en 67,9\% ligt. Dit is nog steeds een
+redelijk breed interval, maar wel al nauwkeuriger dan wat we eerder
+hebben gezien. Toevallig valt de populatieproportie (0,685) buiten dit
+interval, we hebben dus een 5\% misser hier!
 
 We kunnen het voorbeeld van proportie xtc-gebruikers nu full circle
 afsluiten. We hebben de hele tijd voor didactische redenen aangenomen
@@ -2954,13 +2957,14 @@ dataset.
 \end{Shaded}
 
 \begin{verbatim}
-[1] 0.6363352 0.7336648
+[1] 0.6363343 0.7336657
 \end{verbatim}
 
-Onze schatting is dus dat we met 95\% zekerheid kunnen zeggen dat de
+Onze schatting is dat we met 95\% zekerheid kunnen zeggen dat de
 proportie xtc-gebruikers in de populatie uitgaande jongeren tussen 0,636
-en 0,737 ligt, bij herhaalde steekproeven van xxx personen. Dat komt al
-aardig in de buurt van een vrij precies resultaat!
+en 0,737 ligt, bij herhaalde steekproeven van xxx personen. Dus ergens
+tussen de 63,3\% en 73,7\%. Dat komt al aardig in de buurt van een vrij
+precies resultaat!
 
 \section{Betrouwbaarheidsinterval voor
 gemiddeldes}\label{betrouwbaarheidsinterval-voor-gemiddeldes}

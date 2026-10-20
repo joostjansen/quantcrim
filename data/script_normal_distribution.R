@@ -35,7 +35,7 @@ grafiek <- ggplot(curve_df, aes(x = x, y = y)) +
   scale_x_continuous(breaks = seq(0, 1, by = 0.1),
                      labels = \(x) komma(x, 1)) +
   labs(
-    title    = "Steekproevenverdeling van de proportie",
+    title    = "Steekproevenverdeling van de proportie xtc-gebruikers",
     subtitle = sprintf("Proportie (populatie) = %s, standaardfout = %s; gearceerd = 95%%-interval [%s; %s]",
                        komma(p_hat), komma(se), komma(ci_onder), komma(ci_boven)),
     x = "Proportie",

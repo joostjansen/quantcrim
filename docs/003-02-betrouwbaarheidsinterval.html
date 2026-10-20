@@ -523,18 +523,18 @@ window.Quarto = {
 </header>
 
 
-<p>We zijn in het vorige hoofdstuk ingegaan op de de principes van inferentiële statistiek, de steekproevenverdeling, de standaardfout en assumpties en mogelijke fouten die kunnen plaatsvinden.</p>
-<p>We moeten nu nog een concrete stap maken, namelijk die van het trekken van één steekproef naar het schatten van de populatieparameter. Omdat we nooit helemaal zeker weten wat het populatieparameter is, schatten we met behulp van de standaardfout hoe dicht we in de buurt zitten (de foutmarge). Dit doen we aan de hand van een <strong>betrouwbaarheidsinterval</strong> (afkorting: bhi). We zullen in dit hoofdstuk in een aantal concrete stappen laten we zien we hoe dit doen.</p>
+<p>We zijn in het vorige hoofdstuk ingegaan op de principes van inferentiële statistiek, de steekproevenverdeling, de standaardfout, assumpties en mogelijke fouten die kunnen plaatsvinden.</p>
+<p>We moeten nu een volgende stap maken, namelijk die van het trekken van één steekproef naar het schatten van de populatieparameter. Omdat we nooit helemaal zeker weten wat de populatieparameter is, schatten we met behulp van de standaardfout hoe dicht we in de buurt zitten (de foutmarge). Dit doen we aan de hand van een <strong>betrouwbaarheidsinterval</strong> (afkorting: bhi). We zullen in dit hoofdstuk in een aantal concrete stappen laten we zien we hoe dit doen.</p>
 <section id="betrouwbaarheidsinterval-voor-proporties" class="level2 page-columns page-full" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="betrouwbaarheidsinterval-voor-proporties"><span class="header-section-number">8.1</span> Betrouwbaarheidsinterval voor proporties</h2>
 <section id="denkbeeldig-voorbeeld" class="level3 page-columns page-full" data-number="8.1.1">
 <h3 data-number="8.1.1" class="anchored" data-anchor-id="denkbeeldig-voorbeeld"><span class="header-section-number">8.1.1</span> Denkbeeldig voorbeeld</h3>
-<p>We beginnen met een denkbeeldig voorbeeld. We gaan er net als bij het vorige hoofdstuk vanuit dat we het populatieproportie en de standaardfout al kennen van xtc-gebruik onder uitgaande jongeren. Dit is uiteraard zelden het geval (daarom doen we onderzoek!), maar voor de uitleg die volgt is dit wel handig.</p>
-<p>Als we volgens de centrale limietstelling oneindig steekproeven trekken van 30 personen, willen we weten wat het bereik is van 95% van de steekproefuitkomsten (proporties in dit geval) rondom het populatiegemiddelde. Dan hebben we een aardig beeld van wat voor proporties de meeste steekproeven zouden opleveren. Dat is hieronder gevisualiseerd.</p>
+<p>We beginnen met een denkbeeldig voorbeeld. We gaan er net als bij het vorige hoofdstuk vanuit dat we het populatieproportie en de standaardfout al kennen van xtc-gebruik onder uitgaande jongeren, waarbij we de dataset als populatie beschouwen. Dit is uiteraard zelden het geval (daarom doen we onderzoek!), maar voor de uitleg die volgt is dit wel handig.</p>
+<p>Als we volgens de centrale limietstelling oneindig steekproeven trekken van 30 personen, willen we weten wat het bereik is van 95% van de steekproefuitkomsten (proporties in dit geval) rondom het populatiegemiddelde. Met 95% hebben we een aardig beeld van wat voor proporties de meeste steekproeven zouden opleveren. Dat is hieronder gevisualiseerd.</p>
 <p><img src="afbeeldingen/normal_distribution.png" class="img-fluid"></p>
-<p>De afbeelding hierboven is afgeleid van het <a href="./003-01-steekproeven.html#sec-steekproefcentraallimiet">voorbeeld</a> uit het vorige hoofdstuk. Het toont dat we als herhaalde steekproeven zouden doen waarbij de proportie in de populatie van xtc-gebruik 0,685 is, dat 95% van de steekproeven een proportie tussen de 0,521 en 0,849 zou opleveren.</p>
+<p>De afbeelding hierboven is afgeleid van het <a href="./003-01-steekproeven.html#sec-steekproefcentraallimiet">voorbeeld</a> uit het vorige hoofdstuk. Het toont dat we als herhaalde steekproeven zouden doen waarbij de proportie in de populatie van xtc-gebruik 0,685 is, dat 95% van de steekproeven een proportie tussen de 0,518 en 0,852 zou opleveren.</p>
 <p>Waarom kiezen we hier voor 95%? Dat is afgeleid uit de empirische regel die we bij de <a href="./002-03-centrum-en-spreidingsmaten.html#sec-normaleverdeling">Normale verdeling</a> hebben besproken. Daar zag je bijvoorbeeld dat 95,4% van alle observaties tussen 2 standaarddeviaties boven en onder het midden van de verdeling liggen. 95% wordt vaak als conventioneel interval gebruikt, omdat het een breed interval betreft dat veel mogelijke uitkomsten bevat zonder dat het betekenisloos wordt.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Het 95%-betrouwbaarheidsinterval correspondeert met 1,96 standaarddeviaties boven en onder het midden van de verdeling.</p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Andere veelgebruikte betrouwbaarheidsintervallen zijn 90% en 99%. De bijbehorende standaarddeviaties zijn hierbij respectievelijk 1,65 en 2,58.</p></div></div><p>Aan de hand van de formule van betrouwbaarheidsinterval kunnen we zien hoe we dit berekenen:</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Andere veelgebruikte betrouwbaarheidsintervallen zijn 90% en 99%. De bijbehorende standaarddeviaties zijn hierbij respectievelijk 1,65 en 2,58 (op basis van z-scores).</p></div></div><p>Aan de hand van de formule van betrouwbaarheidsinterval kunnen we zien hoe we dit berekenen:</p>
 <p><span class="math display">\[
 bhi = P \pm z\times\sigma_{\hat{p}}
 \]</span></p>
@@ -552,10 +552,10 @@ bhi = P \pm z\times\sigma_{\hat{p}}
 <li><p><span class="math inline">\(P=0,685\)</span></p></li>
 <li><p><span class="math inline">\(z=1,96\)</span> (we hebben gekozen voor een 95%-bhi)</p></li>
 </ul>
-<p>Je hebt eerder gezien hoe je <a href="./003-01-steekproeven.html#sec-standaardfout">standaardfout</a> berekent voor proporties. Je hoeft alleen de proportie en aantal respondenten in te vullen:</p>
+<p>Je hebt eerder gezien hoe je de <a href="./003-01-steekproeven.html#sec-standaardfout">standaardfout</a> berekent voor proporties. Je hoeft alleen de proportie en aantal respondenten in te vullen:</p>
 <p><span class="math display">\[\sigma_{\hat{p}}=\sqrt\frac{\hat{p}(1-\hat{p})}{n}=\sqrt\frac{0,685(1-0,685)}{30}\]</span></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen standaardfout voor steekproeven met 30 respondenten</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen standaardfout voor voorbeeld</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fl">0.685</span><span class="sc">*</span>(<span class="dv">1</span><span class="fl">-0.685</span>)<span class="sc">/</span><span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.08480861</code></pre>
@@ -566,30 +566,32 @@ bhi = P \pm z\times\sigma_{\hat{p}}
 <p><span class="math display">\[
 bhi = P \pm z\times\sigma_{\hat{p}} = 0,685 \pm 1,96\times0,085
 \]</span></p>
-<p>We berekenen eerst het deel achter de <span class="math inline">\(\pm\)</span> (<span class="math inline">\(z\times\sigma_{\hat{p}}\)</span> ) en tellen dat op/trekken dat af van 0,685.</p>
+<p>We berekenen eerst het deel achter de <span class="math inline">\(\pm\)</span> (<span class="math inline">\(z\times\sigma_{\hat{p}}\)</span> ):</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gedeelte achter +-</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.085</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1666</code></pre>
 </div>
+</div>
+<p>Dit is dus 0,167. Het bereik van het 95%-bhi ligt 0,167 boven en onder de populatieproportie van 0,685. Dit tellen we op/trekken we af van 0,685.</p>
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen bhi</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fl">0.685-0.1666</span> <span class="co"># ondergrens</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fl">0.685-0.167</span> <span class="co"># ondergrens</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5184</code></pre>
+<pre><code>[1] 0.518</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.685+0.1666</span> <span class="co"># bovengrens</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.685+0.167</span> <span class="co"># bovengrens</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.8516</code></pre>
+<pre><code>[1] 0.852</code></pre>
 </div>
 </div>
-<p>Het bereik van het 95%-bhi ligt 0,167 boven en onder de populatieproportie van 0,685.</p>
-<p>Voilà! We weten nu dus dat als we oneindig willekeurige steekproeven zouden trekken van 30 personen uit een populatie uitgaande jongeren, dat de proporties xtc-gebruik in 95% van de steekproeven tussen de 0,512 en 0,852 zouden liggen (als overige assumpties kloppen).</p>
+<p>Voilà! We weten nu dus dat als we oneindig willekeurige steekproeven zouden trekken van 30 personen uit een populatie uitgaande jongeren, dat de proporties xtc-gebruik in 95% van de steekproeven tussen de 0,518 en 0,852 zouden liggen (als overige assumpties kloppen).</p>
 </section>
 <section id="reëel-voorbeeld" class="level3" data-number="8.1.2">
 <h3 data-number="8.1.2" class="anchored" data-anchor-id="reëel-voorbeeld"><span class="header-section-number">8.1.2</span> Reëel voorbeeld</h3>
 <p>Het denkbeeldige voorbeeld is instructief, maar eigenlijk overbodig. We gingen er al vanuit dat de proportie in de populatie 0,685 was. Dan is het in principe niet meer nodig een betrouwbaarheidsinterval te berekenen.</p>
-<p>We weten nu echter ook het volgende: omdat 95% van de verdeling van mogelijke steekproefproporties tussen 0,512 en 0,852 ligt (0,167 boven of onder 0,685), is de kans 95% dat een proportie van een willekeurige steekproef binnen dit bereik valt. Dit betekent dat als we herhaaldelijk een proportie <span class="math inline">\(\hat{p}\)</span> berekenen op basis van een willekeurige steekproef (van 30 personen in dit geval), en vervolgens een interval berekenen tussen <span class="math inline">\(\hat{p}-0,167\)</span> en <span class="math inline">\(\hat{p}+0,167\)</span> , dat dit interval de populatieproportie zal bevatten in 95% van de steekproeven.</p>
+<p>We weten nu echter ook het volgende: omdat 95% van de verdeling van mogelijke steekproefproporties tussen 0,518 en 0,852 ligt (0,167 boven of onder 0,685), is de kans 95% dat een proportie van een willekeurige steekproef binnen dit bereik valt. Dit betekent dat als we herhaaldelijk een proportie <span class="math inline">\(\hat{p}\)</span> berekenen op basis van een willekeurige steekproef (van 30 personen in dit geval), en vervolgens een interval berekenen tussen <span class="math inline">\(\hat{p}-0,167\)</span> en <span class="math inline">\(\hat{p}+0,167\)</span> , dat dit interval de populatieproportie zal bevatten in 95% van de steekproeven.</p>
 <p>Simpel gezegd, kunnen we in de formule <span class="math inline">\(bhi = P \pm z\times\sigma_{\hat{p}}\)</span> de <span class="math inline">\(P\)</span> vervangen door <span class="math inline">\(\hat{p}\)</span>, en dan voor elke steekproef berekenen in welk interval de populatieparameter mogelijk ligt. We zullen daarbij ook de standaardfout <span class="math inline">\(\sigma_{\hat{p}}\)</span> opnieuw moeten berekenen, omdat die we berekend hebben aan de hand van <span class="math inline">\(P=0,685\)</span> maar die kennen we in de werkelijkheid niet. De nieuwe formule voor het schatten van een betrouwbaarheidsinterval is:</p>
 <p><span class="math display">\[ bhi = \hat{p} \pm z\times\sigma_{\hat{p}}  \]</span></p>
 <p>of:</p>
@@ -610,7 +612,7 @@ bhi = P \pm z\times\sigma_{\hat{p}} = 0,685 \pm 1,96\times0,085
 0.3666667 0.6333333 </code></pre>
 </div>
 </div>
-<p>Eerst berekenen we de nieuwe standaardfout:</p>
+<p>De proportie xtc-gebruikers in deze steekproef is dus 0,633. Eerst berekenen we de nieuwe standaardfout:</p>
 <p><span class="math display">\[\sigma_{\hat{p}}=\sqrt\frac{\hat{p}(1-\hat{p})}{n}=\sqrt\frac{0,633(1-0,633)}{30}\]</span></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen standaardfout voor willekeurige steekproef met 30 respondenten</span></span>
@@ -619,7 +621,7 @@ bhi = P \pm z\times\sigma_{\hat{p}} = 0,685 \pm 1,96\times0,085
 <pre><code>[1] 0.0879983</code></pre>
 </div>
 </div>
-<p>En dan berekenen we het 95%-betrouwbaarheidsinterval:</p>
+<p>De standaardfout is 0,088. Dan hebben we alle relevante gegevens om het 95%-betrouwbaarheidsinterval te berekenen:</p>
 <p><span class="math display">\[
 bhi = \hat{p} \pm z\times\sigma_{\hat{p}} = 0,633 \pm 1,96\times0,088
 \]</span></p>
@@ -629,6 +631,8 @@ bhi = \hat{p} \pm z\times\sigma_{\hat{p}} = 0,633 \pm 1,96\times0,088
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.17248</code></pre>
 </div>
+</div>
+<div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen bhi</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fl">0.633-0.172</span> <span class="co"># ondergrens</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -640,17 +644,17 @@ bhi = \hat{p} \pm z\times\sigma_{\hat{p}} = 0,633 \pm 1,96\times0,088
 </div>
 </div>
 <p>De ondergrens van het 95%-bhi is in dit geval 0,461 en de bovengrens is 0,805. Dit noteren we ook wel als <span class="math inline">\([0,461; 0,805]\)</span>. Op basis hiervan concluderen we (voorlopig) dat in 95% van de herhaalde steekproeven de populatieproportie tussen deze twee waarden zou moeten liggen. In dit geval is dat correct: 0,685 ligt tussen 0,461 en 0,805.</p>
-<p>Dit principe is hieronder uitgebeeld. Deze grafiek toont een simulatie waarin we 100 keer een steekproef hebben getrokken van 30 personen en voor elke steekproef het 95%-bhi hebben berekend. Wanneer een interval de populatieproportie bevat, dan overlapt het interval (horizontale grijze streep) met de verticale gestippelde lijn die de populatieproportie presenteert. In 5% van de steekproeven zie je dat het interval en de populatieproportie niet overlappen. Dit zijn steekproeven die toevallig een hele hoge of lage proportie van xtc-gebruikers bevatten. Uitgaande van een 95%-bhi, valt de populatiewaarde dan buiten het interval bij deze steekproeven. We zitten er ook weleens naast met een steekproef, ook al is aan alle assumpties voldaan. Het voordeel is wel dat we weten hoe vaak we er naast zaten, namelijk in 5% procent van de steekproeven.</p>
+<p>Het principe van een 95%-bhi is hieronder uitgebeeld. Deze grafiek toont een simulatie waarin we 100 keer een steekproef hebben getrokken van 30 personen en voor elke steekproef het 95%-bhi hebben berekend. Wanneer een interval de populatieproportie bevat, dan overlapt het interval (horizontale grijze streep) met de verticale gestippelde lijn die de populatieproportie presenteert. In 5% van de steekproeven zie je dat het interval en de populatieproportie niet overlappen. Dit zijn steekproeven die toevallig een hele hoge of lage proportie van xtc-gebruikers hebben (rode kleur). Uitgaande van een 95%-bhi, valt de populatiewaarde dan buiten het interval bij deze steekproeven. We zitten er dus ook weleens naast met een steekproef, ook al is aan alle assumpties voldaan. Het voordeel is wel dat we weten hoe vaak we er naast zaten, namelijk in 5% procent van de steekproeven.</p>
 <p><img src="afbeeldingen/simulatie_betrouwbaarheidsintervallen.png" class="img-fluid"></p>
 </section>
 <section id="reëel-voorbeeld-2" class="level3" data-number="8.1.3">
 <h3 data-number="8.1.3" class="anchored" data-anchor-id="reëel-voorbeeld-2"><span class="header-section-number">8.1.3</span> Reëel voorbeeld #2</h3>
-<p>Hopelijk heb je inmiddels een beetje feeling gekregen voor betrouwbaarheidsintervallen. Het vorige voorbeeld was leerzaam, maar de uitkomst was eigenlijk een beetje teleurstellend. Dat we op basis van een steekproef van 30 personen weten dat met 95% zekerheid de populatieproportie xtc-gebruikers ergens tussen de 0,461 en 0,805 ligt is nog niet zo informatief. Het kan namelijk 0,461 zijn, of 0,805, of alles daar tussen in. Het maakt nogal uit of het 46,1% gebruikers gaat of om 80,5%! Stel je voor dat de media een bericht schrijft over jouw onderzoek, dan wil je toch wat nauwkeuriger kunnen zeggen hoeveel uitgaande jongeren ooit xtc hebben gebruikt.</p>
+<p>Hopelijk heb je inmiddels een beetje feeling gekregen voor betrouwbaarheidsintervallen. Het vorige voorbeeld was leerzaam, maar de uitkomst was een beetje teleurstellend. Dat we op basis van een steekproef van 30 personen weten dat met 95% zekerheid de populatieproportie xtc-gebruikers ergens tussen de 0,461 en 0,805 ligt is nog niet zo informatief. Het kan namelijk 0,461 zijn, of 0,805, of alles daar tussen in. Het maakt nogal uit of het 46,1% gebruikers gaat of om 80,5%! Stel je voor dat de media een bericht schrijft over jouw onderzoek, dan wil je toch wat nauwkeuriger kunnen zeggen hoeveel uitgaande jongeren ooit xtc hebben gebruikt.</p>
 <p>We gaan nu kijken hoe de grootte van de steekproef hier van invloed is (zie ook het deel over de <a href="./003-01-steekproeven.html#sec-standaardfout">standaardfout</a>). We trekken nu geen steekproef van 30 personen, maar één van 10 en één van 100 personen. Eerst schrijven we even een functie om het 95%-bhi automatisch te berekenen, zodat we niet alles weer stap voor stap hoeven te berekenen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># functie schrijven voor 95%-bhi</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>bhi_95 <span class="ot">&lt;-</span> <span class="cf">function</span>(p, n) {</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  p <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p) <span class="sc">/</span> n)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  p <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fl">1.96</span> <span class="sc">*</span> <span class="fu">sqrt</span>(p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p) <span class="sc">/</span> n)</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We trekken twee steekproeven van respectievelijk 10 en 100 personen, en berekenen de proporties.</p>
@@ -680,24 +684,24 @@ nee  ja
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 95%-bhi berekenen voor beide steekproeven</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bhi_95</span>(<span class="fl">0.7</span>, <span class="dv">10</span>) <span class="co"># 10 personen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4159742 0.9840258</code></pre>
+<pre><code>[1] 0.415969 0.984031</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bhi_95</span>(<span class="fl">0.582</span>, <span class="dv">100</span>) <span class="co"># 100 personen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4853287 0.6786713</code></pre>
+<pre><code>[1] 0.4853269 0.6786731</code></pre>
 </div>
 </div>
-<p>Je ziet grote verschillen tussen deze betrouwbaarheidsintervallen. De steekproef van 10 personen heeft een 95%-bhi tussen <span class="math inline">\([0,416; 0,984]\)</span>. Dit is een heel breed interval. De populatieproportie van 0,685 valt er wel binnen, maar zal sowieso in 95% van de steekproeven het geval zijn. Op basis van het interval zelf kunnen we niet veel zeggen over de mogelijke proportie xtc-gebruikers. Dit alles tussen de 41,6% en 98,4% kunnen zijn.</p>
-<p>Het 95%-bhi is daarentegen veel smaller: <span class="math inline">\([0,485; 0,679]\)</span>. Afgaande op dit interval, zou je stellen dat je met 95% zekerheid kan aannemen dat de proportie xtc-gebruikers in de populatie tussen de 48,5% en 67,9% ligt. Dit is nog steeds een redelijk breed interval, maar wel al nauwkeuriger dan wat we eerder hebben gezien. Toevallig valt de populatieproportie (0,685) wel buiten dit interval, we hebben dus een 5% misser hier!</p>
+<p>Je ziet grote verschillen tussen deze betrouwbaarheidsintervallen. De steekproef van 10 personen heeft een 95%-bhi tussen <span class="math inline">\([0,416; 0,984]\)</span>. Dit is een heel breed interval. De populatieproportie van 0,685 valt er wel binnen, maar dit zal sowieso in 95% van de steekproeven het geval zijn. Op basis van het interval zelf kunnen we niet veel zeggen over de mogelijke populatieproportie xtc-gebruikers. Dit zou alles tussen de 41,6% en 98,4% kunnen zijn.</p>
+<p>Het 95%-bhi van de steekproef met 100 personen is daarentegen veel smaller: <span class="math inline">\([0,485; 0,679]\)</span>. Afgaande op dit interval, zou je stellen dat je met 95% zekerheid kan aannemen dat de proportie xtc-gebruikers in de populatie tussen de 48,5% en 67,9% ligt. Dit is nog steeds een redelijk breed interval, maar wel al nauwkeuriger dan wat we eerder hebben gezien. Toevallig valt de populatieproportie (0,685) buiten dit interval, we hebben dus een 5% misser hier!</p>
 <p>We kunnen het voorbeeld van proportie xtc-gebruikers nu full circle afsluiten. We hebben de hele tijd voor didactische redenen aangenomen dat <span class="math inline">\(P=0,685\)</span> , de proportie uit de dataset. We laten nu het idee los dat we de populatieparameter zouden kennen, en schatten wat deze mogelijk zou kunnen zijn op basis van de hele dataset. Nu is <span class="math inline">\(\hat{p}=0,685\)</span>. Herinner dat we xxx respondenten hebben in de dataset.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen 95%-bhi voor de complete steekproef</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bhi_95</span>(<span class="fl">0.685</span>, <span class="dv">350</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6363352 0.7336648</code></pre>
+<pre><code>[1] 0.6363343 0.7336657</code></pre>
 </div>
 </div>
-<p>Onze schatting is dus dat we met 95% zekerheid kunnen zeggen dat de proportie xtc-gebruikers in de populatie uitgaande jongeren tussen 0,636 en 0,737 ligt, bij herhaalde steekproeven van xxx personen. Dat komt al aardig in de buurt van een vrij precies resultaat!</p>
+<p>Onze schatting is dat we met 95% zekerheid kunnen zeggen dat de proportie xtc-gebruikers in de populatie uitgaande jongeren tussen 0,636 en 0,737 ligt, bij herhaalde steekproeven van xxx personen. Dus ergens tussen de 63,3% en 73,7%. Dat komt al aardig in de buurt van een vrij precies resultaat!</p>
 </section>
 </section>
 <section id="betrouwbaarheidsinterval-voor-gemiddeldes" class="level2" data-number="8.2">
