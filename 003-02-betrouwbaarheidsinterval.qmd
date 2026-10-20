@@ -7,9 +7,9 @@ execute:
 
 {{< include _setup.qmd >}}
 
-We zijn in het vorige hoofdstuk ingegaan op de de principes van inferentiële statistiek, de steekproevenverdeling, de standaardfout en assumpties en mogelijke fouten die kunnen plaatsvinden.
+We zijn in het vorige hoofdstuk ingegaan op de principes van inferentiële statistiek, de steekproevenverdeling, de standaardfout, assumpties en mogelijke fouten die kunnen plaatsvinden.
 
-We moeten nu nog een concrete stap maken, namelijk die van het trekken van één steekproef naar het schatten van de populatieparameter. Omdat we nooit helemaal zeker weten wat het populatieparameter is, schatten we met behulp van de standaardfout hoe dicht we in de buurt zitten (de foutmarge). Dit doen we aan de hand van een **betrouwbaarheidsinterval** (afkorting: bhi). We zullen in dit hoofdstuk in een aantal concrete stappen laten we zien we hoe dit doen.
+We moeten nu een volgende stap maken, namelijk die van het trekken van één steekproef naar het schatten van de populatieparameter. Omdat we nooit helemaal zeker weten wat de populatieparameter is, schatten we met behulp van de standaardfout hoe dicht we in de buurt zitten (de foutmarge). Dit doen we aan de hand van een **betrouwbaarheidsinterval** (afkorting: bhi). We zullen in dit hoofdstuk in een aantal concrete stappen laten we zien we hoe dit doen.
 
 ## Betrouwbaarheidsinterval voor proporties
 

@@ -398,7 +398,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Kans en steekproeven</span></a>
+ <span class="menu-text">Steekproeven en betrouwbaarheidsinterval</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -412,8 +412,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-02-kans.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></span></a>
+  <a href="./003-02-betrouwbaarheidsinterval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></span></a>
   </div>
 </li>
       </ul>
@@ -506,7 +506,7 @@ window.Quarto = {
   <li><a href="#doosdiagram" id="toc-doosdiagram" class="nav-link" data-scroll-target="#doosdiagram"><span class="header-section-number">5.3.1</span> Doosdiagram</a></li>
   </ul></li>
   <li><a href="#sec-normaleverdeling" id="toc-sec-normaleverdeling" class="nav-link" data-scroll-target="#sec-normaleverdeling"><span class="header-section-number">5.4</span> Normale verdeling</a></li>
-  <li><a href="#z-score" id="toc-z-score" class="nav-link" data-scroll-target="#z-score"><span class="header-section-number">5.5</span> Z-score</a></li>
+  <li><a href="#sec-zscore" id="toc-sec-zscore" class="nav-link" data-scroll-target="#sec-zscore"><span class="header-section-number">5.5</span> Z-score</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/002-03-centrum-en-spreidingsmaten.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -891,8 +891,8 @@ s=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 <p>Dat een bepaald bereik op basis van standaarddeviaties correspondeert met een zeker percentage van alle observaties, staat ook wel bekend als <strong>de empirische regel.</strong> Je zult later bij het berekenen van een betrouwbaarheidsinterval en hypothese toetsen gaan zien waarom dit relevant is.</p>
 <p>Het is belangrijk om op te merken dat in de praktijk variabelen zelden exact normaal verdeeld zijn, ze volgen dus niet precies de verdeling zoals hierboven weergeven. Zo kunnen kwantitatieve variabelen ook linksscheef of rechtsscheef verdeeld zijn, die daarvoor deze <a href="https://www.scribbr.nl/statistiek/skewness-scheefheid/">link</a>.</p>
 </section>
-<section id="z-score" class="level2 page-columns page-full" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="z-score"><span class="header-section-number">5.5</span> Z-score</h2>
+<section id="sec-zscore" class="level2 page-columns page-full" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="sec-zscore"><span class="header-section-number">5.5</span> Z-score</h2>
 <p>Om inzicht te krijgen in de relatieve positie van een bepaalde observatie ten opzichte van het gemiddelde, kunnen we ten slotte een z-score berekenen. Een z-score is een gestandaardiseerde maat die aangeeft hoeveel standaarddeviaties een waarde van het gemiddelde ligt. Daarbij geldt dat, door het standaardiseren, het gemiddelde altijd 0 is en de standaardafwijking 1. De z-score heeft de volgende formule:</p>
 <p><span class="math display">\[ z=\frac{x-\bar{x}}{s} \]</span></p>
 <p>De berekening is vrij eenvoudig: je trekt het gemiddelde <span class="math inline">\(\bar{x}\)</span> af van de specifieke waarde <span class="math inline">\(x\)</span> en deelt dit door de standaardafwijking <span class="math inline">\(s\)</span> van de originele variabele.</p>

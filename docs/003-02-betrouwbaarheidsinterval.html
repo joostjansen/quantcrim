@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; Kans – quantcrim</title>
+<title>8&nbsp; Betrouwbaarheidsinterval – quantcrim</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -80,10 +115,39 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -254,7 +318,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-02-kans.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Steekproeven en betrouwbaarheidsinterval</a></li><li class="breadcrumb-item"><a href="./003-02-betrouwbaarheidsinterval.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -334,7 +398,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Kans en steekproeven</span></a>
+ <span class="menu-text">Steekproeven en betrouwbaarheidsinterval</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -348,8 +412,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-02-kans.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></span></a>
+  <a href="./003-02-betrouwbaarheidsinterval.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></span></a>
   </div>
 </li>
       </ul>
@@ -420,16 +484,29 @@ ul.task-list li input[type="checkbox"] {
 </div></div></nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#betrouwbaarheidsinterval-voor-proporties" id="toc-betrouwbaarheidsinterval-voor-proporties" class="nav-link active" data-scroll-target="#betrouwbaarheidsinterval-voor-proporties"><span class="header-section-number">8.1</span> Betrouwbaarheidsinterval voor proporties</a>
+  <ul class="collapse">
+  <li><a href="#denkbeeldig-voorbeeld" id="toc-denkbeeldig-voorbeeld" class="nav-link" data-scroll-target="#denkbeeldig-voorbeeld"><span class="header-section-number">8.1.1</span> Denkbeeldig voorbeeld</a></li>
+  <li><a href="#reëel-voorbeeld" id="toc-reëel-voorbeeld" class="nav-link" data-scroll-target="#reëel-voorbeeld"><span class="header-section-number">8.1.2</span> Reëel voorbeeld</a></li>
+  <li><a href="#reëel-voorbeeld-2" id="toc-reëel-voorbeeld-2" class="nav-link" data-scroll-target="#reëel-voorbeeld-2"><span class="header-section-number">8.1.3</span> Reëel voorbeeld #2</a></li>
+  </ul></li>
+  <li><a href="#betrouwbaarheidsinterval-voor-gemiddeldes" id="toc-betrouwbaarheidsinterval-voor-gemiddeldes" class="nav-link" data-scroll-target="#betrouwbaarheidsinterval-voor-gemiddeldes"><span class="header-section-number">8.2</span> Betrouwbaarheidsinterval voor gemiddeldes</a></li>
+  <li><a href="#interpretatie-betrouwbaarheidsinterval" id="toc-interpretatie-betrouwbaarheidsinterval" class="nav-link" data-scroll-target="#interpretatie-betrouwbaarheidsinterval"><span class="header-section-number">8.3</span> Interpretatie betrouwbaarheidsinterval</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-02-betrouwbaarheidsinterval.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-02-kans.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Steekproeven en betrouwbaarheidsinterval</a></li><li class="breadcrumb-item"><a href="./003-02-betrouwbaarheidsinterval.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></h1>
 </div>
 
 
@@ -446,7 +523,191 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>We zijn in het vorige hoofdstuk ingegaan op de de principes van inferentiële statistiek, de steekproevenverdeling, de standaardfout en assumpties en mogelijke fouten die kunnen plaatsvinden.</p>
+<p>We moeten nu nog een concrete stap maken, namelijk die van het trekken van één steekproef naar het schatten van de populatieparameter. Omdat we nooit helemaal zeker weten wat het populatieparameter is, schatten we met behulp van de standaardfout hoe dicht we in de buurt zitten (de foutmarge). Dit doen we aan de hand van een <strong>betrouwbaarheidsinterval</strong> (afkorting: bhi). We zullen in dit hoofdstuk in een aantal concrete stappen laten we zien we hoe dit doen.</p>
+<section id="betrouwbaarheidsinterval-voor-proporties" class="level2 page-columns page-full" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="betrouwbaarheidsinterval-voor-proporties"><span class="header-section-number">8.1</span> Betrouwbaarheidsinterval voor proporties</h2>
+<section id="denkbeeldig-voorbeeld" class="level3 page-columns page-full" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="denkbeeldig-voorbeeld"><span class="header-section-number">8.1.1</span> Denkbeeldig voorbeeld</h3>
+<p>We beginnen met een denkbeeldig voorbeeld. We gaan er net als bij het vorige hoofdstuk vanuit dat we het populatieproportie en de standaardfout al kennen van xtc-gebruik onder uitgaande jongeren. Dit is uiteraard zelden het geval (daarom doen we onderzoek!), maar voor de uitleg die volgt is dit wel handig.</p>
+<p>Als we volgens de centrale limietstelling oneindig steekproeven trekken van 30 personen, willen we weten wat het bereik is van 95% van de steekproefuitkomsten (proporties in dit geval) rondom het populatiegemiddelde. Dan hebben we een aardig beeld van wat voor proporties de meeste steekproeven zouden opleveren. Dat is hieronder gevisualiseerd.</p>
+<p><img src="afbeeldingen/normal_distribution.png" class="img-fluid"></p>
+<p>De afbeelding hierboven is afgeleid van het <a href="./003-01-steekproeven.html#sec-steekproefcentraallimiet">voorbeeld</a> uit het vorige hoofdstuk. Het toont dat we als herhaalde steekproeven zouden doen waarbij de proportie in de populatie van xtc-gebruik 0,685 is, dat 95% van de steekproeven een proportie tussen de 0,521 en 0,849 zou opleveren.</p>
+<p>Waarom kiezen we hier voor 95%? Dat is afgeleid uit de empirische regel die we bij de <a href="./002-03-centrum-en-spreidingsmaten.html#sec-normaleverdeling">Normale verdeling</a> hebben besproken. Daar zag je bijvoorbeeld dat 95,4% van alle observaties tussen 2 standaarddeviaties boven en onder het midden van de verdeling liggen. 95% wordt vaak als conventioneel interval gebruikt, omdat het een breed interval betreft dat veel mogelijke uitkomsten bevat zonder dat het betekenisloos wordt.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Het 95%-betrouwbaarheidsinterval correspondeert met 1,96 standaarddeviaties boven en onder het midden van de verdeling.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Andere veelgebruikte betrouwbaarheidsintervallen zijn 90% en 99%. De bijbehorende standaarddeviaties zijn hierbij respectievelijk 1,65 en 2,58.</p></div></div><p>Aan de hand van de formule van betrouwbaarheidsinterval kunnen we zien hoe we dit berekenen:</p>
+<p><span class="math display">\[
+bhi = P \pm z\times\sigma_{\hat{p}}
+\]</span></p>
+<p>of:</p>
+<p><span class="math display">\[bhi \enspace ondergrens = P - z\times\sigma_{\hat{p}}\]</span></p>
+<p><span class="math display">\[bhi \enspace bovengrens = P + z\times\sigma_{\hat{p}}\]</span></p>
+<p>Je neemt dus:</p>
+<ul>
+<li>de (schatting van de) populatieparameter <span class="math inline">\(P\)</span></li>
+<li>telt daarbij op en trekt af de standaarddeviatie <span class="math inline">\(z\)</span> die je hebt gekozen voor de grens van het bhi. De <span class="math inline">\(z\)</span> komt van de <a href="./002-03-centrum-en-spreidingsmaten.html#sec-zscore">z-score</a> (gestandaardiseerde standaarddeviaties) die je eerder hebt gezien.</li>
+<li>De <span class="math inline">\(z\)</span> moet je wel eerst vermenigvuldigen met de standaardfout <span class="math inline">\(\sigma_{\hat{p}}\)</span></li>
+</ul>
+<p>We weten voor dit voorbeeld dat:</p>
+<ul>
+<li><p><span class="math inline">\(P=0,685\)</span></p></li>
+<li><p><span class="math inline">\(z=1,96\)</span> (we hebben gekozen voor een 95%-bhi)</p></li>
+</ul>
+<p>Je hebt eerder gezien hoe je <a href="./003-01-steekproeven.html#sec-standaardfout">standaardfout</a> berekent voor proporties. Je hoeft alleen de proportie en aantal respondenten in te vullen:</p>
+<p><span class="math display">\[\sigma_{\hat{p}}=\sqrt\frac{\hat{p}(1-\hat{p})}{n}=\sqrt\frac{0,685(1-0,685)}{30}\]</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen standaardfout voor steekproeven met 30 respondenten</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fl">0.685</span><span class="sc">*</span>(<span class="dv">1</span><span class="fl">-0.685</span>)<span class="sc">/</span><span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.08480861</code></pre>
+</div>
+</div>
+<p>De standaardfout is in dit geval dus 0,085.</p>
+<p>Dan hoeven we in principe alleen nog de formule van het bhi in te vullen:</p>
+<p><span class="math display">\[
+bhi = P \pm z\times\sigma_{\hat{p}} = 0,685 \pm 1,96\times0,085
+\]</span></p>
+<p>We berekenen eerst het deel achter de <span class="math inline">\(\pm\)</span> (<span class="math inline">\(z\times\sigma_{\hat{p}}\)</span> ) en tellen dat op/trekken dat af van 0,685.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gedeelte achter +-</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.085</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1666</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen bhi</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fl">0.685-0.1666</span> <span class="co"># ondergrens</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5184</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.685+0.1666</span> <span class="co"># bovengrens</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8516</code></pre>
+</div>
+</div>
+<p>Het bereik van het 95%-bhi ligt 0,167 boven en onder de populatieproportie van 0,685.</p>
+<p>Voilà! We weten nu dus dat als we oneindig willekeurige steekproeven zouden trekken van 30 personen uit een populatie uitgaande jongeren, dat de proporties xtc-gebruik in 95% van de steekproeven tussen de 0,512 en 0,852 zouden liggen (als overige assumpties kloppen).</p>
+</section>
+<section id="reëel-voorbeeld" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="reëel-voorbeeld"><span class="header-section-number">8.1.2</span> Reëel voorbeeld</h3>
+<p>Het denkbeeldige voorbeeld is instructief, maar eigenlijk overbodig. We gingen er al vanuit dat de proportie in de populatie 0,685 was. Dan is het in principe niet meer nodig een betrouwbaarheidsinterval te berekenen.</p>
+<p>We weten nu echter ook het volgende: omdat 95% van de verdeling van mogelijke steekproefproporties tussen 0,512 en 0,852 ligt (0,167 boven of onder 0,685), is de kans 95% dat een proportie van een willekeurige steekproef binnen dit bereik valt. Dit betekent dat als we herhaaldelijk een proportie <span class="math inline">\(\hat{p}\)</span> berekenen op basis van een willekeurige steekproef (van 30 personen in dit geval), en vervolgens een interval berekenen tussen <span class="math inline">\(\hat{p}-0,167\)</span> en <span class="math inline">\(\hat{p}+0,167\)</span> , dat dit interval de populatieproportie zal bevatten in 95% van de steekproeven.</p>
+<p>Simpel gezegd, kunnen we in de formule <span class="math inline">\(bhi = P \pm z\times\sigma_{\hat{p}}\)</span> de <span class="math inline">\(P\)</span> vervangen door <span class="math inline">\(\hat{p}\)</span>, en dan voor elke steekproef berekenen in welk interval de populatieparameter mogelijk ligt. We zullen daarbij ook de standaardfout <span class="math inline">\(\sigma_{\hat{p}}\)</span> opnieuw moeten berekenen, omdat die we berekend hebben aan de hand van <span class="math inline">\(P=0,685\)</span> maar die kennen we in de werkelijkheid niet. De nieuwe formule voor het schatten van een betrouwbaarheidsinterval is:</p>
+<p><span class="math display">\[ bhi = \hat{p} \pm z\times\sigma_{\hat{p}}  \]</span></p>
+<p>of:</p>
+<p><span class="math display">\[bhi \enspace ondergrens = \hat{p} - z\times\sigma_{\hat{p}}\]</span></p>
+<p><span class="math display">\[bhi \enspace bovengrens = \hat{p} + z\times\sigma_{\hat{p}}\]</span></p>
+<p>We kunnen nu zien hoe dit werkt aan de hand van een voorbeeld. We trekken een steekproef van 30 personen en berekenen de proportie xtc-gebruikers in deze steekproef.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># steekproef trekken van 30 personen uit populatie</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sample_30 <span class="ot">&lt;-</span> <span class="fu">slice_sample</span>(data_uitgaan, <span class="at">n =</span> <span class="dv">30</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># proportie xtc-gebruikers berekenen</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sample_30<span class="sc">$</span>xtc_ooit) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+      nee        ja 
+0.3666667 0.6333333 </code></pre>
+</div>
+</div>
+<p>Eerst berekenen we de nieuwe standaardfout:</p>
+<p><span class="math display">\[\sigma_{\hat{p}}=\sqrt\frac{\hat{p}(1-\hat{p})}{n}=\sqrt\frac{0,633(1-0,633)}{30}\]</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen standaardfout voor willekeurige steekproef met 30 respondenten</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fl">0.633</span><span class="sc">*</span>(<span class="dv">1</span><span class="fl">-0.633</span>)<span class="sc">/</span><span class="dv">30</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0879983</code></pre>
+</div>
+</div>
+<p>En dan berekenen we het 95%-betrouwbaarheidsinterval:</p>
+<p><span class="math display">\[
+bhi = \hat{p} \pm z\times\sigma_{\hat{p}} = 0,633 \pm 1,96\times0,088
+\]</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gedeelte achter +-</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.96</span><span class="sc">*</span><span class="fl">0.088</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.17248</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen bhi</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fl">0.633-0.172</span> <span class="co"># ondergrens</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.461</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.633+0.172</span> <span class="co"># bovengrens</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.805</code></pre>
+</div>
+</div>
+<p>De ondergrens van het 95%-bhi is in dit geval 0,461 en de bovengrens is 0,805. Dit noteren we ook wel als <span class="math inline">\([0,461; 0,805]\)</span>. Op basis hiervan concluderen we (voorlopig) dat in 95% van de herhaalde steekproeven de populatieproportie tussen deze twee waarden zou moeten liggen. In dit geval is dat correct: 0,685 ligt tussen 0,461 en 0,805.</p>
+<p>Dit principe is hieronder uitgebeeld. Deze grafiek toont een simulatie waarin we 100 keer een steekproef hebben getrokken van 30 personen en voor elke steekproef het 95%-bhi hebben berekend. Wanneer een interval de populatieproportie bevat, dan overlapt het interval (horizontale grijze streep) met de verticale gestippelde lijn die de populatieproportie presenteert. In 5% van de steekproeven zie je dat het interval en de populatieproportie niet overlappen. Dit zijn steekproeven die toevallig een hele hoge of lage proportie van xtc-gebruikers bevatten. Uitgaande van een 95%-bhi, valt de populatiewaarde dan buiten het interval bij deze steekproeven. We zitten er ook weleens naast met een steekproef, ook al is aan alle assumpties voldaan. Het voordeel is wel dat we weten hoe vaak we er naast zaten, namelijk in 5% procent van de steekproeven.</p>
+<p><img src="afbeeldingen/simulatie_betrouwbaarheidsintervallen.png" class="img-fluid"></p>
+</section>
+<section id="reëel-voorbeeld-2" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="reëel-voorbeeld-2"><span class="header-section-number">8.1.3</span> Reëel voorbeeld #2</h3>
+<p>Hopelijk heb je inmiddels een beetje feeling gekregen voor betrouwbaarheidsintervallen. Het vorige voorbeeld was leerzaam, maar de uitkomst was eigenlijk een beetje teleurstellend. Dat we op basis van een steekproef van 30 personen weten dat met 95% zekerheid de populatieproportie xtc-gebruikers ergens tussen de 0,461 en 0,805 ligt is nog niet zo informatief. Het kan namelijk 0,461 zijn, of 0,805, of alles daar tussen in. Het maakt nogal uit of het 46,1% gebruikers gaat of om 80,5%! Stel je voor dat de media een bericht schrijft over jouw onderzoek, dan wil je toch wat nauwkeuriger kunnen zeggen hoeveel uitgaande jongeren ooit xtc hebben gebruikt.</p>
+<p>We gaan nu kijken hoe de grootte van de steekproef hier van invloed is (zie ook het deel over de <a href="./003-01-steekproeven.html#sec-standaardfout">standaardfout</a>). We trekken nu geen steekproef van 30 personen, maar één van 10 en één van 100 personen. Eerst schrijven we even een functie om het 95%-bhi automatisch te berekenen, zodat we niet alles weer stap voor stap hoeven te berekenen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># functie schrijven voor 95%-bhi</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>bhi_95 <span class="ot">&lt;-</span> <span class="cf">function</span>(p, n) {</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  p <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>) <span class="sc">*</span> <span class="fu">sqrt</span>(p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p) <span class="sc">/</span> n)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We trekken twee steekproeven van respectievelijk 10 en 100 personen, en berekenen de proporties.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># steekproeven trekken van 10 en 100 personen</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>sample_10 <span class="ot">&lt;-</span> <span class="fu">slice_sample</span>(data_uitgaan, <span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>sample_100 <span class="ot">&lt;-</span> <span class="fu">slice_sample</span>(data_uitgaan, <span class="at">n =</span> <span class="dv">100</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># proportie xtc-gebruikers berekenen</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sample_10<span class="sc">$</span>xtc_ooit) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+nee  ja 
+0.3 0.7 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sample_100<span class="sc">$</span>xtc_ooit) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+      nee        ja 
+0.4183673 0.5816327 </code></pre>
+</div>
+</div>
+<p>De proportie voor de steekproef met 10 personen bedraagt 0,700 en die voor 100 personen is 0,582. Nu berekenen we het 95%-bhi voor beide steekproeven.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 95%-bhi berekenen voor beide steekproeven</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bhi_95</span>(<span class="fl">0.7</span>, <span class="dv">10</span>) <span class="co"># 10 personen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4159742 0.9840258</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bhi_95</span>(<span class="fl">0.582</span>, <span class="dv">100</span>) <span class="co"># 100 personen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4853287 0.6786713</code></pre>
+</div>
+</div>
+<p>Je ziet grote verschillen tussen deze betrouwbaarheidsintervallen. De steekproef van 10 personen heeft een 95%-bhi tussen <span class="math inline">\([0,416; 0,984]\)</span>. Dit is een heel breed interval. De populatieproportie van 0,685 valt er wel binnen, maar zal sowieso in 95% van de steekproeven het geval zijn. Op basis van het interval zelf kunnen we niet veel zeggen over de mogelijke proportie xtc-gebruikers. Dit alles tussen de 41,6% en 98,4% kunnen zijn.</p>
+<p>Het 95%-bhi is daarentegen veel smaller: <span class="math inline">\([0,485; 0,679]\)</span>. Afgaande op dit interval, zou je stellen dat je met 95% zekerheid kan aannemen dat de proportie xtc-gebruikers in de populatie tussen de 48,5% en 67,9% ligt. Dit is nog steeds een redelijk breed interval, maar wel al nauwkeuriger dan wat we eerder hebben gezien. Toevallig valt de populatieproportie (0,685) wel buiten dit interval, we hebben dus een 5% misser hier!</p>
+<p>We kunnen het voorbeeld van proportie xtc-gebruikers nu full circle afsluiten. We hebben de hele tijd voor didactische redenen aangenomen dat <span class="math inline">\(P=0,685\)</span> , de proportie uit de dataset. We laten nu het idee los dat we de populatieparameter zouden kennen, en schatten wat deze mogelijk zou kunnen zijn op basis van de hele dataset. Nu is <span class="math inline">\(\hat{p}=0,685\)</span>. Herinner dat we xxx respondenten hebben in de dataset.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># berekenen 95%-bhi voor de complete steekproef</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bhi_95</span>(<span class="fl">0.685</span>, <span class="dv">350</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6363352 0.7336648</code></pre>
+</div>
+</div>
+<p>Onze schatting is dus dat we met 95% zekerheid kunnen zeggen dat de proportie xtc-gebruikers in de populatie uitgaande jongeren tussen 0,636 en 0,737 ligt, bij herhaalde steekproeven van xxx personen. Dat komt al aardig in de buurt van een vrij precies resultaat!</p>
+</section>
+</section>
+<section id="betrouwbaarheidsinterval-voor-gemiddeldes" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="betrouwbaarheidsinterval-voor-gemiddeldes"><span class="header-section-number">8.2</span> Betrouwbaarheidsinterval voor gemiddeldes</h2>
+</section>
+<section id="interpretatie-betrouwbaarheidsinterval" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="interpretatie-betrouwbaarheidsinterval"><span class="header-section-number">8.3</span> Interpretatie betrouwbaarheidsinterval</h2>
 
+
+</section>
 
 
 </main> <!-- /main -->
@@ -880,4 +1141,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-02-kans.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-02-betrouwbaarheidsinterval.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./003-02-kans.html" rel="next">
+<link href="./003-02-betrouwbaarheidsinterval.html" rel="next">
 <link href="./002-04-relatiesvariabelen.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -318,7 +318,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-01-steekproeven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Steekproeven en betrouwbaarheidsinterval</a></li><li class="breadcrumb-item"><a href="./003-01-steekproeven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -398,7 +398,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Kans en steekproeven</span></a>
+ <span class="menu-text">Steekproeven en betrouwbaarheidsinterval</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -412,8 +412,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-02-kans.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></span></a>
+  <a href="./003-02-betrouwbaarheidsinterval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></span></a>
   </div>
 </li>
       </ul>
@@ -491,7 +491,7 @@ window.Quarto = {
   <ul>
   <li><a href="#populatie-en-steekproef" id="toc-populatie-en-steekproef" class="nav-link active" data-scroll-target="#populatie-en-steekproef"><span class="header-section-number">7.1</span> Populatie en steekproef</a></li>
   <li><a href="#sec-steekproefcentraallimiet" id="toc-sec-steekproefcentraallimiet" class="nav-link" data-scroll-target="#sec-steekproefcentraallimiet"><span class="header-section-number">7.2</span> Steekproevenverdeling en centrale limietstelling</a></li>
-  <li><a href="#één-steekproef-en-de-standaardfout" id="toc-één-steekproef-en-de-standaardfout" class="nav-link" data-scroll-target="#één-steekproef-en-de-standaardfout"><span class="header-section-number">7.3</span> Één steekproef en de standaardfout</a></li>
+  <li><a href="#sec-standaardfout" id="toc-sec-standaardfout" class="nav-link" data-scroll-target="#sec-standaardfout"><span class="header-section-number">7.3</span> Één steekproef en de standaardfout</a></li>
   <li><a href="#assumpties-the-mother-of-all" id="toc-assumpties-the-mother-of-all" class="nav-link" data-scroll-target="#assumpties-the-mother-of-all"><span class="header-section-number">7.4</span> Assumpties (the mother of all…)</a>
   <ul class="collapse">
   <li><a href="#willekeurige-en-systematische-fouten" id="toc-willekeurige-en-systematische-fouten" class="nav-link" data-scroll-target="#willekeurige-en-systematische-fouten"><span class="header-section-number">7.4.1</span> Willekeurige en systematische fouten</a></li>
@@ -506,7 +506,7 @@ window.Quarto = {
 <main class="content page-columns page-full" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Kans en steekproeven</a></li><li class="breadcrumb-item"><a href="./003-01-steekproeven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./003-01-steekproeven.html">Steekproeven en betrouwbaarheidsinterval</a></li><li class="breadcrumb-item"><a href="./003-01-steekproeven.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></h1>
 </div>
@@ -642,8 +642,8 @@ window.Quarto = {
 <p>Doordat we de standaardfout kennen, kunnen we in combinatie met <a href="./002-03-centrum-en-spreidingsmaten.html#sec-normaleverdeling">de empirische regel</a> bepalen hoe waarschijnlijk een bepaalde (willekeurige) steekproefuitkomst voorkomt. Daar gaan we zo mee verder. Eerst laten we de magie van de steekproevenverdeling en centrale limietstelling even op ons inwerken.</p>
 <p><img src="afbeeldingen/Mind_blown.gif" class="img-fluid"></p>
 </section>
-<section id="één-steekproef-en-de-standaardfout" class="level2 page-columns page-full" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="één-steekproef-en-de-standaardfout"><span class="header-section-number">7.3</span> Één steekproef en de standaardfout</h2>
+<section id="sec-standaardfout" class="level2 page-columns page-full" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-standaardfout"><span class="header-section-number">7.3</span> Één steekproef en de standaardfout</h2>
 <p>Degenen die een beetje bij zijn gekomen van het conceptueel geweld hierboven (en wellicht ook degenen voor wie de verwarring compleet is), zullen wellicht inmiddels aan het denken zijn: ja dat is allemaal leuk en aardig die 10.000 steekproeven, maar in de praktijk helemaal niet werkbaar. We kunnen immers niet voor elk onderzoek 10.000 steekproeven uitvoeren, dat kost tijd en geld en na de eerste steekproef is de lol er eigenlijk ook wel een beetje vanaf.</p>
 <p>Gelukkig is hier een eenvoudige oplossing voor. Het blijkt namelijk statistisch zo te zijn dat we de standaardfout kunnen berekenen op basis van één steekproef. We hoeven dus helemaal geen 10.000 steekproeven te trekken om de standaardfout te berekenen!</p>
 <p>Voor een het berekenen van de standaardfout van proporties <span class="math inline">\(\sigma_{\hat{p}}\)</span> geldt<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
@@ -698,15 +698,15 @@ window.Quarto = {
 </section>
 <section id="willekeurige-selectie" class="level3" data-number="7.4.2">
 <h3 data-number="7.4.2" class="anchored" data-anchor-id="willekeurige-selectie"><span class="header-section-number">7.4.2</span> Willekeurige selectie</h3>
-<p>Bij het verzamelen van steekproefdata zijn er verder diverse praktische uitdagingen. Het idee van een willekeurig getrokken steekproef (<em>random sample</em>) veronderstelt dat je een overzicht heb van je populatie (alle uitgaande jongeren in Nederland tussen de 16 en 35 jaar) en vervolgens potentiële respondenten op willekeurige wijze selecteert. Maar hoe krijg je dat overzicht, het gaat immers om honderdduizenden zo niet miljoenen personen? Je zou bijvoorbeeld kunnen beginnen bij het willekeurig selecteren van plekken in Nederland (steden en dorpen), vervolgens een aantal uitgaansgelegenheden willekeurig selecteren (cafés, kroegen, discotheken, festivals, etc.) en dan op die plekken willekeurig jongeren benaderen om mee te doen aan het onderzoek. Je kunt je voorstellen dat dit laatste al lastig genoeg is: hoe ga je in drukke discotheek mensen willekeurig mensen selecteren? Nog los van het gegeven dat sommige mensen te veel onder invloed zijn om een vragenlijst serieus in te vullen.</p>
-<p>In het oorspronkelijke onderzoek (<a href="https://www.trimbos.nl/kennisbank/rapport-het-grote-uitgaansonderzoek-2023/">Het Grote Uitgaansonderzoek</a>), waar onze dataset op is gebaseerd, is de werving van respondenten via social media gegaan. The Trimbos instituut heeft via advertenties en een wervingscampagne respondenten geworven via Instagram, Snapchat en Facebook. Hoewel dit geschikte platformen zijn om uitgaande jongeren te bereiken, is de selectie van respondenten allesbehalve willekeurig. In plaats van willekeurig te selecteren uit de populatie is het proces hier eerder andersom: je stuurt een bericht de wereld in om te kijken wie uit de populatie er mee wil doen aan het onderzoek. Ook zal niet iedereen uit de doelpopulatie op deze platformen zitten (bijvoorbeeld mensen zonder social media).</p>
-<p>Dit wil niet zeggen dat het onderzoek geen zin heeft of incorrect is. Het gaat er eerder om dat we ons bewust zijn van de beperkingen en mogelijke fouten, zodat we geen onjuiste uitspraken doen op basis van de data en onze methoden. In theorie stellen we dat als de selectie van respondenten totaal willekeurig plaatsvindt, dat er geen systematische fouten zijn op basis van zowel geobserveerde (variabelen die we meten) en niet-geobserveerde kenmerken (wat we niet meten in de vragenlijst). In de praktijk is het vaak wat rommeliger.</p>
+<p>Bij het verzamelen van steekproefdata zijn er verder diverse praktische uitdagingen. Het idee van een willekeurig getrokken steekproef (<em>random sample</em>) veronderstelt dat je een overzicht heb van je populatie (alle uitgaande jongeren in Nederland tussen de 16 en 35 jaar) en vervolgens potentiële respondenten op willekeurige wijze selecteert. Maar hoe krijg je dat overzicht, het gaat immers om honderdduizenden zo niet miljoenen personen? Je zou bijvoorbeeld kunnen beginnen bij het willekeurig selecteren van plekken in Nederland (steden en dorpen), vervolgens een aantal uitgaansgelegenheden willekeurig selecteren (cafés, kroegen, discotheken, festivals, etc.) en dan op die plekken willekeurig jongeren benaderen om mee te doen aan het onderzoek. Je kunt je voorstellen dat dit laatste al lastig genoeg is: hoe ga je in drukke discotheek willekeurig mensen benaderen? Nog los van het gegeven dat sommige mensen te veel onder invloed zijn om een vragenlijst serieus in te vullen.</p>
+<p>In het oorspronkelijke onderzoek (<a href="https://www.trimbos.nl/kennisbank/rapport-het-grote-uitgaansonderzoek-2023/">Het Grote Uitgaansonderzoek</a>), waar onze dataset op is gebaseerd, is de werving van respondenten via social media gegaan. Het Trimbos instituut heeft via advertenties en een wervingscampagne respondenten geworven via Instagram, Snapchat en Facebook. Hoewel dit geschikte platformen zijn om uitgaande jongeren te bereiken, is de selectie van respondenten allesbehalve willekeurig. In plaats van willekeurig te selecteren uit de populatie is het proces hier eerder andersom: je stuurt een bericht de wereld in om te kijken wie uit de populatie er mee wil doen aan het onderzoek. Ook zal niet iedereen uit de doelpopulatie op deze platformen zitten (mensen zonder social media).</p>
+<p>Dit wil niet zeggen dat het onderzoek geen zin heeft of meteen niet valide is. Het gaat er eerder om dat we ons bewust zijn van de beperkingen en mogelijke fouten, zodat we geen onjuiste uitspraken doen op basis van de data en onze methoden. In theorie stellen we dat als de selectie van respondenten totaal willekeurig plaatsvindt, dat er geen systematische fouten zijn op basis van zowel geobserveerde (variabelen die we meten) en niet-geobserveerde kenmerken (wat we niet meten in de vragenlijst). In de praktijk is het vaak wat rommeliger.</p>
 <p>De hier genoemde fouten hebben te maken met de <strong>validiteit</strong> en <strong>betrouwbaarheid</strong> van kwantitatief onderzoek. Dit zijn belangrijke aspecten waar we in de colleges en onderwijsgroepen ook meer aandacht aan zullen besteden.</p>
 </section>
 <section id="de-constante-populatieparameter" class="level3" data-number="7.4.3">
 <h3 data-number="7.4.3" class="anchored" data-anchor-id="de-constante-populatieparameter"><span class="header-section-number">7.4.3</span> De constante populatieparameter</h3>
-<p>Naast mogelijke systematische fouten zijn de filosofische aannames achter statistiekonderzoek niet altijd even goed toepasbaar. Zoals eerder gesteld is het idee achter de dominante manier van statistiek bedrijven dat er zoiets bestaat als een ware populatieparameter <span class="math inline">\(P\)</span> die we in theorie kunnen achterhalen door een oneindig aantal onderzoeken (bijvoorbeeld experimenten of steekproeven) uit te voeren. Er wordt aangenomen dat de populatieparameter een constante, vaste waarde heeft. Als we onderzoek blijven herhalen, krijgen we steeds net wat andere data door willekeurige fouten. De data varieert dus, de populatieparameter niet. Op de lange termijn zal het gemiddelde van al deze onderzoeken echter leiden tot de ware <span class="math inline">\(P\)</span> (zie <a href="#sec-steekproefcentraallimiet" class="quarto-xref"><span>Section 7.2</span></a>). Dit denken gaat dus uit van soort denkbeeldig universum waarin we deze onderzoeken oneindig kunnen herhalen. In de praktijk voeren we het onderzoek vaak eenmaal uit.</p>
-<p>In sommige situaties is deze manier van denken geschikt. Als we geïnteresseerd zijn in xtc-gebruik onder uitgaande jongeren in Nederland, kunnen we ervan uitgaan dat in er in deze populatie een zekere constante proportie van gebruik bestaat. Bij herhaalde onderzoeken zullen we dan los van toevallige fouten naar verwachting min of meer steeds op dezelfde proportie uitkomen (zie het voorbeeld onder <a href="#sec-steekproefcentraallimiet" class="quarto-xref"><span>Section 7.2</span></a>), althans op de korte tot middellange termijn. Over de tijd zal het gebruik als het gevolg van maatschappelijke en culturele veranderingen variëren.</p>
+<p>Naast mogelijke systematische fouten zijn de filosofische aannames achter statistiekonderzoek niet altijd even goed toepasbaar. Zoals eerder gesteld is het idee achter de dominante manier van statistiek bedrijven dat er zoiets bestaat als een ware populatieparameter <span class="math inline">\(P\)</span> die we in theorie kunnen achterhalen door een oneindig aantal onderzoeken (bijvoorbeeld experimenten of steekproeven) uit te voeren. Er wordt aangenomen dat de populatieparameter een constante, vaste waarde heeft. Als we onderzoek blijven herhalen, krijgen we steeds net wat andere data door willekeurige fouten. De data varieert dus, de populatieparameter niet. Op de lange termijn zal het gemiddelde van al deze onderzoeken echter leiden tot de ware <span class="math inline">\(P\)</span> (zie <a href="#sec-steekproefcentraallimiet" class="quarto-xref"><span class="quarto-unresolved-ref">sec-steekproefcentraallimiet</span></a>). Dit denken gaat dus uit van soort denkbeeldig universum waarin we deze onderzoeken oneindig kunnen herhalen. In de praktijk voeren we het onderzoek vaak eenmaal uit.</p>
+<p>In sommige situaties is deze manier van denken geschikt. Als we geïnteresseerd zijn in xtc-gebruik onder uitgaande jongeren in Nederland, kunnen we ervan uitgaan dat in er in deze populatie een zekere constante proportie van gebruik bestaat. Bij herhaalde onderzoeken zullen we dan los van toevallige fouten naar verwachting min of meer steeds op dezelfde proportie uitkomen (zie het voorbeeld onder <a href="#sec-steekproefcentraallimiet" class="quarto-xref"><span class="quarto-unresolved-ref">sec-steekproefcentraallimiet</span></a>), althans op de korte tot middellange termijn. Over de tijd zal het gebruik als het gevolg van maatschappelijke en culturele veranderingen variëren.</p>
 <p>Voor meer specifieke vragen geeft de aanname van een universum met een ware populatieparameter die we ontdekken door oneindig herhaalde onderzoeken wel problemen (lees deze zin gerust nog een keer). Neem als voorbeeld dat we geïnteresseerd zijn in de proportie xtc-gebruikers op het festival Lowlands in 2026. Dit is een eenmalig evenement. We kunnen er wellicht van uitgaan dat er zoiets is als een constante populatieparameter ‘proportie xtc-gebruik’ voor dit festival, maar we kunnen in de praktijk geen herhaalde onderzoeken blijven doen om dit te meten. Deze editie van 2026, waar we specifiek in zijn geïnteresseerd, vind immers maar één keer plaats en we kunnen dus ook maar één keer onderzoek doen. De statistiekfilosofie laat ons hier in de steek.</p>
 <p>Dat de filosofie niet helemaal kloppend is voor de onderzoekspraktijk is niet per se een probleem, onderzoek vergt wel vaker wat conceptueel rekwerk. Desalniettemin moeten we ons goed rekenschap geven van deze assumpties.</p>
 </section>
@@ -715,10 +715,10 @@ window.Quarto = {
 <h2 data-number="7.5" class="anchored" data-anchor-id="samenvatting"><span class="header-section-number">7.5</span> Samenvatting</h2>
 <p>Je hersenen zullen vast een beetje kraken na dit hoofdstuk. In essentie komt het erop neer dat:</p>
 <ul>
-<li><p>In inferentie proberen we een populatieparameter (proportie xtc-gebruik onder uitgaande jongeren) te schatten middels een willekeurig getrokken steekproef.</p></li>
-<li><p>Middels de steekproevenverdeling kunnen we berekenen hoe groot de kans is op een afwijkende steekproefproportie ten opzichte van de proportie in de populatie, met behulp van de standaardfout</p></li>
-<li><p>Aan de hand van één steekproef kunnen we de standaardfout verkrijgen, waarbij geldt dat deze kleiner wordt bij een grotere steekproef</p></li>
-<li><p>Er zijn diverse fouten mogelijk bij een steekproef waar we ons bewust van moeten zijn</p></li>
+<li>In inferentie proberen we een populatieparameter (proportie xtc-gebruik onder uitgaande jongeren) te schatten middels een willekeurig getrokken steekproef.</li>
+<li>Middels de steekproevenverdeling kunnen we berekenen hoe groot de kans is op een afwijkende steekproefproportie ten opzichte van de proportie in de populatie, met behulp van de standaardfout</li>
+<li>Aan de hand van één steekproef kunnen we de standaardfout verkrijgen, waarbij geldt dat deze kleiner wordt bij een grotere steekproef</li>
+<li>Er zijn diverse fouten mogelijk bij een steekproef waar we ons bewust van moeten zijn</li>
 </ul>
 
 
@@ -1146,8 +1146,8 @@ window.Quarto = {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./003-02-kans.html" class="pagination-link" aria-label="Kans">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kans</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./003-02-betrouwbaarheidsinterval.html" class="pagination-link" aria-label="Betrouwbaarheidsinterval">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

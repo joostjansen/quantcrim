@@ -33,10 +33,10 @@ book:
         - 002-02-meetniveaus-visualisaties.qmd
         - 002-03-centrum-en-spreidingsmaten.qmd
         - 002-04-relatiesvariabelen.qmd
-    - part: "Kans en steekproeven"
+    - part: "Steekproeven en betrouwbaarheidsinterval"
       chapters:
         - 003-01-steekproeven.qmd
-        - 003-02-kans.qmd
+        - 003-02-betrouwbaarheidsinterval.qmd
     - part: "Hypotheses"
     - part: "Samenhang tussen variabelen"
     - part: "Colleges"
