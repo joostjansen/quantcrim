@@ -493,10 +493,11 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#denkbeeldig-voorbeeld" id="toc-denkbeeldig-voorbeeld" class="nav-link" data-scroll-target="#denkbeeldig-voorbeeld"><span class="header-section-number">8.1.1</span> Denkbeeldig voorbeeld</a></li>
   <li><a href="#reëel-voorbeeld" id="toc-reëel-voorbeeld" class="nav-link" data-scroll-target="#reëel-voorbeeld"><span class="header-section-number">8.1.2</span> Reëel voorbeeld</a></li>
-  <li><a href="#reëel-voorbeeld-2" id="toc-reëel-voorbeeld-2" class="nav-link" data-scroll-target="#reëel-voorbeeld-2"><span class="header-section-number">8.1.3</span> Reëel voorbeeld #2</a></li>
+  <li><a href="#sec-reeelvoorbeeld2" id="toc-sec-reeelvoorbeeld2" class="nav-link" data-scroll-target="#sec-reeelvoorbeeld2"><span class="header-section-number">8.1.3</span> Reëel voorbeeld #2</a></li>
   </ul></li>
   <li><a href="#betrouwbaarheidsinterval-voor-gemiddeldes" id="toc-betrouwbaarheidsinterval-voor-gemiddeldes" class="nav-link" data-scroll-target="#betrouwbaarheidsinterval-voor-gemiddeldes"><span class="header-section-number">8.2</span> Betrouwbaarheidsinterval voor gemiddeldes</a></li>
   <li><a href="#interpretatie-betrouwbaarheidsinterval" id="toc-interpretatie-betrouwbaarheidsinterval" class="nav-link" data-scroll-target="#interpretatie-betrouwbaarheidsinterval"><span class="header-section-number">8.3</span> Interpretatie betrouwbaarheidsinterval</a></li>
+  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">8.4</span> Samenvatting</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/003-02-betrouwbaarheidsinterval.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -544,7 +545,7 @@ bhi = P \pm z\times\sigma_{\hat{p}}
 <p>Je neemt dus:</p>
 <ul>
 <li>de (schatting van de) populatieparameter <span class="math inline">\(P\)</span></li>
-<li>telt daarbij op en trekt af de standaarddeviatie <span class="math inline">\(z\)</span> die je hebt gekozen voor de grens van het bhi. De <span class="math inline">\(z\)</span> komt van de <a href="./002-03-centrum-en-spreidingsmaten.html#sec-zscore">z-score</a> (gestandaardiseerde standaarddeviaties) die je eerder hebt gezien.</li>
+<li>telt daarbij op en trekt af de standaarddeviatie <span class="math inline">\(z\)</span> die je hebt gekozen voor de grens van het bhi. De <span class="math inline">\(z\)</span> komt van de (gestandaardiseerde standaarddeviaties) die je eerder hebt gezien.</li>
 <li>De <span class="math inline">\(z\)</span> moet je wel eerst vermenigvuldigen met de standaardfout <span class="math inline">\(\sigma_{\hat{p}}\)</span></li>
 </ul>
 <p>We weten voor dit voorbeeld dat:</p>
@@ -647,8 +648,8 @@ bhi = \hat{p} \pm z\times\sigma_{\hat{p}} = 0,633 \pm 1,96\times0,088
 <p>Het principe van een 95%-bhi is hieronder uitgebeeld. Deze grafiek toont een simulatie waarin we 100 keer een steekproef hebben getrokken van 30 personen en voor elke steekproef het 95%-bhi hebben berekend. Wanneer een interval de populatieproportie bevat, dan overlapt het interval (horizontale grijze streep) met de verticale gestippelde lijn die de populatieproportie presenteert. In 5% van de steekproeven zie je dat het interval en de populatieproportie niet overlappen. Dit zijn steekproeven die toevallig een hele hoge of lage proportie van xtc-gebruikers hebben (rode kleur). Uitgaande van een 95%-bhi, valt de populatiewaarde dan buiten het interval bij deze steekproeven. We zitten er dus ook weleens naast met een steekproef, ook al is aan alle assumpties voldaan. Het voordeel is wel dat we weten hoe vaak we er naast zaten, namelijk in 5% procent van de steekproeven.</p>
 <p><img src="afbeeldingen/simulatie_betrouwbaarheidsintervallen.png" class="img-fluid"></p>
 </section>
-<section id="reëel-voorbeeld-2" class="level3" data-number="8.1.3">
-<h3 data-number="8.1.3" class="anchored" data-anchor-id="reëel-voorbeeld-2"><span class="header-section-number">8.1.3</span> Reëel voorbeeld #2</h3>
+<section id="sec-reeelvoorbeeld2" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="sec-reeelvoorbeeld2"><span class="header-section-number">8.1.3</span> Reëel voorbeeld #2</h3>
 <p>Hopelijk heb je inmiddels een beetje feeling gekregen voor betrouwbaarheidsintervallen. Het vorige voorbeeld was leerzaam, maar de uitkomst was een beetje teleurstellend. Dat we op basis van een steekproef van 30 personen weten dat in 95% van de steekproeven de populatieproportie xtc-gebruikers ergens tussen de 0,461 en 0,805 ligt is nog niet zo informatief. Het kan namelijk 0,461 zijn, of 0,805, of alles daar tussen in. Het maakt nogal uit of het 46,1% gebruikers gaat of om 80,5%! Stel je voor dat de media een bericht schrijft over jouw onderzoek, dan wil je toch wat nauwkeuriger kunnen zeggen hoeveel uitgaande jongeren ooit xtc hebben gebruikt.</p>
 <p>We gaan nu kijken hoe de grootte van de steekproef hier van invloed is (zie ook het deel over de <a href="./003-01-steekproeven.html#sec-standaardfout">standaardfout</a>). We trekken nu geen steekproef van 30 personen, maar één van 10 en één van 100 personen. Eerst schrijven we even een functie om het 95%-bhi automatisch te berekenen, zodat we niet alles weer stap voor stap hoeven te berekenen.</p>
 <div class="cell">
@@ -666,13 +667,13 @@ bhi = \hat{p} \pm z\times\sigma_{\hat{p}} = 0,633 \pm 1,96\times0,088
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>sample_100 <span class="ot">&lt;-</span> <span class="fu">slice_sample</span>(data_uitgaan, <span class="at">n =</span> <span class="dv">100</span>)</span>
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># proportie xtc-gebruikers berekenen</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sample_10<span class="sc">$</span>xtc_ooit) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sample_10<span class="sc">$</span>xtc_ooit) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>() <span class="co"># 10 personen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 nee  ja 
 0.3 0.7 </code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sample_100<span class="sc">$</span>xtc_ooit) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(sample_100<span class="sc">$</span>xtc_ooit) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>() <span class="co"># 100 personen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
       nee        ja 
@@ -729,7 +730,7 @@ nee  ja
 <p><span class="math display">\[ bhi = \bar{x} \pm z\times(\frac{s}{\sqrt{n}}) =10,7 \pm 1,96\times(\frac{5,8}{\sqrt{350}})  \]</span></p>
 <p>We berekenen weer eerst het gedeelte achter <span class="math inline">\(\pm\)</span> (<span class="math inline">\(1,96\times(\frac{5,8}{\sqrt{350}})\)</span>)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gedeelte achter +-</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gedeelte achter +-</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1.96</span><span class="sc">*</span>(<span class="fl">5.8</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">350</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.6076452</code></pre>
@@ -756,21 +757,36 @@ nee  ja
 <p>Als we steekproeven oneindig herhalen en we berekenen een 95%-bhi voor voor alle steekproeven, dan zullen 95% van deze bhi’s de ware populatieparameter bevatten (terwijl 5% van de bhi’s deze niet bevatten).</p>
 </blockquote>
 <p>Deze wat langdradige formulering weerspiegelt de achterliggende aannames van een bhi. Namelijk dat deze</p>
-<p>1) één uitkomst is van een serie van mogelijke steekproeven die we kunnen we trekken uit de populatie en …</p>
+<p>1) één schatting is van een serie van mogelijke steekproeven die we kunnen we trekken uit de populatie en …</p>
 <p>2) dat er zoiets bestaat als een constante, vaste populatieparameter die het bhi wel of niet bevat.</p>
 <p>Omdat we vaak maar één steekproef hebben in onderzoek, formuleren we de interpretatie van een bhi als volgt:</p>
 <blockquote class="blockquote">
 <p>We kunnen met 95% betrouwbaarheid stellen dat de ware populatieparameter ergens tussen [ondergrens] en [bovengrens] ligt, gebaseerd op (hypothetische) herhaalde steekproeven.</p>
 </blockquote>
 <p>Vertalen we dit door naar ons voorbeeld over de proportie xtc-gebruikers, dan zou je de volgende interpretatie kunnen geven: <em>we kunnen met 95% betrouwbaarheid stellen dat de proportie uitgaande jongeren die ooit xtc hebben gebruikt ergens tussen de 0,636 en 0,737 ligt, gebaseerd op (hypothetische) herhaalde steekproeven.</em></p>
-<p>Een veelgemaakte fout bij het interpreteren van een bhi is dat men stelt dat er een 95% kans bestaat dat de populatieparameter in het interval ligt. Dit is niet juist, omdat de populatieparameter een vaste waarde is die <em>wel</em> of <em>niet</em> binnen het interval ligt. De kans is dat een betrouwbaarheidsinterval de ware populatieparameter bevat is daarmee 100% of 0%. Om deze reden zeggen we juist dat 95% van alle bhi’s de populatieparameter zal bevatten.</p>
-<p>We maken het ten slotte wederom nog een stukje ingewikkelder (sorry!). De uitspraak “met 95% betrouwbaarheid stellen we dat de proportie uitgaande jongeren die ooit xtc hebben gebruikt ergens tussen de 0,636 en 0,737 ligt, gebaseerd op (hypothetische) herhaalde steekproeven” is statistisch correct, maar niet per se neutraal of zelfs overeenkomstig met de werkelijkheid. De uitspraak is puur gebaseerd op het onderzoek, maar neemt geen eerdere kennis in overweging.</p>
+<p>Een veelgemaakte fout bij het interpreteren van een bhi is dat men stelt dat er een 95% <em>kans</em> bestaat dat de populatieparameter in het interval ligt. Dit is niet juist, omdat de populatieparameter een vaste waarde is die <em>wel</em> of <em>niet</em> binnen het interval ligt. De kans dat een betrouwbaarheidsinterval de ware populatieparameter bevat, is daarmee 100% (wel) of 0% (niet). Om deze reden zeggen we juist dat 95% van alle mogelijke bhi’s de populatieparameter zal bevatten.</p>
+<p>We maken het ten slotte wederom nog een stukje ingewikkelder (sorry!). De uitspraak “met 95% betrouwbaarheid stellen we dat de proportie uitgaande jongeren die ooit xtc hebben gebruikt ergens tussen de 0,636 en 0,737 ligt, gebaseerd op (hypothetische) herhaalde steekproeven” is statistisch correct, maar niet per se neutraal of altijd overeenkomstig met de werkelijkheid. De uitspraak is puur gebaseerd op het onderzoek, maar neemt geen eerdere kennis in overweging.</p>
 <p>Stel dat eerdere onderzoeken hebben aangetoond dat de proportie xtc-gebruik onder uitgaande jongeren lager ligt, rond de 30-40%. Is het dan echt nog zo aannemelijk dat we in 95% van de herhaalde steekproeven een populatiewaarde zo hoog als het onze zullen vinden in het interval? De eerdere kennis van het onderwerp heeft dus invloed op hoe we het bhi interpreteren en de geloofwaardigheid daarvan. We kunnen deze kennis niet zomaar aan de kant schuiven.</p>
 <p>De gedachtegang hier geeft aan dat de interpretatie van een bhi subjectiever kan zijn dan we vaak denken. Er even hypothetisch van uitgaand dat de daadwerkelijke populatieproportie van xtc-gebruik veel lager ligt dan ons interval lijkt aan geven, zou een persoon met kennis hiervan die 95% betrouwbaarheid in twijfel trekken. Iemand zonder kennis zal het daarentegen wellicht een plausibel resultaat vinden. Een meer accurate interpretatie van een bhi is daarom:</p>
 <blockquote class="blockquote">
 <p>We kunnen met 95% betrouwbaarheid stellen dat de ware populatieparameter ergens tussen [ondergrens] en [bovengrens] ligt, gebaseerd op (hypothetische) herhaalde steekproeven <em>en geen additionele relevante kennis</em>.</p>
 </blockquote>
-<p>Slotstuk over wat studenten hiermee moeten.</p>
+<p>Je zult inmiddels wel denken: wat moet ik hier allemaal mee (voor het tentamen)? We zullen wat duidelijkheid verschaffen op dit punt. We verwachten in ieder geval:</p>
+<ul>
+<li><p>Dat je de laatst gegeven interpretatie van een betrouwbaarheidsinterval consistent toepast op de variabelen die je onderzoekt tijdens de practica</p></li>
+<li><p>Dat je op basis van logisch redeneren en ervaring die je opdoet tijdens de cursus kan uitleggen hoe precies of nauwkeurig je de populatiemeter weet te schatten op basis van het bereik van het interval. In hoeverre is bijvoorbeeld een interval van proporties tussen 0,461 en 0,805 informatief (<a href="#sec-reeelvoorbeeld2" class="quarto-xref"><span class="quarto-unresolved-ref">sec-reeelvoorbeeld2</span></a>)?</p></li>
+<li><p>Dat je begrijpt wat we bedoelen met “95% betrouwbaarheid … gebaseerd op (hypothethische) herhaalde steekproeven” en hoe dit voorkomt uit de <a href="./003-01-steekproeven.html#sec-steekproefcentraallimiet">steekproevenverdeling</a></p></li>
+<li><p>Dat je begrijpt waar de toevoeging “en geen additionele relevante kennis” vandaan komt en ook in hoeverre dit van toepassing kan zijn op zaken die zelf onderzoekt.</p></li>
+</ul>
+</section>
+<section id="samenvatting" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="samenvatting"><span class="header-section-number">8.4</span> Samenvatting</h2>
+<ul>
+<li><p>Op basis van de steekproevenverdeling en empirische regel kunnen we voor elke steekproef berekenen, met een bepaalde mate van betrouwbaarheid, in welk interval de populatieparameter zal liggen. Hiervoor kiezen we doorgaans het 95%-betrouwbaarheidsinterval.</p></li>
+<li><p>Over het algemeen geldt dat het betrouwbaarheidsinterval smaller wordt (en daarmee nauwkeuriger) wanneer we meer data verzamelen.</p></li>
+<li><p>Bij het interpreteren van het bhi moeten we met verschillende assumpties en aspecten rekening houden. Dit is belangrijk omdat we daardoor meer bewust zijn van wat we eigenlijk aan het doen zijn.</p></li>
+</ul>
+<p>In het volgende hoofdstuk…</p>
 
 
 </section>

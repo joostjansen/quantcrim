@@ -226,7 +226,7 @@
 \subtitle{Een open-web handboek voor kwantitatief criminologisch
 onderzoek}
 \author{Joost Jansen \and Gijs Custers}
-\date{2026-10-20}
+\date{2026-10-21}
 \begin{document}
 \maketitle
 
@@ -2619,8 +2619,7 @@ Je neemt dus:
 \item
   telt daarbij op en trekt af de standaarddeviatie \(z\) die je hebt
   gekozen voor de grens van het bhi. De \(z\) komt van de
-  \hyperref[sec-zscore]{z-score} (gestandaardiseerde standaarddeviaties)
-  die je eerder hebt gezien.
+  (gestandaardiseerde standaarddeviaties) die je eerder hebt gezien.
 \item
   De \(z\) moet je wel eerst vermenigvuldigen met de standaardfout
   \(\sigma_{\hat{p}}\)
@@ -2837,7 +2836,7 @@ naast zaten, namelijk in 5\% procent van de steekproeven.
 
 \pandocbounded{\includegraphics[keepaspectratio]{afbeeldingen/simulatie_betrouwbaarheidsintervallen.png}}
 
-\subsection{Reëel voorbeeld \#2}\label{reuxebel-voorbeeld-2}
+\subsection{Reëel voorbeeld \#2}\label{sec-reeelvoorbeeld2}
 
 Hopelijk heb je inmiddels een beetje feeling gekregen voor
 betrouwbaarheidsintervallen. Het vorige voorbeeld was leerzaam, maar de
@@ -2878,7 +2877,7 @@ berekenen de proporties.
 \NormalTok{sample\_100 }\OtherTok{\textless{}{-}} \FunctionTok{slice\_sample}\NormalTok{(data\_uitgaan, }\AttributeTok{n =} \DecValTok{100}\NormalTok{)}
 
 \CommentTok{\# proportie xtc{-}gebruikers berekenen}
-\FunctionTok{table}\NormalTok{(sample\_10}\SpecialCharTok{$}\NormalTok{xtc\_ooit) }\SpecialCharTok{|\textgreater{}} \FunctionTok{prop.table}\NormalTok{()}
+\FunctionTok{table}\NormalTok{(sample\_10}\SpecialCharTok{$}\NormalTok{xtc\_ooit) }\SpecialCharTok{|\textgreater{}} \FunctionTok{prop.table}\NormalTok{() }\CommentTok{\# 10 personen}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2890,7 +2889,7 @@ nee  ja
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{table}\NormalTok{(sample\_100}\SpecialCharTok{$}\NormalTok{xtc\_ooit) }\SpecialCharTok{|\textgreater{}} \FunctionTok{prop.table}\NormalTok{()}
+\FunctionTok{table}\NormalTok{(sample\_100}\SpecialCharTok{$}\NormalTok{xtc\_ooit) }\SpecialCharTok{|\textgreater{}} \FunctionTok{prop.table}\NormalTok{() }\CommentTok{\# 100 personen}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3033,7 +3032,7 @@ We berekenen weer eerst het gedeelte achter \(\pm\)
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#gedeelte achter +{-}}
+\CommentTok{\# gedeelte achter +{-}}
 \FloatTok{1.96}\SpecialCharTok{*}\NormalTok{(}\FloatTok{5.8}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{350}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
@@ -3092,7 +3091,7 @@ bevatten).
 Deze wat langdradige formulering weerspiegelt de achterliggende aannames
 van een bhi. Namelijk dat deze
 
-1) één uitkomst is van een serie van mogelijke steekproeven die we
+1) één schatting is van een serie van mogelijke steekproeven die we
 kunnen we trekken uit de populatie en \ldots{}
 
 2) dat er zoiets bestaat als een constante, vaste populatieparameter die
@@ -3114,18 +3113,18 @@ uitgaande jongeren die ooit xtc hebben gebruikt ergens tussen de 0,636
 en 0,737 ligt, gebaseerd op (hypothetische) herhaalde steekproeven.}
 
 Een veelgemaakte fout bij het interpreteren van een bhi is dat men stelt
-dat er een 95\% kans bestaat dat de populatieparameter in het interval
-ligt. Dit is niet juist, omdat de populatieparameter een vaste waarde is
-die \emph{wel} of \emph{niet} binnen het interval ligt. De kans is dat
-een betrouwbaarheidsinterval de ware populatieparameter bevat is daarmee
-100\% of 0\%. Om deze reden zeggen we juist dat 95\% van alle bhi's de
-populatieparameter zal bevatten.
+dat er een 95\% \emph{kans} bestaat dat de populatieparameter in het
+interval ligt. Dit is niet juist, omdat de populatieparameter een vaste
+waarde is die \emph{wel} of \emph{niet} binnen het interval ligt. De
+kans dat een betrouwbaarheidsinterval de ware populatieparameter bevat,
+is daarmee 100\% (wel) of 0\% (niet). Om deze reden zeggen we juist dat
+95\% van alle mogelijke bhi's de populatieparameter zal bevatten.
 
 We maken het ten slotte wederom nog een stukje ingewikkelder (sorry!).
 De uitspraak ``met 95\% betrouwbaarheid stellen we dat de proportie
 uitgaande jongeren die ooit xtc hebben gebruikt ergens tussen de 0,636
 en 0,737 ligt, gebaseerd op (hypothetische) herhaalde steekproeven'' is
-statistisch correct, maar niet per se neutraal of zelfs overeenkomstig
+statistisch correct, maar niet per se neutraal of altijd overeenkomstig
 met de werkelijkheid. De uitspraak is puur gebaseerd op het onderzoek,
 maar neemt geen eerdere kennis in overweging.
 
@@ -3152,7 +3151,50 @@ ligt, gebaseerd op (hypothetische) herhaalde steekproeven \emph{en geen
 additionele relevante kennis}.
 \end{quote}
 
-Slotstuk over wat studenten hiermee moeten.
+Je zult inmiddels wel denken: wat moet ik hier allemaal mee (voor het
+tentamen)? We zullen wat duidelijkheid verschaffen op dit punt. We
+verwachten in ieder geval:
+
+\begin{itemize}
+\item
+  Dat je de laatst gegeven interpretatie van een
+  betrouwbaarheidsinterval consistent toepast op de variabelen die je
+  onderzoekt tijdens de practica
+\item
+  Dat je op basis van logisch redeneren en ervaring die je opdoet
+  tijdens de cursus kan uitleggen hoe precies of nauwkeurig je de
+  populatiemeter weet te schatten op basis van het bereik van het
+  interval. In hoeverre is bijvoorbeeld een interval van proporties
+  tussen 0,461 en 0,805 informatief (Section~\ref{sec-reeelvoorbeeld2})?
+\item
+  Dat je begrijpt wat we bedoelen met ``95\% betrouwbaarheid \ldots{}
+  gebaseerd op (hypothethische) herhaalde steekproeven'' en hoe dit
+  voorkomt uit de
+  \hyperref[sec-steekproefcentraallimiet]{steekproevenverdeling}
+\item
+  Dat je begrijpt waar de toevoeging ``en geen additionele relevante
+  kennis'' vandaan komt en ook in hoeverre dit van toepassing kan zijn
+  op zaken die zelf onderzoekt.
+\end{itemize}
+
+\section{Samenvatting}\label{samenvatting-2}
+
+\begin{itemize}
+\item
+  Op basis van de steekproevenverdeling en empirische regel kunnen we
+  voor elke steekproef berekenen, met een bepaalde mate van
+  betrouwbaarheid, in welk interval de populatieparameter zal liggen.
+  Hiervoor kiezen we doorgaans het 95\%-betrouwbaarheidsinterval.
+\item
+  Over het algemeen geldt dat het betrouwbaarheidsinterval smaller wordt
+  (en daarmee nauwkeuriger) wanneer we meer data verzamelen.
+\item
+  Bij het interpreteren van het bhi moeten we met verschillende
+  assumpties en aspecten rekening houden. Dit is belangrijk omdat we
+  daardoor meer bewust zijn van wat we eigenlijk aan het doen zijn.
+\end{itemize}
+
+In het volgende hoofdstuk\ldots{}
 
 \part{Hypotheses}
 
