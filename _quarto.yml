@@ -37,8 +37,9 @@ book:
       chapters:
         - 003-01-steekproeven.qmd
         - 003-02-betrouwbaarheidsinterval.qmd
-    - part: "Hypotheses"
-    - part: "Samenhang tussen variabelen"
+    - part: "Hypotheses toetsen"
+      chapters:
+        - 004-01-onafhankelijkegroepen.qmd
     - part: "Colleges"
       chapters:
         - 003-colleges.qmd

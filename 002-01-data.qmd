@@ -7,7 +7,7 @@ execute:
 
 {{< include _setup.qmd >}}
 
-## **Wat zijn data?**
+## **Wat zijn data?** {#sec-data}
 
 In de criminologie zijn we geïnteresseerd in diverse vragen die we kunnen beantwoorden aan de hand van statistisch onderzoek. Denk aan de volgende vragen:
 

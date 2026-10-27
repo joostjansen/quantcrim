@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.10.20)  21 OCT 2026 16:14
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.10.20)  27 OCT 2026 17:31
  restricted system commands enabled.
 **index.tex
 (./index.tex
@@ -1328,6 +1328,6 @@ Here is how much of LuaTeX's memory you used:
    16 hlist, 1 vlist, 4 rule, 9 disc, 2 local_par, 2 dir, 58 glue, 13 kern, 3 penalty, 1 accent, 3 math_char, 2 margin_kern, 298 glyph, 697 attribute, 67 glue_spec, 282 attribute_list, 2 temp, 1 pdf_action nodes
    avail lists: 1:1,2:12321,3:750,4:53,5:439,6:42,7:5449,8:22,9:375,10:13,11:342,12:1
  47822 multiletter control sequences out of 65536+600000
- 67 fonts using 19701667 bytes
+ 67 fonts using 19701439 bytes
  108i,8n,114p,11226b,498s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

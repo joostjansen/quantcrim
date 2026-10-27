@@ -1,0 +1,65 @@
+---
+title: "Hypothese toets voor onafhankelijke groepen"
+format: html
+execute:
+  warning: false
+---
+
+{{< include _setup.qmd >}}
+
+In het vorige deel hebben we kennis gemaakt met inferentiële statistiek. We bespraken hoe je op basis van een steekproef iets zinnigs kan zeggen over een bepaalde populatie en welke aspecten daarbij komen kijken. We keken daarbij vooral naar het schatten van een populatieparameter, wat bijvoorbeeld het proportie xtc-gebruik onder uitgaande jongeren is.
+
+In statistisch onderzoek zijn we vaak geïnteresseerd in relaties tussen bepaalde dingen (zie ook de vragen bij [Data](002-03-centrum-en-spreidingsmaten.qmd)), waarbij we doorgaans verwachtingen hebben over hoe die relatie werkt of in elkaar zit. Deze verwachtingen kunnen we niet toetsen middels een betrouwbaarheidsinterval. Dat zegt ons alleen iets over hoe hoe groot een bepaalde waarde in de populatie is.
+
+We hebben dus iets meer nodig dan betrouwbaarheidsintervallen. Zoals bij [Relaties tussen variabelen](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling), kunnen we data verzamelen over bepaalde kenmerken van personen en dan de relaties hiertussen onderzoeken. Dit zegt alleen iets over de personen in de dataset, maar nog niet de bredere populatie. Om onze verwachtingen over relaties in de populatie te onderzoeken, maken we daarom gebruik van **hypothesetoetsing**. Hypotheses toetsen wil zeggen dat we een verwachting formuleren over hoe iets werkt in de populatie, dit vervolgens onderzoeken en dan uitspraken doen of onze verwachting wel of niet klopt. Daarbij houden we, net als bij de betrouwbaarheidsintervallen, rekening met hoe zeker we kunnen zijn over de juistheid van onze uitspraak.
+
+In dit hoofdstuk gaan we hypothesetoetsing uitleggen aan de hand van een concreet voorbeeld. Er komen bij het toetsen van hypotheses meerdere zaken kijken. De basics daarvan zullen we in deze cursus behandelen. Het is echter goed te realiseren dat de onderzoekspraktijk vaak nog wat complexer is en je na deze cursus dus nog niet uitgeleerd bent. Op een aantal van die zaken gaan we de komende hoofdstukken dieper in, het is dus niet erg als je nog niet alles meteen begrijpt.
+
+Ten slotte werken we elk voorbeeld eerst uit middels een handmatige berekening. Dit helpt om de stappen in het hypothese toetsen beter te begrijpen. In de onderzoekspraktijk doen we uiteraard niet alles handmatig. Daarom volgt daarna vaak de berekening met de computer.
+
+## Wie drinkt er meer?
+
+Als voorbeeld kijken we naar het verschil tussen mannen en vrouwen in hoeveel glazen alcohol ze drinken tijdens een uitgaansdag. Hoewel er onder zowel mannen als vrouwen matige en stevige drinkers zitten, is het algemene beeld dat vooral de mannen tijdens het stappen de sluizen wel flink open kunnen zetten. We willen daarom onderzoeken of dit klopt.
+
+Dit geeft meteen een uitdaging. Stel dat we data verzamelen onder een groep uitgaanders bestaande uit mannen en vrouwen, en vinden dat mannen gemiddeld 11,2 glazen per uitgaansdag drinken en vrouwen 9,5. Op basis van de steekproef weten we dan dat mannen gemiddeld $11,2-9,5=1,7$ meer glazen alcohol drinken dan vrouwen. We zouden op basis hiervan kunnen stellen dat mannen gemiddeld meer drinken dan vrouwen.
+
+Je weet echter uit de vorige hoofdstukken dat deze steekproef slechts één resultaat is van een (hypothetisch) oneindig aantal mogelijke steekproeven. In een andere steekproef kan het zijn dat we vinden dat vrouwen meer drinken dan mannen. Hoe kunnen we nu vaststellen dat ons gevonden verschil niet op toeval berust en we over het algemeen zullen vinden dat mannen meer drinken dan vrouwen?
+
+Voor dit dilemma is de methode van hypothesetoetsing ontwikkeld. Het idee achter deze methode is in feite niet anders dan dat we gezien hebben bij het betrouwbaarheidsinterval. In plaats van de proportie xtc-gebruikers, nemen we nu het verschil tussen mannen en vrouwen in aantal glazen als onze te schatten populatieparameter en gaan we berekenen wat verdeling is van steekproefuitkomsten als we deze oneindig zouden herhalen. Hier komt de [steekproevenverdeling](003-01-steekproeven.qmd#sec-steekproefcentraallimiet) dus weer van pas!
+
+Het aantal stappen bij hypothesetoetsing is uitgebreider dan bij het berekenen van een betrouwbaarheidsinterval. Die lopen we nu stap voor stap door.
+
+### 1) Hypothese opstellen
+
+De eerste stap is dat je jouw verwachting van de uitkomst zo expliciet mogelijk formuleert, dit wordt een **hypothese** genoemd. Hier volgt meteen een hersenkronkel. In standaard statistiek onderzoek toetsen we namelijk niet wat we expliciet verwachten (de **onderzoekshypothese** of **alternatieve hypothese**), maar juist het tegenovergestelde daarvan! Deze tegenovergestelde verwachting wordt de **nulhypothese** genoemd. De reden waarom we dit zo doen, komt kort terug bij HYPOTHESE OPSTELLEN. Daar bespreken we ook uitgebreider waar je op moet letten bij het formuleren van een goede hypothese.
+
+Onze onderzoekshypothese (wat we verwachten) bij dit voorbeeld is dat mannen gemiddeld meer glazen alcohol drinken dan vrouwen op een uitgaansdag. We gebruiken vaak statistische notatie om onze hypotheses expliciet te maken:
+
+$$\mu_1>\mu_2 $$ Dit betekent officieel dat het gemiddelde in de populatie van de eerste groep ($\mu_1$) groter is dan het gemiddelde van de populatie van de tweede groep ($\mu_2$). Oftewel, het gemiddelde aantal glazen alcohol onder mannen is hoger dan het gemiddelde aantal glazen alcohol onder vrouwen.
+
+Draaien we dit om voor het formuleren van de nulhypothese, dan krijgen we:
+
+$$\mu_1\leq\mu_2 $$
+
+Dit lezen we als: het populatiegemiddelde aantal glazen alcohol onder mannen ($\mu_1$) *is kleiner of gelijk* aan het populatiegemiddelde aantal glazen alcohol onder vrouwen ($\mu_2$). voetnoot kleiner of gelijk aan
+
+```{r}
+# gemiddelde berekenen van van aantal sigaretten voor geslacht
+data_uitgaan |> group_by(geslacht) |>
+  filter(!is.na(glazen_alcohol_uitgaansdag)) |> # respondenten die niet roken eruit laten
+  summarise(gem_sigaretten = mean(glazen_alcohol_uitgaansdag)) # summarise() en mean() voor gemiddelde berekenen
+```
+
+We volgen zelfde principe als bij de steekproevenverdeling.
+
+- jongens-meiden glazen alcohol
+
+- stappen in hypothese toetsen (t-toets)
+
+  - met hand en via computer
+
+  - (t-verdeling, nulhypothese)
+
+  - nominaal vs. kwantitatief.
+
+- Andere uitleg met meer details volgt in andere hoofdstukken.
