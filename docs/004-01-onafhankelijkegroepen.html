@@ -147,7 +147,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -500,13 +500,13 @@ window.Quarto = {
   <ul>
   <li><a href="#wie-drinkt-er-meer" id="toc-wie-drinkt-er-meer" class="nav-link active" data-scroll-target="#wie-drinkt-er-meer"><span class="header-section-number">9.1</span> Wie drinkt er meer?</a>
   <ul class="collapse">
-  <li><a href="#hypothese-opstellen" id="toc-hypothese-opstellen" class="nav-link" data-scroll-target="#hypothese-opstellen"><span class="header-section-number">9.1.1</span> 1) Hypothese opstellen</a></li>
+  <li><a href="#statistische-significantie" id="toc-statistische-significantie" class="nav-link" data-scroll-target="#statistische-significantie"><span class="header-section-number">9.1.1</span> Statistische significantie</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/004-01-onafhankelijkegroepen.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothese toets voor onafhankelijke groepen</span></a></li></ol></nav>
@@ -529,39 +529,87 @@ window.Quarto = {
 
 
 <p>In het vorige deel hebben we kennis gemaakt met inferentiële statistiek. We bespraken hoe je op basis van een steekproef iets zinnigs kan zeggen over een bepaalde populatie en welke aspecten daarbij komen kijken. We keken daarbij vooral naar het schatten van een populatieparameter, wat bijvoorbeeld het proportie xtc-gebruik onder uitgaande jongeren is.</p>
-<p>In statistisch onderzoek zijn we vaak geïnteresseerd in relaties tussen bepaalde dingen (zie ook de vragen bij <a href="./002-03-centrum-en-spreidingsmaten.html">Data</a>), waarbij we doorgaans verwachtingen hebben over hoe die relatie werkt of in elkaar zit. Deze verwachtingen kunnen we niet toetsen middels een betrouwbaarheidsinterval. Dat zegt ons alleen iets over hoe hoe groot een bepaalde waarde in de populatie is.</p>
-<p>We hebben dus iets meer nodig dan betrouwbaarheidsintervallen. Zoals bij <a href="./002-03-centrum-en-spreidingsmaten.html#sec-normaleverdeling">Relaties tussen variabelen</a>, kunnen we data verzamelen over bepaalde kenmerken van personen en dan de relaties hiertussen onderzoeken. Dit zegt alleen iets over de personen in de dataset, maar nog niet de bredere populatie. Om onze verwachtingen over relaties in de populatie te onderzoeken, maken we daarom gebruik van <strong>hypothesetoetsing</strong>. Hypotheses toetsen wil zeggen dat we een verwachting formuleren over hoe iets werkt in de populatie, dit vervolgens onderzoeken en dan uitspraken doen of onze verwachting wel of niet klopt. Daarbij houden we, net als bij de betrouwbaarheidsintervallen, rekening met hoe zeker we kunnen zijn over de juistheid van onze uitspraak.</p>
-<p>In dit hoofdstuk gaan we hypothesetoetsing uitleggen aan de hand van een concreet voorbeeld. Er komen bij het toetsen van hypotheses meerdere zaken kijken. De basics daarvan zullen we in deze cursus behandelen. Het is echter goed te realiseren dat de onderzoekspraktijk vaak nog wat complexer is en je na deze cursus dus nog niet uitgeleerd bent. Op een aantal van die zaken gaan we de komende hoofdstukken dieper in, het is dus niet erg als je nog niet alles meteen begrijpt.</p>
-<p>Ten slotte werken we elk voorbeeld eerst uit middels een handmatige berekening. Dit helpt om de stappen in het hypothese toetsen beter te begrijpen. In de onderzoekspraktijk doen we uiteraard niet alles handmatig. Daarom volgt daarna vaak de berekening met de computer.</p>
-<section id="wie-drinkt-er-meer" class="level2" data-number="9.1">
+<p>In statistisch onderzoek zijn we vaak geïnteresseerd in relaties tussen bepaalde dingen (zie ook de vragen bij <a href="./002-01-data.html">Data</a>), waarbij we doorgaans verwachtingen hebben over hoe die relatie werkt of in elkaar zit. Zoals bij <a href="./002-04-relatiesvariabelen.html">Relaties tussen variabelen</a>, kunnen we data verzamelen over bepaalde kenmerken van personen en dan de relaties hiertussen onderzoeken. Dit zegt alleen iets over de personen in de dataset, maar nog niet de bredere populatie.</p>
+<p>Om onze verwachtingen over relaties in de populatie te onderzoeken, maken we daarom gebruik van <strong>hypothesetoetsing</strong>. Hypotheses toetsen wil zeggen dat we een verwachting formuleren over hoe iets werkt in de populatie, dit vervolgens analyseren en dan uitspraken doen in hoeverre deze verwachting klopt. Daarbij houden we, net als bij de betrouwbaarheidsintervallen, rekening met hoe zeker we kunnen zijn over de juistheid van onze uitspraak.</p>
+<p>In dit hoofdstuk gaan we hypothesetoetsing uitleggen aan de hand van een concreet voorbeeld. Er zijn grofweg twee manieren om een hypothese te toetsen. De klassieke methode is volgens het criterium van <strong>statistische significantie</strong>. Hierbij bepaal je voor een bepaalde grenswaarde (significantieniveau) of een hypothese kan worden verworpen. Hoewel deze methode (nog steeds) de standaard is in sociaalwetenschappelijk onderzoek, is er ook veel kritiek op. Hier komen we straks op terug. De andere methode is (surprise, surprise) het uitrekenen van een betrouwbaarheidsinterval. We zullen uitleggen waarom deze laatste methode onze voorkeur geniet.</p>
+<p>Er komen bij het toetsen van hypotheses meerdere zaken kijken. De basics daarvan zullen we in deze cursus behandelen. Het is echter goed te realiseren dat de onderzoekspraktijk vaak nog wat complexer is en je na deze cursus dus nog niet uitgeleerd bent. Op een aantal van die zaken gaan we de komende hoofdstukken dieper in. Het is dus niet erg als je nog niet alles meteen begrijpt.</p>
+<p>Ten slotte werken we het voorbeeld eerst uit middels een handmatige berekening. Dit helpt om de stappen in het hypothese toetsen beter te begrijpen. In de onderzoekspraktijk doen we uiteraard niet alles handmatig. Daarom volgt daarna vaak de berekening met de computer.</p>
+<section id="wie-drinkt-er-meer" class="level2 page-columns page-full" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="wie-drinkt-er-meer"><span class="header-section-number">9.1</span> Wie drinkt er meer?</h2>
 <p>Als voorbeeld kijken we naar het verschil tussen mannen en vrouwen in hoeveel glazen alcohol ze drinken tijdens een uitgaansdag. Hoewel er onder zowel mannen als vrouwen matige en stevige drinkers zitten, is het algemene beeld dat vooral de mannen tijdens het stappen de sluizen wel flink open kunnen zetten. We willen daarom onderzoeken of dit klopt.</p>
-<p>Dit geeft meteen een uitdaging. Stel dat we data verzamelen onder een groep uitgaanders bestaande uit mannen en vrouwen, en vinden dat mannen gemiddeld 11,2 glazen per uitgaansdag drinken en vrouwen 9,5. Op basis van de steekproef weten we dan dat mannen gemiddeld <span class="math inline">\(11,2-9,5=1,7\)</span> meer glazen alcohol drinken dan vrouwen. We zouden op basis hiervan kunnen stellen dat mannen gemiddeld meer drinken dan vrouwen.</p>
+<p>Merk meteen op dat we hier twee verschillende meetniveaus met elkaar in verband brengen. We willen voor een nominale variabele (geslacht) weten wat het verschil is in gemiddeldes op een ratio variabele (aantal glazen alcohol).</p>
+<p>Het onderzoeken van verschillen in drankconsumptie tussen mannen en vrouwen geeft een uitdaging. Stel dat we data verzamelen onder een groep van 40 uitgaanders bestaande uit 20 mannen en 20 vrouwen, en vinden dat mannen gemiddeld 11,4 glazen per uitgaansdag drinken en vrouwen 8,7. Op basis van de steekproef weten we dan dat mannen gemiddeld <span class="math inline">\(11,4-8,7=2,7\)</span> meer glazen alcohol drinken dan vrouwen. We zouden op basis hiervan kunnen stellen dat mannen gemiddeld meer drinken dan vrouwen.</p>
 <p>Je weet echter uit de vorige hoofdstukken dat deze steekproef slechts één resultaat is van een (hypothetisch) oneindig aantal mogelijke steekproeven. In een andere steekproef kan het zijn dat we vinden dat vrouwen meer drinken dan mannen. Hoe kunnen we nu vaststellen dat ons gevonden verschil niet op toeval berust en we over het algemeen zullen vinden dat mannen meer drinken dan vrouwen?</p>
 <p>Voor dit dilemma is de methode van hypothesetoetsing ontwikkeld. Het idee achter deze methode is in feite niet anders dan dat we gezien hebben bij het betrouwbaarheidsinterval. In plaats van de proportie xtc-gebruikers, nemen we nu het verschil tussen mannen en vrouwen in aantal glazen als onze te schatten populatieparameter en gaan we berekenen wat verdeling is van steekproefuitkomsten als we deze oneindig zouden herhalen. Hier komt de <a href="./003-01-steekproeven.html#sec-steekproefcentraallimiet">steekproevenverdeling</a> dus weer van pas!</p>
 <p>Het aantal stappen bij hypothesetoetsing is uitgebreider dan bij het berekenen van een betrouwbaarheidsinterval. Die lopen we nu stap voor stap door.</p>
-<section id="hypothese-opstellen" class="level3" data-number="9.1.1">
-<h3 data-number="9.1.1" class="anchored" data-anchor-id="hypothese-opstellen"><span class="header-section-number">9.1.1</span> 1) Hypothese opstellen</h3>
-<p>De eerste stap is dat je jouw verwachting van de uitkomst zo expliciet mogelijk formuleert, dit wordt een <strong>hypothese</strong> genoemd. Hier volgt meteen een hersenkronkel. In standaard statistiek onderzoek toetsen we namelijk niet wat we expliciet verwachten (de <strong>onderzoekshypothese</strong> of <strong>alternatieve hypothese</strong>), maar juist het tegenovergestelde daarvan! Deze tegenovergestelde verwachting wordt de <strong>nulhypothese</strong> genoemd. De reden waarom we dit zo doen, komt kort terug bij HYPOTHESE OPSTELLEN. Daar bespreken we ook uitgebreider waar je op moet letten bij het formuleren van een goede hypothese.</p>
-<p>Onze onderzoekshypothese (wat we verwachten) bij dit voorbeeld is dat mannen gemiddeld meer glazen alcohol drinken dan vrouwen op een uitgaansdag. We gebruiken vaak statistische notatie om onze hypotheses expliciet te maken:</p>
-<p><span class="math display">\[\mu_1&gt;\mu_2 \]</span> Dit betekent officieel dat het gemiddelde in de populatie van de eerste groep (<span class="math inline">\(\mu_1\)</span>) groter is dan het gemiddelde van de populatie van de tweede groep (<span class="math inline">\(\mu_2\)</span>). Oftewel, het gemiddelde aantal glazen alcohol onder mannen is hoger dan het gemiddelde aantal glazen alcohol onder vrouwen.</p>
+<section id="statistische-significantie" class="level3 page-columns page-full" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="statistische-significantie"><span class="header-section-number">9.1.1</span> Statistische significantie</h3>
+<section id="hypothese-opstellen" class="level4 page-columns page-full" data-number="9.1.1.1">
+<h4 data-number="9.1.1.1" class="anchored" data-anchor-id="hypothese-opstellen"><span class="header-section-number">9.1.1.1</span> 1) Hypothese opstellen</h4>
+<p>De eerste stap is dat je jouw verwachting van de uitkomst zo expliciet mogelijk formuleert, dit wordt een <strong>hypothese</strong> genoemd. Hier volgt meteen een hersenkronkel. In standaard statistisch onderzoek toetsen we namelijk niet wat we verwachten, maar juist het tegenovergestelde daarvan! Deze tegenovergestelde verwachting wordt de <strong>nulhypothese</strong> genoemd. <em>Deze nulhypothese wordt vervolgens wel of niet verworpen, dit is in feite het centrale doel van wetenschappelijk onderzoek verrichten</em>. De reden waarom we dit zo doen, komen we op terug bij HYPOTHESE OPSTELLEN. Daar bespreken we ook uitgebreider waar je op moet letten bij het formuleren van een nulhypothese.</p>
+<p>Onze verwachting bij dit voorbeeld is dat mannen gemiddeld meer glazen alcohol drinken dan vrouwen op een uitgaansdag. We gebruiken vaak statistische notatie dit expliciet te maken:</p>
+<p><span class="math display">\[\mu_1&gt;\mu_2 \]</span></p>
+<p>Dit betekent officieel dat het gemiddelde in de populatie van de eerste groep (<span class="math inline">\(\mu_1\)</span>) groter is dan het gemiddelde van de populatie van de tweede groep (<span class="math inline">\(\mu_2\)</span>). Oftewel, het gemiddelde aantal glazen alcohol onder mannen is hoger dan het gemiddelde aantal glazen alcohol onder vrouwen.</p>
 <p>Draaien we dit om voor het formuleren van de nulhypothese, dan krijgen we:</p>
-<p><span class="math display">\[\mu_1\leq\mu_2 \]</span></p>
-<p>Dit lezen we als: het populatiegemiddelde aantal glazen alcohol onder mannen (<span class="math inline">\(\mu_1\)</span>) <em>is kleiner of gelijk</em> aan het populatiegemiddelde aantal glazen alcohol onder vrouwen (<span class="math inline">\(\mu_2\)</span>). voetnoot kleiner of gelijk aan</p>
+<p><span class="math display">\[\mu_1\leq\mu_2\]</span></p>
+<p>Dit lezen we als: het populatiegemiddelde aantal glazen alcohol onder mannen (<span class="math inline">\(\mu_1\)</span>) is <em>kleiner of gelijk</em> <em>aan</em> het populatiegemiddelde aantal glazen alcohol onder vrouwen (<span class="math inline">\(\mu_2\)</span>).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Let op dat we het in dit geval hebben over ‘kleiner of gelijk aan’ (<span class="math inline">\(\leq\)</span>) en niet ‘kleiner dan’ (&lt;). Als er namelijk geen verschil is in gemiddeld aantal glazen alcohol tussen mannen en vrouwen (<span class="math inline">\(\mu_1=\mu_2\)</span>), betekent dit ook een ander resultaat dan wat je verwacht onder de nulhypothese.</p></div></div><p>We zouden dit ook als volgt kunnen noteren:</p>
+<p><span class="math display">\[\mu_2-\mu_1\ \geq 0\]</span></p>
+<p>Oftewel, onder de nulhypothese verwachten we dat verschil tussen <span class="math inline">\(\mu_1\)</span> en <span class="math inline">\(\mu_2\)</span> groter of gelijk is aan nul. Bij de nulhypothese verwacht je vaak geen verschil of in een andere richting dan je zou denken. Daarom wordt het de nulhypothese genoemd (nul verschil, nul samenhang, nul effect, etc.) 🤓.</p>
+</section>
+<section id="bepalen-significantieniveau" class="level4" data-number="9.1.1.2">
+<h4 data-number="9.1.1.2" class="anchored" data-anchor-id="bepalen-significantieniveau"><span class="header-section-number">9.1.1.2</span> 2) Bepalen significantieniveau</h4>
+<p>Het <strong>significantieniveau</strong> is de grenswaarde waarbij we een nulhypothese verwerpen. Als de overschrijdingskans (p-waarde) kleiner is dan deze grenswaarde, verwerpen we de nulhypothese. Hier komen we bij de volgende stappen op terug. Gebruikelijke significantieniveaus in de statistiek zijn 0,01 (1%), 0,05 (5%) en 0,1 (10%). Meestal gaan we standaard uit van een significantieniveau van 0,05 en doen dit bij dit voorbeeld ook.</p>
+</section>
+<section id="overschrijdingskans" class="level4 page-columns page-full" data-number="9.1.1.3">
+<h4 data-number="9.1.1.3" class="anchored" data-anchor-id="overschrijdingskans"><span class="header-section-number">9.1.1.3</span> 3) Overschrijdingskans</h4>
+<p>De <strong>overschrijdingskans</strong>, ook wel p-waarde genoemd of simpelweg <span class="math inline">\(p\)</span> , speelt een centrale rol in het toetsen van hypotheses. Het geeft aan hoe waarschijnlijk het resultaat verkregen uit onze steekproef is, aangenomen dat de nulhypothese waar is.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;‘Resultaat’ verwijst hier naar de populatieparameter waarin we geïnteresseerd zijn: het gemiddelde verschil tussen mannen en vrouwen in drankconsumptie.</p></div></div><p>Je zult inmiddels wel denken: “waar zijn we nu weer aanbeland”?</p>
+<p><img src="afbeeldingen/Headache.gif" class="img-fluid" width="340"></p>
+<p>Laten we het laag voor laag afpellen.</p>
+<p>Bij het onderzoeken van hypotheses kijken we zoals gesteld naar de nulhypothese. Dit heeft ermee te maken dat we vanuit wetenschapsfilosofisch oogpunt aannemen iets nooit helemaal zeker te weten. Het is daarom makkelijker om het onwaarschijnlijke van wat we verwachten (de nulhypothese) te verwerpen, en er dan vanuit gaan dat het waarschijnlijke ‘voorlopig’ waar is. Dit staat bekend als het <strong>falsificatieprincipe</strong> van Karl Popper.</p>
+<p>In de praktijk betekent dit dat de nulhypothese ons vertrekpunt vormt. Vanuit de nulhypothese is de verwachting doorgaans dat er geen verschil is tussen groepen, oftewel het verschil is nul.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Onze ‘ware’ populatiewaarde, gegeven de nulhypothese, is daarom nul. We maken een denkbeeldige steekproevenverdeling van mogelijke steekproefuitkomsten die hierbij past (zie ook <a href="./003-01-steekproeven.html#sec-steekproefcentraallimiet">Steekproevenverdeling</a> en <a href="./003-02-betrouwbaarheidsinterval.html">Betrouwbaarheidsinterval</a>). Dit noemen we ook wel de H<sub>0</sub>-verdeling of de verdeling onder de nulhypothese.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Je zult zien dat wat we verwachten voor de nulhypothese varieert naar wat voor soort populatieparameter we proberen te schatten. Dit kan de ene keer een verschil in gemiddeldes zijn, maar ook een verschil in percentages of een correlatie. Dit hangt af van de onderzoeksvraag en het meetniveau van de variabelen.</p></div></div><p><img src="afbeeldingen/h0_verdeling.png" class="img-fluid"></p>
+<p>Die H<sub>0</sub>-verdeling staat hierboven weergeven. De verdeling geeft een indicatie van hoe waarschijnlijk een bepaalde steekproefuitkomst is onder H<sub>0</sub>. Je kunt bijvoorbeeld zien dat een gemiddeld verschil van drie glazen zeer onwaarschijnlijk is: het ligt ver van de midden van de verdeling. Hoe groter de afstand tot H<sub>0</sub>, hoe eerder we de nulhypothese zullen verwerpen.</p>
+<p>We kunnen nu de kans berekenen dat een bepaalde steekproefuitkomst voorkomt binnen deze verdeling: de overschrijdingskans! We werken immers met een normaalverdeling en kunnen via de empirische regel nagaan wat de kans op een bepaalde uitkomst is (zie <a href="./002-03-centrum-en-spreidingsmaten.html#sec-normaleverdeling">Normale verdeling</a>).</p>
+<p>We generen eerst de data die hoort bij ons voorbeeld. We hebben ons onderzoek verricht onder 20 mannen en 20 vrouwen, met respectievelijke gemiddeldes van 11,4 en 8,7 glazen alcohol. Voor het gemak gaan we er even vanuit dat de standaarddeviatie <span class="math inline">\(s\)</span> binnen beide groepen 3,5 is.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gemiddelde berekenen van van aantal sigaretten voor geslacht</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data_uitgaan <span class="sc">|&gt;</span> <span class="fu">group_by</span>(geslacht) <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(glazen_alcohol_uitgaansdag)) <span class="sc">|&gt;</span> <span class="co"># respondenten die niet roken eruit laten</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">gem_sigaretten =</span> <span class="fu">mean</span>(glazen_alcohol_uitgaansdag)) <span class="co"># summarise() en mean() voor gemiddelde berekenen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">010</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Trekt n respondenten en schaalt ze zodat gemiddelde en sd exact kloppen</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>genereer_groep <span class="ot">&lt;-</span> <span class="cf">function</span>(n, gemiddelde, s) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(n) <span class="sc">|&gt;</span> <span class="fu">scale</span>() <span class="sc">|&gt;</span> <span class="fu">as.vector</span>() <span class="sc">*</span> s <span class="sc">+</span> gemiddelde</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>voorbeeld_alcohol <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">geslacht                     =</span>  <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"man"</span>, <span class="st">"vrouw"</span>), <span class="at">each =</span> <span class="dv">20</span>)),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">glazen_alcohol_uitgaansdag   =</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="fu">genereer_groep</span>(<span class="dv">20</span>, <span class="fl">11.4</span>, <span class="fl">3.5</span>), <span class="fu">genereer_groep</span>(<span class="dv">20</span>, <span class="fl">8.7</span>, <span class="fl">3.5</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Vervolgens berekenen we de overschrijdingskans die bij deze steekproef hoort.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># toets uitvoeren om overschrijdingskans te berekenen</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(glazen_alcohol_uitgaansdag <span class="sc">~</span> geslacht, <span class="co"># variabelen bepalen</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"greater"</span>, <span class="co"># eenzijdig toetsen (groter dan)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> voorbeeld_alcohol, <span class="co"># data invoeren</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>) <span class="co"># uitgaande van gelijke variantie</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  geslacht gem_sigaretten
-  &lt;fct&gt;             &lt;dbl&gt;
-1 man               12.1 
-2 vrouw              9.21
-3 anders             8   </code></pre>
+<pre><code>
+    Two Sample t-test
+
+data:  glazen_alcohol_uitgaansdag by geslacht
+t = 2.4395, df = 38, p-value = 0.009744
+alternative hypothesis: true difference in means between group man and group vrouw is greater than 0
+95 percent confidence interval:
+ 0.8339904       Inf
+sample estimates:
+  mean in group man mean in group vrouw 
+               11.4                 8.7 </code></pre>
 </div>
 </div>
+<p>Boem! De overschrijdingskans is afgerond 0,010 (zie p-value).</p>
+<p><img src="afbeeldingen/h0_overschrijdingskans.png" class="img-fluid"></p>
 <p>We volgen zelfde principe als bij de steekproevenverdeling.</p>
 <ul>
 <li><p>jongens-meiden glazen alcohol</p></li>
@@ -577,6 +625,8 @@ window.Quarto = {
 
 </section>
 </section>
+</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

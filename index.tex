@@ -226,7 +226,7 @@
 \subtitle{Een open-web handboek voor kwantitatief criminologisch
 onderzoek}
 \author{Joost Jansen \and Gijs Custers}
-\date{2026-10-27}
+\date{2026-10-28}
 \begin{document}
 \maketitle
 
@@ -3208,35 +3208,40 @@ keken daarbij vooral naar het schatten van een populatieparameter, wat
 bijvoorbeeld het proportie xtc-gebruik onder uitgaande jongeren is.
 
 In statistisch onderzoek zijn we vaak geïnteresseerd in relaties tussen
-bepaalde dingen (zie ook de vragen bij
-\hyperref[centrum--en-spreidingsmaten-normale-verdeling-en-z-score]{Data}),
-waarbij we doorgaans verwachtingen hebben over hoe die relatie werkt of
-in elkaar zit. Deze verwachtingen kunnen we niet toetsen middels een
-betrouwbaarheidsinterval. Dat zegt ons alleen iets over hoe hoe groot
-een bepaalde waarde in de populatie is.
+bepaalde dingen (zie ook de vragen bij \hyperref[data]{Data}), waarbij
+we doorgaans verwachtingen hebben over hoe die relatie werkt of in
+elkaar zit. Zoals bij \hyperref[relaties-tussen-variabelen]{Relaties
+tussen variabelen}, kunnen we data verzamelen over bepaalde kenmerken
+van personen en dan de relaties hiertussen onderzoeken. Dit zegt alleen
+iets over de personen in de dataset, maar nog niet de bredere populatie.
 
-We hebben dus iets meer nodig dan betrouwbaarheidsintervallen. Zoals bij
-\hyperref[sec-normaleverdeling]{Relaties tussen variabelen}, kunnen we
-data verzamelen over bepaalde kenmerken van personen en dan de relaties
-hiertussen onderzoeken. Dit zegt alleen iets over de personen in de
-dataset, maar nog niet de bredere populatie. Om onze verwachtingen over
-relaties in de populatie te onderzoeken, maken we daarom gebruik van
-\textbf{hypothesetoetsing}. Hypotheses toetsen wil zeggen dat we een
-verwachting formuleren over hoe iets werkt in de populatie, dit
-vervolgens onderzoeken en dan uitspraken doen of onze verwachting wel of
-niet klopt. Daarbij houden we, net als bij de
+Om onze verwachtingen over relaties in de populatie te onderzoeken,
+maken we daarom gebruik van \textbf{hypothesetoetsing}. Hypotheses
+toetsen wil zeggen dat we een verwachting formuleren over hoe iets werkt
+in de populatie, dit vervolgens analyseren en dan uitspraken doen in
+hoeverre deze verwachting klopt. Daarbij houden we, net als bij de
 betrouwbaarheidsintervallen, rekening met hoe zeker we kunnen zijn over
 de juistheid van onze uitspraak.
 
 In dit hoofdstuk gaan we hypothesetoetsing uitleggen aan de hand van een
-concreet voorbeeld. Er komen bij het toetsen van hypotheses meerdere
-zaken kijken. De basics daarvan zullen we in deze cursus behandelen. Het
-is echter goed te realiseren dat de onderzoekspraktijk vaak nog wat
-complexer is en je na deze cursus dus nog niet uitgeleerd bent. Op een
-aantal van die zaken gaan we de komende hoofdstukken dieper in, het is
-dus niet erg als je nog niet alles meteen begrijpt.
+concreet voorbeeld. Er zijn grofweg twee manieren om een hypothese te
+toetsen. De klassieke methode is volgens het criterium van
+\textbf{statistische significantie}. Hierbij bepaal je voor een bepaalde
+grenswaarde (significantieniveau) of een hypothese kan worden verworpen.
+Hoewel deze methode (nog steeds) de standaard is in
+sociaalwetenschappelijk onderzoek, is er ook veel kritiek op. Hier komen
+we straks op terug. De andere methode is (surprise, surprise) het
+uitrekenen van een betrouwbaarheidsinterval. We zullen uitleggen waarom
+deze laatste methode onze voorkeur geniet.
 
-Ten slotte werken we elk voorbeeld eerst uit middels een handmatige
+Er komen bij het toetsen van hypotheses meerdere zaken kijken. De basics
+daarvan zullen we in deze cursus behandelen. Het is echter goed te
+realiseren dat de onderzoekspraktijk vaak nog wat complexer is en je na
+deze cursus dus nog niet uitgeleerd bent. Op een aantal van die zaken
+gaan we de komende hoofdstukken dieper in. Het is dus niet erg als je
+nog niet alles meteen begrijpt.
+
+Ten slotte werken we het voorbeeld eerst uit middels een handmatige
 berekening. Dit helpt om de stappen in het hypothese toetsen beter te
 begrijpen. In de onderzoekspraktijk doen we uiteraard niet alles
 handmatig. Daarom volgt daarna vaak de berekening met de computer.
@@ -3249,12 +3254,19 @@ onder zowel mannen als vrouwen matige en stevige drinkers zitten, is het
 algemene beeld dat vooral de mannen tijdens het stappen de sluizen wel
 flink open kunnen zetten. We willen daarom onderzoeken of dit klopt.
 
-Dit geeft meteen een uitdaging. Stel dat we data verzamelen onder een
-groep uitgaanders bestaande uit mannen en vrouwen, en vinden dat mannen
-gemiddeld 11,2 glazen per uitgaansdag drinken en vrouwen 9,5. Op basis
-van de steekproef weten we dan dat mannen gemiddeld \(11,2-9,5=1,7\)
-meer glazen alcohol drinken dan vrouwen. We zouden op basis hiervan
-kunnen stellen dat mannen gemiddeld meer drinken dan vrouwen.
+Merk meteen op dat we hier twee verschillende meetniveaus met elkaar in
+verband brengen. We willen voor een nominale variabele (geslacht) weten
+wat het verschil is in gemiddeldes op een ratio variabele (aantal glazen
+alcohol).
+
+Het onderzoeken van verschillen in drankconsumptie tussen mannen en
+vrouwen geeft een uitdaging. Stel dat we data verzamelen onder een groep
+van 40 uitgaanders bestaande uit 20 mannen en 20 vrouwen, en vinden dat
+mannen gemiddeld 11,4 glazen per uitgaansdag drinken en vrouwen 8,7. Op
+basis van de steekproef weten we dan dat mannen gemiddeld
+\(11,4-8,7=2,7\) meer glazen alcohol drinken dan vrouwen. We zouden op
+basis hiervan kunnen stellen dat mannen gemiddeld meer drinken dan
+vrouwen.
 
 Je weet echter uit de vorige hoofdstukken dat deze steekproef slechts
 één resultaat is van een (hypothetisch) oneindig aantal mogelijke
@@ -3277,57 +3289,176 @@ Het aantal stappen bij hypothesetoetsing is uitgebreider dan bij het
 berekenen van een betrouwbaarheidsinterval. Die lopen we nu stap voor
 stap door.
 
-\subsection{1) Hypothese opstellen}\label{hypothese-opstellen}
+\subsection{Statistische
+significantie}\label{statistische-significantie}
+
+\subsubsection{1) Hypothese opstellen}\label{hypothese-opstellen}
 
 De eerste stap is dat je jouw verwachting van de uitkomst zo expliciet
 mogelijk formuleert, dit wordt een \textbf{hypothese} genoemd. Hier
-volgt meteen een hersenkronkel. In standaard statistiek onderzoek
-toetsen we namelijk niet wat we expliciet verwachten (de
-\textbf{onderzoekshypothese} of \textbf{alternatieve hypothese}), maar
-juist het tegenovergestelde daarvan! Deze tegenovergestelde verwachting
-wordt de \textbf{nulhypothese} genoemd. De reden waarom we dit zo doen,
-komt kort terug bij HYPOTHESE OPSTELLEN. Daar bespreken we ook
-uitgebreider waar je op moet letten bij het formuleren van een goede
-hypothese.
+volgt meteen een hersenkronkel. In standaard statistisch onderzoek
+toetsen we namelijk niet wat we verwachten, maar juist het
+tegenovergestelde daarvan! Deze tegenovergestelde verwachting wordt de
+\textbf{nulhypothese} genoemd. \emph{Deze nulhypothese wordt vervolgens
+wel of niet verworpen, dit is in feite het centrale doel van
+wetenschappelijk onderzoek verrichten}. De reden waarom we dit zo doen,
+komen we op terug bij HYPOTHESE OPSTELLEN. Daar bespreken we ook
+uitgebreider waar je op moet letten bij het formuleren van een
+nulhypothese.
 
-Onze onderzoekshypothese (wat we verwachten) bij dit voorbeeld is dat
-mannen gemiddeld meer glazen alcohol drinken dan vrouwen op een
-uitgaansdag. We gebruiken vaak statistische notatie om onze hypotheses
-expliciet te maken:
+Onze verwachting bij dit voorbeeld is dat mannen gemiddeld meer glazen
+alcohol drinken dan vrouwen op een uitgaansdag. We gebruiken vaak
+statistische notatie dit expliciet te maken:
 
-\[\mu_1>\mu_2 \] Dit betekent officieel dat het gemiddelde in de
-populatie van de eerste groep (\(\mu_1\)) groter is dan het gemiddelde
-van de populatie van de tweede groep (\(\mu_2\)). Oftewel, het
-gemiddelde aantal glazen alcohol onder mannen is hoger dan het
-gemiddelde aantal glazen alcohol onder vrouwen.
+\[\mu_1>\mu_2 \]
+
+Dit betekent officieel dat het gemiddelde in de populatie van de eerste
+groep (\(\mu_1\)) groter is dan het gemiddelde van de populatie van de
+tweede groep (\(\mu_2\)). Oftewel, het gemiddelde aantal glazen alcohol
+onder mannen is hoger dan het gemiddelde aantal glazen alcohol onder
+vrouwen.
 
 Draaien we dit om voor het formuleren van de nulhypothese, dan krijgen
 we:
 
-\[\mu_1\leq\mu_2 \]
+\[\mu_1\leq\mu_2\]
 
 Dit lezen we als: het populatiegemiddelde aantal glazen alcohol onder
-mannen (\(\mu_1\)) \emph{is kleiner of gelijk} aan het
-populatiegemiddelde aantal glazen alcohol onder vrouwen (\(\mu_2\)).
-voetnoot kleiner of gelijk aan
+mannen (\(\mu_1\)) is \emph{kleiner of gelijk} \emph{aan} het
+populatiegemiddelde aantal glazen alcohol onder vrouwen
+(\(\mu_2\)).\footnote{Let op dat we het in dit geval hebben over
+  `kleiner of gelijk aan' (\(\leq\)) en niet `kleiner dan' (\textless).
+  Als er namelijk geen verschil is in gemiddeld aantal glazen alcohol
+  tussen mannen en vrouwen (\(\mu_1=\mu_2\)), betekent dit ook een ander
+  resultaat dan wat je verwacht onder de nulhypothese.}
+
+We zouden dit ook als volgt kunnen noteren:
+
+\[\mu_2-\mu_1\ \geq 0\]
+
+Oftewel, onder de nulhypothese verwachten we dat verschil tussen
+\(\mu_1\) en \(\mu_2\) groter of gelijk is aan nul. Bij de nulhypothese
+verwacht je vaak geen verschil of in een andere richting dan je zou
+denken. Daarom wordt het de nulhypothese genoemd (nul verschil, nul
+samenhang, nul effect, etc.) 🤓.
+
+\subsubsection{2) Bepalen
+significantieniveau}\label{bepalen-significantieniveau}
+
+Het \textbf{significantieniveau} is de grenswaarde waarbij we een
+nulhypothese verwerpen. Als de overschrijdingskans (p-waarde) kleiner is
+dan deze grenswaarde, verwerpen we de nulhypothese. Hier komen we bij de
+volgende stappen op terug. Gebruikelijke significantieniveaus in de
+statistiek zijn 0,01 (1\%), 0,05 (5\%) en 0,1 (10\%). Meestal gaan we
+standaard uit van een significantieniveau van 0,05 en doen dit bij dit
+voorbeeld ook.
+
+\subsubsection{3) Overschrijdingskans}\label{overschrijdingskans}
+
+De \textbf{overschrijdingskans}, ook wel p-waarde genoemd of simpelweg
+\(p\) , speelt een centrale rol in het toetsen van hypotheses. Het geeft
+aan hoe waarschijnlijk het resultaat verkregen uit onze steekproef is,
+aangenomen dat de nulhypothese waar is.\footnote{`Resultaat' verwijst
+  hier naar de populatieparameter waarin we geïnteresseerd zijn: het
+  gemiddelde verschil tussen mannen en vrouwen in drankconsumptie.}
+
+Je zult inmiddels wel denken: ``waar zijn we nu weer aanbeland''?
+
+\includegraphics[width=3.54167in,height=\textheight,keepaspectratio]{afbeeldingen/Headache.gif}
+
+Laten we het laag voor laag afpellen.
+
+Bij het onderzoeken van hypotheses kijken we zoals gesteld naar de
+nulhypothese. Dit heeft ermee te maken dat we vanuit
+wetenschapsfilosofisch oogpunt aannemen iets nooit helemaal zeker te
+weten. Het is daarom makkelijker om het onwaarschijnlijke van wat we
+verwachten (de nulhypothese) te verwerpen, en er dan vanuit gaan dat het
+waarschijnlijke `voorlopig' waar is. Dit staat bekend als het
+\textbf{falsificatieprincipe} van Karl Popper.
+
+In de praktijk betekent dit dat de nulhypothese ons vertrekpunt vormt.
+Vanuit de nulhypothese is de verwachting doorgaans dat er geen verschil
+is tussen groepen, oftewel het verschil is nul.\footnote{Je zult zien
+  dat wat we verwachten voor de nulhypothese varieert naar wat voor
+  soort populatieparameter we proberen te schatten. Dit kan de ene keer
+  een verschil in gemiddeldes zijn, maar ook een verschil in percentages
+  of een correlatie. Dit hangt af van de onderzoeksvraag en het
+  meetniveau van de variabelen.} Onze `ware' populatiewaarde, gegeven de
+nulhypothese, is daarom nul. We maken een denkbeeldige
+steekproevenverdeling van mogelijke steekproefuitkomsten die hierbij
+past (zie ook
+\hyperref[sec-steekproefcentraallimiet]{Steekproevenverdeling} en
+\hyperref[betrouwbaarheidsinterval]{Betrouwbaarheidsinterval}). Dit
+noemen we ook wel de H\textsubscript{0}-verdeling of de verdeling onder
+de nulhypothese.
+
+\pandocbounded{\includegraphics[keepaspectratio]{afbeeldingen/h0_verdeling.png}}
+
+Die H\textsubscript{0}-verdeling staat hierboven weergeven. De verdeling
+geeft een indicatie van hoe waarschijnlijk een bepaalde
+steekproefuitkomst is onder H\textsubscript{0}. Je kunt bijvoorbeeld
+zien dat een gemiddeld verschil van drie glazen zeer onwaarschijnlijk
+is: het ligt ver van de midden van de verdeling. Hoe groter de afstand
+tot H\textsubscript{0}, hoe eerder we de nulhypothese zullen verwerpen.
+
+We kunnen nu de kans berekenen dat een bepaalde steekproefuitkomst
+voorkomt binnen deze verdeling: de overschrijdingskans! We werken immers
+met een normaalverdeling en kunnen via de empirische regel nagaan wat de
+kans op een bepaalde uitkomst is (zie
+\hyperref[sec-normaleverdeling]{Normale verdeling}).
+
+We generen eerst de data die hoort bij ons voorbeeld. We hebben ons
+onderzoek verricht onder 20 mannen en 20 vrouwen, met respectievelijke
+gemiddeldes van 11,4 en 8,7 glazen alcohol. Voor het gemak gaan we er
+even vanuit dat de standaarddeviatie \(s\) binnen beide groepen 3,5 is.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# gemiddelde berekenen van van aantal sigaretten voor geslacht}
-\NormalTok{data\_uitgaan }\SpecialCharTok{|\textgreater{}} \FunctionTok{group\_by}\NormalTok{(geslacht) }\SpecialCharTok{|\textgreater{}}
-  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(glazen\_alcohol\_uitgaansdag)) }\SpecialCharTok{|\textgreater{}} \CommentTok{\# respondenten die niet roken eruit laten}
-  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{gem\_sigaretten =} \FunctionTok{mean}\NormalTok{(glazen\_alcohol\_uitgaansdag)) }\CommentTok{\# summarise() en mean() voor gemiddelde berekenen}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{010}\NormalTok{)}
+
+\CommentTok{\# Trekt n respondenten en schaalt ze zodat gemiddelde en sd exact kloppen}
+\NormalTok{genereer\_groep }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(n, gemiddelde, s) \{}
+  \FunctionTok{rnorm}\NormalTok{(n) }\SpecialCharTok{|\textgreater{}} \FunctionTok{scale}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{as.vector}\NormalTok{() }\SpecialCharTok{*}\NormalTok{ s }\SpecialCharTok{+}\NormalTok{ gemiddelde}
+\NormalTok{\}}
+
+\NormalTok{voorbeeld\_alcohol }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{geslacht                     =}  \FunctionTok{factor}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"man"}\NormalTok{, }\StringTok{"vrouw"}\NormalTok{), }\AttributeTok{each =} \DecValTok{20}\NormalTok{)),}
+  \AttributeTok{glazen\_alcohol\_uitgaansdag   =} 
+    \FunctionTok{c}\NormalTok{(}\FunctionTok{genereer\_groep}\NormalTok{(}\DecValTok{20}\NormalTok{, }\FloatTok{11.4}\NormalTok{, }\FloatTok{3.5}\NormalTok{), }\FunctionTok{genereer\_groep}\NormalTok{(}\DecValTok{20}\NormalTok{, }\FloatTok{8.7}\NormalTok{, }\FloatTok{3.5}\NormalTok{))}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Vervolgens berekenen we de overschrijdingskans die bij deze steekproef
+hoort.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# toets uitvoeren om overschrijdingskans te berekenen}
+\FunctionTok{t.test}\NormalTok{(glazen\_alcohol\_uitgaansdag }\SpecialCharTok{\textasciitilde{}}\NormalTok{ geslacht, }\CommentTok{\# variabelen bepalen}
+       \AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{, }\CommentTok{\# eenzijdig toetsen (groter dan)}
+       \AttributeTok{data =}\NormalTok{ voorbeeld\_alcohol, }\CommentTok{\# data invoeren}
+       \AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# uitgaande van gelijke variantie}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-# A tibble: 3 x 2
-  geslacht gem_sigaretten
-  <fct>             <dbl>
-1 man               12.1 
-2 vrouw              9.21
-3 anders             8   
+
+    Two Sample t-test
+
+data:  glazen_alcohol_uitgaansdag by geslacht
+t = 2.4395, df = 38, p-value = 0.009744
+alternative hypothesis: true difference in means between group man and group vrouw is greater than 0
+95 percent confidence interval:
+ 0.8339904       Inf
+sample estimates:
+  mean in group man mean in group vrouw 
+               11.4                 8.7 
 \end{verbatim}
+
+Boem! De overschrijdingskans is afgerond 0,010 (zie p-value).
+
+\pandocbounded{\includegraphics[keepaspectratio]{afbeeldingen/h0_overschrijdingskans.png}}
 
 We volgen zelfde principe als bij de steekproevenverdeling.
 
