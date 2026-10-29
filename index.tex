@@ -226,7 +226,7 @@
 \subtitle{Een open-web handboek voor kwantitatief criminologisch
 onderzoek}
 \author{Joost Jansen \and Gijs Custers}
-\date{2026-10-28}
+\date{2026-10-29}
 \begin{document}
 \maketitle
 
@@ -3198,26 +3198,25 @@ In het volgende hoofdstuk\ldots{}
 
 \part{Hypotheses toetsen}
 
-\chapter{Hypothese toets voor onafhankelijke
-groepen}\label{hypothese-toets-voor-onafhankelijke-groepen}
+\chapter{Hypothesetoetsing}\label{hypothesetoetsing}
 
 In het vorige deel hebben we kennis gemaakt met inferentiële statistiek.
 We bespraken hoe je op basis van een steekproef iets zinnigs kan zeggen
 over een bepaalde populatie en welke aspecten daarbij komen kijken. We
-keken daarbij vooral naar het schatten van een populatieparameter, wat
-bijvoorbeeld het proportie xtc-gebruik onder uitgaande jongeren is.
+keken vooral naar het schatten van een populatieparameter, bijvoorbeeld
+wat de proportie xtc-gebruik onder uitgaande jongeren is.
 
 In statistisch onderzoek zijn we vaak geïnteresseerd in relaties tussen
 bepaalde dingen (zie ook de vragen bij \hyperref[data]{Data}), waarbij
-we doorgaans verwachtingen hebben over hoe die relatie werkt of in
-elkaar zit. Zoals bij \hyperref[relaties-tussen-variabelen]{Relaties
-tussen variabelen}, kunnen we data verzamelen over bepaalde kenmerken
-van personen en dan de relaties hiertussen onderzoeken. Dit zegt alleen
-iets over de personen in de dataset, maar nog niet de bredere populatie.
+we verwachtingen hebben over hoe die relatie werkt of in elkaar zit.
+Zoals bij \hyperref[relaties-tussen-variabelen]{Relaties tussen
+variabelen}, kunnen we data verzamelen over bepaalde kenmerken van
+personen en dan de relaties hiertussen onderzoeken. Dit zegt alleen iets
+over de personen in de dataset, maar nog niet de bredere populatie.
 
 Om onze verwachtingen over relaties in de populatie te onderzoeken,
-maken we daarom gebruik van \textbf{hypothesetoetsing}. Hypotheses
-toetsen wil zeggen dat we een verwachting formuleren over hoe iets werkt
+maken we daarom gebruik van \textbf{hypothesetoetsing}. ``Hypotheses
+toetsen'' betekent dat we een verwachting formuleren over hoe iets werkt
 in de populatie, dit vervolgens analyseren en dan uitspraken doen in
 hoeverre deze verwachting klopt. Daarbij houden we, net als bij de
 betrouwbaarheidsintervallen, rekening met hoe zeker we kunnen zijn over
@@ -3241,23 +3240,28 @@ deze cursus dus nog niet uitgeleerd bent. Op een aantal van die zaken
 gaan we de komende hoofdstukken dieper in. Het is dus niet erg als je
 nog niet alles meteen begrijpt.
 
-Ten slotte werken we het voorbeeld eerst uit middels een handmatige
-berekening. Dit helpt om de stappen in het hypothese toetsen beter te
-begrijpen. In de onderzoekspraktijk doen we uiteraard niet alles
-handmatig. Daarom volgt daarna vaak de berekening met de computer.
+Ten slotte werken we het voorbeeld eerst uit middels de
+overschrijdingskans, wat je de `computerbenadering' zou kunnen noemen.
+In een LATER HOOFDSTUK zullen we dit ook nog handmatig doen om meer
+inzicht te geven in het proces. Voor nu is het relevant dat je het
+principe van hypothesetoetsing snapt.
 
 \section{Wie drinkt er meer?}\label{wie-drinkt-er-meer}
 
 Als voorbeeld kijken we naar het verschil tussen mannen en vrouwen in
-hoeveel glazen alcohol ze drinken tijdens een uitgaansdag. Hoewel er
-onder zowel mannen als vrouwen matige en stevige drinkers zitten, is het
-algemene beeld dat vooral de mannen tijdens het stappen de sluizen wel
-flink open kunnen zetten. We willen daarom onderzoeken of dit klopt.
+hoeveel glazen alcohol ze drinken tijdens een uitgaansdag. Er bevinden
+zich onder zowel mannen als vrouwen matige en stevige drinkers. Hoewel
+het algemene beeld wellicht is dat vooral mannen tijdens het stappen de
+sluizen flink open kunnen zetten, onderzoeken we voor dit voorbeeld of
+er überhaupt een verschil in alcoholconsumptie is. Je zult later zien
+waarom dergelijke formuleringen relevant zijn.
 
 Merk meteen op dat we hier twee verschillende meetniveaus met elkaar in
 verband brengen. We willen voor een nominale variabele (geslacht) weten
 wat het verschil is in gemiddeldes op een ratio variabele (aantal glazen
-alcohol).
+alcohol). Dit type toets noemen we een \textbf{t-toets voor
+onafhankelijke groepen}. Er zijn diverse varianten van de t-toets,
+waarvan we er twee in deze cursus zullen behandelen.
 
 Het onderzoeken van verschillen in drankconsumptie tussen mannen en
 vrouwen geeft een uitdaging. Stel dat we data verzamelen onder een groep
@@ -3265,15 +3269,15 @@ van 40 uitgaanders bestaande uit 20 mannen en 20 vrouwen, en vinden dat
 mannen gemiddeld 11,4 glazen per uitgaansdag drinken en vrouwen 8,7. Op
 basis van de steekproef weten we dan dat mannen gemiddeld
 \(11,4-8,7=2,7\) meer glazen alcohol drinken dan vrouwen. We zouden op
-basis hiervan kunnen stellen dat mannen gemiddeld meer drinken dan
-vrouwen.
+basis hiervan kunnen stellen dat er een verschil bestaat tussen mannen
+en vrouwen in drankconsumptie.
 
 Je weet echter uit de vorige hoofdstukken dat deze steekproef slechts
 één resultaat is van een (hypothetisch) oneindig aantal mogelijke
 steekproeven. In een andere steekproef kan het zijn dat we vinden dat
-vrouwen meer drinken dan mannen. Hoe kunnen we nu vaststellen dat ons
-gevonden verschil niet op toeval berust en we over het algemeen zullen
-vinden dat mannen meer drinken dan vrouwen?
+vrouwen evenveel drinken als mannen. Hoe kunnen we nu vaststellen dat
+ons gevonden verschil niet op toeval berust en we over het algemeen
+zullen vinden dat er een verschil is in aantal glazen alcohol?
 
 Voor dit dilemma is de methode van hypothesetoetsing ontwikkeld. Het
 idee achter deze methode is in feite niet anders dan dat we gezien
@@ -3289,10 +3293,9 @@ Het aantal stappen bij hypothesetoetsing is uitgebreider dan bij het
 berekenen van een betrouwbaarheidsinterval. Die lopen we nu stap voor
 stap door.
 
-\subsection{Statistische
-significantie}\label{statistische-significantie}
+\section{Statistische significantie}\label{statistische-significantie}
 
-\subsubsection{1) Hypothese opstellen}\label{hypothese-opstellen}
+\subsection{1) Hypothese opstellen}\label{hypothese-opstellen}
 
 De eerste stap is dat je jouw verwachting van de uitkomst zo expliciet
 mogelijk formuleert, dit wordt een \textbf{hypothese} genoemd. Hier
@@ -3306,54 +3309,54 @@ komen we op terug bij HYPOTHESE OPSTELLEN. Daar bespreken we ook
 uitgebreider waar je op moet letten bij het formuleren van een
 nulhypothese.
 
-Onze verwachting bij dit voorbeeld is dat mannen gemiddeld meer glazen
-alcohol drinken dan vrouwen op een uitgaansdag. We gebruiken vaak
-statistische notatie dit expliciet te maken:
+Onze verwachting bij dit voorbeeld is dat er een verschil bestaat tussen
+mannen en vrouwen in hoeveel glazen alcohol ze drinken op een
+uitgaansdag. We gebruiken vaak statistische notatie dit expliciet te
+maken:
 
-\[\mu_1>\mu_2 \]
+\[\mu_1 \neq \mu_2 \]
 
-Dit betekent officieel dat het gemiddelde in de populatie van de eerste
-groep (\(\mu_1\)) groter is dan het gemiddelde van de populatie van de
-tweede groep (\(\mu_2\)). Oftewel, het gemiddelde aantal glazen alcohol
-onder mannen is hoger dan het gemiddelde aantal glazen alcohol onder
-vrouwen.
+Dit betekent dat het gemiddelde in de populatie van de eerste groep
+(\(\mu_1\)) \emph{niet gelijk is aan} het gemiddelde van de populatie
+van de tweede groep (\(\mu_2\)). Oftewel, het gemiddelde aantal glazen
+alcohol onder mannen is niet gelijk aan het gemiddelde aantal glazen
+alcohol onder vrouwen.
 
 Draaien we dit om voor het formuleren van de nulhypothese, dan krijgen
 we:
 
-\[\mu_1\leq\mu_2\]
+\[\mu_1=\mu_2\]
 
 Dit lezen we als: het populatiegemiddelde aantal glazen alcohol onder
-mannen (\(\mu_1\)) is \emph{kleiner of gelijk} \emph{aan} het
-populatiegemiddelde aantal glazen alcohol onder vrouwen
-(\(\mu_2\)).\footnote{Let op dat we het in dit geval hebben over
-  `kleiner of gelijk aan' (\(\leq\)) en niet `kleiner dan' (\textless).
-  Als er namelijk geen verschil is in gemiddeld aantal glazen alcohol
-  tussen mannen en vrouwen (\(\mu_1=\mu_2\)), betekent dit ook een ander
-  resultaat dan wat je verwacht onder de nulhypothese.}
+mannen (\(\mu_1\)) is \emph{gelijk} \emph{aan} het populatiegemiddelde
+aantal glazen alcohol onder vrouwen (\(\mu_2\)).\footnote{Let op dat we
+  het in dit geval hebben over `kleiner of gelijk aan' (\(\leq\)) en
+  niet `kleiner dan' (\textless). Als er namelijk geen verschil is in
+  gemiddeld aantal glazen alcohol tussen mannen en vrouwen
+  (\(\mu_1=\mu_2\)), betekent dit ook een ander resultaat dan wat je
+  verwacht onder de nulhypothese.}
 
 We zouden dit ook als volgt kunnen noteren:
 
-\[\mu_2-\mu_1\ \geq 0\]
+\[\mu_1-\mu_2\ = 0\]
 
-Oftewel, onder de nulhypothese verwachten we dat verschil tussen
-\(\mu_1\) en \(\mu_2\) groter of gelijk is aan nul. Bij de nulhypothese
-verwacht je vaak geen verschil of in een andere richting dan je zou
-denken. Daarom wordt het de nulhypothese genoemd (nul verschil, nul
-samenhang, nul effect, etc.) 🤓.
+Oftewel, voor de nulhypothese verwachten we dat verschil tussen
+\(\mu_1\) en \(\mu_2\) gelijk is aan nul. Bij de nulhypothese verwacht
+je vaak geen verschil of in een andere richting dan je zou denken.
+Daarom wordt het de nulhypothese genoemd (nul verschil, nul samenhang,
+nul effect, etc.) 🤓.
 
-\subsubsection{2) Bepalen
+\subsection{2) Bepalen
 significantieniveau}\label{bepalen-significantieniveau}
 
 Het \textbf{significantieniveau} is de grenswaarde waarbij we een
 nulhypothese verwerpen. Als de overschrijdingskans (p-waarde) kleiner is
 dan deze grenswaarde, verwerpen we de nulhypothese. Hier komen we bij de
 volgende stappen op terug. Gebruikelijke significantieniveaus in de
-statistiek zijn 0,01 (1\%), 0,05 (5\%) en 0,1 (10\%). Meestal gaan we
-standaard uit van een significantieniveau van 0,05 en doen dit bij dit
-voorbeeld ook.
+statistiek zijn 0,01 (1\%), 0,05 (5\%) en 0,1 (10\%). Net als bij dit
+voorbeeld gaan we meestal uit van een significantieniveau van 0,05.
 
-\subsubsection{3) Overschrijdingskans}\label{overschrijdingskans}
+\subsection{3) Overschrijdingskans}\label{overschrijdingskans}
 
 De \textbf{overschrijdingskans}, ook wel p-waarde genoemd of simpelweg
 \(p\) , speelt een centrale rol in het toetsen van hypotheses. Het geeft
@@ -3390,22 +3393,21 @@ past (zie ook
 \hyperref[sec-steekproefcentraallimiet]{Steekproevenverdeling} en
 \hyperref[betrouwbaarheidsinterval]{Betrouwbaarheidsinterval}). Dit
 noemen we ook wel de H\textsubscript{0}-verdeling of de verdeling onder
-de nulhypothese.
+de nulhypothese (zie hieronder).
 
 \pandocbounded{\includegraphics[keepaspectratio]{afbeeldingen/h0_verdeling.png}}
 
-Die H\textsubscript{0}-verdeling staat hierboven weergeven. De verdeling
-geeft een indicatie van hoe waarschijnlijk een bepaalde
+De verdeling geeft een indicatie van hoe waarschijnlijk een bepaalde
 steekproefuitkomst is onder H\textsubscript{0}. Je kunt bijvoorbeeld
 zien dat een gemiddeld verschil van drie glazen zeer onwaarschijnlijk
 is: het ligt ver van de midden van de verdeling. Hoe groter de afstand
 tot H\textsubscript{0}, hoe eerder we de nulhypothese zullen verwerpen.
 
 We kunnen nu de kans berekenen dat een bepaalde steekproefuitkomst
-voorkomt binnen deze verdeling: de overschrijdingskans! We werken immers
-met een normaalverdeling en kunnen via de empirische regel nagaan wat de
-kans op een bepaalde uitkomst is (zie
-\hyperref[sec-normaleverdeling]{Normale verdeling}).
+voorkomt binnen deze H\textsubscript{0}-verdeling: de
+overschrijdingskans! We werken immers met een normaalverdeling en kunnen
+via de empirische regel nagaan wat de kans op een bepaalde uitkomst is
+(zie \hyperref[sec-normaleverdeling]{Normale verdeling}).
 
 We generen eerst de data die hoort bij ons voorbeeld. We hebben ons
 onderzoek verricht onder 20 mannen en 20 vrouwen, met respectievelijke
@@ -3422,9 +3424,9 @@ even vanuit dat de standaarddeviatie \(s\) binnen beide groepen 3,5 is.
 \NormalTok{\}}
 
 \NormalTok{voorbeeld\_alcohol }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
-  \AttributeTok{geslacht                     =}  \FunctionTok{factor}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"man"}\NormalTok{, }\StringTok{"vrouw"}\NormalTok{), }\AttributeTok{each =} \DecValTok{20}\NormalTok{)),}
+  \AttributeTok{geslacht                     =}  \FunctionTok{factor}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"man"}\NormalTok{, }\StringTok{"vrouw"}\NormalTok{), }\AttributeTok{each =} \DecValTok{20}\NormalTok{)), }\CommentTok{\# variabele mannen en vrouwen aanmaken}
   \AttributeTok{glazen\_alcohol\_uitgaansdag   =} 
-    \FunctionTok{c}\NormalTok{(}\FunctionTok{genereer\_groep}\NormalTok{(}\DecValTok{20}\NormalTok{, }\FloatTok{11.4}\NormalTok{, }\FloatTok{3.5}\NormalTok{), }\FunctionTok{genereer\_groep}\NormalTok{(}\DecValTok{20}\NormalTok{, }\FloatTok{8.7}\NormalTok{, }\FloatTok{3.5}\NormalTok{))}
+    \FunctionTok{c}\NormalTok{(}\FunctionTok{genereer\_groep}\NormalTok{(}\DecValTok{20}\NormalTok{, }\FloatTok{11.4}\NormalTok{, }\FloatTok{3.5}\NormalTok{), }\FunctionTok{genereer\_groep}\NormalTok{(}\DecValTok{20}\NormalTok{, }\FloatTok{8.7}\NormalTok{, }\FloatTok{3.5}\NormalTok{)) }\CommentTok{\# 20 respondenten per geslacht, met bijbehorende gemiddeldes en sd}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -3436,8 +3438,7 @@ hoort.
 \begin{Highlighting}[]
 \CommentTok{\# toets uitvoeren om overschrijdingskans te berekenen}
 \FunctionTok{t.test}\NormalTok{(glazen\_alcohol\_uitgaansdag }\SpecialCharTok{\textasciitilde{}}\NormalTok{ geslacht, }\CommentTok{\# variabelen bepalen}
-       \AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{, }\CommentTok{\# eenzijdig toetsen (groter dan)}
-       \AttributeTok{data =}\NormalTok{ voorbeeld\_alcohol, }\CommentTok{\# data invoeren}
+       \AttributeTok{data =}\NormalTok{ voorbeeld\_alcohol, }\CommentTok{\# dataset }
        \AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# uitgaande van gelijke variantie}
 \end{Highlighting}
 \end{Shaded}
@@ -3447,38 +3448,146 @@ hoort.
     Two Sample t-test
 
 data:  glazen_alcohol_uitgaansdag by geslacht
-t = 2.4395, df = 38, p-value = 0.009744
-alternative hypothesis: true difference in means between group man and group vrouw is greater than 0
+t = 2.4395, df = 38, p-value = 0.01949
+alternative hypothesis: true difference in means between group man and group vrouw is not equal to 0
 95 percent confidence interval:
- 0.8339904       Inf
+ 0.4594062 4.9405938
 sample estimates:
   mean in group man mean in group vrouw 
                11.4                 8.7 
 \end{verbatim}
 
-Boem! De overschrijdingskans is afgerond 0,010 (zie p-value).
+De output van deze toets geeft aardig wat informatie. Voorlopig kijken
+we alleen naar de p-waarde (p-value), dit is onze overschrijdingskans.
+Deze bedraagt afgerond dus 0,019. Formeel interpreteren we de p-waarde
+als volgt:
+
+\begin{quote}
+de kans op het verkrijgen van een steekproefresultaat minstens zo
+extreem als het huidige, aangenomen dat de nulhypothese waar is (en alle
+andere model assumpties).
+\end{quote}
+
+Je kunt zien dat die kans in dit voorbeeld klein is (ongeveer 2\%).
+
+Het gemiddelde verschil tussen mannen en vrouwen dat we hebben gevonden
+in de steekproef bedraagt 2,7 glazen. Deze uitkomst ligt ver van het
+midden van de verdeling en is daarmee onwaarschijnlijk onder de
+H\textsubscript{0}-verdeling (zie figuur hieronder). Het
+corresponderende gebied onder de grafiek (de kans) is daarmee klein.
 
 \pandocbounded{\includegraphics[keepaspectratio]{afbeeldingen/h0_overschrijdingskans.png}}
 
-We volgen zelfde principe als bij de steekproevenverdeling.
+\subsection{4) Vergelijken significantieniveau en
+overschrijdingskans}\label{vergelijken-significantieniveau-en-overschrijdingskans}
+
+Nu resteert een laatste stap in het hypothese toetsen. We hebben
+gevonden dat de kans op een gemiddeld verschil van 2,7 glazen alcohol
+zeer onwaarschijnlijk is onder de nulhypothese (\(p=0,019\)). Dit is een
+sterke indicatie dat de nulhypothese niet klopt. Er bestaat echter de
+mogelijkheid dat we (toevallig) een steekproef hebben getrokken die ver
+afligt van de H\textsubscript{0}-verwachting (herinner wederom de
+\hyperref[sec-steekproefcentraallimiet]{Steekproevenverdeling}). Volgens
+de methode van statistische significantie willen we met bepaalde
+zekerheid stellen of een nulhypothese moet worden verworpen of niet.
+Daarom kiest men voor een significantieniveau: een grens waarbij we de
+nulhypothese verwerpen met een bepaalde zekerheid.
+
+In dit geval hebben we een significantieniveau van 0,05 gekozen. We
+kunnen in dit voorbeeld simpelweg de overschrijdingskans vergelijken met
+het significantieniveau. Als de eerste kleiner is dan de laatste
+(\(p<\alpha\)), dan verwerpen we de nulhypothese. Andersom
+(\(p>\alpha\)) doen we dit juist niet, dan verwerpen we de nulhypothese
+\emph{niet}. Omdat hier \(p=0,019\) kleiner is dan het
+significantieniveau van 0,05, verwerpen we de nulhypothese. De
+technische interpretatie luidt als volgt:
+
+\begin{quote}
+Als mannen en vrouwen in de populatie van uitgaanders gemiddeld evenveel
+zouden drinken, dan is een verschil van 2,7 glazen of meer (in een van
+beide richtingen) zo zeldzaam dat het in minder dan 5\% van de herhaalde
+steekproeven voorkomt.
+\end{quote}
+
+Daarom verwerpen we de nulhypothese en gaan er voorlopig vanuit dat er
+wel een significant verschil bestaat tussen mannen en vrouwen in hoeveel
+ze gemiddeld drinken.
+
+Om dit verder te verduidelijken, tonen we de grenzen van aantal glazen
+alcohol waarbij je de nulhypothese moet verwerpen (zie onderstaande
+figuur). De rode zones aan het uiteinde van de verdeling noemen we het
+H\textsubscript{0}-verwerpingsgebied. Als we terugrekenen dan
+correspondeert een significantieniveau van 5\% met 2,2 glazen alcohol
+bij dit voorbeeld. Als we een steekproefuitkomst vinden die voorbij deze
+grens ligt, dan verwerpen we de nulhypothese in principe bij een
+significantieniveau van 5\%.
+
+\pandocbounded{\includegraphics[keepaspectratio]{afbeeldingen/h0_kritieke_grens.png}}
+
+Let op dat we onder de nulhypothese zowel een positief (mannen drinken
+meer dan vrouwen) als negatief (vrouwen drinken meer dan mannen)
+verschil verwachtten, daarom ligt de grens van significantie in dit
+geval aan beide kanten van de H\textsubscript{0}-verdeling (zie LATER
+HOOFDSTUK).
+
+\section{Wat nog meer\ldots{}}\label{wat-nog-meer}
+
+Hierboven hebben we in notendop laten zien welke stappen je moet nemen
+bij het toetsen van een (nul)hypothese. Voor de eenvoud hebben we wel
+een aantal relevante aspecten achterwege gelaten. Dit betreffen de
+volgende zaken:
+
+\begin{itemize}
+\tightlist
+\item
+  Bij het berekenen van de overschrijdingskans moeten we rekening houden
+  met de grootte van de steekproef. Dit doen we middels de t-verdeling,
+  die wat anders in elkaar zit dan de standaard
+  \hyperref[sec-normaleverdeling]{normale verdeling} (ook wel
+  z-verdeling genoemd) waar we tot nu toe mee gewerkt hebben.
+\item
+  Hypotheses kunnen eenzijdig of tweezijdig worden geformuleerd. Bij
+  eenzijdig hebben we een specifiek idee over de richting van een
+  verband (bijv. mannen drinken meer dan vrouwen), terwijl we bij
+  tweezijdig er alleen vanuit gaan dat er een verschil. Dit bepaalt mede
+  hoe we de toets uitvoeren en interpreteren.
+\item
+  Bij een t-toets voor onafhankelijke groepen onderzoeken we hoe twee
+  verschillende groepen (mannen en vrouwen) gemiddeld verschillen op één
+  variabele (aantal glazen alcohol). Daarbij kun je ervan uitgaan dat de
+  varianties gelijk of ongelijk zijn. Bij gelijke varianties is er
+  binnen de groep mannen evenveel variantie (onderlinge verschillen) in
+  drinkgedrag als binnen de groep vrouwen. Stel dat binnen de groep
+  mannen veel meer diversiteit bestaat in lichte en zware drinkers dan
+  bij de vrouwen, dan spreken we van ongelijke varianties. Voor het
+  gemak gaan we in deze cursus steeds uit van gelijke varianties, maar
+  dit hoeft lang niet altijd zo te zijn.
+\end{itemize}
+
+De eerste twee punten komen uitgebreider aan bod in LATER HOOFDSTUK.
+
+\section{Betrouwbaarheidsinterval voor
+hypothesetoetsing}\label{betrouwbaarheidsinterval-voor-hypothesetoetsing}
+
+\subsection{Beperkingen statistische
+significantie}\label{beperkingen-statistische-significantie}
+
+Misvattingen:
 
 \begin{itemize}
 \item
-  jongens-meiden glazen alcohol
+  Kans op H0 is \ldots{}
 \item
-  stappen in hypothese toetsen (t-toets)
-
-  \begin{itemize}
-  \item
-    met hand en via computer
-  \item
-    (t-verdeling, nulhypothese)
-  \item
-    nominaal vs.~kwantitatief.
-  \end{itemize}
+  Geeft geen inzicht in substantiele interpretatie.
 \item
-  Andere uitleg met meer details volgt in andere hoofdstukken.
+  Alle andere modelassumpties
 \end{itemize}
+
+Let op dat we het in dit geval hebben over `kleiner of gelijk aan'
+(\(\leq\)) en niet `kleiner dan' (\textless). Als er namelijk geen
+verschil is in gemiddeld aantal glazen alcohol tussen mannen en vrouwen
+(\(\mu_1=\mu_2\)), betekent dit ook een ander resultaat dan wat je
+verwacht onder de nulhypothese.
 
 \part{Colleges}
 

@@ -14,7 +14,6 @@ plot_h0_overschrijding <- function(n_mannen = 20, n_vrouwen = 20,
   staart <- subset(data, verschil >= gevonden)
 
   ggplot(data, aes(x = verschil, y = dichtheid)) +
-    geom_area(data = staart, fill = "red", alpha = 0.6) +
     geom_line(linewidth = 0.9) +
     # Verticale lijn bij het gevonden verschil, met het getal erboven
     annotate(
