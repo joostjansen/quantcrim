@@ -49,9 +49,7 @@ Draaien we dit om voor het formuleren van de nulhypothese, dan krijgen we:
 
 $$\mu_1=\mu_2$$
 
-Dit lezen we als: het populatiegemiddelde aantal glazen alcohol onder mannen ($\mu_1$) is *gelijk* *aan* het populatiegemiddelde aantal glazen alcohol onder vrouwen ($\mu_2$).[^004-01-onafhankelijkegroepen-1]
-
-[^004-01-onafhankelijkegroepen-1]: Let op dat we het in dit geval hebben over 'kleiner of gelijk aan' ($\leq$) en niet 'kleiner dan' (\<). Als er namelijk geen verschil is in gemiddeld aantal glazen alcohol tussen mannen en vrouwen ($\mu_1=\mu_2$), betekent dit ook een ander resultaat dan wat je verwacht onder de nulhypothese.
+Dit lezen we als: het populatiegemiddelde aantal glazen alcohol onder mannen ($\mu_1$) is *gelijk* *aan* het populatiegemiddelde aantal glazen alcohol onder vrouwen ($\mu_2$).
 
 We zouden dit ook als volgt kunnen noteren:
 
@@ -65,9 +63,9 @@ Het **significantieniveau** is de grenswaarde waarbij we een nulhypothese verwer
 
 ### 3) Overschrijdingskans
 
-De **overschrijdingskans**, ook wel p-waarde genoemd of simpelweg $p$ , speelt een centrale rol in het toetsen van hypotheses. Het geeft aan hoe waarschijnlijk het resultaat verkregen uit onze steekproef is, aangenomen dat de nulhypothese waar is.[^004-01-onafhankelijkegroepen-2]
+De **overschrijdingskans**, ook wel p-waarde genoemd of simpelweg $p$ , speelt een centrale rol in het toetsen van hypotheses. Het geeft aan hoe waarschijnlijk het resultaat verkregen uit onze steekproef is, aangenomen dat de nulhypothese waar is.[^004-01-onafhankelijkegroepen-1]
 
-[^004-01-onafhankelijkegroepen-2]: 'Resultaat' verwijst hier naar de populatieparameter waarin we geïnteresseerd zijn: het gemiddelde verschil tussen mannen en vrouwen in drankconsumptie.
+[^004-01-onafhankelijkegroepen-1]: 'Resultaat' verwijst hier naar de populatieparameter waarin we geïnteresseerd zijn: het gemiddelde verschil tussen mannen en vrouwen in drankconsumptie.
 
 Je zult inmiddels wel denken: "waar zijn we nu weer aanbeland"?
 
@@ -77,9 +75,9 @@ Laten we het laag voor laag afpellen.
 
 Bij het onderzoeken van hypotheses kijken we zoals gesteld naar de nulhypothese. Dit heeft ermee te maken dat we vanuit wetenschapsfilosofisch oogpunt aannemen iets nooit helemaal zeker te weten. Het is daarom makkelijker om het onwaarschijnlijke van wat we verwachten (de nulhypothese) te verwerpen, en er dan vanuit gaan dat het waarschijnlijke 'voorlopig' waar is. Dit staat bekend als het **falsificatieprincipe** van Karl Popper.
 
-In de praktijk betekent dit dat de nulhypothese ons vertrekpunt vormt. Vanuit de nulhypothese is de verwachting doorgaans dat er geen verschil is tussen groepen, oftewel het verschil is nul.[^004-01-onafhankelijkegroepen-3] Onze 'ware' populatiewaarde, gegeven de nulhypothese, is daarom nul. We maken een denkbeeldige steekproevenverdeling van mogelijke steekproefuitkomsten die hierbij past (zie ook [Steekproevenverdeling](003-01-steekproeven.qmd#sec-steekproefcentraallimiet) en [Betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd)). Dit noemen we ook wel de H~0~-verdeling of de verdeling onder de nulhypothese (zie hieronder).
+In de praktijk betekent dit dat de nulhypothese ons vertrekpunt vormt. Vanuit de nulhypothese is de verwachting doorgaans dat er geen verschil is tussen groepen.[^004-01-onafhankelijkegroepen-2] Onze 'ware' populatiewaarde, gegeven de nulhypothese, is daarom nul. We maken een denkbeeldige steekproevenverdeling van mogelijke steekproefuitkomsten die hierbij past (zie ook [Steekproevenverdeling](003-01-steekproeven.qmd#sec-steekproefcentraallimiet) en [Betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd)). Dit noemen we ook wel de H~0~-verdeling of de verdeling onder de nulhypothese (zie hieronder).
 
-[^004-01-onafhankelijkegroepen-3]: Je zult zien dat wat we verwachten voor de nulhypothese varieert naar wat voor soort populatieparameter we proberen te schatten. Dit kan de ene keer een verschil in gemiddeldes zijn, maar ook een verschil in percentages of een correlatie. Dit hangt af van de onderzoeksvraag en het meetniveau van de variabelen.
+[^004-01-onafhankelijkegroepen-2]: Je zult zien dat wat we verwachten voor de nulhypothese varieert naar wat voor soort populatieparameter we proberen te schatten. Dit kan de ene keer een verschil in gemiddeldes zijn, maar ook een verschil in percentages of een correlatie. Dit hangt af van de onderzoeksvraag en het meetniveau van de variabelen.
 
 ![](afbeeldingen/h0_verdeling.png)
 
@@ -125,15 +123,17 @@ Het gemiddelde verschil tussen mannen en vrouwen dat we hebben gevonden in de st
 
 ### 4) Vergelijken significantieniveau en overschrijdingskans
 
-Nu resteert een laatste stap in het hypothese toetsen. We hebben gevonden dat de kans op een gemiddeld verschil van 2,7 glazen alcohol zeer onwaarschijnlijk is onder de nulhypothese ($p=0,019$). Dit is een sterke indicatie dat de nulhypothese niet klopt. Er bestaat echter de mogelijkheid dat we (toevallig) een steekproef hebben getrokken die ver afligt van de H~0~-verwachting (herinner wederom de [Steekproevenverdeling](003-01-steekproeven.qmd#sec-steekproefcentraallimiet)). Volgens de methode van statistische significantie willen we met bepaalde zekerheid stellen of een nulhypothese moet worden verworpen of niet. Daarom kiest men voor een significantieniveau: een grens waarbij we de nulhypothese verwerpen met een bepaalde zekerheid.
+Nu resteert een laatste stap in het hypothese toetsen. We hebben gevonden dat de kans op een gemiddeld verschil van 2,7 glazen alcohol zeer onwaarschijnlijk is onder de nulhypothese ($p=0,019$). Dit is een sterke indicatie dat de nulhypothese kan worden verworpen. Er bestaat echter de mogelijkheid dat we (toevallig) een steekproef hebben getrokken die ver afligt van de H~0~-verwachting (herinner wederom de [Steekproevenverdeling](003-01-steekproeven.qmd#sec-steekproefcentraallimiet)). Volgens de methode van statistische significantie willen we met bepaalde zekerheid stellen of een nulhypothese moet worden verworpen of niet. Daarom kiest men voor een significantieniveau: een grens waarbij we de nulhypothese verwerpen met een bepaalde zekerheid.
 
-In dit geval hebben we een significantieniveau van 0,05 gekozen. We kunnen in dit voorbeeld simpelweg de overschrijdingskans vergelijken met het significantieniveau. Als de eerste kleiner is dan de laatste ($p<\alpha$), dan verwerpen we de nulhypothese. Andersom ($p>\alpha$) doen we dit juist niet, dan verwerpen we de nulhypothese *niet*. Omdat hier $p=0,019$ kleiner is dan het significantieniveau van 0,05, verwerpen we de nulhypothese. De technische interpretatie luidt als volgt:
+In dit geval hebben we een significantieniveau van 0,05 gekozen. We kunnen in dit voorbeeld simpelweg de overschrijdingskans vergelijken met het significantieniveau. Als de eerste kleiner is dan de laatste ($p<\alpha$), dan verwerpen we de nulhypothese. Andersom ($p>\alpha$) doen we dit juist niet, dan verwerpen we de nulhypothese *niet*. Omdat hier $p=0,019$ kleiner is dan het significantieniveau van 0,05, verwerpen we de nulhypothese.
+
+De technische interpretatie luidt als volgt:
 
 > Als mannen en vrouwen in de populatie van uitgaanders gemiddeld evenveel zouden drinken, dan is een verschil van 2,7 glazen of meer (in een van beide richtingen) zo zeldzaam dat het in minder dan 5% van de herhaalde steekproeven voorkomt.
 
 Daarom verwerpen we de nulhypothese en gaan er voorlopig vanuit dat er wel een significant verschil bestaat tussen mannen en vrouwen in hoeveel ze gemiddeld drinken.
 
-Om dit verder te verduidelijken, tonen we de grenzen van aantal glazen alcohol waarbij je de nulhypothese moet verwerpen (zie onderstaande figuur). De rode zones aan het uiteinde van de verdeling noemen we het H~0~-verwerpingsgebied. Als we terugrekenen dan correspondeert een significantieniveau van 5% met 2,2 glazen alcohol bij dit voorbeeld. Als we een steekproefuitkomst vinden die voorbij deze grens ligt, dan verwerpen we de nulhypothese in principe bij een significantieniveau van 5%.
+Om dit verder te verduidelijken, tonen we de grenzen van aantal glazen alcohol waarbij je de nulhypothese moet verwerpen (zie onderstaande figuur). De rode zones aan het uiteinde van de verdeling noemen we het H~0~-verwerpingsgebied. Als we terugrekenen dan correspondeert een significantieniveau van 5% met 2,2 glazen alcohol bij dit voorbeeld. Als we een steekproefuitkomst vinden die voorbij deze grens ligt, dus lager dan -2,7 of hoger dan 2,7, dan verwerpen we de nulhypothese in principe bij een significantieniveau van 5%.
 
 ![](afbeeldingen/h0_kritieke_grens.png)
 
@@ -149,16 +149,22 @@ Hierboven hebben we in notendop laten zien welke stappen je moet nemen bij het t
 
 De eerste twee punten komen uitgebreider aan bod in LATER HOOFDSTUK.
 
+## Beperkingen statistische significantie
+
+De methode van statistische significantie voor hypothesetoetsing, zoals hierboven beschreven, wordt veel toegepast in wetenschappelijk onderzoek. Je zult in veel wetenschappelijke studies lezen dat onderzoekers hebben gevonden dat een bepaald verschil tussen groepen of een effect 'significant' is. Ondanks de wijdverbreide toepassing is er echter ook veel kritiek op de methode van statistische significantie. Het is belangrijk om hier bewust van te zijn, zodat we niet dezelfde fouten reproduceren. Ook leert het ons beter begrijpen wat we wel en niet kunnen met statistisch onderzoek.
+
+Een veelgemaakte fout is dat de uitkomst van een hypothesetoets verkeerd geïnterpreteerd wordt. Zo wordt de p-waarde vaak geïnterpreteerd als "de kans dat de nulhypothese waar is". Dit is echter geen juiste interpretatie. De p-waarde geeft ons slechts ons de kans op het verkrijgen van bepaalde data (een steekproefresultaat), aangenomen dat de nulhypothese waar is (onder de H~0~-verdeling dus). Op eenzelfde manier wordt vaak gezegd dat een statistisch significant resultaat bij een significantieniveau van 5% betekent dat "er een 95% kans is dat er verschil tussen groepen bestaat in de populatie", wat ook niet juist is.
+
+Zulke verkeerde interpretaties hebben dezelfde oorsprong, namelijk dat men veronderstelt dat de uitkomst direct iets zegt over de kans dat de nulhypothese waar is of niet. Echter, strikt gezien kunnen we alleen iets zeggen over de kans op *het vinden een bepaalde gegevens of data* (het steekproefresultaat) *onder de aanname dat de nulhypothese waar is*. We gaan er dus vanuit de nulhypothese in principe waar is of niet, en dus niet voor 95% bijvoorbeeld (zie ook discussie van de [interpretatie van het betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd#sec-interpretatiebhi)).
+
+Een andere veelgemaakte fout is het verwarren van 'statistisch significant' met **praktisch significant**. Praktisch significant betekent dat je een substantieel verschil of verband vindt met inhoudelijke relevantie. Stel dat uit jouw onderzoek blijkt dat mannen twee keer zoveel drinken dan vrouwen, bijvoorbeeld gemiddeld 10 vs. 5 glazen alcohol op een uitgaansdag. Dat is een behoorlijk verschil, wat ook gevolgen zal hebben voor wie als probleemdrinker wordt gezien en hoe beleid rondom alcoholpreventie moet worden vormgegeven. Dit is dus een bevinding waarbij de grootte van het verschil er toe doet.
+
+Het kan aan de andere kant ook voorkomen dat je vindt dat er slechts een klein verschil bestaat tussen mannen en vrouwen in drankconsumptie, bijvoorbeeld 10 vs. 9 glazen respectievelijk. Het kan zijn dat je dan alsnog een statistisch significant verschil vaststelt, afhankelijk van de varianties en een aantal personen in de steekproef. Dit komt verder aan bod bij LATER HOOFDSTUK. Het verschil tussen 10 en 9 glazen is echter klein, waardoor het praktisch gezien bijna verwaarloosbaar is.
+
+In de onderzoekspraktijk zul je vaker vinden dat er wel een bepaald verschil is, maar dat de substantiële betekenis hiervan niet meteen duidelijk is. In het voorbeeld op deze pagina is het gevonden gemiddelde verschil 2,7 glazen. Is dit veel of weinig? Dat is gedeeltelijk een subjectieve opvatting. In de sociale wetenschappen zijn er geen vastomlijnde regels van wanneer iets praktisch significant is, dat hangt af van de context. Meestal bepaal je de praktische relevantie aan de hand van logisch redeneren en afvragen waarvoor deze bevinding relevant is. Als je bijvoorbeeld gaat autorijden, kunnen 2-3 glazen een groot verschil maken. Voor een avond stappen waarin sowieso heel veel gedronken wordt, heeft een verschil van 2-3 glazen wellicht minder effect op de totale mate van intoxicatie. Context doet er dus toe.
+
 ## Betrouwbaarheidsinterval voor hypothesetoetsing
 
-### Beperkingen statistische significantie
-
-Misvattingen:
-
-- Kans op H0 is ...
-
-- Geeft geen inzicht in substantiele interpretatie.
-
-- Alle andere modelassumpties
+moeilijkere interpretatie en verwarring statistische significantie.
 
 Let op dat we het in dit geval hebben over 'kleiner of gelijk aan' ($\leq$) en niet 'kleiner dan' (\<). Als er namelijk geen verschil is in gemiddeld aantal glazen alcohol tussen mannen en vrouwen ($\mu_1=\mu_2$), betekent dit ook een ander resultaat dan wat je verwacht onder de nulhypothese.

@@ -238,7 +238,7 @@ En dit tellen we op/trekken we af van het gemiddelde:
 
 Op basis van steekproef, kunnen we zeggen dat in 95% van herhaalde steekproeven (van 350 personen) het populatiegemiddelde van aantal glazen alcohol ergens tussen de $10,1$ en $11,3$ zal liggen. We kunnen dus wel redelijk zeker stellen dat het gemiddeld aantal glazen alcohol dat men drinkt zo 10 à 11 per uitgaansdag is. Je ziet dat het schatten van een populatiegemiddelde niet veel anders is dan het schatten van een proportie in de populatie.
 
-## Interpretatie betrouwbaarheidsinterval
+## Interpretatie betrouwbaarheidsinterval {#sec-interpretatiebhi}
 
 We hebben hierboven al een aantal keer een interpretatie van een betrouwbaarheidsinterval gegeven. Daarbij hebben we het er een beetje makkelijk vanaf gebracht, want een bhi heeft een meer uitgebreide interpretatie nodig dan we tot nu toe hebben gedaan. Een technische correcte interpretatie van een 95%-bhi is:
 
