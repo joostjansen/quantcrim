@@ -1,0 +1,108 @@
+---
+title: "004-02-aspectenhypo"
+format: html
+execute:
+  warning: false
+---
+
+{{< include _setup.qmd >}}
+
+In het vorige hoofdstuk heb je geleerd wat hypothese toetsen inhoudt en welke stappen je daarbij moet nemen. Als je dit voor deze eerste keer leert, kan het behoorlijk uitdagend zijn om het allemaal te verwerken. Je zult echter zien dat naarmate je het vaker oefent en verschillende bhi's hebt berekend, je het principe ervan beter zult gaan begrijpen. Oefening baart kunst (OBK)!
+
+We hebben tot nu wel een paar bochten afgesneden. Zoals gesignaleerd in het vorige hoofdstuk, zijn er bij hypothese toetsen meerdere aspecten waar je rekening mee moet houden. Een aantal van die aspecten behandelen we hier. Daarna heb je, als het goed is, een aardig overzicht van wat er allemaal bij hypothesetoetsen komt kijken. We gaan in op de volgende vier zaken: 1) de t-verdeling 2) het formuleren van hypotheses 3) eenzijdig en tweezijdig toetsen en 4) type-I en type-II fouten.
+
+## T-verdeling
+
+Zoals je inmiddels weet, gebeurt het berekenen van dingen zoals de overschrijdingskans en een bhi op basis van de normale verdeling. Tot nu toe hebben we aangenomen dat de [normale verdeling](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling) altijd hetzelfde is, waarbij de distributie van waarden via de empirische regel verloopt. Dit houdt in dat binnen een xx aantal standaarddeviaties van het gemiddelde xx% van alle waarden ligt, afhankelijk van hoeveel standaarddeviaties je neemt. Deze vaste vorm staat ook wel bekend als de standaardnormale verdeling of z-verdeling en geldt over het algemeen voor populatiedata.
+
+Het blijkt echter dat de standaardnormale verdeling niet altijd even goed van toepassing is. Met name voor kleinere steekproeven vinden we dat de normale verdeling een andere vorm heeft dan *standaard*normale verdeling. In deze video wordt uitgelegd hoe dat precies werkt:
+
+{{< video https://youtu.be/32CuxWdOlow?si=75mpR9UutZl4BBm3 >}}
+
+We moeten dus rekening houden met de t-verdeling in ons onderzoek, omdat deze afhankelijk van de steekproefgrootte een iets andere vorm heeft dan de z-verdeling. Dit is vooral bij kleinere steekproeven relevant.
+
+Bij het hypothese toetsen via statistische significantie zijn er in essentie twee relevante t-waardes: de kritieke grenswaarde ($t_k$) en toetsingsgrootheid ($t_g$). De eerstgenoemde is de grenswaarde waarbij we de nulhypothese verwerpen. De $t_k$ is afhankelijk van het gekozen significantieniveau (bijv. 0,01; 0,05 of 0,1) en het aantal respondenten in de steekproef minus het aantal geschatte populatieparameters bij een t-toets (oftewel: het aantal vrijheidsgraden).
+
+Bij het [voorbeeld](004-01-onafhankelijkegroepen.qmd#sec-statistischesignificantie) uit het vorige hoofdstuk zagen we dat de nulhypothese werd verworpen wanneer het gemiddelde verschil in aantal glazen alcohol groter was dan 2,2 of kleiner dan -2,2. Deze waarden hebben we kunnen herleiden uit de $t_k$ . Als je voor dit voorbeeld de $t_k$ zou opzoeken in de t-tabel ([link](https://statisticsfundamentals.com/tables/t-distribution-table/)), dan zou je uitkomen op $t_k=2,024$.[^004-02-aspectenhypo-1] [^004-02-aspectenhypo-2]
+
+[^004-02-aspectenhypo-1]: Op basis van de volgende gegevens:
+
+    - aantal vrijheidsgraden: $n-2$ in dit geval, dus $40-2=38$ .
+    - gekozen significantieniveau: 5%
+    - Tweezijdig toetsen (zie verderop dit hoofdstuk)
+
+[^004-02-aspectenhypo-2]: Het aantal vrijheidsgraden bij een t-toets voor onafhankelijke groepen en ongelijke varianties wordt normaliter via een ingewikkelde formule berekent. Omdat bij dit voorbeeld de varianties gelijk zijn alsmede het aantal respondenten, hoeven we alleen $n-2$ te doen om het aantal vrijheidsgraden te verkrijgen
+
+De toetsingsgrootheid is de t-waarde die correspondeert met het steekproefresultaat en waar deze zich bevindt onder de H~0~-verdeling. Elke toets kent zijn eigen formule om dit te berekenen. Bij de output uit het [voorbeeld](004-01-onafhankelijkegroepen.qmd#sec-statistischesignificantie) kun je zien dat (afgerond) $t_g=2,440$ . Op basis van de toetsingsgrootheid wordt vervolgens de overschrijdingskans berekend.
+
+We maken het ons iets makkelijker in deze cursus door voornamelijk te kijken naar bhi's. Daarvoor hebben we alleen de kritieke grenswaarde nodig en niet de toetsingsgrootheid. De laatste is alleen van toepassing bij de methode van statistische significantie.
+
+We doorlopen nu nogmaals het voorbeeld uit het vorige hoofdstuk, maar nu met 15 mannen en 15 vrouwen. We berekenen handmatig het bhi volgens de t-verdeling. Dan krijg je een idee hoe een bhi voor een t-toets voor onafhankelijke groepen tot stand komt.
+
+$$
+bhi =(\bar{x}_1 - \bar{x}_2) \pm t_k \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+$$
+
+Deze berekening is niet veel anders dan bij het [betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd). Hier neem je het gemiddelde van mannen $\bar{x}_1$ minus het gemiddelde van vrouwen $\bar{x}_2$. Het gedeelte achter de $\pm$ bereken je wederom apart. Daarvoor zoek je de bijbehorende $t_k$. Daarvoor kunnen we weer kijken in de t-tabel ([link](https://statisticsfundamentals.com/tables/t-distribution-table/)): $t_k=2,048$.[^004-02-aspectenhypo-3] Het laatste deel $\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$ is berekening van de standaardfout voor deze toets. Net zoals bij [betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd) kunnen we dit weer in R berekenen.
+
+[^004-02-aspectenhypo-3]:
+    - aantal vrijheidsgraden: $n-2$ , dus $30-2=28$ .
+    - gekozen significantieniveau: 5%
+    - Tweezijdig toetsen
+
+```{r}
+# verschil in gemiddeldes
+11.4-8.7
+```
+
+```{r}
+# gedeelte achter +-
+2.048*sqrt(3.5^2/15+3.5^2/15)
+```
+
+```{r}
+# 95%-bhi berekenen
+2.7-2.617
+2.7+2.617
+```
+
+Je ziet dus dat het bhi in dit geval $[0,08; 5,32]$ bedraagt. Dit is een breder bhi dan in het vorige hoofdstuk ($[0,46; 4,94]$). Als je naar de formule kijkt, kun je zien dat een kleinere $n$ leidt tot een grotere standaardfout $s.e.$[^004-02-aspectenhypo-4] *Daar komt nu nog bovenop dat* *we middels de t-verdeling (de kritieke grenswaarde* $t_k$) *corrigeren voor kleinere steekproeven.* Bij grotere steekproeven is de t-verdeling nagenoeg gelijk aan de z-verdeling (zie het youtube filmpje hierboven).
+
+[^004-02-aspectenhypo-4]: $s.e.$ is een meer algemene notatie voor de standaardfout.
+
+R houdt automatisch rekening met de t-verdeling bij het uitvoeren van toets. We kunnen bovenstaande berekening ook 'computermatig' met R doen.
+
+```{r}
+set.seed(010)
+
+# Herhaal functie om voorbeeld opnieuw te maken
+genereer_groep <- function(n, gemiddelde, s) {
+  rnorm(n) |> scale() |> as.vector() * s + gemiddelde
+}
+
+voorbeeld_alcohol_2 <- data.frame(
+  geslacht                     =  factor(rep(c("man", "vrouw"), each = 15)), # variabele mannen en vrouwen aanmaken, nu met 15 respondenten
+  glazen_alcohol_uitgaansdag   = 
+    c(genereer_groep(15, 11.4, 3.5), genereer_groep(15, 8.7, 3.5)) # 15 respondenten per geslacht, met bijbehorende gemiddeldes en sd
+)
+```
+
+```{r}
+# t-toets uitvoeren voor bhi
+t.test(glazen_alcohol_uitgaansdag ~ geslacht,
+       data = voorbeeld_alcohol_2) 
+```
+
+Het bhi is hier, op wat miniscule afrondingsverschillen na, hetzelfde als bij de handmatige berekening. Dit is dus een stukje sneller dan altijd alles met de hand moeten doen.
+
+Merk tenslotte op dat de formules van bhi's voor proporties en gemiddeldes bij [betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd) niet helemaal correct waren voor steekproeven. Daar gingen we nog van z-waardes uit i.p.v. t-waardes. De 'juiste' formules kun je vinden in het [Formuleblad](formuleblad.qmd). Daarmee zullen we ook werken in de practica.
+
+## Hypotheses formuleren {#sec-hypoformuleren}
+
+Opmerking formule betrouwbaarheidsinterval proportie en shit.
+
+- formuleren
+
+- eenzijdig-tweezijdig
+
+- type 1-type 2

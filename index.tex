@@ -226,7 +226,7 @@
 \subtitle{Een open-web handboek voor kwantitatief criminologisch
 onderzoek}
 \author{Joost Jansen \and Gijs Custers}
-\date{2026-11-02}
+\date{2026-11-03}
 \begin{document}
 \maketitle
 
@@ -3219,8 +3219,8 @@ maken we daarom gebruik van \textbf{hypothesetoetsing}. ``Hypotheses
 toetsen'' betekent dat we een verwachting formuleren over hoe iets werkt
 in de populatie, dit vervolgens analyseren en dan uitspraken doen in
 hoeverre deze verwachting klopt. Daarbij houden we, net als bij de
-betrouwbaarheidsintervallen, rekening met hoe zeker we kunnen zijn over
-de juistheid van onze uitspraak.
+eerder behandelde betrouwbaarheidsintervallen, rekening met hoe zeker we
+kunnen zijn over de juistheid van onze uitspraak.
 
 In dit hoofdstuk gaan we hypothesetoetsing uitleggen aan de hand van een
 concreet voorbeeld. Er zijn grofweg twee manieren om een hypothese te
@@ -3242,8 +3242,8 @@ nog niet alles meteen begrijpt.
 
 Ten slotte werken we het voorbeeld eerst uit middels de
 overschrijdingskans, wat je de `computerbenadering' zou kunnen noemen.
-In een LATER HOOFDSTUK zullen we dit ook nog handmatig doen om meer
-inzicht te geven in het proces. Voor nu is het relevant dat je het
+In latere hoofdstukken werken we ook nog handmatige voorbeelden uit om
+meer inzicht te geven in het proces. Voor nu is het relevant dat je het
 principe van hypothesetoetsing snapt.
 
 \section{Wie drinkt er meer?}\label{wie-drinkt-er-meer}
@@ -3275,9 +3275,9 @@ en vrouwen in drankconsumptie.
 Je weet echter uit de vorige hoofdstukken dat deze steekproef slechts
 één resultaat is van een (hypothetisch) oneindig aantal mogelijke
 steekproeven. In een andere steekproef kan het zijn dat we vinden dat
-vrouwen evenveel drinken als mannen. Hoe kunnen we nu vaststellen dat
-ons gevonden verschil niet op toeval berust en we over het algemeen
-zullen vinden dat er een verschil is in aantal glazen alcohol?
+vrouwen evenveel drinken als mannen. Hoe kunnen we nu vaststellen dat,
+met een bepaalde mate van zekerheid, er over het algemeen een verschil
+bestaat in drankconsumptie tussen mannen en vrouwen?
 
 Voor dit dilemma is de methode van hypothesetoetsing ontwikkeld. Het
 idee achter deze methode is in feite niet anders dan dat we gezien
@@ -3293,19 +3293,26 @@ Het aantal stappen bij hypothesetoetsing is uitgebreider dan bij het
 berekenen van een betrouwbaarheidsinterval. Die lopen we nu stap voor
 stap door.
 
-\section{Statistische significantie}\label{statistische-significantie}
+\section{Statistische
+significantie}\label{sec-statistischesignificantie}
 
 \subsection{1) Hypothese opstellen}\label{hypothese-opstellen}
 
 De eerste stap is dat je jouw verwachting van de uitkomst zo expliciet
 mogelijk formuleert, dit wordt een \textbf{hypothese} genoemd. Hier
-volgt meteen een hersenkronkel. In standaard statistisch onderzoek
-toetsen we namelijk niet wat we verwachten, maar juist het
-tegenovergestelde daarvan! Deze tegenovergestelde verwachting wordt de
-\textbf{nulhypothese} genoemd. \emph{Deze nulhypothese wordt vervolgens
-wel of niet verworpen, dit is in feite het centrale doel van
-wetenschappelijk onderzoek verrichten}. De reden waarom we dit zo doen,
-komen we op terug bij HYPOTHESE OPSTELLEN. Daar bespreken we ook
+volgt meteen een hersenkronkel. In statistisch onderzoek toetsen we
+namelijk niet wat we verwachten, maar juist het tegenovergestelde
+daarvan! Deze tegenovergestelde verwachting wordt de
+\textbf{nulhypothese} genoemd. Het werken met de nulhypothese vindt zijn
+oorsprong in het wetenschapsfilosofisch idee dat we aannemen iets nooit
+helemaal zeker te weten. Het is daarom makkelijker om het
+onwaarschijnlijke van wat we verwachten (de nulhypothese) te verwerpen,
+en er dan vanuit gaan dat het waarschijnlijke (onze originele
+verwachting) `voorlopig' waar is. Dit staat bekend als het
+falsificatieprincipe van Karl Popper. \emph{De nulhypothese wordt wel of
+niet verworpen, dit is in feite het centrale doel van statistisch
+wetenschappelijk onderzoek}. Bij
+\hyperref[sec-hypoformuleren]{hypotheses formuleren} bespreken we ook
 uitgebreider waar je op moet letten bij het formuleren van een
 nulhypothese.
 
@@ -3351,14 +3358,19 @@ volgende stappen op terug. Gebruikelijke significantieniveaus in de
 statistiek zijn 0,01 (1\%), 0,05 (5\%) en 0,1 (10\%). Net als bij dit
 voorbeeld gaan we meestal uit van een significantieniveau van 0,05.
 
-\subsection{3) Overschrijdingskans}\label{overschrijdingskans}
+\subsection{3) Overschrijdingskans
+{[}\#sec-overschrijdingskans{]}}\label{overschrijdingskans-sec-overschrijdingskans}
 
 De \textbf{overschrijdingskans}, ook wel p-waarde genoemd of simpelweg
-\(p\) , speelt een centrale rol in het toetsen van hypotheses. Het geeft
-aan hoe waarschijnlijk het resultaat verkregen uit onze steekproef is,
-aangenomen dat de nulhypothese waar is.\footnote{`Resultaat' verwijst
-  hier naar de populatieparameter waarin we geïnteresseerd zijn: het
-  gemiddelde verschil tussen mannen en vrouwen in drankconsumptie.}
+\(p\), speelt een centrale rol in het toetsen van hypotheses.\footnote{Let
+  op dat \(p\) hier naar iets heel anders verwijst dan \(P\) en
+  \(\hat{p}\) uit de vorige hooddstukken. \(p\) gaat over de
+  overschrijdingskans terwijl \(P\) en \(\hat{p}\) gaan over proporties.}
+Het geeft aan hoe waarschijnlijk het resultaat verkregen uit onze
+steekproef is, aangenomen dat de nulhypothese waar is.\footnote{`Resultaat'
+  verwijst hier naar de populatieparameter waarin we geïnteresseerd
+  zijn: het gemiddelde verschil tussen mannen en vrouwen in
+  drankconsumptie.}
 
 Je zult inmiddels wel denken: ``waar zijn we nu weer aanbeland''?
 
@@ -3366,23 +3378,10 @@ Je zult inmiddels wel denken: ``waar zijn we nu weer aanbeland''?
 
 Laten we het laag voor laag afpellen.
 
-Bij het onderzoeken van hypotheses kijken we zoals gesteld naar de
-nulhypothese. Dit heeft ermee te maken dat we vanuit
-wetenschapsfilosofisch oogpunt aannemen iets nooit helemaal zeker te
-weten. Het is daarom makkelijker om het onwaarschijnlijke van wat we
-verwachten (de nulhypothese) te verwerpen, en er dan vanuit gaan dat het
-waarschijnlijke `voorlopig' waar is. Dit staat bekend als het
-\textbf{falsificatieprincipe} van Karl Popper.
-
-In de praktijk betekent dit dat de nulhypothese ons vertrekpunt vormt.
-Vanuit de nulhypothese is de verwachting doorgaans dat er geen verschil
-is tussen groepen.\footnote{Je zult zien dat wat we verwachten voor de
-  nulhypothese varieert naar wat voor soort populatieparameter we
-  proberen te schatten. Dit kan de ene keer een verschil in gemiddeldes
-  zijn, maar ook een verschil in percentages of een correlatie. Dit
-  hangt af van de onderzoeksvraag en het meetniveau van de variabelen.}
-Onze `ware' populatiewaarde, gegeven de nulhypothese, is daarom nul. We
-maken een denkbeeldige steekproevenverdeling van mogelijke
+In de praktijk vormt de nulhypothese ons vertrekpunt. Vanuit de
+nulhypothese is de verwachting doorgaans dat er geen verschil is tussen
+groepen. Onze `ware' populatiewaarde, gegeven de nulhypothese, is daarom
+nul. We maken een denkbeeldige steekproevenverdeling van mogelijke
 steekproefuitkomsten die hierbij past (zie ook
 \hyperref[sec-steekproefcentraallimiet]{Steekproevenverdeling} en
 \hyperref[betrouwbaarheidsinterval]{Betrouwbaarheidsinterval}). Dit
@@ -3430,16 +3429,15 @@ hoort.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# toets uitvoeren om overschrijdingskans te berekenen}
+\CommentTok{\# t{-}toets uitvoeren om overschrijdingskans te berekenen}
 \FunctionTok{t.test}\NormalTok{(glazen\_alcohol\_uitgaansdag }\SpecialCharTok{\textasciitilde{}}\NormalTok{ geslacht, }\CommentTok{\# variabelen bepalen}
-       \AttributeTok{data =}\NormalTok{ voorbeeld\_alcohol, }\CommentTok{\# dataset }
-       \AttributeTok{var.equal =} \ConstantTok{TRUE}\NormalTok{) }\CommentTok{\# uitgaande van gelijke variantie}
+       \AttributeTok{data =}\NormalTok{ voorbeeld\_alcohol) }\CommentTok{\# dataset }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 
-    Two Sample t-test
+    Welch Two Sample t-test
 
 data:  glazen_alcohol_uitgaansdag by geslacht
 t = 2.4395, df = 38, p-value = 0.01949
@@ -3506,8 +3504,8 @@ steekproeven voorkomt.
 \end{quote}
 
 Daarom verwerpen we de nulhypothese en gaan er voorlopig vanuit dat er
-wel een significant verschil bestaat tussen mannen en vrouwen in hoeveel
-ze gemiddeld drinken.
+een statistisch significant verschil bestaat tussen mannen en vrouwen in
+hoeveel ze gemiddeld drinken.
 
 Om dit verder te verduidelijken, tonen we de grenzen van aantal glazen
 alcohol waarbij je de nulhypothese moet verwerpen (zie onderstaande
@@ -3538,9 +3536,9 @@ volgende zaken:
 \item
   Bij het berekenen van de overschrijdingskans moeten we rekening houden
   met de grootte van de steekproef. Dit doen we middels de t-verdeling,
-  die wat anders in elkaar zit dan de standaard
-  \hyperref[sec-normaleverdeling]{normale verdeling} (ook wel
-  z-verdeling genoemd) waar we tot nu toe mee gewerkt hebben.
+  die wat anders in elkaar zit dan de
+  \hyperref[sec-normaleverdeling]{normale verdeling} waar we tot nu toe
+  mee gewerkt hebben.
 \item
   Hypotheses kunnen eenzijdig of tweezijdig worden geformuleerd. Bij
   eenzijdig hebben we een specifiek idee over de richting van een
@@ -3556,7 +3554,7 @@ volgende zaken:
   drinkgedrag als binnen de groep vrouwen. Stel dat binnen de groep
   mannen veel meer diversiteit bestaat in lichte en zware drinkers dan
   bij de vrouwen, dan spreken we van ongelijke varianties. Voor het
-  gemak gaan we in deze cursus steeds uit van gelijke varianties, maar
+  gemak gaan we in deze cursus steeds uit van ongelijke varianties, maar
   dit hoeft lang niet altijd zo te zijn.
 \end{itemize}
 
@@ -3578,9 +3576,9 @@ niet kunnen met statistisch onderzoek.
 Een veelgemaakte fout is dat de uitkomst van een hypothesetoets verkeerd
 geïnterpreteerd wordt. Zo wordt de p-waarde vaak geïnterpreteerd als
 ``de kans dat de nulhypothese waar is''. Dit is echter geen juiste
-interpretatie. De p-waarde geeft ons slechts ons de kans op het
-verkrijgen van bepaalde data (een steekproefresultaat), aangenomen dat
-de nulhypothese waar is (onder de H\textsubscript{0}-verdeling dus). Op
+interpretatie. De p-waarde geeft ons slechts de kans op het verkrijgen
+van bepaalde data (een steekproefresultaat), aangenomen dat de
+nulhypothese waar is (onder de H\textsubscript{0}-verdeling dus). Op
 eenzelfde manier wordt vaak gezegd dat een statistisch significant
 resultaat bij een significantieniveau van 5\% betekent dat ``er een 95\%
 kans is dat er verschil tussen groepen bestaat in de populatie'', wat
@@ -3610,9 +3608,10 @@ Het kan aan de andere kant ook voorkomen dat je vindt dat er slechts een
 klein verschil bestaat tussen mannen en vrouwen in drankconsumptie,
 bijvoorbeeld 10 vs.~9 glazen respectievelijk. Het kan zijn dat je dan
 alsnog een statistisch significant verschil vaststelt, afhankelijk van
-de varianties en een aantal personen in de steekproef. Dit komt verder
-aan bod bij LATER HOOFDSTUK. Het verschil tussen 10 en 9 glazen is
-echter klein, waardoor het praktisch gezien bijna verwaarloosbaar is.
+de groepsvarianties en het aantal personen in de steekproef.\footnote{Dit
+  komt verder aan bod bij \href{004-02-aspectenhypo.qmd}{invullen}.} Het
+verschil tussen 10 en 9 glazen is echter klein, waardoor het praktisch
+gezien bijna verwaarloosbaar is.
 
 In de onderzoekspraktijk zul je vaker vinden dat er wel een bepaald
 verschil is, maar dat de substantiële betekenis hiervan niet meteen
@@ -3621,7 +3620,7 @@ verschil 2,7 glazen. Is dit veel of weinig? Dat is gedeeltelijk een
 subjectieve opvatting. In de sociale wetenschappen zijn er geen
 vastomlijnde regels van wanneer iets praktisch significant is, dat hangt
 af van de context. Meestal bepaal je de praktische relevantie aan de
-hand van logisch redeneren en afvragen waarvoor deze bevinding relevant
+hand van logisch redeneren en afvragen waarom deze bevinding relevant
 is. Als je bijvoorbeeld gaat autorijden, kunnen 2-3 glazen een groot
 verschil maken. Voor een avond stappen waarin sowieso heel veel
 gedronken wordt, heeft een verschil van 2-3 glazen wellicht minder
@@ -3630,13 +3629,339 @@ effect op de totale mate van intoxicatie. Context doet er dus toe.
 \section{Betrouwbaarheidsinterval voor
 hypothesetoetsing}\label{betrouwbaarheidsinterval-voor-hypothesetoetsing}
 
-moeilijkere interpretatie en verwarring statistische significantie.
+Bovenstaande duidt er op dat hypothesetoetsen via statistische
+significantie zijn beperkingen heeft. Deze komen er grotendeels op neer
+dat:
 
-Let op dat we het in dit geval hebben over `kleiner of gelijk aan'
-(\(\leq\)) en niet `kleiner dan' (\textless). Als er namelijk geen
-verschil is in gemiddeld aantal glazen alcohol tussen mannen en vrouwen
-(\(\mu_1=\mu_2\)), betekent dit ook een ander resultaat dan wat je
-verwacht onder de nulhypothese.
+\begin{itemize}
+\tightlist
+\item
+  de interpretatie van een significant resultaat regelmatig verkeerd
+  gaat
+\item
+  een focus op statistische significante afleidt van praktische
+  significantie
+\item
+  er weinig aandacht is voor hoe precies de populatieparameter wordt
+  geschat
+\end{itemize}
+
+Deze beperkingen kunnen we grotendeels ondervangen door een alternatieve
+methode te gebruiken waar we al bekend mee zijn: het
+\hyperref[betrouwbaarheidsinterval]{betrouwbaarheidsinterval}! Een bhi
+kan ons informatie verschaffen over hoe groot een verschil is in
+populatiegemiddeldes, en met welke mate van zekerheid we dat kunnen
+vaststellen. Het werkt hier niet veel anders dan bij het schatten van
+een gemiddelde of proportie in de populatie, alleen nemen we deze keer
+een andere type populatieparameter: \emph{het verschil tussen twee
+gemiddeldes} (voor onafhankelijke groepen). Volgens dezelfde principes
+die eerder hebben geleerd berekenen we voor deze populatieparameter een
+bhi.
+
+Wellicht was het je opgevallen dat we dit al hebben gedaan. De output
+bij het berekenen van de \textbf{?@sec-overschrijdingskans} geeft tevens
+een bhi. Die bedraagt voor het voorbeeld op deze pagina
+\([0,46; 4,94]\). Op basis van wat we eerder hebben gezien bij de
+\hyperref[sec-interpretatiebhi]{interpretatie van een
+betrouwbaarheidsinterval}, kunnen we dit interval hier interpreteren
+als:
+
+\begin{quote}
+We kunnen met 95\% betrouwbaarheid stellen dat het gemiddelde verschil
+tussen mannen en vrouwen in glazen alcoholconsumptie op een een
+uitgangsdag ergens tussen de 0,46 en 4,94 ligt, gebaseerd op
+(hypothetische) herhaalde steekproeven engeen additionele relevante
+kennis.
+\end{quote}
+
+We kunnen een dergelijk bhi op vrij simpele wijze gebruiken om tevens de
+nulhypothese te toetsen. Omdat we bij de t-toets gekozen hebben voor het
+standaard 5\% significantieniveau, correspondeert dit met een
+(tweezijdig) 95\%-bhi. Omdat onze verwachting onder de nulhypothese is
+dat het gemiddelde verschil 0 is, hoeven we alleen te kijken of die
+waarde in het geschatte bhi ligt. Dat is hier niet het geval: 0 valt
+niet binnen het bereik van \([0,46; 4,94]\) . Wat we al wisten, hebben
+we nu op alternatieve wijze aangetoond: de nulhypothese kan worden
+verworpen. We gaan er voorlopig vanuit dat er een statistisch
+significant verschil bestaat tussen mannen en vrouwen in hoeveel ze
+gemiddeld drinken.
+
+Deze laatste observatie is op zich niet zo interessant. We zijn meestal
+geïnteresseerd in hoe groot dat verschil is (met andere woorden:
+praktische significantie). Het bhi vertelt ons iets over welke
+populatieparameter we zullen vinden in 95\% van de herhaalde
+steekproeven. Dat blijkt hier nog behoorlijk uiteen te liggen. Het kan
+zowel 0,46 zijn (een half glas) of 4,94 (5 glazen), en alles daartussen
+in. Deze waardes hebben potentieel hele andere praktische implicaties,
+omdat een half glas in de meeste situaties verwaarloosbaar is terwijl
+vijf glazen dat niet zijn. Dit resultaat geeft dus nog niet een heel
+nauwkeurig beeld.
+
+Je merkt hopelijk dat het hanteren en interpreteren van een bhi (in
+plaats van statistische significantie alleen) leidt tot een andere
+focus. We kijken meer naar de inhoudelijke en praktische betekenis, en
+niet alleen of iets statistisch significant is.
+
+\section{Samenvatting}\label{samenvatting-3}
+
+Je hebt in vogelvlucht kennis gemaakt met hypothesetoetsen en enkele
+relevante aspecten. We hebben hierboven gekeken naar een t-toets voor
+onafhankelijke groepen (met ongelijke varianties). Dit soort toets
+voeren we uit wanneer we de gemiddelde score op een kwantitatieve
+variabele willen vergelijken tussen twee groepen (nominale variabele).
+De belangrijkste punten van dit hoofdstuk zijn als volgt:
+
+\begin{itemize}
+\item
+  In wetenschappelijk onderzoek hebben we verwachtingen over hoe iets
+  werkt (relaties) in de populatie. Om die te toetsen formuleren we de
+  nulhypothese: het tegenovergestelde van wat we verwachten.
+\item
+  Via de methode van statistische significantie stellen we vast hoe
+  (on)waarschijnlijk een bepaald steekproefresultaat is, gegeven de
+  nulhypothese. Dit gebruiken om vast te stellen met welke mate van
+  zekerheid een populatieparameter niet nul zal zijn.
+\item
+  Een enge focus op statistische significantie heeft echter zijn
+  beperkingen. In plaats daarvan gebruiken we bij voorkeur
+  betrouwbaarheidsintervallen om zowel de nulhypothese te toetsen als
+  praktische relevantie te bepalen.
+\end{itemize}
+
+\chapter{004-02-aspectenhypo}\label{aspectenhypo}
+
+In het vorige hoofdstuk heb je geleerd wat hypothese toetsen inhoudt en
+welke stappen je daarbij moet nemen. Als je dit voor deze eerste keer
+leert, kan het behoorlijk uitdagend zijn om het allemaal te verwerken.
+Je zult echter zien dat naarmate je het vaker oefent en verschillende
+bhi's hebt berekend, je het principe ervan beter zult gaan begrijpen.
+Oefening baart kunst (OBK)!
+
+We hebben tot nu wel een paar bochten afgesneden. Zoals gesignaleerd in
+het vorige hoofdstuk, zijn er bij hypothese toetsen meerdere aspecten
+waar je rekening mee moet houden. Een aantal van die aspecten behandelen
+we hier. Daarna heb je, als het goed is, een aardig overzicht van wat er
+allemaal bij hypothesetoetsen komt kijken. We gaan in op de volgende
+vier zaken: 1) de t-verdeling 2) het formuleren van hypotheses 3)
+eenzijdig en tweezijdig toetsen en 4) type-I en type-II fouten.
+
+\section{T-verdeling}\label{t-verdeling}
+
+Zoals je inmiddels weet, gebeurt het berekenen van dingen zoals de
+overschrijdingskans en een bhi op basis van de normale verdeling. Tot nu
+toe hebben we aangenomen dat de \hyperref[sec-normaleverdeling]{normale
+verdeling} altijd hetzelfde is, waarbij de distributie van waarden via
+de empirische regel verloopt. Dit houdt in dat binnen een xx aantal
+standaarddeviaties van het gemiddelde xx\% van alle waarden ligt,
+afhankelijk van hoeveel standaarddeviaties je neemt. Deze vaste vorm
+staat ook wel bekend als de standaardnormale verdeling of z-verdeling en
+geldt over het algemeen voor populatiedata.
+
+Het blijkt echter dat de standaardnormale verdeling niet altijd even
+goed van toepassing is. Met name voor kleinere steekproeven vinden we
+dat de normale verdeling een andere vorm heeft dan
+\emph{standaard}normale verdeling. In deze video wordt uitgelegd hoe dat
+precies werkt:
+
+\url{https://youtu.be/32CuxWdOlow?si=75mpR9UutZl4BBm3}
+
+We moeten dus rekening houden met de t-verdeling in ons onderzoek, omdat
+deze afhankelijk van de steekproefgrootte een iets andere vorm heeft dan
+de z-verdeling. Dit is vooral bij kleinere steekproeven relevant.
+
+Bij het hypothese toetsen via statistische significantie zijn er in
+essentie twee relevante t-waardes: de kritieke grenswaarde (\(t_k\)) en
+toetsingsgrootheid (\(t_g\)). De eerstgenoemde is de grenswaarde waarbij
+we de nulhypothese verwerpen. De \(t_k\) is afhankelijk van het gekozen
+significantieniveau (bijv. 0,01; 0,05 of 0,1) en het aantal respondenten
+in de steekproef minus het aantal geschatte populatieparameters bij een
+t-toets (oftewel: het aantal vrijheidsgraden).
+
+Bij het \hyperref[sec-statistischesignificantie]{voorbeeld} uit het
+vorige hoofdstuk zagen we dat de nulhypothese werd verworpen wanneer het
+gemiddelde verschil in aantal glazen alcohol groter was dan 2,2 of
+kleiner dan -2,2. Deze waarden hebben we kunnen herleiden uit de \(t_k\)
+. Als je voor dit voorbeeld de \(t_k\) zou opzoeken in de t-tabel
+(\href{https://statisticsfundamentals.com/tables/t-distribution-table/}{link}),
+dan zou je uitkomen op \(t_k=2,024\).\footnote{Op basis van de volgende
+  gegevens:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    aantal vrijheidsgraden: \(n-2\) in dit geval, dus \(40-2=38\) .
+  \item
+    gekozen significantieniveau: 5\%
+  \item
+    Tweezijdig toetsen (zie verderop dit hoofdstuk)
+  \end{itemize}} \footnote{Het aantal vrijheidsgraden bij een t-toets
+  voor onafhankelijke groepen en ongelijke varianties wordt normaliter
+  via een ingewikkelde formule berekent. Omdat bij dit voorbeeld de
+  varianties gelijk zijn alsmede het aantal respondenten, hoeven we
+  alleen \(n-2\) te doen om het aantal vrijheidsgraden te verkrijgen}
+
+De toetsingsgrootheid is de t-waarde die correspondeert met het
+steekproefresultaat en waar deze zich bevindt onder de
+H\textsubscript{0}-verdeling. Elke toets kent zijn eigen formule om dit
+te berekenen. Bij de output uit het
+\hyperref[sec-statistischesignificantie]{voorbeeld} kun je zien dat
+(afgerond) \(t_g=2,440\) . Op basis van de toetsingsgrootheid wordt
+vervolgens de overschrijdingskans berekend.
+
+We maken het ons iets makkelijker in deze cursus door voornamelijk te
+kijken naar bhi's. Daarvoor hebben we alleen de kritieke grenswaarde
+nodig en niet de toetsingsgrootheid. De laatste is alleen van toepassing
+bij de methode van statistische significantie.
+
+We doorlopen nu nogmaals het voorbeeld uit het vorige hoofdstuk, maar nu
+met 15 mannen en 15 vrouwen. We berekenen handmatig het bhi volgens de
+t-verdeling. Dan krijg je een idee hoe een bhi voor een t-toets voor
+onafhankelijke groepen tot stand komt.
+
+\[
+bhi =(\bar{x}_1 - \bar{x}_2) \pm t_k \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+\]
+
+Deze berekening is niet veel anders dan bij het
+\hyperref[betrouwbaarheidsinterval]{betrouwbaarheidsinterval}. Hier neem
+je het gemiddelde van mannen \(\bar{x}_1\) minus het gemiddelde van
+vrouwen \(\bar{x}_2\). Het gedeelte achter de \(\pm\) bereken je wederom
+apart. Daarvoor zoek je de bijbehorende \(t_k\). Daarvoor kunnen we weer
+kijken in de t-tabel
+(\href{https://statisticsfundamentals.com/tables/t-distribution-table/}{link}):
+\(t_k=2,048\).\footnote{\begin{itemize}
+  \tightlist
+  \item
+    aantal vrijheidsgraden: \(n-2\) , dus \(30-2=28\) .
+  \item
+    gekozen significantieniveau: 5\%
+  \item
+    Tweezijdig toetsen
+  \end{itemize}} Het laatste deel
+\(\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}\) is berekening van de
+standaardfout voor deze toets. Net zoals bij
+\hyperref[betrouwbaarheidsinterval]{betrouwbaarheidsinterval} kunnen we
+dit weer in R berekenen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# verschil in gemiddeldes}
+\FloatTok{11.4{-}8.7}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2.7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# gedeelte achter +{-}}
+\FloatTok{2.048}\SpecialCharTok{*}\FunctionTok{sqrt}\NormalTok{(}\FloatTok{3.5}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{/}\DecValTok{15}\FloatTok{+3.5}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{/}\DecValTok{15}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 2.617384
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 95\%{-}bhi berekenen}
+\FloatTok{2.7{-}2.617}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.083
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{2.7+2.617}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5.317
+\end{verbatim}
+
+Je ziet dus dat het bhi in dit geval \([0,08; 5,32]\) bedraagt. Dit is
+een breder bhi dan in het vorige hoofdstuk (\([0,46; 4,94]\)). Als je
+naar de formule kijkt, kun je zien dat een kleinere \(n\) leidt tot een
+grotere standaardfout \(s.e.\)\footnote{\(s.e.\) is een meer algemene
+  notatie voor de standaardfout.} \emph{Daar komt nu nog bovenop dat}
+\emph{we middels de t-verdeling (de kritieke grenswaarde} \(t_k\))
+\emph{corrigeren voor kleinere steekproeven.} Bij grotere steekproeven
+is de t-verdeling nagenoeg gelijk aan de z-verdeling (zie het youtube
+filmpje hierboven).
+
+R houdt automatisch rekening met de t-verdeling bij het uitvoeren van
+toets. We kunnen bovenstaande berekening ook `computermatig' met R doen.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{010}\NormalTok{)}
+
+\CommentTok{\# Herhaal functie om voorbeeld opnieuw te maken}
+\NormalTok{genereer\_groep }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(n, gemiddelde, s) \{}
+  \FunctionTok{rnorm}\NormalTok{(n) }\SpecialCharTok{|\textgreater{}} \FunctionTok{scale}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{as.vector}\NormalTok{() }\SpecialCharTok{*}\NormalTok{ s }\SpecialCharTok{+}\NormalTok{ gemiddelde}
+\NormalTok{\}}
+
+\NormalTok{voorbeeld\_alcohol\_2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{geslacht                     =}  \FunctionTok{factor}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"man"}\NormalTok{, }\StringTok{"vrouw"}\NormalTok{), }\AttributeTok{each =} \DecValTok{15}\NormalTok{)), }\CommentTok{\# variabele mannen en vrouwen aanmaken, nu met 15 respondenten}
+  \AttributeTok{glazen\_alcohol\_uitgaansdag   =} 
+    \FunctionTok{c}\NormalTok{(}\FunctionTok{genereer\_groep}\NormalTok{(}\DecValTok{15}\NormalTok{, }\FloatTok{11.4}\NormalTok{, }\FloatTok{3.5}\NormalTok{), }\FunctionTok{genereer\_groep}\NormalTok{(}\DecValTok{15}\NormalTok{, }\FloatTok{8.7}\NormalTok{, }\FloatTok{3.5}\NormalTok{)) }\CommentTok{\# 15 respondenten per geslacht, met bijbehorende gemiddeldes en sd}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# t{-}toets uitvoeren voor bhi}
+\FunctionTok{t.test}\NormalTok{(glazen\_alcohol\_uitgaansdag }\SpecialCharTok{\textasciitilde{}}\NormalTok{ geslacht,}
+       \AttributeTok{data =}\NormalTok{ voorbeeld\_alcohol\_2) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Welch Two Sample t-test
+
+data:  glazen_alcohol_uitgaansdag by geslacht
+t = 2.1126, df = 28, p-value = 0.04368
+alternative hypothesis: true difference in means between group man and group vrouw is not equal to 0
+95 percent confidence interval:
+ 0.08209614 5.31790386
+sample estimates:
+  mean in group man mean in group vrouw 
+               11.4                 8.7 
+\end{verbatim}
+
+Het bhi is hier, op wat miniscule afrondingsverschillen na, hetzelfde
+als bij de handmatige berekening. Dit is dus een stukje sneller dan
+altijd alles met de hand moeten doen.
+
+Merk tenslotte op dat de formules van bhi's voor proporties en
+gemiddeldes bij
+\hyperref[betrouwbaarheidsinterval]{betrouwbaarheidsinterval} niet
+helemaal correct waren voor steekproeven. Daar gingen we nog van
+z-waardes uit i.p.v. t-waardes. De `juiste' formules kun je vinden in
+het \href{formuleblad.qmd}{Formuleblad}. Daarmee zullen we ook werken in
+de practica.
+
+\section{Hypotheses formuleren}\label{sec-hypoformuleren}
+
+Opmerking formule betrouwbaarheidsinterval proportie en shit.
+
+\begin{itemize}
+\item
+  formuleren
+\item
+  eenzijdig-tweezijdig
+\item
+  type 1-type 2
+\end{itemize}
 
 \part{Colleges}
 
