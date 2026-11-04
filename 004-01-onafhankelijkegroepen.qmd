@@ -182,6 +182,8 @@ Deze laatste observatie is op zich niet zo interessant. We zijn meestal geïnter
 
 Je merkt hopelijk dat het hanteren en interpreteren van een bhi (in plaats van statistische significantie alleen) leidt tot een andere focus. We kijken meer naar de inhoudelijke en praktische betekenis, en niet alleen of iets statistisch significant is.
 
+![](afbeeldingen/Praktische_significantie.jpg){width="50%"}
+
 ## Samenvatting
 
 Je hebt in vogelvlucht kennis gemaakt met hypothesetoetsen en enkele relevante aspecten. We hebben hierboven gekeken naar een t-toets voor onafhankelijke groepen (met ongelijke varianties). Dit soort toets voeren we uit wanneer we de gemiddelde score op een kwantitatieve variabele willen vergelijken tussen twee groepen (nominale variabele). De belangrijkste punten van dit hoofdstuk zijn als volgt:

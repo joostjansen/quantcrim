@@ -1939,11 +1939,11 @@ je na dit hoofdstuk bijvoorbeeld:
 \item
   Dat vrouwen iets vaker vapen dan mannen
 \item
-  Acceptatie onder vrienden van xtc hoger is onder gebruikers dan
+  Acceptatie van xtc onder vrienden hoger is onder gebruikers dan
   niet-gebruikers
 \item
-  Mannen en vrouwen gemiddeld evenveel roken, maar de onderlinge
-  variatie net wat anders is
+  Mannen en vrouwen gemiddeld evenveel roken, maar de variatie binnen
+  deze groepen net wat anders is
 \item
   Er geen duidelijke relatie is tussen het aantal glazen alcohol dat men
   drinkt en aantal sigaretten dat men rookt op een uitgaansdag
@@ -3702,6 +3702,8 @@ plaats van statistische significantie alleen) leidt tot een andere
 focus. We kijken meer naar de inhoudelijke en praktische betekenis, en
 niet alleen of iets statistisch significant is.
 
+\includegraphics[width=0.5\linewidth,height=\textheight,keepaspectratio]{afbeeldingen/Praktische_significantie.jpg}
+
 \section{Samenvatting}\label{samenvatting-3}
 
 Je hebt in vogelvlucht kennis gemaakt met hypothesetoetsen en enkele
@@ -3910,11 +3912,11 @@ grotere standaardfout \(s.e.\) \emph{Daar komt nu nog bovenop dat}
 is de t-verdeling nagenoeg gelijk aan de z-verdeling (zie het youtube
 filmpje hierboven).
 
-Interessant is overigens dat de ondergrens het huidige bhi
+Interessant is overigens dat de ondergrens van het huidige bhi
 \([0,08; 5,32]\) net boven de nul ligt. Op basis hiervan zouden we de
-nulhypothese van geen verschil tussen mannen en vrouwen alsnog
-verwerpen. In het geval dat de ondergrens net onder 0 zou liggen, zouden
-we dat niet doen. Het zou echter aan de interpretatie van de mogelijke
+nulhypothese van geen verschil tussen mannen en vrouwen verwerpen. In
+het geval dat de ondergrens net onder 0 zou liggen, zouden we dat niet
+doen. Het zou echter aan de interpretatie van de mogelijke
 populatieparameter niet zoveel veranderen: het gemiddelde verschil in
 glazen alcohol ligt ongeveer ergens tussen de 0 en 5. Je ziet hier dus
 al hoe je tot andere conclusies komt wanneer je de bhi-methode
@@ -3927,11 +3929,6 @@ doen.
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{set.seed}\NormalTok{(}\DecValTok{010}\NormalTok{)}
-
-\CommentTok{\# Herhaal functie om voorbeeld opnieuw te maken}
-\NormalTok{genereer\_groep }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(n, gemiddelde, s) \{}
-  \FunctionTok{rnorm}\NormalTok{(n) }\SpecialCharTok{|\textgreater{}} \FunctionTok{scale}\NormalTok{() }\SpecialCharTok{|\textgreater{}} \FunctionTok{as.vector}\NormalTok{() }\SpecialCharTok{*}\NormalTok{ s }\SpecialCharTok{+}\NormalTok{ gemiddelde}
-\NormalTok{\}}
 
 \CommentTok{\# nieuwe dataset met totaal 30 respondenten}
 \NormalTok{voorbeeld\_alcohol\_2 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
@@ -3979,7 +3976,7 @@ de practica.
 \section{Hypotheses formuleren}\label{sec-hypoformuleren}
 
 In het vorige hoofdstuk bij \hyperref[sec-opstellenhypo]{Hypothese
-opstellen} werd genoemd het relevant is om een hypothese zo exact
+opstellen} werd genoemd dat het relevant is om een hypothese zo exact
 mogelijk te formuleren. Dit omdat een hypothese invulling geeft aan
 \emph{wat} we willen onderzoeken en \emph{hoe} wat dat willen meten
 (lees: operationaliseren). Daarom hanteren we volgende regels bij het
@@ -4094,16 +4091,177 @@ Tot nu toe hebben we alleen een t-toets voor onafhankelijke groepen
 behandeld. Daarin vergelijken we de gemiddeldes van twee groepen
 (nominale variabele) op één kwantitatieve variabele met elkaar:
 \(\mu_1 =\mu_2\). In de komende hoofdstukken gaan we nog meer toetsen
-behandelen: t-toets voor afhankelijke groepen, chi-square, en
+behandelen: t-toets voor afhankelijke groepen, chi-kwadraat, en
 correlatie. Uit de formulering van de hypotheses en statistische notatie
 moet volgen om wat voor soort toets het steeds gaat. Hoe je dat per
 toets doet, wordt bij de voorbeelden uitgelegd.
 
+\section{Tweezijdig/eenzijdig
+toetsen}\label{tweezijdigeenzijdig-toetsen}
+
+Hierboven is al genoemd dat er twee soorten hypotheses zijn: hypotheses
+zonder een specifieke richting (\textbf{tweezijdig}) en hypotheses
+waarin het verband een specifieke richting heeft (\textbf{eenzijdig}).
+Het verschil tussen tweezijdig en eenzijdig is niet alleen relevant in
+hoe we de hypothese formuleren, maar ook voor hoe we deze toetsen
+uitvoeren. Het heeft namelijk invloed op hoe de overschrijdingskans
+wordt berekend.
+
+Wanneer we een tweezijdige hypothese hebben, berekenen we de kans op het
+verkrijgen van een steekproefresultaat minstens zo extreem \emph{in
+beide richtingen} van de verdeling (onder de H\textsubscript{0}
+uiteraard). Teruggaand naar het
+\hyperref[sec-statistischesignificantie]{voorbeeld} uit het vorige
+hoofdstuk, betekent dit dat we de kans berekenen op het verkrijgen van
+een verschil in gemiddeldes van 2,7 of hoger of -2,7 of lager. Dat is
+hieronder verbeeld.
+
+\pandocbounded{\includegraphics[keepaspectratio]{afbeeldingen/h0_tweezijdige_p.png}}
+
+Het donkere gedeelte onder de normale verdeling vertegenwoordigt de
+overschrijdingskans \(p=0,019\). Ook al geeft het steekproefresultaat
+ons een verschil van 2,7 (de daadwerkelijke uitkomst), omdat we een
+tweezijdige verwachting hadden moeten we rekening houden met dat de
+uitkomst aan beide kanten van de verdeling had kunnen vallen.
+
+Stel dat we een eenzijdige verwachting hadden: mannen drinken meer dan
+vrouwen. En dat de uitkomst van de steekproef nog steeds hetzelfde was
+(een verschil van 2,7). In dat geval berekenen we de overschrijdingskans
+anders, omdat deze nu kans vertegenwoordigt op het verkrijgen van een
+steekproefresultaat minstens zo extreem \emph{aan rechterzijde} de
+verdeling (onder de H\textsubscript{0}). Bij dit voorbeeld gaat het om
+de rechterzijde, omdat we oorspronkelijk een \emph{positief} verschil
+verwachten in gemiddeldes: dat van mannen \(\mu_1\) is hoger dan dat van
+vrouwen \(\mu_2\).\footnote{De H\textsubscript{0} is hier dan
+  \(\mu_1 \le \mu_2\) (zie ook Section~\ref{sec-hypoformuleren}).} De
+grafische weergave is dan als volgt.
+
+\pandocbounded{\includegraphics[keepaspectratio]{afbeeldingen/h0_eenzijdige_p.png}}
+
+Er zijn nu een aantal dingen veranderd. Omdat de overschrijdingskans nog
+maar voor één kant van de H\textsubscript{0}-verdeling geldt, is deze de
+helft van de tweezijdige overschrijdingskans geworden. Dit betekent dat
+\(p=0,019/2=0,0095\) . Ook is de kritieke grenswaarde verschoven. Je
+toetst nog steeds bij een significantieniveau van 0,05. Een eenzijdige
+hypothese brengt echter met zich mee dat je de nulhypothese alleen
+verwerpt als de uitkomst in het gebied valt waar je dit verwacht, in dit
+voorbeeld de rechterzijde. Bij tweezijdig toetsen is de 5\% verdeeld
+over beiden kanten van de verdeling (2,5\% links en 2,5\% rechts). Bij
+eenzijdig toetsen wordt alle 5\% als het ware aan de rechterkant
+geplaatst. Daardoor verandert de kritieke grenswaarde, deze
+correspondeert nu teruggerekend met 1,9 glazen alcohol.
+
+De keuze voor eenzijdig of tweezijdig toetsen kan gevolgen hebben voor
+het vaststellen van statistische significantie, en uiteindelijk jouw
+conclusies. Stel je had een steekproef getrokken waarbij het verschil in
+gemiddeldes tussen mannen en vrouwen 2,0 glazen is. Bij een tweezijdige
+hypothese zou dit resultaat zich niet in het
+H\textsubscript{0}-verwerpingsgebied bevinden, maar bij eenzijdig
+toetsen wel. In het eerste geval zou je de nulhypothese dus niet
+verwerpen, in het tweede geval wel.\footnote{Bij een steekproefresultaat
+  van bijvoorbeeld -2,5 glazen zou dit andersom zijn. Hopelijk kun je al
+  bedenken waarom.} Daarom is het belangrijk dat je \emph{vooraf} aan
+een analyse duidelijk bent over de richting van je hypothese en gekozen
+significantieniveau, zodat je niet achteraf de resultaten gaat aanpassen
+om een statistisch significant resultaat te krijgen.\footnote{Zulke
+  praktijken worden ook wel \emph{p-hacking} genoemd.}
+
+De uitleg hierboven heeft zich toegespitst op de methode van
+statistische significantie. Bij bhi's is het tevens relevant of je een
+eenzijdige of tweezijdige verwachting hebt, omdat de berekening van het
+bhi daar in principe op moet worden aangepast. In de praktijk gaan we
+bij bhi's echter bijna altijd uit van een tweezijdige toets, ook al
+hebben we een eenzijdige hypothese. Dat is niet helemaal statistisch
+correct, maar meestal zijn we geïnteresseerd in zowel de ondergrens als
+de bovengrens van het bhi.\footnote{Bij een eenzijdige toets met een bhi
+  krijg je namelijk alleen een vaste onder- of bovengrens, afhankelijk
+  van de richting van je hypothese.} Dit betekent dat we soms wat
+conservatiever toetsen op het verwerpen van de nulhypothese dan nodig,
+maar better be safe than sorry. En het houdt de interpretatie ook
+eenvoudiger (weer een win voor het bhi t.o.v. statistische
+significantie!).
+
+\section{Type-I en type-II fouten}\label{type-i-en-type-ii-fouten}
+
+Als laatste kijken we in dit hoofdstuk naar type-I en type-II fouten.
+Dit zijn fouten die kunnen voorkomen bij statistisch onderzoek waardoor
+we de verkeerde conclusie trekken over de nulhypothese.
+
+Een type-I fout houdt in dat we de nulhypothese verwerpen terwijl deze
+eigenlijk waar is. Dit gebeurt aan de hand van statistisch significant
+resultaat. Stel we doen een hypothesetoets bij een significantieniveau
+van 5\% en vinden dat de toets significant is en verwerpen vervolgens de
+nulhypothese. Onze redenering is doorgaans dat het onwaarschijnlijk is
+om een waarde zo extreem (kans lager dan 5\%) te vinden onder de
+H\textsubscript{0}-verdeling, en dat we daarom de nulhypothese kunnen
+verwerpen. Echter, het kan zo zijn dat we een willekeurige steekproef
+hebben getrokken waarvan de uitkomst toevallig heel ver van het midden
+van de H\textsubscript{0}-verdeling ligt (zie ook weer
+\hyperref[sec-steekproefcentraallimiet]{Steekproevenverdeling}). Dit
+weerspiegelt dan geen verschil in de populatie, maar eerder een
+steekproef met veel afwijkende waarden.
+
+Elk nadeel hebse voordeel, in ieder geval bij een type-I fout. We weten
+namelijk hoe groot de kans is op het maken van deze fout, gegeven dat de
+nulhypothese waar is. Die is namelijk hetzelfde als het
+significantieniveau \(\alpha\). Dat is namelijk de grens waarbij een
+hypothese verwerpen. Dit betekent dat een lager significantieniveau,
+zoals 0,01 of zelfs 0,001, het risico op een type-I fout verkleint. Met
+een lager significantieniveau stellen we wel strengere eisen aan wanneer
+een nulhypothese kan worden verworpen. Hier is dus een trade-off.
+
+Een type--II fout is juist wanneer de nulhypothese niet verwerpen,
+terwijl dit wel zou moeten. De nulhypothese is in dit geval eigenlijk
+niet waar. Hier zijn twee oorzaken voor die vaak met elkaar samenhangen.
+Een is dat om een heel klein verschil of effect gaat, wat middels
+hypothese toetsen moeilijk is waar te nemen. Bijvoorbeeld als het
+verschil in glazen alcohol tussen mannen en vrouwen in de populatie 0,2
+is. We zullen dan relatief veel steekproeven trekken die nul verschil
+vinden. De tweede oorzaak is een te laag aantal respondenten om een
+verschil goed waar te nemen. Zoals je in eerdere voorbeelden hebt
+gezien, leidt een lagere \(n\) tot bijvoorbeeld een breder bhi of een
+grotere kritieke grenswaarde. De kans dat we de nulhypothese niet
+verwerpen terwijl dat wel zou moeten neemt dan toe, bijvoorbeeld omdat
+nul zich in het bhi bevindt terwijl de populatieparameter niet nul is.
+
+In tegenoverstelling tot een type-I fout weten we niet hoe groot de kans
+is op een type-II fout. We weten alleen dat risico kleiner wordt
+naarmate we meer data verzamelen.
+
+Het voorkomen van deze fouten wijst ons erop dat we resultaten van een
+statistisch onderzoek nooit als definitief moeten beschouwen. Het kan
+zijn dat we de nulhypothese onterecht verwerpen (type-I fout), maar ook
+andersom dat we nulhypothese niet verwerpen terwijl deze eigenlijk waar
+is (type-II fout). Dit impliceert verder dat het verwerpen van de
+nulhypothese niet automatisch betekent dat het tegenovergestelde waar
+is, en dat het niet verwerpen van de nulhypothese betekent dat de
+nulhypothese waar is of `bewezen'. De statistische tools die je hier
+leert zijn daarmee slechts hulpmiddelen in het ontdekken van de
+waarheid, maar geven ons nooit 100\% uitsluitsel.
+
+\section{Samenvatting}\label{samenvatting-4}
+
+Dit hoofdstuk heeft diverse aspecten behandeld die relevant zijn bij
+toetsen van hypotheses, zowel voor de methode van statistische
+significantie als bhi's. De belangrijkste take-aways zijn:
+
 \begin{itemize}
 \item
-  eenzijdig-tweezijdig
+  Bij het berekenen van een toetsingsresultaat moeten we rekening houden
+  met de t-verdeling. Dit kan bij handmatige berekeningen worden
+  opgezocht in de t-tabel, bij computermatige berekeningen houdt R hier
+  automatisch rekening mee
 \item
-  type 1-type 2
+  Het formuleren van hypotheses vraagt om precisie m.b.t. wat we
+  onderzoeken en hoe we dat meten
+\item
+  Het is voorafgaand aan analyse belangrijk om hypotheses duidelijk
+  eenzijdig of tweezijdig te formuleren, dit heeft gevolgen voor hoe we
+  de toets uitvoeren. Bij bhi's gaan we hier wat soepeler mee om.
+\item
+  Bij hypothesetoetsing kunnen zowel type-I als type-II fouten optreden.
+  Daarom moeten we resultaten altijd voorzichtig interpreteren, ook
+  vanwege beperkingen die we in de rest van de cursus behandelen.
 \end{itemize}
 
 \part{Colleges}

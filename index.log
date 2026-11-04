@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.11.2)  4 NOV 2026 13:57
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.11.2)  4 NOV 2026 22:07
  restricted system commands enabled.
 **index.tex
 (./index.tex
@@ -628,7 +628,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 )) (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ) (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+Package: nameref 2026-10-31 v2.59 Cross-referencing by name of section
 (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
@@ -1334,6 +1334,6 @@ Here is how much of LuaTeX's memory you used:
    16 hlist, 1 vlist, 4 rule, 9 disc, 2 local_par, 2 dir, 58 glue, 13 kern, 3 penalty, 1 accent, 3 math_char, 2 margin_kern, 298 glyph, 697 attribute, 67 glue_spec, 282 attribute_list, 2 temp, 1 pdf_action nodes
    avail lists: 1:1,2:12321,3:750,4:53,5:439,6:42,7:5449,8:22,9:411,10:13,11:342,12:1
  47870 multiletter control sequences out of 65536+600000
- 67 fonts using 19701591 bytes
+ 67 fonts using 19701439 bytes
  108i,8n,114p,11226b,497s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!
