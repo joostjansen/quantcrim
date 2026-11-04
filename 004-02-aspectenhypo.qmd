@@ -1,5 +1,5 @@
 ---
-title: "004-02-aspectenhypo"
+title: "Aspecten van hypothesetoetsing"
 format: html
 execute:
   warning: false
@@ -9,17 +9,17 @@ execute:
 
 In het vorige hoofdstuk heb je geleerd wat hypothese toetsen inhoudt en welke stappen je daarbij moet nemen. Als je dit voor deze eerste keer leert, kan het behoorlijk uitdagend zijn om het allemaal te verwerken. Je zult echter zien dat naarmate je het vaker oefent en verschillende bhi's hebt berekend, je het principe ervan beter zult gaan begrijpen. Oefening baart kunst (OBK)!
 
-We hebben tot nu wel een paar bochten afgesneden. Zoals gesignaleerd in het vorige hoofdstuk, zijn er bij hypothese toetsen meerdere aspecten waar je rekening mee moet houden. Een aantal van die aspecten behandelen we hier. Daarna heb je, als het goed is, een aardig overzicht van wat er allemaal bij hypothesetoetsen komt kijken. We gaan in op de volgende vier zaken: 1) de t-verdeling 2) het formuleren van hypotheses 3) eenzijdig en tweezijdig toetsen en 4) type-I en type-II fouten.
+We hebben tot nu een paar bochten afgesneden. Zoals gesignaleerd in het vorige hoofdstuk, zijn er bij hypothese toetsen meerdere aspecten waar je rekening mee moet houden. Een aantal van die aspecten behandelen we hier. Daarna heb je, als het goed is, een aardig overzicht van wat er allemaal bij hypothesetoetsen komt kijken. We gaan in op de volgende vier zaken: 1) de t-verdeling 2) het formuleren van hypotheses 3) eenzijdig en tweezijdig toetsen en 4) type-I en type-II fouten.
 
 ## T-verdeling
 
-Zoals je inmiddels weet, gebeurt het berekenen van dingen zoals de overschrijdingskans en een bhi op basis van de normale verdeling. Tot nu toe hebben we aangenomen dat de [normale verdeling](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling) altijd hetzelfde is, waarbij de distributie van waarden via de empirische regel verloopt. Dit houdt in dat binnen een xx aantal standaarddeviaties van het gemiddelde xx% van alle waarden ligt, afhankelijk van hoeveel standaarddeviaties je neemt. Deze vaste vorm staat ook wel bekend als de standaardnormale verdeling of z-verdeling en geldt over het algemeen voor populatiedata.
+Zoals je inmiddels weet, gebeurt het berekenen van dingen zoals de overschrijdingskans en een bhi op basis van de normale verdeling. Tot nu toe hebben we aangenomen dat de [normale verdeling](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling) altijd hetzelfde is, waarbij de distributie van waarden de empirische regel bolgt. Dit houdt in dat binnen een xx aantal standaarddeviaties van het gemiddelde xx% van alle waarden ligt, afhankelijk van hoeveel standaarddeviaties je neemt. Deze vaste vorm staat ook wel bekend als de standaardnormale verdeling of z-verdeling en geldt over het algemeen voor populatiedata.
 
 Het blijkt echter dat de standaardnormale verdeling niet altijd even goed van toepassing is. Met name voor kleinere steekproeven vinden we dat de normale verdeling een andere vorm heeft dan *standaard*normale verdeling. In deze video wordt uitgelegd hoe dat precies werkt:
 
 {{< video https://youtu.be/32CuxWdOlow?si=75mpR9UutZl4BBm3 >}}
 
-We moeten dus rekening houden met de t-verdeling in ons onderzoek, omdat deze afhankelijk van de steekproefgrootte een iets andere vorm heeft dan de z-verdeling. Dit is vooral bij kleinere steekproeven relevant.
+We moeten dus rekening houden met de t-verdeling in ons onderzoek, omdat deze afhankelijk van de steekproefgrootte een iets andere vorm heeft dan de z-verdeling. Dit is vooral bij kleinere steekproeven relevant (onder de 30 respondenten).
 
 Bij het hypothese toetsen via statistische significantie zijn er in essentie twee relevante t-waardes: de kritieke grenswaarde ($t_k$) en toetsingsgrootheid ($t_g$). De eerstgenoemde is de grenswaarde waarbij we de nulhypothese verwerpen. De $t_k$ is afhankelijk van het gekozen significantieniveau (bijv. 0,01; 0,05 of 0,1) en het aantal respondenten in de steekproef minus het aantal geschatte populatieparameters bij een t-toets (oftewel: het aantal vrijheidsgraden).
 
@@ -31,24 +31,33 @@ Bij het [voorbeeld](004-01-onafhankelijkegroepen.qmd#sec-statistischesignificant
     - gekozen significantieniveau: 5%
     - Tweezijdig toetsen (zie verderop dit hoofdstuk)
 
-[^004-02-aspectenhypo-2]: Het aantal vrijheidsgraden bij een t-toets voor onafhankelijke groepen en ongelijke varianties wordt normaliter via een ingewikkelde formule berekent. Omdat bij dit voorbeeld de varianties gelijk zijn alsmede het aantal respondenten, hoeven we alleen $n-2$ te doen om het aantal vrijheidsgraden te verkrijgen
+[^004-02-aspectenhypo-2]: Het aantal vrijheidsgraden bij een t-toets voor onafhankelijke groepen en ongelijke varianties wordt normaliter via een ingewikkelde formule berekend. Omdat bij dit voorbeeld de varianties gelijk zijn alsmede het aantal respondenten, hoeven we alleen $n-2$ te doen om het aantal vrijheidsgraden te verkrijgen.
 
-De toetsingsgrootheid is de t-waarde die correspondeert met het steekproefresultaat en waar deze zich bevindt onder de H~0~-verdeling. Elke toets kent zijn eigen formule om dit te berekenen. Bij de output uit het [voorbeeld](004-01-onafhankelijkegroepen.qmd#sec-statistischesignificantie) kun je zien dat (afgerond) $t_g=2,440$ . Op basis van de toetsingsgrootheid wordt vervolgens de overschrijdingskans berekend.
+De toetsingsgrootheid $t_g$ is de t-waarde die correspondeert met het steekproefresultaat en waar deze zich bevindt onder de H~0~-verdeling. Elke toets kent zijn eigen formule om dit te berekenen. Bij de R-output uit het [voorbeeld](004-01-onafhankelijkegroepen.qmd#sec-statistischesignificantie) kun je zien dat (afgerond) $t_g=2,440$. Deze waarde komt dus overeen met gevonden verschil in gemiddeldes van 2,7 glazen.
+
+In de figuur hieronder wordt bovenstaande gevisualiseerd. Je ziet dus dat dit in feite niet anders is dan wat we in het vorige hoofdstuk hebben gezien. De t-waardes worden gebruikt om de bijbehorende grens van het significantieniveau en de overschrijdingskans te bepalen.
+
+![](afbeeldingen/h0_kritieke_grens_t.png)
+
+### Bhi op basis van t-verdeling
 
 We maken het ons iets makkelijker in deze cursus door voornamelijk te kijken naar bhi's. Daarvoor hebben we alleen de kritieke grenswaarde nodig en niet de toetsingsgrootheid. De laatste is alleen van toepassing bij de methode van statistische significantie.
 
-We doorlopen nu nogmaals het voorbeeld uit het vorige hoofdstuk, maar nu met 15 mannen en 15 vrouwen. We berekenen handmatig het bhi volgens de t-verdeling. Dan krijg je een idee hoe een bhi voor een t-toets voor onafhankelijke groepen tot stand komt.
+We doorlopen nu nogmaals het voorbeeld uit het vorige hoofdstuk, maar nu met 15 mannen en 15 vrouwen. We berekenen handmatig het bhi volgens de t-verdeling. Dan krijg je een idee hoe een bhi voor een t-toets voor onafhankelijke groepen tot stand komt. De formule is als volgt:
 
 $$
 bhi =(\bar{x}_1 - \bar{x}_2) \pm t_k \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
 $$
 
-Deze berekening is niet veel anders dan bij het [betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd). Hier neem je het gemiddelde van mannen $\bar{x}_1$ minus het gemiddelde van vrouwen $\bar{x}_2$. Het gedeelte achter de $\pm$ bereken je wederom apart. Daarvoor zoek je de bijbehorende $t_k$. Daarvoor kunnen we weer kijken in de t-tabel ([link](https://statisticsfundamentals.com/tables/t-distribution-table/)): $t_k=2,048$.[^004-02-aspectenhypo-3] Het laatste deel $\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$ is berekening van de standaardfout voor deze toets. Net zoals bij [betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd) kunnen we dit weer in R berekenen.
+Deze formule is niet veel anders dan bij het [Betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd). Hier neem je het gemiddelde van mannen $\bar{x}_1$ minus het gemiddelde van vrouwen $\bar{x}_2$. Het gedeelte achter de $\pm$ bereken je wederom apart. Daarvoor zoek je de bijbehorende $t_k$. Daarvoor kunnen we weer kijken in de t-tabel ([link](https://statisticsfundamentals.com/tables/t-distribution-table/)): $t_k=2,048$.[^004-02-aspectenhypo-3] Het laatste deel $\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$ is berekening van de standaardfout $s.e.$ voor deze toets.[^004-02-aspectenhypo-4] Net zoals bij [Betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd) kunnen we dit weer in R berekenen.
 
-[^004-02-aspectenhypo-3]:
+[^004-02-aspectenhypo-3]: Op basis van de volgende gegevens:
+
     - aantal vrijheidsgraden: $n-2$ , dus $30-2=28$ .
     - gekozen significantieniveau: 5%
     - Tweezijdig toetsen
+
+[^004-02-aspectenhypo-4]: $s.e.$ is een meer algemene notatie voor de standaardfout (*standard error*).
 
 ```{r}
 # verschil in gemiddeldes
@@ -66,11 +75,11 @@ Deze berekening is niet veel anders dan bij het [betrouwbaarheidsinterval](003-0
 2.7+2.617
 ```
 
-Je ziet dus dat het bhi in dit geval $[0,08; 5,32]$ bedraagt. Dit is een breder bhi dan in het vorige hoofdstuk ($[0,46; 4,94]$). Als je naar de formule kijkt, kun je zien dat een kleinere $n$ leidt tot een grotere standaardfout $s.e.$[^004-02-aspectenhypo-4] *Daar komt nu nog bovenop dat* *we middels de t-verdeling (de kritieke grenswaarde* $t_k$) *corrigeren voor kleinere steekproeven.* Bij grotere steekproeven is de t-verdeling nagenoeg gelijk aan de z-verdeling (zie het youtube filmpje hierboven).
+Je ziet dus dat het bhi in dit geval $[0,08; 5,32]$ bedraagt. Dit is een breder bhi dan in het vorige hoofdstuk ($[0,46; 4,94]$). Als je naar de formule kijkt, kun je zien dat een kleinere $n$ leidt tot een grotere standaardfout $s.e.$ *Daar komt nu nog bovenop dat* *we middels de t-verdeling (de kritieke grenswaarde* $t_k$) *corrigeren voor kleinere steekproeven.* Bij grotere steekproeven is de t-verdeling nagenoeg gelijk aan de z-verdeling (zie het youtube filmpje hierboven).
 
-[^004-02-aspectenhypo-4]: $s.e.$ is een meer algemene notatie voor de standaardfout.
+Interessant is overigens dat de ondergrens het huidige bhi $[0,08; 5,32]$ net boven de nul ligt. Op basis hiervan zouden we de nulhypothese van geen verschil tussen mannen en vrouwen alsnog verwerpen. In het geval dat de ondergrens net onder 0 zou liggen, zouden we dat niet doen. Het zou echter aan de interpretatie van de mogelijke populatieparameter niet zoveel veranderen: het gemiddelde verschil in glazen alcohol ligt ongeveer ergens tussen de 0 en 5. Je ziet hier dus al hoe je tot andere conclusies komt wanneer je de bhi-methode vergelijkt met de methode van alleen statistische significantie.
 
-R houdt automatisch rekening met de t-verdeling bij het uitvoeren van toets. We kunnen bovenstaande berekening ook 'computermatig' met R doen.
+R houdt verder automatisch rekening met de t-verdeling bij het uitvoeren van toets. We kunnen bovenstaande berekening ook 'computermatig' met R doen.
 
 ```{r}
 set.seed(010)
@@ -80,6 +89,7 @@ genereer_groep <- function(n, gemiddelde, s) {
   rnorm(n) |> scale() |> as.vector() * s + gemiddelde
 }
 
+# nieuwe dataset met totaal 30 respondenten
 voorbeeld_alcohol_2 <- data.frame(
   geslacht                     =  factor(rep(c("man", "vrouw"), each = 15)), # variabele mannen en vrouwen aanmaken, nu met 15 respondenten
   glazen_alcohol_uitgaansdag   = 
@@ -95,13 +105,43 @@ t.test(glazen_alcohol_uitgaansdag ~ geslacht,
 
 Het bhi is hier, op wat miniscule afrondingsverschillen na, hetzelfde als bij de handmatige berekening. Dit is dus een stukje sneller dan altijd alles met de hand moeten doen.
 
-Merk tenslotte op dat de formules van bhi's voor proporties en gemiddeldes bij [betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd) niet helemaal correct waren voor steekproeven. Daar gingen we nog van z-waardes uit i.p.v. t-waardes. De 'juiste' formules kun je vinden in het [Formuleblad](formuleblad.qmd). Daarmee zullen we ook werken in de practica.
+Merk tenslotte op dat de formules van bhi's voor proporties en gemiddeldes bij [Betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd) niet helemaal correct waren voor steekproeven. Daar gingen we nog van z-waardes uit i.p.v. t-waardes. De 'juiste' formules kun je vinden in het [Formuleblad](formuleblad.qmd). Daarmee zullen we ook werken in de practica.
 
 ## Hypotheses formuleren {#sec-hypoformuleren}
 
-Opmerking formule betrouwbaarheidsinterval proportie en shit.
+In het vorige hoofdstuk bij [Hypothese opstellen](004-01-onafhankelijkegroepen.qmd#sec-opstellenhypo) werd genoemd het relevant is om een hypothese zo exact mogelijk te formuleren. Dit omdat een hypothese invulling geeft aan *wat* we willen onderzoeken en *hoe* wat dat willen meten (lees: operationaliseren). Daarom hanteren we volgende regels bij het opstellen van een hypothese:
 
-- formuleren
+1.  De richting van het verband moet duidelijk zijn
+
+Hypotheses kunnen in principe tweezijdig of eenzijdig zijn (zie ook VOLGENDE SECTIE). Tweezijdig betekent dat we geen specifieke verwachting hebben over de richting van het verband. Bijvoorbeeld dat er geen verschil is tussen mannen en vrouwen in hoeveel glazen alcohol ze gemiddeld drinken (de nulhypothese). De originele verwachting is dan dat mannen meer drinken dan vrouwen, maar ook dat vrouwen meer drinken dan mannen. Je verwacht alleen een bepaald verschil te vinden.
+
+Bij een eenzijdige hypothese maak je de richting expliciet. Dan zeg je bijvoorbeeld dat je verwacht dat mannen meer drinken vrouwen (en niet andersom). De nulhypothese is dan dat dan het gemiddelde aantal glazen dat mannen drinken *kleiner of gelijk is* aan het gemiddelde aantal glazen dat vrouwen drinken op een uitgaansdag.
+
+2.  De nulhypothese moet het tegenovergestelde zijn van de originele verwachting (en elkaar uitsluiten)
+
+Als je de nulhypothese verwerpt, ga je er 'voorlopig' vanuit dat je originele verwachting waar is. Daarvoor is het wel belangrijk dat die nulhypothese een spiegel is van de originele verwachting, dat ze tegenovergesteldes van elkaar zijn. Anders sluiten ze elkaar niet uit.
+
+Het voorbeeld hierboven van de eenzijdige hypothese bevestigt toont waarom. Als je verwacht dat mannen meer drinken dan vrouwen, dan verwacht je dat het verschil groter is dan nul met een hoger gemiddelde bij de mannen. Het tegenovergestelde (de nulhypothese) is dan dat het verschil tussen mannen en vrouwen nul is of lager bij de mannen, vandaar 'kleiner of gelijk aan'.
+
+3.  Gebruik de juiste statistische notatie
+
+Zoals je al eerder zag, gebruiken we statistische notatie om onze verwachtingen formeel uit te drukken. Zo verwachten we bij een tweezijdige hypothese dat $\mu_1 \ne \mu_2$ , wat betekent dat het gemiddelde in de populatie van de eerste groep ($\mu_1$) niet gelijk is aan het gemiddelde van de populatie van de tweede groep ($\mu_2$). De nulhypothese is dan $\mu_1 =\mu_2$, oftewel dat de populatiegemiddeldes wel gelijk zijn aan elkaar.
+
+Bij een eenzijdige hypothese verwachten we bijvoorbeeld dat het gemiddelde van mannen $\mu_1$ groter is dan dat van vrouwen $\mu_2$. Dit noteren we als $\mu_1 > \mu_2$. De nulhypothese is hier dan $\mu_1 \le \mu_2$ : het het gemiddelde van mannen $\mu_1$ is kleiner of gelijk aan dat van vrouwen $\mu_2$.
+
+4.  Begrippen moet helder zijn en geformuleerd op operationaliseerbaar niveau
+
+De hypothese moet duidelijk maken wat je precies onderzoekt en hoe dat is gemeten. Neem als voorbeeld: "de ene groep drinkt meer dan de andere groep". Deze hypothese is te vaag. Het zegt niks over welke groepen het gaat, wat voor drank en in welke eenheden wordt gemeten. Ook de formulering "mannen drinken meer dan vrouwen" is niet voldoende. Dit zegt nog weinig over welke drankconsumptie we precies onderzoeken. Bovendien zijn we bij een t-toets expliciet gemiddeldes aan het vergelijken. Een juiste formulering van de nulhypothese zou zijn (bij een tweezijdige hypothese):
+
+> het gemiddelde aantal glazen alcohol gedronken door mannen is gelijk aan het gemiddelde aantal glazen alcohol gedronken door vrouwen op een uitgaansdag (onder de populatie alcoholgebruikers)
+
+Dit is een wat langdradige formulering, maar beschrijft wel zo exact mogelijk wat je probeert te onderzoeken. Het geeft ook meer informatie over de context (op een uitgaansdag, alleen voor mensen die überhaupt drinken).[^004-02-aspectenhypo-5]
+
+[^004-02-aspectenhypo-5]: In de lopende tekst van dit boek omschrijven we de verbanden/hypotheses niet altijd even precies. Dit doen we om de tekst leesbaar te houden. Aan het begin van een onderzoek is het belangrijk dat je de hypotheses altijd zo precies mogelijk formuleert.
+
+5.  Het moet duidelijk zijn om welke toets het gaat.
+
+Tot nu toe hebben we alleen een t-toets voor onafhankelijke groepen behandeld. Daarin vergelijken we de gemiddeldes van twee groepen (nominale variabele) op één kwantitatieve variabele met elkaar: $\mu_1 =\mu_2$. In de komende hoofdstukken gaan we nog meer toetsen behandelen: t-toets voor afhankelijke groepen, chi-square, en correlatie. Uit de formulering van de hypotheses en statistische notatie moet volgen om wat voor soort toets het steeds gaat. Hoe je dat per toets doet, wordt bij de voorbeelden uitgelegd.
 
 - eenzijdig-tweezijdig
 

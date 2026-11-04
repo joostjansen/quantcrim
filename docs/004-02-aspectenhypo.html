@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; 004-02-aspectenhypo – quantcrim</title>
+<title>10&nbsp; Aspecten van hypothesetoetsing – quantcrim</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -318,7 +318,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-02-aspectenhypo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">004-02-aspectenhypo</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-02-aspectenhypo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -436,7 +436,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./004-02-aspectenhypo.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">004-02-aspectenhypo</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span></a>
   </div>
 </li>
       </ul>
@@ -504,7 +504,10 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#t-verdeling" id="toc-t-verdeling" class="nav-link active" data-scroll-target="#t-verdeling"><span class="header-section-number">10.1</span> T-verdeling</a></li>
+  <li><a href="#t-verdeling" id="toc-t-verdeling" class="nav-link active" data-scroll-target="#t-verdeling"><span class="header-section-number">10.1</span> T-verdeling</a>
+  <ul class="collapse">
+  <li><a href="#bhi-op-basis-van-t-verdeling" id="toc-bhi-op-basis-van-t-verdeling" class="nav-link" data-scroll-target="#bhi-op-basis-van-t-verdeling"><span class="header-section-number">10.1.1</span> Bhi op basis van t-verdeling</a></li>
+  </ul></li>
   <li><a href="#sec-hypoformuleren" id="toc-sec-hypoformuleren" class="nav-link" data-scroll-target="#sec-hypoformuleren"><span class="header-section-number">10.2</span> Hypotheses formuleren</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/004-02-aspectenhypo.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -513,9 +516,9 @@ window.Quarto = {
 <main class="content page-columns page-full" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-02-aspectenhypo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">004-02-aspectenhypo</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-02-aspectenhypo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">004-02-aspectenhypo</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></h1>
 </div>
 
 
@@ -533,13 +536,13 @@ window.Quarto = {
 
 
 <p>In het vorige hoofdstuk heb je geleerd wat hypothese toetsen inhoudt en welke stappen je daarbij moet nemen. Als je dit voor deze eerste keer leert, kan het behoorlijk uitdagend zijn om het allemaal te verwerken. Je zult echter zien dat naarmate je het vaker oefent en verschillende bhi’s hebt berekend, je het principe ervan beter zult gaan begrijpen. Oefening baart kunst (OBK)!</p>
-<p>We hebben tot nu wel een paar bochten afgesneden. Zoals gesignaleerd in het vorige hoofdstuk, zijn er bij hypothese toetsen meerdere aspecten waar je rekening mee moet houden. Een aantal van die aspecten behandelen we hier. Daarna heb je, als het goed is, een aardig overzicht van wat er allemaal bij hypothesetoetsen komt kijken. We gaan in op de volgende vier zaken: 1) de t-verdeling 2) het formuleren van hypotheses 3) eenzijdig en tweezijdig toetsen en 4) type-I en type-II fouten.</p>
+<p>We hebben tot nu een paar bochten afgesneden. Zoals gesignaleerd in het vorige hoofdstuk, zijn er bij hypothese toetsen meerdere aspecten waar je rekening mee moet houden. Een aantal van die aspecten behandelen we hier. Daarna heb je, als het goed is, een aardig overzicht van wat er allemaal bij hypothesetoetsen komt kijken. We gaan in op de volgende vier zaken: 1) de t-verdeling 2) het formuleren van hypotheses 3) eenzijdig en tweezijdig toetsen en 4) type-I en type-II fouten.</p>
 <section id="t-verdeling" class="level2 page-columns page-full" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="t-verdeling"><span class="header-section-number">10.1</span> T-verdeling</h2>
-<p>Zoals je inmiddels weet, gebeurt het berekenen van dingen zoals de overschrijdingskans en een bhi op basis van de normale verdeling. Tot nu toe hebben we aangenomen dat de <a href="./002-03-centrum-en-spreidingsmaten.html#sec-normaleverdeling">normale verdeling</a> altijd hetzelfde is, waarbij de distributie van waarden via de empirische regel verloopt. Dit houdt in dat binnen een xx aantal standaarddeviaties van het gemiddelde xx% van alle waarden ligt, afhankelijk van hoeveel standaarddeviaties je neemt. Deze vaste vorm staat ook wel bekend als de standaardnormale verdeling of z-verdeling en geldt over het algemeen voor populatiedata.</p>
+<p>Zoals je inmiddels weet, gebeurt het berekenen van dingen zoals de overschrijdingskans en een bhi op basis van de normale verdeling. Tot nu toe hebben we aangenomen dat de <a href="./002-03-centrum-en-spreidingsmaten.html#sec-normaleverdeling">normale verdeling</a> altijd hetzelfde is, waarbij de distributie van waarden de empirische regel bolgt. Dit houdt in dat binnen een xx aantal standaarddeviaties van het gemiddelde xx% van alle waarden ligt, afhankelijk van hoeveel standaarddeviaties je neemt. Deze vaste vorm staat ook wel bekend als de standaardnormale verdeling of z-verdeling en geldt over het algemeen voor populatiedata.</p>
 <p>Het blijkt echter dat de standaardnormale verdeling niet altijd even goed van toepassing is. Met name voor kleinere steekproeven vinden we dat de normale verdeling een andere vorm heeft dan <em>standaard</em>normale verdeling. In deze video wordt uitgelegd hoe dat precies werkt:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/32CuxWdOlow?si=75mpR9UutZl4BBm3" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>We moeten dus rekening houden met de t-verdeling in ons onderzoek, omdat deze afhankelijk van de steekproefgrootte een iets andere vorm heeft dan de z-verdeling. Dit is vooral bij kleinere steekproeven relevant.</p>
+<p>We moeten dus rekening houden met de t-verdeling in ons onderzoek, omdat deze afhankelijk van de steekproefgrootte een iets andere vorm heeft dan de z-verdeling. Dit is vooral bij kleinere steekproeven relevant (onder de 30 respondenten).</p>
 <p>Bij het hypothese toetsen via statistische significantie zijn er in essentie twee relevante t-waardes: de kritieke grenswaarde (<span class="math inline">\(t_k\)</span>) en toetsingsgrootheid (<span class="math inline">\(t_g\)</span>). De eerstgenoemde is de grenswaarde waarbij we de nulhypothese verwerpen. De <span class="math inline">\(t_k\)</span> is afhankelijk van het gekozen significantieniveau (bijv. 0,01; 0,05 of 0,1) en het aantal respondenten in de steekproef minus het aantal geschatte populatieparameters bij een t-toets (oftewel: het aantal vrijheidsgraden).</p>
 <p>Bij het <a href="./004-01-onafhankelijkegroepen.html#sec-statistischesignificantie">voorbeeld</a> uit het vorige hoofdstuk zagen we dat de nulhypothese werd verworpen wanneer het gemiddelde verschil in aantal glazen alcohol groter was dan 2,2 of kleiner dan -2,2. Deze waarden hebben we kunnen herleiden uit de <span class="math inline">\(t_k\)</span> . Als je voor dit voorbeeld de <span class="math inline">\(t_k\)</span> zou opzoeken in de t-tabel (<a href="https://statisticsfundamentals.com/tables/t-distribution-table/">link</a>), dan zou je uitkomen op <span class="math inline">\(t_k=2,024\)</span>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Op basis van de volgende gegevens:</p>
@@ -548,19 +551,24 @@ window.Quarto = {
 <li>gekozen significantieniveau: 5%</li>
 <li>Tweezijdig toetsen (zie verderop dit hoofdstuk)</li>
 </ul>
-</div><div id="fn2"><p><sup>2</sup>&nbsp;Het aantal vrijheidsgraden bij een t-toets voor onafhankelijke groepen en ongelijke varianties wordt normaliter via een ingewikkelde formule berekent. Omdat bij dit voorbeeld de varianties gelijk zijn alsmede het aantal respondenten, hoeven we alleen <span class="math inline">\(n-2\)</span> te doen om het aantal vrijheidsgraden te verkrijgen</p></div></div><p>De toetsingsgrootheid is de t-waarde die correspondeert met het steekproefresultaat en waar deze zich bevindt onder de H<sub>0</sub>-verdeling. Elke toets kent zijn eigen formule om dit te berekenen. Bij de output uit het <a href="./004-01-onafhankelijkegroepen.html#sec-statistischesignificantie">voorbeeld</a> kun je zien dat (afgerond) <span class="math inline">\(t_g=2,440\)</span> . Op basis van de toetsingsgrootheid wordt vervolgens de overschrijdingskans berekend.</p>
+</div><div id="fn2"><p><sup>2</sup>&nbsp;Het aantal vrijheidsgraden bij een t-toets voor onafhankelijke groepen en ongelijke varianties wordt normaliter via een ingewikkelde formule berekend. Omdat bij dit voorbeeld de varianties gelijk zijn alsmede het aantal respondenten, hoeven we alleen <span class="math inline">\(n-2\)</span> te doen om het aantal vrijheidsgraden te verkrijgen.</p></div></div><p>De toetsingsgrootheid <span class="math inline">\(t_g\)</span> is de t-waarde die correspondeert met het steekproefresultaat en waar deze zich bevindt onder de H<sub>0</sub>-verdeling. Elke toets kent zijn eigen formule om dit te berekenen. Bij de R-output uit het <a href="./004-01-onafhankelijkegroepen.html#sec-statistischesignificantie">voorbeeld</a> kun je zien dat (afgerond) <span class="math inline">\(t_g=2,440\)</span>. Deze waarde komt dus overeen met gevonden verschil in gemiddeldes van 2,7 glazen.</p>
+<p>In de figuur hieronder wordt bovenstaande gevisualiseerd. Je ziet dus dat dit in feite niet anders is dan wat we in het vorige hoofdstuk hebben gezien. De t-waardes worden gebruikt om de bijbehorende grens van het significantieniveau en de overschrijdingskans te bepalen.</p>
+<p><img src="afbeeldingen/h0_kritieke_grens_t.png" class="img-fluid"></p>
+<section id="bhi-op-basis-van-t-verdeling" class="level3 page-columns page-full" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="bhi-op-basis-van-t-verdeling"><span class="header-section-number">10.1.1</span> Bhi op basis van t-verdeling</h3>
 <p>We maken het ons iets makkelijker in deze cursus door voornamelijk te kijken naar bhi’s. Daarvoor hebben we alleen de kritieke grenswaarde nodig en niet de toetsingsgrootheid. De laatste is alleen van toepassing bij de methode van statistische significantie.</p>
-<p>We doorlopen nu nogmaals het voorbeeld uit het vorige hoofdstuk, maar nu met 15 mannen en 15 vrouwen. We berekenen handmatig het bhi volgens de t-verdeling. Dan krijg je een idee hoe een bhi voor een t-toets voor onafhankelijke groepen tot stand komt.</p>
+<p>We doorlopen nu nogmaals het voorbeeld uit het vorige hoofdstuk, maar nu met 15 mannen en 15 vrouwen. We berekenen handmatig het bhi volgens de t-verdeling. Dan krijg je een idee hoe een bhi voor een t-toets voor onafhankelijke groepen tot stand komt. De formule is als volgt:</p>
 <p><span class="math display">\[
 bhi =(\bar{x}_1 - \bar{x}_2) \pm t_k \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
 \]</span></p>
-<p>Deze berekening is niet veel anders dan bij het <a href="./003-02-betrouwbaarheidsinterval.html">betrouwbaarheidsinterval</a>. Hier neem je het gemiddelde van mannen <span class="math inline">\(\bar{x}_1\)</span> minus het gemiddelde van vrouwen <span class="math inline">\(\bar{x}_2\)</span>. Het gedeelte achter de <span class="math inline">\(\pm\)</span> bereken je wederom apart. Daarvoor zoek je de bijbehorende <span class="math inline">\(t_k\)</span>. Daarvoor kunnen we weer kijken in de t-tabel (<a href="https://statisticsfundamentals.com/tables/t-distribution-table/">link</a>): <span class="math inline">\(t_k=2,048\)</span>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Het laatste deel <span class="math inline">\(\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}\)</span> is berekening van de standaardfout voor deze toets. Net zoals bij <a href="./003-02-betrouwbaarheidsinterval.html">betrouwbaarheidsinterval</a> kunnen we dit weer in R berekenen.</p>
-<div class="no-row-height column-margin column-container"><div id="fn3"><ul><sup>3</sup>&nbsp;
+<p>Deze formule is niet veel anders dan bij het <a href="./003-02-betrouwbaarheidsinterval.html">Betrouwbaarheidsinterval</a>. Hier neem je het gemiddelde van mannen <span class="math inline">\(\bar{x}_1\)</span> minus het gemiddelde van vrouwen <span class="math inline">\(\bar{x}_2\)</span>. Het gedeelte achter de <span class="math inline">\(\pm\)</span> bereken je wederom apart. Daarvoor zoek je de bijbehorende <span class="math inline">\(t_k\)</span>. Daarvoor kunnen we weer kijken in de t-tabel (<a href="https://statisticsfundamentals.com/tables/t-distribution-table/">link</a>): <span class="math inline">\(t_k=2,048\)</span>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Het laatste deel <span class="math inline">\(\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}\)</span> is berekening van de standaardfout <span class="math inline">\(s.e.\)</span> voor deze toets.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Net zoals bij <a href="./003-02-betrouwbaarheidsinterval.html">Betrouwbaarheidsinterval</a> kunnen we dit weer in R berekenen.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Op basis van de volgende gegevens:</p>
+<ul>
 <li>aantal vrijheidsgraden: <span class="math inline">\(n-2\)</span> , dus <span class="math inline">\(30-2=28\)</span> .</li>
 <li>gekozen significantieniveau: 5%</li>
 <li>Tweezijdig toetsen</li>
 </ul>
-</div></div><div class="cell">
+</div><div id="fn4"><p><sup>4</sup>&nbsp;<span class="math inline">\(s.e.\)</span> is een meer algemene notatie voor de standaardfout (<em>standard error</em>).</p></div></div><div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># verschil in gemiddeldes</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fl">11.4-8.7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -585,8 +593,9 @@ bhi =(\bar{x}_1 - \bar{x}_2) \pm t_k \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}
 <pre><code>[1] 5.317</code></pre>
 </div>
 </div>
-<p>Je ziet dus dat het bhi in dit geval <span class="math inline">\([0,08; 5,32]\)</span> bedraagt. Dit is een breder bhi dan in het vorige hoofdstuk (<span class="math inline">\([0,46; 4,94]\)</span>). Als je naar de formule kijkt, kun je zien dat een kleinere <span class="math inline">\(n\)</span> leidt tot een grotere standaardfout <span class="math inline">\(s.e.\)</span><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <em>Daar komt nu nog bovenop dat</em> <em>we middels de t-verdeling (de kritieke grenswaarde</em> <span class="math inline">\(t_k\)</span>) <em>corrigeren voor kleinere steekproeven.</em> Bij grotere steekproeven is de t-verdeling nagenoeg gelijk aan de z-verdeling (zie het youtube filmpje hierboven).</p>
-<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;<span class="math inline">\(s.e.\)</span> is een meer algemene notatie voor de standaardfout.</p></div></div><p>R houdt automatisch rekening met de t-verdeling bij het uitvoeren van toets. We kunnen bovenstaande berekening ook ‘computermatig’ met R doen.</p>
+<p>Je ziet dus dat het bhi in dit geval <span class="math inline">\([0,08; 5,32]\)</span> bedraagt. Dit is een breder bhi dan in het vorige hoofdstuk (<span class="math inline">\([0,46; 4,94]\)</span>). Als je naar de formule kijkt, kun je zien dat een kleinere <span class="math inline">\(n\)</span> leidt tot een grotere standaardfout <span class="math inline">\(s.e.\)</span> <em>Daar komt nu nog bovenop dat</em> <em>we middels de t-verdeling (de kritieke grenswaarde</em> <span class="math inline">\(t_k\)</span>) <em>corrigeren voor kleinere steekproeven.</em> Bij grotere steekproeven is de t-verdeling nagenoeg gelijk aan de z-verdeling (zie het youtube filmpje hierboven).</p>
+<p>Interessant is overigens dat de ondergrens het huidige bhi <span class="math inline">\([0,08; 5,32]\)</span> net boven de nul ligt. Op basis hiervan zouden we de nulhypothese van geen verschil tussen mannen en vrouwen alsnog verwerpen. In het geval dat de ondergrens net onder 0 zou liggen, zouden we dat niet doen. Het zou echter aan de interpretatie van de mogelijke populatieparameter niet zoveel veranderen: het gemiddelde verschil in glazen alcohol ligt ongeveer ergens tussen de 0 en 5. Je ziet hier dus al hoe je tot andere conclusies komt wanneer je de bhi-methode vergelijkt met de methode van alleen statistische significantie.</p>
+<p>R houdt verder automatisch rekening met de t-verdeling bij het uitvoeren van toets. We kunnen bovenstaande berekening ook ‘computermatig’ met R doen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">010</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -595,11 +604,12 @@ bhi =(\bar{x}_1 - \bar{x}_2) \pm t_k \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(n) <span class="sc">|&gt;</span> <span class="fu">scale</span>() <span class="sc">|&gt;</span> <span class="fu">as.vector</span>() <span class="sc">*</span> s <span class="sc">+</span> gemiddelde</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>voorbeeld_alcohol_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">geslacht                     =</span>  <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"man"</span>, <span class="st">"vrouw"</span>), <span class="at">each =</span> <span class="dv">15</span>)), <span class="co"># variabele mannen en vrouwen aanmaken, nu met 15 respondenten</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">glazen_alcohol_uitgaansdag   =</span> </span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="fu">genereer_groep</span>(<span class="dv">15</span>, <span class="fl">11.4</span>, <span class="fl">3.5</span>), <span class="fu">genereer_groep</span>(<span class="dv">15</span>, <span class="fl">8.7</span>, <span class="fl">3.5</span>)) <span class="co"># 15 respondenten per geslacht, met bijbehorende gemiddeldes en sd</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># nieuwe dataset met totaal 30 respondenten</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>voorbeeld_alcohol_2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">geslacht                     =</span>  <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"man"</span>, <span class="st">"vrouw"</span>), <span class="at">each =</span> <span class="dv">15</span>)), <span class="co"># variabele mannen en vrouwen aanmaken, nu met 15 respondenten</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">glazen_alcohol_uitgaansdag   =</span> </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="fu">genereer_groep</span>(<span class="dv">15</span>, <span class="fl">11.4</span>, <span class="fl">3.5</span>), <span class="fu">genereer_groep</span>(<span class="dv">15</span>, <span class="fl">8.7</span>, <span class="fl">3.5</span>)) <span class="co"># 15 respondenten per geslacht, met bijbehorende gemiddeldes en sd</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-toets uitvoeren voor bhi</span></span>
@@ -620,13 +630,40 @@ sample estimates:
 </div>
 </div>
 <p>Het bhi is hier, op wat miniscule afrondingsverschillen na, hetzelfde als bij de handmatige berekening. Dit is dus een stukje sneller dan altijd alles met de hand moeten doen.</p>
-<p>Merk tenslotte op dat de formules van bhi’s voor proporties en gemiddeldes bij <a href="./003-02-betrouwbaarheidsinterval.html">betrouwbaarheidsinterval</a> niet helemaal correct waren voor steekproeven. Daar gingen we nog van z-waardes uit i.p.v. t-waardes. De ‘juiste’ formules kun je vinden in het <a href="./formuleblad.html">Formuleblad</a>. Daarmee zullen we ook werken in de practica.</p>
+<p>Merk tenslotte op dat de formules van bhi’s voor proporties en gemiddeldes bij <a href="./003-02-betrouwbaarheidsinterval.html">Betrouwbaarheidsinterval</a> niet helemaal correct waren voor steekproeven. Daar gingen we nog van z-waardes uit i.p.v. t-waardes. De ‘juiste’ formules kun je vinden in het <a href="./formuleblad.html">Formuleblad</a>. Daarmee zullen we ook werken in de practica.</p>
 </section>
-<section id="sec-hypoformuleren" class="level2" data-number="10.2">
+</section>
+<section id="sec-hypoformuleren" class="level2 page-columns page-full" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="sec-hypoformuleren"><span class="header-section-number">10.2</span> Hypotheses formuleren</h2>
-<p>Opmerking formule betrouwbaarheidsinterval proportie en shit.</p>
+<p>In het vorige hoofdstuk bij <a href="./004-01-onafhankelijkegroepen.html#sec-opstellenhypo">Hypothese opstellen</a> werd genoemd het relevant is om een hypothese zo exact mogelijk te formuleren. Dit omdat een hypothese invulling geeft aan <em>wat</em> we willen onderzoeken en <em>hoe</em> wat dat willen meten (lees: operationaliseren). Daarom hanteren we volgende regels bij het opstellen van een hypothese:</p>
+<ol type="1">
+<li>De richting van het verband moet duidelijk zijn</li>
+</ol>
+<p>Hypotheses kunnen in principe tweezijdig of eenzijdig zijn (zie ook VOLGENDE SECTIE). Tweezijdig betekent dat we geen specifieke verwachting hebben over de richting van het verband. Bijvoorbeeld dat er geen verschil is tussen mannen en vrouwen in hoeveel glazen alcohol ze gemiddeld drinken (de nulhypothese). De originele verwachting is dan dat mannen meer drinken dan vrouwen, maar ook dat vrouwen meer drinken dan mannen. Je verwacht alleen een bepaald verschil te vinden.</p>
+<p>Bij een eenzijdige hypothese maak je de richting expliciet. Dan zeg je bijvoorbeeld dat je verwacht dat mannen meer drinken vrouwen (en niet andersom). De nulhypothese is dan dat dan het gemiddelde aantal glazen dat mannen drinken <em>kleiner of gelijk is</em> aan het gemiddelde aantal glazen dat vrouwen drinken op een uitgaansdag.</p>
+<ol start="2" type="1">
+<li>De nulhypothese moet het tegenovergestelde zijn van de originele verwachting (en elkaar uitsluiten)</li>
+</ol>
+<p>Als je de nulhypothese verwerpt, ga je er ‘voorlopig’ vanuit dat je originele verwachting waar is. Daarvoor is het wel belangrijk dat die nulhypothese een spiegel is van de originele verwachting, dat ze tegenovergesteldes van elkaar zijn. Anders sluiten ze elkaar niet uit.</p>
+<p>Het voorbeeld hierboven van de eenzijdige hypothese bevestigt toont waarom. Als je verwacht dat mannen meer drinken dan vrouwen, dan verwacht je dat het verschil groter is dan nul met een hoger gemiddelde bij de mannen. Het tegenovergestelde (de nulhypothese) is dan dat het verschil tussen mannen en vrouwen nul is of lager bij de mannen, vandaar ‘kleiner of gelijk aan’.</p>
+<ol start="3" type="1">
+<li>Gebruik de juiste statistische notatie</li>
+</ol>
+<p>Zoals je al eerder zag, gebruiken we statistische notatie om onze verwachtingen formeel uit te drukken. Zo verwachten we bij een tweezijdige hypothese dat <span class="math inline">\(\mu_1 \ne \mu_2\)</span> , wat betekent dat het gemiddelde in de populatie van de eerste groep (<span class="math inline">\(\mu_1\)</span>) niet gelijk is aan het gemiddelde van de populatie van de tweede groep (<span class="math inline">\(\mu_2\)</span>). De nulhypothese is dan <span class="math inline">\(\mu_1 =\mu_2\)</span>, oftewel dat de populatiegemiddeldes wel gelijk zijn aan elkaar.</p>
+<p>Bij een eenzijdige hypothese verwachten we bijvoorbeeld dat het gemiddelde van mannen <span class="math inline">\(\mu_1\)</span> groter is dan dat van vrouwen <span class="math inline">\(\mu_2\)</span>. Dit noteren we als <span class="math inline">\(\mu_1 &gt; \mu_2\)</span>. De nulhypothese is hier dan <span class="math inline">\(\mu_1 \le \mu_2\)</span> : het het gemiddelde van mannen <span class="math inline">\(\mu_1\)</span> is kleiner of gelijk aan dat van vrouwen <span class="math inline">\(\mu_2\)</span>.</p>
+<ol start="4" type="1">
+<li>Begrippen moet helder zijn en geformuleerd op operationaliseerbaar niveau</li>
+</ol>
+<p>De hypothese moet duidelijk maken wat je precies onderzoekt en hoe dat is gemeten. Neem als voorbeeld: “de ene groep drinkt meer dan de andere groep”. Deze hypothese is te vaag. Het zegt niks over welke groepen het gaat, wat voor drank en in welke eenheden wordt gemeten. Ook de formulering “mannen drinken meer dan vrouwen” is niet voldoende. Dit zegt nog weinig over welke drankconsumptie we precies onderzoeken. Bovendien zijn we bij een t-toets expliciet gemiddeldes aan het vergelijken. Een juiste formulering van de nulhypothese zou zijn (bij een tweezijdige hypothese):</p>
+<blockquote class="blockquote">
+<p>het gemiddelde aantal glazen alcohol gedronken door mannen is gelijk aan het gemiddelde aantal glazen alcohol gedronken door vrouwen op een uitgaansdag (onder de populatie alcoholgebruikers)</p>
+</blockquote>
+<p>Dit is een wat langdradige formulering, maar beschrijft wel zo exact mogelijk wat je probeert te onderzoeken. Het geeft ook meer informatie over de context (op een uitgaansdag, alleen voor mensen die überhaupt drinken).<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;In de lopende tekst van dit boek omschrijven we de verbanden/hypotheses niet altijd even precies. Dit doen we om de tekst leesbaar te houden. Aan het begin van een onderzoek is het belangrijk dat je de hypotheses altijd zo precies mogelijk formuleert.</p></div></div><ol start="5" type="1">
+<li>Het moet duidelijk zijn om welke toets het gaat.</li>
+</ol>
+<p>Tot nu toe hebben we alleen een t-toets voor onafhankelijke groepen behandeld. Daarin vergelijken we de gemiddeldes van twee groepen (nominale variabele) op één kwantitatieve variabele met elkaar: <span class="math inline">\(\mu_1 =\mu_2\)</span>. In de komende hoofdstukken gaan we nog meer toetsen behandelen: t-toets voor afhankelijke groepen, chi-square, en correlatie. Uit de formulering van de hypotheses en statistische notatie moet volgen om wat voor soort toets het steeds gaat. Hoe je dat per toets doet, wordt bij de voorbeelden uitgelegd.</p>
 <ul>
-<li><p>formuleren</p></li>
 <li><p>eenzijdig-tweezijdig</p></li>
 <li><p>type 1-type 2</p></li>
 </ul>

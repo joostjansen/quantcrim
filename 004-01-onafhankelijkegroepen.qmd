@@ -35,7 +35,7 @@ Het aantal stappen bij hypothesetoetsing is uitgebreider dan bij het berekenen v
 
 ## Statistische significantie {#sec-statistischesignificantie}
 
-### 1) Hypothese opstellen
+### 1) Hypothese opstellen {#sec-opstellenhypo}
 
 De eerste stap is dat je jouw verwachting van de uitkomst zo expliciet mogelijk formuleert, dit wordt een **hypothese** genoemd. Hier volgt meteen een hersenkronkel. In statistisch onderzoek toetsen we namelijk niet wat we verwachten, maar juist het tegenovergestelde daarvan! Deze tegenovergestelde verwachting wordt de **nulhypothese** genoemd. Het werken met de nulhypothese vindt zijn oorsprong in het wetenschapsfilosofisch idee dat we aannemen iets nooit helemaal zeker te weten. Het is daarom makkelijker om het onwaarschijnlijke van wat we verwachten (de nulhypothese) te verwerpen, en er dan vanuit gaan dat het waarschijnlijke (onze originele verwachting) 'voorlopig' waar is. Dit staat bekend als het falsificatieprincipe van Karl Popper. *De nulhypothese wordt wel of niet verworpen, dit is in feite het centrale doel van statistisch wetenschappelijk onderzoek*. Bij [hypotheses formuleren](004-02-aspectenhypo.qmd#sec-hypoformuleren) bespreken we ook uitgebreider waar je op moet letten bij het formuleren van een nulhypothese.
 
