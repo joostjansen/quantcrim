@@ -155,6 +155,22 @@
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
 \makeatletter
@@ -248,23 +264,11 @@ onderzoek}
 \markboth{Voorwoord}{Voorwoord}
 
 Welkom bij het \href{quantcrim.pdf}{quantcrim handboek} Criminologie.
-Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het
-boek is ontworpen en beschikbaar gesteld door docenten en onderzoekers
-van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is
-bedoeld voor zowel bachelor- als masterstudenten.
-
-Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te
-laden, een regressiemodel te schatten en de resultaten ervan te
-presenteren in een plot.\footnote{We gaan in een later hoofdstuk zien
-  wat een regressiemodel precies is.}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# test}
-\end{Highlighting}
-\end{Shaded}
-
-Stuk tekst van McElrath over waarom werken met R en code
+Hier ga je leren hoe je allerlei vormen van kwantitatieve data kan
+analyseren met R. Het boek is ontworpen en \emph{open-access}
+beschikbaar gesteld door docenten en onderzoekers van de opleiding
+Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel
+bachelor- als masterstudenten\ldots{}
 
 \section{Voor we verder gaan..}\label{voor-we-verder-gaan..}
 
@@ -486,7 +490,7 @@ moeten elkaar uitsluiten.
 Laten we naar een voorbeeld kijken: geslacht. Stel dat we willen weten
 hoeveel mannen, vrouwen of anders-identificerenden er in de dataset
 zitten. Daarvoor kunnen we \textbf{staafdiagram} maken met
-\emph{ggplot()}.
+\texttt{ggplot()}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -522,7 +526,7 @@ Nederlandstalig label.
 
 Als je wilt weten hoeveel respondenten er precies in elke categorie
 zitten, kun je ook een simpele tabel maken met de functie
-\emph{table()}.
+\texttt{table()}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -558,8 +562,8 @@ Doorgaans werkt een taartdiagram het beste als er een beperkt aantal
 categorieën zijn.
 
 Hieronder staat een voorbeeld van taartdiagram van de variabele
-manier\_verkrijgen\_drugs. Dit gaat over de wijze waarop uitgaande
-jongeren meestal aan hun drugs komen.
+\texttt{manier\_verkrijgen\_drugs}. Dit gaat over de wijze waarop
+uitgaande jongeren meestal aan hun drugs komen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -724,9 +728,10 @@ Voor een lineaire variabele met juist relatief veel unieke waarden
 gebruiken we meestal een histogram. Bij een een histogram worden
 bepaalde waardes gegroepeerd tot één staaf, waardoor de presentatie
 overzichtelijk blijft. Dit is hieronder weergeven voor de variabele
-gemoed\_dinsdag\_na\_xtc\emph{.} Dit is een score tussen de 0 en 100 die
-respondenten hebben gegeven hoe zich voelen op de dinsdag na xtc-gebruik
-in het weekend, waarbij 0 voor negatief staat en 100 voor positief.
+\texttt{gemoed\_dinsdag\_na\_xtc}. Dit is een score tussen de 0 en 100
+die respondenten hebben gegeven over hoe ze zich voelen op de dinsdag na
+xtc-gebruik in het weekend, waarbij 0 voor negatief staat en 100 voor
+positief.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -917,7 +922,7 @@ respondenten.
 
 De gemiddelde leeftijd van deze vijf respondenten is is dus 24,2. In
 plaats een handmatige berekening kun je het ook berekenen middels de
-functie \emph{mean()} in R:
+functie \texttt{mean()} in R:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -943,8 +948,8 @@ functie \emph{mean()} in R:
 \end{verbatim}
 
 Eerst hebben we een vector, of eigenlijk een variabele, aangemaakt met
-de vijf observaties. Via de functie \emph{mean()} bereken je vervolgens
-het gemiddelde.
+de vijf observaties. Via de functie \texttt{mean()} bereken je
+vervolgens het gemiddelde.
 
 \subsection{Mediaan}\label{mediaan}
 
@@ -999,7 +1004,7 @@ De modus is de waarde die het vaakst voorkomt in een variabele.
 Bij de leeftijdsreeks (16, \ul{22}, \ul{22}, 28, 33) is dit 22 jaar
 omdat deze leeftijd tweemaal voorkomt en de rest slechts één keer.
 
-In R bereken je de modus via de functie \emph{mfv().}
+In R bereken je de modus via de functie \texttt{mfv()}\emph{.}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1040,8 +1045,8 @@ maximum 33. Het bereik is dus \(R=x_{max}-x_{min}=33-16=17\)
 \end{verbatim}
 
 Je kunt in R het minimum en maximum opvragen met de functies
-\emph{min()} en \emph{max()}. Ook kun je allebei tegelijk krijgen met de
-functie \emph{range()}
+\texttt{min()} en \texttt{max()}. Ook kun je allebei tegelijk krijgen
+met de functie \texttt{range()}\emph{.}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1076,8 +1081,8 @@ functie \emph{range()}
 [1] 16 33
 \end{verbatim}
 
-De functie \emph{range()} geeft je alleen het minimum en maximum. Als je
-het bereik wilt weten, moet je zelf het minimum van het maximum
+De functie \texttt{range()} geeft je alleen het minimum en maximum. Als
+je het bereik wilt weten, moet je zelf het minimum van het maximum
 aftrekken:
 
 \begin{Shaded}
@@ -1208,7 +1213,7 @@ Deze stappen kunnen we ook in R uitvoeren.
 [1] 42.2
 \end{verbatim}
 
-In R kun je met de functie \emph{var()} de steekproefvariantie ook
+In R kun je met de functie \texttt{var()} de steekproefvariantie ook
 direct berekenen
 
 \begin{Shaded}
@@ -1259,7 +1264,7 @@ respondenten `gemiddeld' 6,5 jaar afwijkt van de gemiddelde leeftijd van
 [1] 6.496153
 \end{verbatim}
 
-Je kunt de standaarddeviatie ook direct in R krijgen met \emph{sd()}
+Je kunt de standaarddeviatie ook direct in R krijgen met \texttt{sd()}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1354,7 +1359,7 @@ De minimumleeftijd is 16 jaar, de maximumleeftijd is 35 jaar en het
 leeftijdsbereik is 19 jaar. De standaarddeviatie is 4,8 jaar.
 
 Veel van deze statistieken (min., max., mediaan, gemiddelde) kun je ook
-in één keer bekijken middels de functie \emph{summary()}
+in één keer bekijken middels de functie \texttt{summary()}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1368,7 +1373,7 @@ in één keer bekijken middels de functie \emph{summary()}
   16.00   20.00   23.00   23.52   27.00   35.00 
 \end{verbatim}
 
-Je ziet dat de \emph{summary()} functie ook de waardes voor 1st Qu. en
+Je ziet dat de \texttt{summary()} functie ook de waardes voor 1st Qu. en
 3rd Qu. geeft. Dit zijn het eerste en derde kwartiel, de grenzen waarbij
 respectievelijk 25\% (Q1) en 75\% (Q3) van de data ligt. In dit geval
 dus 20,0 en 27,0 jaar. Het tweede kwartiel (Q2) is de mediaan, dit is op
@@ -1598,9 +1603,9 @@ heeft gevapet in het afgelopen jaar (ja/nee). We gaan er hier vanuit dat
 er geen rangorde bestaat tussen wel of niet vapen en het dus een
 nominale variabele betreft.
 
-In hoofdstuk xxx hebben we al een tabel gemaakt voor geslacht. We kunnen
-aan het commando \emph{table()} een variabele (vapen\_laatste\_jaar)
-toevoegen om een kruistabel te krijgen.
+In hoofdstuk xxx hebben we al een tabel gemaakt voor \texttt{geslacht}.
+We kunnen aan het commando \texttt{table()} een variabele
+\texttt{vapen\_laatste\_jaar} toevoegen om een kruistabel te krijgen.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1628,10 +1633,10 @@ hebben gevapet en 97 wel.
 
 Visueel krijgen we vaak een beter inzicht in de verdeling van variabelen
 en de relaties daartussen. We kunnen de verdeling voor
-vapen\_laatste\_jaar uitgesplitst naar geslacht daarom apart weergeven
-in een figuur. De meest gangbare manier om de relatie tussen twee
-variabelen visueel te weergeven is een staafdiagram. We laten voor
-eenvoud de categorie `anders' even buiten beschouwing hier.
+\texttt{vapen\_laatste\_jaar} uitgesplitst naar \texttt{geslacht} daarom
+apart weergeven in een figuur. De meest gangbare manier om de relatie
+tussen twee variabelen visueel te weergeven is een staafdiagram. We
+laten voor eenvoud de categorie `anders' even buiten beschouwing hier.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1658,7 +1663,7 @@ mannen en vrouwen die vapeten het laatste jaar.
 De absolute aantallen geven slechts gedeeltelijk inzicht in wat
 verhoudingen zijn binnen de relatie tussen geslacht en vapen. Daarom is
 het handig ook de kolompercentages te bereken. Dit doen we door
-\emph{prop.table()} toe te voegen aan de kruistabel.
+\texttt{prop.table()} toe te voegen aan de kruistabel.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1684,11 +1689,11 @@ mannen.
 
 De werkwijze bij het onderzoeken van een relatie tussen nominaal en
 ordinaal is in principe hetzelfde. We nemen hier de relatie tussen
-volgende twee variabelen: xtc\_laatste\_jaar en
-acceptatie\_xtc\_vrienden. De eerste variabele meet of respondenten het
-laatste jaar xtc hebben gebruikt en de tweede variabele meet in hoeverre
-respondenten het eens zijn met de stelling dat het gebruik van xtc onder
-vrienden geaccepteerd is.
+volgende twee variabelen: \texttt{xtc\_laatste\_jaar} en
+\texttt{acceptatie\_xtc\_vrienden}. De eerste variabele meet of
+respondenten het laatste jaar xtc hebben gebruikt en de tweede variabele
+meet in hoeverre respondenten het eens zijn met de stelling dat het
+gebruik van xtc onder vrienden geaccepteerd is.
 
 We bekijken eerst weer de aantallen in een kruistabel.
 
@@ -1785,9 +1790,9 @@ We beschikken over verschillende opties wanneer we de relatie tussen een
 kwalitatieve en kwantitatieve variabele willen onderzoeken. De meest
 eenvoudige optie is om naar het verschil in gemiddeldes te kijken. Als
 voorbeeld kijken we hier naar geslacht en het aantal sigaretten dat men
-rookt tijdens het uitgaan (sigaretten\_uitgaansdag). Let op dat hier
-alleen gaat over jongeren die minimaal één sigaret roken tijdens het
-uitgaan (rokers).
+rookt tijdens het uitgaan (\texttt{sigaretten\_uitgaansdag}). Let op dat
+hier alleen gaat over jongeren die minimaal één sigaret roken tijdens
+het uitgaan (rokers).
 
 We berekenen het gemiddelde door de data eerst te groeperen en daarna
 het gemiddelde per groep te berekenen. Hoe je dat moet doen, leer je in
@@ -1853,10 +1858,10 @@ Als laatste onderzoeken we de relatie tussen twee kwantitatieve
 variabelen. Het makkelijkst is om deze relatie direct te visualiseren
 (later in de cursus kijken we naar correlatie, een associatiemaat voor
 de sterkte van de relatie). We nemen de relatie tussen het aantal glazen
-alcohol op een uitgaansdag (glazen\_alcohol\_uitgaansdag) en het aantal
-gerookte sigaretten. Het gaat hier om jongeren die dus zowel alcohol
-drinken als roken tijdens het uitgaan. Verder zijn dit twee ratio
-variabelen (bedenk waarom).
+alcohol op een uitgaansdag (\texttt{glazen\_alcohol\_uitgaansdag}) en
+het aantal gerookte sigaretten. Het gaat hier om jongeren die dus zowel
+alcohol drinken als roken tijdens het uitgaan. Verder zijn dit twee
+ratio variabelen (bedenk waarom).
 
 Om de relatie te visualiseren, maken we eerst gebruik van een
 spreidingsdiagram.
@@ -1886,7 +1891,7 @@ sigaretten roken.
 
 We kunnen de spreidingsdiagram nog wat aanpassen om beter inzicht te
 krijgen in de relatie. Sommige punten zijn nu niet goed te zien omdat ze
-dicht op elkaar zitten. Met die optie ``\emph{jitter''} wordt de
+dicht op elkaar zitten. Met die optie \texttt{"jitter"} wordt de
 puntenwolk wat meer uitgespreid.
 
 \begin{Shaded}
@@ -1905,7 +1910,7 @@ puntenwolk wat meer uitgespreid.
 Je ziet nu iets beter waar de concentratie van datapunten zit. Verder
 kun je kijken in hoeverre er een (lineair) verband is tussen aantal
 glazen alcohol en aantal sigaretten. Je kunt een zogenoemde
-regressielijn `fitten' op de data met \emph{stat\_smooth().}
+regressielijn `fitten' op de data met \texttt{stat\_smooth()}\emph{.}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2265,7 +2270,8 @@ limietstelling}. Deze houdt in dat:
 \end{itemize}
 
 De regels rondom de centrale limietstelling zijn net wet anders bij
-minder dan 30 observaties, zie daarvoor bijvoorbeeld \emph{Statistiek
+minder dan 30 observaties, zie daarvoor bijvoorbeeld
+\href{https://www.uitgeverijvangorcum.nl/product/100-519_Statistiek-als-hulpmiddel}{Statistiek
 als hulpmiddel} of het internet.
 
 Doordat we de standaardfout kennen, kunnen we in combinatie met
@@ -3194,8 +3200,6 @@ verwachten in ieder geval:
   daardoor meer bewust zijn van wat we eigenlijk aan het doen zijn.
 \end{itemize}
 
-In het volgende hoofdstuk\ldots{}
-
 \part{Hypotheses toetsen}
 
 \chapter{Hypothesetoetsing}\label{hypothesetoetsing}
@@ -3358,8 +3362,7 @@ volgende stappen op terug. Gebruikelijke significantieniveaus in de
 statistiek zijn 0,01 (1\%), 0,05 (5\%) en 0,1 (10\%). Net als bij dit
 voorbeeld gaan we meestal uit van een significantieniveau van 0,05.
 
-\subsection{3) Overschrijdingskans
-{[}\#sec-overschrijdingskans{]}}\label{overschrijdingskans-sec-overschrijdingskans}
+\subsection{3) Overschrijdingskans}\label{sec-overschrijdingskans}
 
 De \textbf{overschrijdingskans}, ook wel p-waarde genoemd of simpelweg
 \(p\), speelt een centrale rol in het toetsen van hypotheses.\footnote{Let
@@ -3556,6 +3559,8 @@ volgende zaken:
   bij de vrouwen, dan spreken we van ongelijke varianties. Voor het
   gemak gaan we in deze cursus steeds uit van ongelijke varianties, maar
   dit hoeft lang niet altijd zo te zijn.
+\item
+  ASSUMPTIE VAN NORMALE VERDELING VOOR BEIDE GROEPEN.
 \end{itemize}
 
 De eerste twee punten komen uitgebreider aan bod in LATER HOOFDSTUK.
@@ -3609,9 +3614,9 @@ klein verschil bestaat tussen mannen en vrouwen in drankconsumptie,
 bijvoorbeeld 10 vs.~9 glazen respectievelijk. Het kan zijn dat je dan
 alsnog een statistisch significant verschil vaststelt, afhankelijk van
 de groepsvarianties en het aantal personen in de steekproef.\footnote{Dit
-  komt verder aan bod bij \href{004-02-aspectenhypo.qmd}{invullen}.} Het
-verschil tussen 10 en 9 glazen is echter klein, waardoor het praktisch
-gezien bijna verwaarloosbaar is.
+  komt verder aan bod bij \href{004-02-aspectenhypo.qmd}{Aspecten van
+  hypothesetoetsing}.} Het verschil tussen 10 en 9 glazen is echter
+klein, waardoor het praktisch gezien bijna verwaarloosbaar is.
 
 In de onderzoekspraktijk zul je vaker vinden dat er wel een bepaald
 verschil is, maar dat de substantiële betekenis hiervan niet meteen
@@ -3659,8 +3664,8 @@ die eerder hebben geleerd berekenen we voor deze populatieparameter een
 bhi.
 
 Wellicht was het je opgevallen dat we dit al hebben gedaan. De output
-bij het berekenen van de \textbf{?@sec-overschrijdingskans} geeft tevens
-een bhi. Die bedraagt voor het voorbeeld op deze pagina
+bij het berekenen van de Section~\ref{sec-overschrijdingskans} geeft
+tevens een bhi. Die bedraagt voor het voorbeeld op deze pagina
 \([0,46; 4,94]\). Op basis van wat we eerder hebben gezien bij de
 \hyperref[sec-interpretatiebhi]{interpretatie van een
 betrouwbaarheidsinterval}, kunnen we dit interval hier interpreteren
@@ -3744,7 +3749,7 @@ We hebben tot nu een paar bochten afgesneden. Zoals gesignaleerd in het
 vorige hoofdstuk, zijn er bij hypothese toetsen meerdere aspecten waar
 je rekening mee moet houden. Een aantal van die aspecten behandelen we
 hier. Daarna heb je, als het goed is, een aardig overzicht van wat er
-allemaal bij hypothesetoetsen komt kijken. We gaan in op de volgende
+allemaal bij hypothese toetsen komt kijken. We gaan in op de volgende
 vier zaken: 1) de t-verdeling 2) het formuleren van hypotheses 3)
 eenzijdig en tweezijdig toetsen en 4) type-I en type-II fouten.
 
@@ -3754,17 +3759,16 @@ Zoals je inmiddels weet, gebeurt het berekenen van dingen zoals de
 overschrijdingskans en een bhi op basis van de normale verdeling. Tot nu
 toe hebben we aangenomen dat de \hyperref[sec-normaleverdeling]{normale
 verdeling} altijd hetzelfde is, waarbij de distributie van waarden de
-empirische regel bolgt. Dit houdt in dat binnen een xx aantal
+empirische regel volgt. Dit houdt in dat binnen een xx aantal
 standaarddeviaties van het gemiddelde xx\% van alle waarden ligt,
 afhankelijk van hoeveel standaarddeviaties je neemt. Deze vaste vorm
-staat ook wel bekend als de standaardnormale verdeling of z-verdeling en
-geldt over het algemeen voor populatiedata.
+staat ook wel bekend als de \emph{standaard}normale verdeling of
+z-verdeling en geldt over het algemeen voor populatiedata.
 
 Het blijkt echter dat de standaardnormale verdeling niet altijd even
 goed van toepassing is. Met name voor kleinere steekproeven vinden we
-dat de normale verdeling een andere vorm heeft dan
-\emph{standaard}normale verdeling. In deze video wordt uitgelegd hoe dat
-precies werkt:
+dat de normale verdeling een andere vorm heeft dan standaardnormale
+verdeling. In deze video wordt uitgelegd hoe dat werkt:
 
 \url{https://youtu.be/32CuxWdOlow?si=75mpR9UutZl4BBm3}
 
@@ -3785,8 +3789,8 @@ Bij het \hyperref[sec-statistischesignificantie]{voorbeeld} uit het
 vorige hoofdstuk zagen we dat de nulhypothese werd verworpen wanneer het
 gemiddelde verschil in aantal glazen alcohol groter was dan 2,2 of
 kleiner dan -2,2. Deze waarden hebben we kunnen herleiden uit de \(t_k\)
-. Als je voor dit voorbeeld de \(t_k\) zou opzoeken in de t-tabel
-(\href{https://statisticsfundamentals.com/tables/t-distribution-table/}{link}),
+. Als je voor dit voorbeeld de \(t_k\) zou opzoeken in de
+\href{https://statisticsfundamentals.com/tables/t-distribution-table/}{t-tabel},
 dan zou je uitkomen op \(t_k=2,024\).\footnote{Op basis van de volgende
   gegevens:
 
@@ -3797,7 +3801,7 @@ dan zou je uitkomen op \(t_k=2,024\).\footnote{Op basis van de volgende
   \item
     gekozen significantieniveau: 5\%
   \item
-    Tweezijdig toetsen (zie verderop dit hoofdstuk)
+    tweezijdig toetsen (zie verderop dit hoofdstuk)
   \end{itemize}} \footnote{Het aantal vrijheidsgraden bij een t-toets
   voor onafhankelijke groepen en ongelijke varianties wordt normaliter
   via een ingewikkelde formule berekend. Omdat bij dit voorbeeld de
@@ -3824,8 +3828,8 @@ t-verdeling}\label{bhi-op-basis-van-t-verdeling}
 
 We maken het ons iets makkelijker in deze cursus door voornamelijk te
 kijken naar bhi's. Daarvoor hebben we alleen de kritieke grenswaarde
-nodig en niet de toetsingsgrootheid. De laatste is alleen van toepassing
-bij de methode van statistische significantie.
+\(t_k\) nodig en niet de toetsingsgrootheid \(t_g\). De laatste is
+alleen van toepassing bij de methode van statistische significantie.
 
 We doorlopen nu nogmaals het voorbeeld uit het vorige hoofdstuk, maar nu
 met 15 mannen en 15 vrouwen. We berekenen handmatig het bhi volgens de
@@ -3841,8 +3845,8 @@ Deze formule is niet veel anders dan bij het
 je het gemiddelde van mannen \(\bar{x}_1\) minus het gemiddelde van
 vrouwen \(\bar{x}_2\). Het gedeelte achter de \(\pm\) bereken je wederom
 apart. Daarvoor zoek je de bijbehorende \(t_k\). Daarvoor kunnen we weer
-kijken in de t-tabel
-(\href{https://statisticsfundamentals.com/tables/t-distribution-table/}{link}):
+kijken in de
+\href{https://statisticsfundamentals.com/tables/t-distribution-table/}{t-tabel}:
 \(t_k=2,048\).\footnote{Op basis van de volgende gegevens:
 
   \begin{itemize}
@@ -3854,7 +3858,7 @@ kijken in de t-tabel
   \item
     Tweezijdig toetsen
   \end{itemize}} Het laatste deel
-\(\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}\) is berekening van de
+\(\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}\) is de berekening van de
 standaardfout \(s.e.\) voor deze toets.\footnote{\(s.e.\) is een meer
   algemene notatie voor de standaardfout (\emph{standard error}).} Net
 zoals bij \hyperref[betrouwbaarheidsinterval]{Betrouwbaarheidsinterval}
@@ -3979,7 +3983,7 @@ In het vorige hoofdstuk bij \hyperref[sec-opstellenhypo]{Hypothese
 opstellen} werd genoemd dat het relevant is om een hypothese zo exact
 mogelijk te formuleren. Dit omdat een hypothese invulling geeft aan
 \emph{wat} we willen onderzoeken en \emph{hoe} wat dat willen meten
-(lees: operationaliseren). Daarom hanteren we volgende regels bij het
+(lees: operationaliseren). Daarom hanteren we de volgende regels bij het
 opstellen van een hypothese:
 
 \begin{enumerate}
@@ -3990,17 +3994,18 @@ opstellen van een hypothese:
 \end{enumerate}
 
 Hypotheses kunnen in principe tweezijdig of eenzijdig zijn (zie ook
-VOLGENDE SECTIE). Tweezijdig betekent dat we geen specifieke verwachting
-hebben over de richting van het verband. Bijvoorbeeld dat er geen
-verschil is tussen mannen en vrouwen in hoeveel glazen alcohol ze
-gemiddeld drinken (de nulhypothese). De originele verwachting is dan dat
-mannen meer drinken dan vrouwen, maar ook dat vrouwen meer drinken dan
-mannen. Je verwacht alleen een bepaald verschil te vinden.
+Section~\ref{sec-eenzijdigtweezijdig}). Tweezijdig betekent dat we geen
+specifieke verwachting hebben over de richting van het verband.
+Bijvoorbeeld dat er geen verschil is tussen mannen en vrouwen in hoeveel
+glazen alcohol ze gemiddeld drinken (de nulhypothese). De originele
+verwachting is dan dat mannen mogelijk meer drinken dan vrouwen, maar
+ook dat vrouwen meer kunnen drinken dan mannen. Je verwacht alleen een
+bepaald verschil te vinden.
 
 Bij een eenzijdige hypothese maak je de richting expliciet. Dan zeg je
 bijvoorbeeld dat je verwacht dat mannen meer drinken vrouwen (en niet
-andersom). De nulhypothese is dan dat dan het gemiddelde aantal glazen
-dat mannen drinken \emph{kleiner of gelijk is} aan het gemiddelde aantal
+andersom). De nulhypothese is dan dat het gemiddelde aantal glazen dat
+mannen drinken \emph{kleiner of gelijk is} aan het gemiddelde aantal
 glazen dat vrouwen drinken op een uitgaansdag.
 
 \begin{enumerate}
@@ -4102,7 +4107,7 @@ toetsen}\label{tweezijdigeenzijdig-toetsen}
 Hierboven is al genoemd dat er twee soorten hypotheses zijn: hypotheses
 zonder een specifieke richting (\textbf{tweezijdig}) en hypotheses
 waarin het verband een specifieke richting heeft (\textbf{eenzijdig}).
-Het verschil tussen tweezijdig en eenzijdig is niet alleen relevant in
+Het verschil tussen tweezijdig en eenzijdig is niet alleen relevant voor
 hoe we de hypothese formuleren, maar ook voor hoe we deze toetsen
 uitvoeren. Het heeft namelijk invloed op hoe de overschrijdingskans
 wordt berekend.
@@ -4181,7 +4186,7 @@ maar better be safe than sorry. En het houdt de interpretatie ook
 eenvoudiger (weer een win voor het bhi t.o.v. statistische
 significantie!).
 
-\section{Type-I en type-II fouten}\label{type-i-en-type-ii-fouten}
+\section{Type-I en type-II fouten}\label{sec-eenzijdigtweezijdig}
 
 Als laatste kijken we in dit hoofdstuk naar type-I en type-II fouten.
 Dit zijn fouten die kunnen voorkomen bij statistisch onderzoek waardoor
@@ -4192,11 +4197,11 @@ eigenlijk waar is. Dit gebeurt aan de hand van statistisch significant
 resultaat. Stel we doen een hypothesetoets bij een significantieniveau
 van 5\% en vinden dat de toets significant is en verwerpen vervolgens de
 nulhypothese. Onze redenering is doorgaans dat het onwaarschijnlijk is
-om een waarde zo extreem (kans lager dan 5\%) te vinden onder de
-H\textsubscript{0}-verdeling, en dat we daarom de nulhypothese kunnen
-verwerpen. Echter, het kan zo zijn dat we een willekeurige steekproef
-hebben getrokken waarvan de uitkomst toevallig heel ver van het midden
-van de H\textsubscript{0}-verdeling ligt (zie ook weer
+om een steekproefresultaat zo extreem (kans lager dan 5\%) te vinden
+onder de H\textsubscript{0}-verdeling, en dat we daarom de nulhypothese
+kunnen verwerpen. Echter, het kan zo zijn dat we een willekeurige
+steekproef hebben getrokken waarvan de uitkomst toevallig heel ver van
+het midden van de H\textsubscript{0}-verdeling ligt (zie ook weer
 \hyperref[sec-steekproefcentraallimiet]{Steekproevenverdeling}). Dit
 weerspiegelt dan geen verschil in de populatie, maar eerder een
 steekproef met veel afwijkende waarden.
@@ -4204,31 +4209,32 @@ steekproef met veel afwijkende waarden.
 Elk nadeel hebse voordeel, in ieder geval bij een type-I fout. We weten
 namelijk hoe groot de kans is op het maken van deze fout, gegeven dat de
 nulhypothese waar is. Die is namelijk hetzelfde als het
-significantieniveau \(\alpha\). Dat is namelijk de grens waarbij een
+significantieniveau \(\alpha\). Dat is namelijk de grens waarbij we de
 hypothese verwerpen. Dit betekent dat een lager significantieniveau,
 zoals 0,01 of zelfs 0,001, het risico op een type-I fout verkleint. Met
 een lager significantieniveau stellen we wel strengere eisen aan wanneer
-een nulhypothese kan worden verworpen. Hier is dus een trade-off.
+een nulhypothese kan worden verworpen. Dit is dus een trade-off.
 
-Een type--II fout is juist wanneer de nulhypothese niet verwerpen,
-terwijl dit wel zou moeten. De nulhypothese is in dit geval eigenlijk
-niet waar. Hier zijn twee oorzaken voor die vaak met elkaar samenhangen.
-Een is dat om een heel klein verschil of effect gaat, wat middels
-hypothese toetsen moeilijk is waar te nemen. Bijvoorbeeld als het
-verschil in glazen alcohol tussen mannen en vrouwen in de populatie 0,2
-is. We zullen dan relatief veel steekproeven trekken die nul verschil
-vinden. De tweede oorzaak is een te laag aantal respondenten om een
-verschil goed waar te nemen. Zoals je in eerdere voorbeelden hebt
-gezien, leidt een lagere \(n\) tot bijvoorbeeld een breder bhi of een
-grotere kritieke grenswaarde. De kans dat we de nulhypothese niet
-verwerpen terwijl dat wel zou moeten neemt dan toe, bijvoorbeeld omdat
-nul zich in het bhi bevindt terwijl de populatieparameter niet nul is.
+Een type--II fout is juist wanneer we de nulhypothese \emph{niet}
+verwerpen, terwijl dit wel zou moeten. De nulhypothese is in dit geval
+niet waar. Dit type fout heeft twee oorzaken voor die vaak met elkaar
+samenhangen. De eerste oorzaak is dat het om een heel klein verschil of
+effect gaat, wat middels hypothese toetsen moeilijk is waar te nemen.
+Bijvoorbeeld als het verschil in glazen alcohol tussen mannen en vrouwen
+in de populatie 0,2 is. We zullen dan relatief veel (hypothetische)
+steekproeven trekken die nul verschil vinden. De tweede oorzaak is een
+te laag aantal respondenten om een verschil goed waar te nemen. Zoals je
+in eerdere voorbeelden hebt gezien, leidt een lagere \(n\) tot
+bijvoorbeeld een breder bhi of een grotere kritieke grenswaarde. De kans
+dat we de nulhypothese niet verwerpen terwijl dat wel zou moeten neemt
+dan toe, bijvoorbeeld omdat nul zich in het bhi bevindt terwijl de
+populatieparameter niet nul is.
 
 In tegenoverstelling tot een type-I fout weten we niet hoe groot de kans
 is op een type-II fout. We weten alleen dat risico kleiner wordt
 naarmate we meer data verzamelen.
 
-Het voorkomen van deze fouten wijst ons erop dat we resultaten van een
+Het bestaan van deze fouten wijst ons erop dat we resultaten van een
 statistisch onderzoek nooit als definitief moeten beschouwen. Het kan
 zijn dat we de nulhypothese onterecht verwerpen (type-I fout), maar ook
 andersom dat we nulhypothese niet verwerpen terwijl deze eigenlijk waar
@@ -4249,8 +4255,9 @@ significantie als bhi's. De belangrijkste take-aways zijn:
 \item
   Bij het berekenen van een toetsingsresultaat moeten we rekening houden
   met de t-verdeling. Dit kan bij handmatige berekeningen worden
-  opgezocht in de t-tabel, bij computermatige berekeningen houdt R hier
-  automatisch rekening mee
+  opgezocht in de
+  \href{https://statisticsfundamentals.com/tables/t-distribution-table/}{t-tabel},
+  bij computermatige berekeningen houdt R hier automatisch rekening mee
 \item
   Het formuleren van hypotheses vraagt om precisie m.b.t. wat we
   onderzoeken en hoe we dat meten
@@ -4263,6 +4270,308 @@ significantie als bhi's. De belangrijkste take-aways zijn:
   Daarom moeten we resultaten altijd voorzichtig interpreteren, ook
   vanwege beperkingen die we in de rest van de cursus behandelen.
 \end{itemize}
+
+\chapter{T-toets afhankelijke
+groepen}\label{t-toets-afhankelijke-groepen}
+
+We zijn tot nu bezig geweest met allerlei zaken die komen kijken bij
+statistisch onderzoek. Je zou bijna vergeten waarom we dit doen: we
+willen leren over hoe de wereld in elkaar zit en onze onderzoeksvragen
+beantwoorden! Vanaf nu gaan we daarom meer praktisch aan de slag. We
+gaan kijken hoe we diverse relaties tussen dingen kunnen onderzoeken en
+of we daar wat zinnigs over kunnen zeggen. Overigens hebben we naast de
+technische aspecten van statistisch onderzoek ook inhoudelijk rondom
+drugs en uitgaan al aardig wat geleerd. Zo hebben we een schatting
+gemaakt van het xtc- en alcoholgebruik in de uitgaanderspopulatie, en
+hebben we onderzocht wat de gemiddelde verschillen zijn in
+alcoholconsumptie tussen mannen en vrouwen.
+
+Onder \hyperref[hypothesetoetsing]{Hypothese toetsen} hebben we
+onderzocht wat het verschil is tussen twee groepen (mannen en vrouwen)
+op een numerieke hoeveelheid (aantal glazen alcohol). Daarbij nemen we
+een nominale variabele\footnote{Dit kan in principe ook met een ordinale
+  variabele, zolang je maar twee waardes (lees: groepen) selecteert.} om
+de groepen te bepalen en een kwantitatieve variabele om hun gemiddeldes
+op te vergelijken. Dit noemen we een t-toets voor onafhankelijke
+groepen.
+
+In dit hoofdstuk gaan we naar een andere t-toets kijken: de
+\textbf{t-toets voor afhankelijke groepen}. Deze toets gebruiken we om
+een net iets ander type vraag te beantwoorden: wat is het verschil in
+het gemiddelde op \emph{twee kwantitatieve variabelen binnen één groep.}
+Die groep kan bijvoorbeeld de populatie uitgaanders zijn als geheel, of
+alleen mannen \emph{of} vrouwen. In plaats van één nominale variabele en
+één kwantitatieve variabele zoals bij de t-toets voor onafhankelijke
+groepen, staan bij de t-toets voor afhankelijke groepen twee
+kwantitatieve variabelen centraal in de analyse.\footnote{De
+  terminologie rondom t-toetsen kan wat verwarrend zijn, omdat beide
+  type t-toetsen het over `groepen' hebben. Belangrijk om te onthouden
+  is dat we bij `onafhankelijke groepen' in principe tussen twee groepen
+  vergelijken (zoals we het woord groepen normaliter gebruiken) en bij
+  `afhankelijke groepen' in principe binnen één groep vergelijken.}
+
+We gaan de t-toets voor afhankelijke groepen uitwerken met een
+voorbeeld. Volgens traditie doen we dit eerst handmatig en daarna
+computermatig om inzicht te krijgen in het proces. Na alle voorgaande
+hoofdstukken kunnen we natuurlijk niet anders dan een
+betrouwbaarheidsinterval te berekenen.
+
+\section{Beetje pips van de dips}\label{beetje-pips-van-de-dips}
+
+Onder feestgangers is het een bekend verschijnsel: de dinsdagdip. Na een
+weekend feesten met uitbundig 🥳 of excessief😬 drugsgebruik voelen
+gebruikers zich vaak de dinsdag erna bijzonder matig. Dit uit zich in
+klachten als somberheid, vermoeidheid, en slecht
+concentratievermogen.\footnote{3-MMC is een zogenoemde designerdrug die
+  de laatste jaren populair is geworden onder uitgaande jongeren. Voor
+  meer informatie: Trimbos.} Drugs hebben echter verschillende effecten
+op gebruikers, wat impliceert dat de dinsdagdip voor de ene drug
+zwaarder kan aankomen dan voor de andere drug.
+
+In dit voorbeeld gaan we kijken of uitgaanders een verschil in
+dinsdagdip ervaren voor xtc en 3-mmc.\footnote{3-MMC is een zogenoemde
+  designerdrug die de laatste jaren populair is geworden onder uitgaande
+  jongeren. Voor meer informatie:
+  \href{https://www.trimbos.nl/kennis/drugs/informatiepermiddel/3-mmc/}{Trimbos}.}
+We nemen daarbij de hele populatie van uitgaanders als startpunt.
+Aangezien we uitgaanders willen vergelijken die zowel xtc als 3-mmc
+hebben gebruikt, beperken we onze populatie tot deze specifieke groep
+gebruikers. De variabele \texttt{gemoed\_dinsdag\_na\_xtc} hebben we al
+eerder gezien \hyperref[sec-histogram]{Histogram}.\footnote{De \(_d\)
+  komt uit het Engels en staat voor \emph{difference}.} We gebruiken
+voor 3-mmc een zelfde soort variabele:
+\texttt{gemoed\_dinsdag\_na\_mmc}. Laten net als bij de histogram van
+\texttt{gemoed\_dinsdag\_na\_xtc} een histogram maken voor
+\texttt{gemoed\_dinsdag\_na\_mmc}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# histogram van gemoedstoestand op dinsdag na 3{-}mmc gebruik}
+\FunctionTok{ggplot}\NormalTok{(data\_uitgaan, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ gemoed\_dinsdag\_na\_mmc)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{25}\NormalTok{, }\AttributeTok{fill =} \StringTok{"grey"}\NormalTok{, }\AttributeTok{colour =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"aantal"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{ (}\StringTok{"gemoedstoestand (negatief {-} positief)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{xlim}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{004-03-afhankelijkegroepen_files/figure-pdf/unnamed-chunk-2-1.pdf}}
+
+Je ziet dat de variabele redelijk normaal verdeeld lijkt. De meeste
+waarden bevinden zich tussen de 40 en 80.
+
+\subsection{Hypothese opstellen}\label{hypothese-opstellen}
+
+Voor aanvang willen we specificeren wat we gaan toetsen. We zijn hier
+geïnteresseerd in de gemiddelde verschilscore tussen
+\texttt{gemoed\_dinsdag\_na\_xtc} en \texttt{gemoed\_dinsdag\_na\_mmc}.
+We hebben geen verwachting over de richting van het gemiddelde, of het
+positief of negatief is. Daarom kunnen we de nulhypothese als volgt
+formuleren:
+
+H\textsubscript{0}: Het gemiddelde verschil tussen gemoedstoestand op
+dinsdag na xtc- en 3-mmc-gebruik voor uitgaanders is nul.
+
+Notatie: \(\mu_d=0\)
+
+Deze notatie hierboven is nieuw. \(\mu_d\) staat voor het
+populatiegemiddelde van de verschilscore.\footnote{De \textsubscript{d}
+  komt uit het Engels en staat voor \emph{difference}.}
+
+\subsection{Handmatige berekening}\label{handmatige-berekening}
+
+Eerst even wat uitleg over die verschilscore. Wat je vergelijkt bij een
+t-toets voor afhankelijke groepen is iets anders dan bij een t-toets
+voor onafhankelijke groepen. Bij de laatste bereken je eerst het
+gemiddelde op een variabele voor beide groepen, en vervolgens vergelijk
+je die twee gemiddeldes met elkaar. Je schat daarmee twee
+populatieparameters (twee gemiddeldes).
+
+Bij t-toets voor afhankelijke groepen neem je eerst de verschilscore
+tussen de variabelen voor alle observaties en daar bereken je in
+principe het gemiddelde van. Hier schat je dan maar één
+populatieparameter.
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Uitleg over berekening verschilscore}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
+Neem bijvoorbeeld twee respondenten.\\
+Respondent A scoort 80 op \texttt{gemoed\_dinsdag\_na\_xtc} en 65 op
+\texttt{gemoed\_dinsdag\_na\_mmc}. De verschilscore is dan
+\(80-65=15\).\\
+Respondent B scoort 70 op \texttt{gemoed\_dinsdag\_na\_xtc} en 75 op
+\texttt{gemoed\_dinsdag\_na\_mmc}. De verschilscore is dan
+\(70-75=-5\).\\
+Deze verschilscores tel je dan bij elkaar op, waarna je het gemiddelde
+berekent.
+
+\end{tcolorbox}
+
+Voor de berekening van het betrouwbaarheidsinterval is dit de formule
+bij deze t-toets:
+
+\[
+\bar{d} \pm t_k  \frac{s_d}{\sqrt{n}}
+\]
+
+We gebruiken hier \(\bar{d}\) om aan te geven dat het om het gemiddelde
+van de verschilscores gaat. \(s_d\) staat voor de standaardeviatie van
+die verschilscores. Dat maakt \(s_d/\sqrt{n}\) de standaardfout en
+\(t_k\) de kritieke grenswaarde.
+
+We hebben als eerste die verschilscores nodig. Die kunnen we makkelijk
+krijgen door een nieuwe variabele \texttt{verschil\_xtc\_mmc} aan te
+maken waarvoor we \texttt{gemoed\_dinsdag\_na\_xtc} minus
+\texttt{gemoed\_dinsdag\_na\_mmc} doen. We vragen ook meteen de
+beschrijvende statistieken op.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# variabele verschil\_xtc\_mmc aanmaken voor verschilscore}
+\NormalTok{data\_uitgaan}\SpecialCharTok{$}\NormalTok{verschil\_xtc\_mmc }\OtherTok{\textless{}{-}}\NormalTok{ data\_uitgaan}\SpecialCharTok{$}\NormalTok{gemoed\_dinsdag\_na\_xtc }\SpecialCharTok{{-}}\NormalTok{ data\_uitgaan}\SpecialCharTok{$}\NormalTok{gemoed\_dinsdag\_na\_mmc }
+
+\CommentTok{\# beschrijvende statistieken}
+\FunctionTok{summary}\NormalTok{(data\_uitgaan}\SpecialCharTok{$}\NormalTok{verschil\_xtc\_mmc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+-48.000 -12.500   0.000   1.244  17.750  42.000     268 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(data\_uitgaan}\SpecialCharTok{$}\NormalTok{verschil\_xtc\_mmc, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 20.91993
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{valid.n}\NormalTok{(data\_uitgaan}\SpecialCharTok{$}\NormalTok{verschil\_xtc\_mmc) }\CommentTok{\# aantal valide waarden}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 82
+\end{verbatim}
+
+Deze statistieken geven al wat inzicht in \texttt{verschil\_xtc\_mmc}.
+Het gemiddelde is 1,2, wat niet heel groot is gezien dat het bereik op
+originele variabelen 0-100 is. De standaardeviatie is verder vrij groot
+(20,9) en het minimum (-48) en maximum (42) liggen ver uit elkaar.
+Verder hebben 82 respondenten een valide waarde op deze variabele. Dat
+betekent dat van de 350 respondenten in totaal van
+\texttt{data\_uitgaan} er 82 zowel ooit xtc als 3-mmc hebben gebruikt.
+
+We kunnen nu statistieken invullen in de formule. We moeten alleen nog
+de \(t_k\) weten. Het aan vrijheidsgraden bij deze toets is
+\(df=n-1=82-1=81\) . De
+\href{https://statisticsfundamentals.com/tables/t-distribution-table/}{t-tabel}
+toont dat \(t_k=1,990\). Nu kunnen we via de bekende weg alles
+uitrekenen met behulp van R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# gedeelte achter +{-}}
+\FloatTok{1.990}\SpecialCharTok{*}\FloatTok{20.920}\SpecialCharTok{/}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{82}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 4.597353
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 95\%{-}bhi berekenen}
+\FloatTok{1.244{-}4.597}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -3.353
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FloatTok{1.244+4.597}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 5.841
+\end{verbatim}
+
+Het bhi is dus \([-3,35, 5,84]\).
+
+\subsection{Computerberekening}\label{computerberekening}
+
+Met een paar regels code kunnen we dit resultaat ook krijgen met
+\texttt{t.test()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# t{-}toets uitvoeren voor afhankelijke groepen}
+\FunctionTok{t.test}\NormalTok{(data\_uitgaan}\SpecialCharTok{$}\NormalTok{gemoed\_dinsdag\_na\_xtc, }\CommentTok{\# eerste variabele}
+\NormalTok{       data\_uitgaan}\SpecialCharTok{$}\NormalTok{gemoed\_dinsdag\_na\_mmc, }\CommentTok{\# tweede variabele}
+       \AttributeTok{paired =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+    Paired t-test
+
+data:  data_uitgaan$gemoed_dinsdag_na_xtc and data_uitgaan$gemoed_dinsdag_na_mmc
+t = 0.53843, df = 81, p-value = 0.5918
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -3.352710  5.840515
+sample estimates:
+mean difference 
+       1.243902 
+\end{verbatim}
+
+\subsection{Interpretatie en
+conclusie}\label{interpretatie-en-conclusie}
+
+We laten onze befaamde interpretatie los op de uitkomst:
+
+\begin{quote}
+We kunnen met 95\% betrouwbaarheid stellen dat het gemiddelde verschil
+tussen gemoedstoestand op dinsdag na xtc- en 3-mmc-gebruik tussen de
+-3,35 en 5,84 ligt, gebaseerd op (hypothetische) herhaalde steekproeven
+en geen additionele relevante kennis.
+\end{quote}
+
+We vinden dus dat de gemiddelde verschilscore zowel negatief (-3,35) als
+positief (5,84) zou kunnen zijn. De potentiële populatieparameters zijn
+an sich niet heel groot; een verschil van 5 op een oorspronkelijk bereik
+van 0-100 stelt niet veel voor. De populatieparameters lijken zich
+vooral rondom nul te begeven.
+
+Omdat nul ook binnen het bhi valt, concluderen we dat we de nulhypothese
+niet verwerpen.\footnote{Je kunt ook zien dat de p-waarde (0,59) veel
+  hoger is dan het significantieniveau (0,05).} Er lijkt dus geen
+wezenlijk verschil te zijn tussen de gemoedstoestand op dinsdag na het
+gebruik van xtc of 3-mmc. We kunnen er, bij gebrek aan ander bewijs,
+vanuit gaan dat de drugs een vergelijkbare kater geven.
+
+\section{Samenvatting}\label{samenvatting-5}
+
+We hebben in dit hoofdstuk een t-toets voor afhankelijke groepen
+uitgevoerd door de gemoedstoestand op dinsdag van drugsgebruikers te
+vergelijken m.b.t. xtc en 3-mmc. Bij deze t-toets vergelijken we voor
+één groep de scores op twee kwantitatieve variabelen. Bij een t-toets
+voor onafhankelijke groepen vergelijken we juist twee groepen op één
+variabele. Het hoofdstuk toont verder dat we eerder geleerd hebben
+rondom betrouwbaarheidsintervallen hier ook goed toepasbaar is, ditmaal
+voor een gemiddelde verschilscore 🤓.
 
 \part{Colleges}
 
