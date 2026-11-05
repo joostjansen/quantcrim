@@ -61,7 +61,7 @@ Oftewel, voor de nulhypothese verwachten we dat verschil tussen $\mu_1$ en $\mu_
 
 Het **significantieniveau** is de grenswaarde waarbij we een nulhypothese verwerpen. Als de overschrijdingskans (p-waarde) kleiner is dan deze grenswaarde, verwerpen we de nulhypothese. Hier komen we bij de volgende stappen op terug. Gebruikelijke significantieniveaus in de statistiek zijn 0,01 (1%), 0,05 (5%) en 0,1 (10%). Net als bij dit voorbeeld gaan we meestal uit van een significantieniveau van 0,05.
 
-### 3) Overschrijdingskans \[#sec-overschrijdingskans\]
+### 3) Overschrijdingskans {#sec-overschrijdingskans}
 
 De **overschrijdingskans**, ook wel p-waarde genoemd of simpelweg $p$, speelt een centrale rol in het toetsen van hypotheses.[^004-01-onafhankelijkegroepen-1] Het geeft aan hoe waarschijnlijk het resultaat verkregen uit onze steekproef is, aangenomen dat de nulhypothese waar is.[^004-01-onafhankelijkegroepen-2]
 
@@ -143,6 +143,7 @@ Hierboven hebben we in notendop laten zien welke stappen je moet nemen bij het t
 - Bij het berekenen van de overschrijdingskans moeten we rekening houden met de grootte van de steekproef. Dit doen we middels de t-verdeling, die wat anders in elkaar zit dan de [normale verdeling](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling) waar we tot nu toe mee gewerkt hebben.
 - Hypotheses kunnen eenzijdig of tweezijdig worden geformuleerd. Bij eenzijdig hebben we een specifiek idee over de richting van een verband (bijv. mannen drinken meer dan vrouwen), terwijl we bij tweezijdig er alleen vanuit gaan dat er een verschil. Dit bepaalt mede hoe we de toets uitvoeren en interpreteren.
 - Bij een t-toets voor onafhankelijke groepen onderzoeken we hoe twee verschillende groepen (mannen en vrouwen) gemiddeld verschillen op één variabele (aantal glazen alcohol). Daarbij kun je ervan uitgaan dat de varianties gelijk of ongelijk zijn. Bij gelijke varianties is er binnen de groep mannen evenveel variantie (onderlinge verschillen) in drinkgedrag als binnen de groep vrouwen. Stel dat binnen de groep mannen veel meer diversiteit bestaat in lichte en zware drinkers dan bij de vrouwen, dan spreken we van ongelijke varianties. Voor het gemak gaan we in deze cursus steeds uit van ongelijke varianties, maar dit hoeft lang niet altijd zo te zijn.
+- ASSUMPTIE VAN NORMALE VERDELING VOOR BEIDE GROEPEN.
 
 De eerste twee punten komen uitgebreider aan bod in LATER HOOFDSTUK.
 
@@ -158,7 +159,7 @@ Een andere veelgemaakte fout is het verwarren van 'statistisch significant' met 
 
 Het kan aan de andere kant ook voorkomen dat je vindt dat er slechts een klein verschil bestaat tussen mannen en vrouwen in drankconsumptie, bijvoorbeeld 10 vs. 9 glazen respectievelijk. Het kan zijn dat je dan alsnog een statistisch significant verschil vaststelt, afhankelijk van de groepsvarianties en het aantal personen in de steekproef.[^004-01-onafhankelijkegroepen-3] Het verschil tussen 10 en 9 glazen is echter klein, waardoor het praktisch gezien bijna verwaarloosbaar is.
 
-[^004-01-onafhankelijkegroepen-3]: Dit komt verder aan bod bij [invullen](004-02-aspectenhypo.qmd).
+[^004-01-onafhankelijkegroepen-3]: Dit komt verder aan bod bij [Aspecten van hypothesetoetsing](004-02-aspectenhypo.qmd).
 
 In de onderzoekspraktijk zul je vaker vinden dat er wel een bepaald verschil is, maar dat de substantiële betekenis hiervan niet meteen duidelijk is. In het voorbeeld op deze pagina is het gevonden gemiddelde verschil 2,7 glazen. Is dit veel of weinig? Dat is gedeeltelijk een subjectieve opvatting. In de sociale wetenschappen zijn er geen vastomlijnde regels van wanneer iets praktisch significant is, dat hangt af van de context. Meestal bepaal je de praktische relevantie aan de hand van logisch redeneren en afvragen waarom deze bevinding relevant is. Als je bijvoorbeeld gaat autorijden, kunnen 2-3 glazen een groot verschil maken. Voor een avond stappen waarin sowieso heel veel gedronken wordt, heeft een verschil van 2-3 glazen wellicht minder effect op de totale mate van intoxicatie. Context doet er dus toe.
 

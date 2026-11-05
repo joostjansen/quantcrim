@@ -410,6 +410,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-03-afhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -424,7 +430,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
   </div>
 </li>
       </ul>
@@ -441,7 +447,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./004-opdrachten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
   </div>
 </li>
       </ul>
@@ -522,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="nominaal-vs.-nominaal" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="nominaal-vs.-nominaal"><span class="header-section-number">6.1.1</span> Nominaal vs.&nbsp;nominaal</h3>
 <p>Als we de relatie tussen twee nominale variabelen willen presenteren, kunnen we een eenvoudige kruistabel maken in R. We kijken in dit voorbeeld naar de relatie tussen geslacht (man/vrouw/anders) en of men heeft gevapet in het afgelopen jaar (ja/nee). We gaan er hier vanuit dat er geen rangorde bestaat tussen wel of niet vapen en het dus een nominale variabele betreft.</p>
-<p>In hoofdstuk xxx hebben we al een tabel gemaakt voor geslacht. We kunnen aan het commando <em>table()</em> een variabele (vapen_laatste_jaar) toevoegen om een kruistabel te krijgen.</p>
+<p>In hoofdstuk xxx hebben we al een tabel gemaakt voor <code>geslacht</code>. We kunnen aan het commando <code>table()</code> een variabele <code>vapen_laatste_jaar</code> toevoegen om een kruistabel te krijgen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># kruistabel tussen geslacht en vapen laatste jaar</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_uitgaan<span class="sc">$</span>vapen_laatste_jaar, data_uitgaan<span class="sc">$</span>geslacht) <span class="co"># vapen in de rijen, </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -535,7 +541,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>                                              <span class="co"># geslacht in de kolommen</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We zien in bovenstaande tabel hoe vaak personen van een bepaald geslacht hebben gevapet het afgelopen jaar. Zo kun je zien dat 73 vrouwen niet hebben gevapet en 97 wel.</p>
-<p>Visueel krijgen we vaak een beter inzicht in de verdeling van variabelen en de relaties daartussen. We kunnen de verdeling voor vapen_laatste_jaar uitgesplitst naar geslacht daarom apart weergeven in een figuur. De meest gangbare manier om de relatie tussen twee variabelen visueel te weergeven is een staafdiagram. We laten voor eenvoud de categorie ‘anders’ even buiten beschouwing hier.</p>
+<p>Visueel krijgen we vaak een beter inzicht in de verdeling van variabelen en de relaties daartussen. We kunnen de verdeling voor <code>vapen_laatste_jaar</code> uitgesplitst naar <code>geslacht</code> daarom apart weergeven in een figuur. De meest gangbare manier om de relatie tussen twee variabelen visueel te weergeven is een staafdiagram. We laten voor eenvoud de categorie ‘anders’ even buiten beschouwing hier.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># samenvatten van de relevante data</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>geslacht_vapen <span class="ot">&lt;-</span> data_uitgaan <span class="sc">|&gt;</span></span>
@@ -558,7 +564,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We zien nu in een oogoopslag wat de verschillen zijn in aantallen tussen mannen en vrouwen die vapeten het laatste jaar.</p>
-<p>De absolute aantallen geven slechts gedeeltelijk inzicht in wat verhoudingen zijn binnen de relatie tussen geslacht en vapen. Daarom is het handig ook de kolompercentages te bereken. Dit doen we door <em>prop.table()</em> toe te voegen aan de kruistabel.</p>
+<p>De absolute aantallen geven slechts gedeeltelijk inzicht in wat verhoudingen zijn binnen de relatie tussen geslacht en vapen. Daarom is het handig ook de kolompercentages te bereken. Dit doen we door <code>prop.table()</code> toe te voegen aan de kruistabel.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># kolompercentages voor kruistabel</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_uitgaan<span class="sc">$</span>vapen_laatste_jaar, data_uitgaan<span class="sc">$</span>geslacht) <span class="sc">|&gt;</span></span>
@@ -574,7 +580,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="nominaal-vs.-ordinaal" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="nominaal-vs.-ordinaal"><span class="header-section-number">6.1.2</span> Nominaal vs.&nbsp;ordinaal</h3>
-<p>De werkwijze bij het onderzoeken van een relatie tussen nominaal en ordinaal is in principe hetzelfde. We nemen hier de relatie tussen volgende twee variabelen: xtc_laatste_jaar en acceptatie_xtc_vrienden. De eerste variabele meet of respondenten het laatste jaar xtc hebben gebruikt en de tweede variabele meet in hoeverre respondenten het eens zijn met de stelling dat het gebruik van xtc onder vrienden geaccepteerd is.</p>
+<p>De werkwijze bij het onderzoeken van een relatie tussen nominaal en ordinaal is in principe hetzelfde. We nemen hier de relatie tussen volgende twee variabelen: <code>xtc_laatste_jaar</code> en <code>acceptatie_xtc_vrienden</code>. De eerste variabele meet of respondenten het laatste jaar xtc hebben gebruikt en de tweede variabele meet in hoeverre respondenten het eens zijn met de stelling dat het gebruik van xtc onder vrienden geaccepteerd is.</p>
 <p>We bekijken eerst weer de aantallen in een kruistabel.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># kruistabel tussen xtc gebruik en acceptatie onder vrienden</span></span>
@@ -639,7 +645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="kwalitatief-vs.-kwantitatief" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="kwalitatief-vs.-kwantitatief"><span class="header-section-number">6.2</span> Kwalitatief vs.&nbsp;kwantitatief</h2>
-<p>We beschikken over verschillende opties wanneer we de relatie tussen een kwalitatieve en kwantitatieve variabele willen onderzoeken. De meest eenvoudige optie is om naar het verschil in gemiddeldes te kijken. Als voorbeeld kijken we hier naar geslacht en het aantal sigaretten dat men rookt tijdens het uitgaan (sigaretten_uitgaansdag). Let op dat hier alleen gaat over jongeren die minimaal één sigaret roken tijdens het uitgaan (rokers).</p>
+<p>We beschikken over verschillende opties wanneer we de relatie tussen een kwalitatieve en kwantitatieve variabele willen onderzoeken. De meest eenvoudige optie is om naar het verschil in gemiddeldes te kijken. Als voorbeeld kijken we hier naar geslacht en het aantal sigaretten dat men rookt tijdens het uitgaan (<code>sigaretten_uitgaansdag</code>). Let op dat hier alleen gaat over jongeren die minimaal één sigaret roken tijdens het uitgaan (rokers).</p>
 <p>We berekenen het gemiddelde door de data eerst te groeperen en daarna het gemiddelde per groep te berekenen. Hoe je dat moet doen, leer je in het practicum.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gemiddelde berekenen van van aantal sigaretten voor geslacht</span></span>
@@ -676,7 +682,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="kwantitatief-vs.-kwantitatief" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="kwantitatief-vs.-kwantitatief"><span class="header-section-number">6.3</span> Kwantitatief vs.&nbsp;kwantitatief</h2>
-<p>Als laatste onderzoeken we de relatie tussen twee kwantitatieve variabelen. Het makkelijkst is om deze relatie direct te visualiseren (later in de cursus kijken we naar correlatie, een associatiemaat voor de sterkte van de relatie). We nemen de relatie tussen het aantal glazen alcohol op een uitgaansdag (glazen_alcohol_uitgaansdag) en het aantal gerookte sigaretten. Het gaat hier om jongeren die dus zowel alcohol drinken als roken tijdens het uitgaan. Verder zijn dit twee ratio variabelen (bedenk waarom).</p>
+<p>Als laatste onderzoeken we de relatie tussen twee kwantitatieve variabelen. Het makkelijkst is om deze relatie direct te visualiseren (later in de cursus kijken we naar correlatie, een associatiemaat voor de sterkte van de relatie). We nemen de relatie tussen het aantal glazen alcohol op een uitgaansdag (<code>glazen_alcohol_uitgaansdag</code>) en het aantal gerookte sigaretten. Het gaat hier om jongeren die dus zowel alcohol drinken als roken tijdens het uitgaan. Verder zijn dit twee ratio variabelen (bedenk waarom).</p>
 <p>Om de relatie te visualiseren, maken we eerst gebruik van een spreidingsdiagram.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spreidingsdiagram met aantal glazen alcohol en sigaretten</span></span>
@@ -694,7 +700,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Elke punt vertegenwoordigd een respondent in deze diagram, die laat zien hoe ze scoren op aantal glazen alcohol (x-as) en aantal sigaretten (y-as) tijdens het uitgaan. Er komt hier nog niet een heel duidelijk patroon uit naar voren. Zowel bij jongeren die relatief weinig drinken (10&lt; glazen) zijn er wat uitschieters naar boven qua roken (&gt;30 sigaretten), maar ook bij jongeren die relatief veel drinken. De dichste concentratie van punten zit linksonder, wat betekent dat de meeste respondenten rond de 5-15 glazen alcohol drinken en 1-15 sigaretten roken.</p>
-<p>We kunnen de spreidingsdiagram nog wat aanpassen om beter inzicht te krijgen in de relatie. Sommige punten zijn nu niet goed te zien omdat ze dicht op elkaar zitten. Met die optie “<em>jitter”</em> wordt de puntenwolk wat meer uitgespreid.</p>
+<p>We kunnen de spreidingsdiagram nog wat aanpassen om beter inzicht te krijgen in de relatie. Sommige punten zijn nu niet goed te zien omdat ze dicht op elkaar zitten. Met die optie <code>"jitter"</code> wordt de puntenwolk wat meer uitgespreid.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spreidingsdiagram met aantal glazen alcohol en sigaretten</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_uitgaan, <span class="fu">aes</span>(<span class="at">x =</span> glazen_alcohol_uitgaansdag, <span class="at">y =</span> sigaretten_uitgaansdag)) <span class="sc">+</span></span>
@@ -710,7 +716,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Je ziet nu iets beter waar de concentratie van datapunten zit. Verder kun je kijken in hoeverre er een (lineair) verband is tussen aantal glazen alcohol en aantal sigaretten. Je kunt een zogenoemde regressielijn ‘fitten’ op de data met <em>stat_smooth().</em></p>
+<p>Je ziet nu iets beter waar de concentratie van datapunten zit. Verder kun je kijken in hoeverre er een (lineair) verband is tussen aantal glazen alcohol en aantal sigaretten. Je kunt een zogenoemde regressielijn ‘fitten’ op de data met <code>stat_smooth()</code><em>.</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># spreidingsdiagram met aantal glazen alcohol en sigaretten</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_uitgaan, <span class="fu">aes</span>(<span class="at">x =</span> glazen_alcohol_uitgaansdag, <span class="at">y =</span> sigaretten_uitgaansdag)) <span class="sc">+</span></span>

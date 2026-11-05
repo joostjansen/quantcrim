@@ -30,7 +30,7 @@ Hieronder berekenen we in R de gemiddelde leeftijd van deze vijf respondenten.
 (16 + 22 + 22 + 28 + 33) / 5
 ```
 
-De gemiddelde leeftijd van deze vijf respondenten is is dus 24,2. In plaats een handmatige berekening kun je het ook berekenen middels de functie *mean()* in R:
+De gemiddelde leeftijd van deze vijf respondenten is is dus 24,2. In plaats een handmatige berekening kun je het ook berekenen middels de functie `mean()` in R:
 
 ```{r}
 # vector aanmaken
@@ -41,7 +41,7 @@ print(x)
 mean(x)
 ```
 
-Eerst hebben we een vector, of eigenlijk een variabele, aangemaakt met de vijf observaties. Via de functie *mean()* bereken je vervolgens het gemiddelde.
+Eerst hebben we een vector, of eigenlijk een variabele, aangemaakt met de vijf observaties. Via de functie `mean()` bereken je vervolgens het gemiddelde.
 
 ### Mediaan
 
@@ -70,7 +70,7 @@ De modus is de waarde die het vaakst voorkomt in een variabele.
 
 Bij de leeftijdsreeks (16, [22]{.underline}, [22]{.underline}, 28, 33) is dit 22 jaar omdat deze leeftijd tweemaal voorkomt en de rest slechts één keer.
 
-In R bereken je de modus via de functie *mfv().*
+In R bereken je de modus via de functie `mfv()`*.*
 
 ```{r}
 # modus berekenen
@@ -94,7 +94,7 @@ Bij de leeftijdsreeks (16, 22, 22, 28, 33) is het minimum 16 en het maximum 33. 
 33 - 16
 ```
 
-Je kunt in R het minimum en maximum opvragen met de functies *min()* en *max()*. Ook kun je allebei tegelijk krijgen met de functie *range()*
+Je kunt in R het minimum en maximum opvragen met de functies `min()` en `max()`. Ook kun je allebei tegelijk krijgen met de functie `range()`*.*
 
 ```{r}
 # minimum opvragen
@@ -107,7 +107,7 @@ max(x)
 range(x)
 ```
 
-De functie *range()* geeft je alleen het minimum en maximum. Als je het bereik wilt weten, moet je zelf het minimum van het maximum aftrekken:
+De functie `range()` geeft je alleen het minimum en maximum. Als je het bereik wilt weten, moet je zelf het minimum van het maximum aftrekken:
 
 ```{r}
 # bereik berekenen
@@ -173,7 +173,7 @@ variantie_stkpr <- sum(x_deviatie_kwa) / (length(x) - 1) # length() berekent het
 print(variantie_stkpr)
 ```
 
-In R kun je met de functie *var()* de steekproefvariantie ook direct berekenen
+In R kun je met de functie `var()` de steekproefvariantie ook direct berekenen
 
 ```{r}
 # steekproefvariantie 
@@ -201,7 +201,7 @@ Je zou dus kunnen zeggen dat een willekeurige persoon van de vijf respondenten '
 sqrt(variantie_stkpr) # sqrt() berekent de wortel over een getal/vector
 ```
 
-Je kunt de standaarddeviatie ook direct in R krijgen met *sd()*
+Je kunt de standaarddeviatie ook direct in R krijgen met `sd()`
 
 ```{r}
 # standaarddeviatie
@@ -234,14 +234,14 @@ sd(data_uitgaan$leeftijd) #standaarddeviatie
 
 De minimumleeftijd is 16 jaar, de maximumleeftijd is 35 jaar en het leeftijdsbereik is 19 jaar. De standaarddeviatie is 4,8 jaar.
 
-Veel van deze statistieken (min., max., mediaan, gemiddelde) kun je ook in één keer bekijken middels de functie *summary()*
+Veel van deze statistieken (min., max., mediaan, gemiddelde) kun je ook in één keer bekijken middels de functie `summary()`
 
 ```{r}
 # meerdere statistieken tegelijkertijd opvragen
 summary(data_uitgaan$leeftijd)
 ```
 
-Je ziet dat de *summary()* functie ook de waardes voor 1st Qu. en 3rd Qu. geeft. Dit zijn het eerste en derde kwartiel, de grenzen waarbij respectievelijk 25% (Q1) en 75% (Q3) van de data ligt. In dit geval dus 20,0 en 27,0 jaar. Het tweede kwartiel (Q2) is de mediaan, dit is op de grens van 50% van de data.
+Je ziet dat de `summary()` functie ook de waardes voor 1st Qu. en 3rd Qu. geeft. Dit zijn het eerste en derde kwartiel, de grenzen waarbij respectievelijk 25% (Q1) en 75% (Q3) van de data ligt. In dit geval dus 20,0 en 27,0 jaar. Het tweede kwartiel (Q2) is de mediaan, dit is op de grens van 50% van de data.
 
 ### Doosdiagram
 

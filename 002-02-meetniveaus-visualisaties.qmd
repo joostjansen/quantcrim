@@ -17,7 +17,7 @@ Kwalitatieve variabelen bestaan uit categorieën die een kwalitatieve eigenschap
 
 ### Staafdiagram
 
-Laten we naar een voorbeeld kijken: geslacht. Stel dat we willen weten hoeveel mannen, vrouwen of anders-identificerenden er in de dataset zitten. Daarvoor kunnen we **staafdiagram** maken met *ggplot()*.
+Laten we naar een voorbeeld kijken: geslacht. Stel dat we willen weten hoeveel mannen, vrouwen of anders-identificerenden er in de dataset zitten. Daarvoor kunnen we **staafdiagram** maken met `ggplot()`.
 
 ```{r}
 # staafdiagram maken
@@ -39,7 +39,7 @@ De figuur heeft nu een witte achtergrond en de y-as heeft een Nederlandstalig la
 
 ### Simpele tabel
 
-Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun je ook een simpele tabel maken met de functie *table()*.
+Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun je ook een simpele tabel maken met de functie `table()`.
 
 ```{r}
 # tabel van geslacht
@@ -56,7 +56,7 @@ Geslacht is een voorbeeld van een **nominale** variabele. Dit is een kwalitatiev
 
 Een andere manier om een nominale variabele te presenteren, is via een **taartdiagram**. Een taartdiagram kan snel een overzicht geven van de verhouding tussen categorieën binnen een bepaalde variabele. Doorgaans werkt een taartdiagram het beste als er een beperkt aantal categorieën zijn.
 
-Hieronder staat een voorbeeld van taartdiagram van de variabele manier_verkrijgen_drugs. Dit gaat over de wijze waarop uitgaande jongeren meestal aan hun drugs komen.
+Hieronder staat een voorbeeld van taartdiagram van de variabele `manier_verkrijgen_drugs`. Dit gaat over de wijze waarop uitgaande jongeren meestal aan hun drugs komen.
 
 ```{r}
 # samenvatten van de relevante data
@@ -148,7 +148,7 @@ De staafdiagram toont dat relatief veel respondenten tussen 21 en 24 jaar zijn, 
 
 ### Histogram {#sec-histogram}
 
-Voor een lineaire variabele met juist relatief veel unieke waarden gebruiken we meestal een histogram. Bij een een histogram worden bepaalde waardes gegroepeerd tot één staaf, waardoor de presentatie overzichtelijk blijft. Dit is hieronder weergeven voor de variabele gemoed_dinsdag_na_xtc*.* Dit is een score tussen de 0 en 100 die respondenten hebben gegeven hoe zich voelen op de dinsdag na xtc-gebruik in het weekend, waarbij 0 voor negatief staat en 100 voor positief.
+Voor een lineaire variabele met juist relatief veel unieke waarden gebruiken we meestal een histogram. Bij een een histogram worden bepaalde waardes gegroepeerd tot één staaf, waardoor de presentatie overzichtelijk blijft. Dit is hieronder weergeven voor de variabele `gemoed_dinsdag_na_xtc`. Dit is een score tussen de 0 en 100 die respondenten hebben gegeven over hoe ze zich voelen op de dinsdag na xtc-gebruik in het weekend, waarbij 0 voor negatief staat en 100 voor positief.
 
 ```{r}
 # histogram van gemoedstoestand op dinsdag na XTC gebruik

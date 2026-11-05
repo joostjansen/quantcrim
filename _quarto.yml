@@ -38,6 +38,7 @@ book:
       chapters:
         - 004-01-onafhankelijkegroepen.qmd
         - 004-02-aspectenhypo.qmd
+        - 004-03-afhankelijkegroepen.qmd
     - part: "Colleges"
       chapters:
         - 003-colleges.qmd

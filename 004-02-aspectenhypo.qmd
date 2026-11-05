@@ -9,13 +9,13 @@ execute:
 
 In het vorige hoofdstuk heb je geleerd wat hypothese toetsen inhoudt en welke stappen je daarbij moet nemen. Als je dit voor deze eerste keer leert, kan het behoorlijk uitdagend zijn om het allemaal te verwerken. Je zult echter zien dat naarmate je het vaker oefent en verschillende bhi's hebt berekend, je het principe ervan beter zult gaan begrijpen. Oefening baart kunst (OBK)!
 
-We hebben tot nu een paar bochten afgesneden. Zoals gesignaleerd in het vorige hoofdstuk, zijn er bij hypothese toetsen meerdere aspecten waar je rekening mee moet houden. Een aantal van die aspecten behandelen we hier. Daarna heb je, als het goed is, een aardig overzicht van wat er allemaal bij hypothesetoetsen komt kijken. We gaan in op de volgende vier zaken: 1) de t-verdeling 2) het formuleren van hypotheses 3) eenzijdig en tweezijdig toetsen en 4) type-I en type-II fouten.
+We hebben tot nu een paar bochten afgesneden. Zoals gesignaleerd in het vorige hoofdstuk, zijn er bij hypothese toetsen meerdere aspecten waar je rekening mee moet houden. Een aantal van die aspecten behandelen we hier. Daarna heb je, als het goed is, een aardig overzicht van wat er allemaal bij hypothese toetsen komt kijken. We gaan in op de volgende vier zaken: 1) de t-verdeling 2) het formuleren van hypotheses 3) eenzijdig en tweezijdig toetsen en 4) type-I en type-II fouten.
 
 ## T-verdeling
 
-Zoals je inmiddels weet, gebeurt het berekenen van dingen zoals de overschrijdingskans en een bhi op basis van de normale verdeling. Tot nu toe hebben we aangenomen dat de [normale verdeling](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling) altijd hetzelfde is, waarbij de distributie van waarden de empirische regel bolgt. Dit houdt in dat binnen een xx aantal standaarddeviaties van het gemiddelde xx% van alle waarden ligt, afhankelijk van hoeveel standaarddeviaties je neemt. Deze vaste vorm staat ook wel bekend als de standaardnormale verdeling of z-verdeling en geldt over het algemeen voor populatiedata.
+Zoals je inmiddels weet, gebeurt het berekenen van dingen zoals de overschrijdingskans en een bhi op basis van de normale verdeling. Tot nu toe hebben we aangenomen dat de [normale verdeling](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling) altijd hetzelfde is, waarbij de distributie van waarden de empirische regel volgt. Dit houdt in dat binnen een xx aantal standaarddeviaties van het gemiddelde xx% van alle waarden ligt, afhankelijk van hoeveel standaarddeviaties je neemt. Deze vaste vorm staat ook wel bekend als de *standaard*normale verdeling of z-verdeling en geldt over het algemeen voor populatiedata.
 
-Het blijkt echter dat de standaardnormale verdeling niet altijd even goed van toepassing is. Met name voor kleinere steekproeven vinden we dat de normale verdeling een andere vorm heeft dan *standaard*normale verdeling. In deze video wordt uitgelegd hoe dat precies werkt:
+Het blijkt echter dat de standaardnormale verdeling niet altijd even goed van toepassing is. Met name voor kleinere steekproeven vinden we dat de normale verdeling een andere vorm heeft dan standaardnormale verdeling. In deze video wordt uitgelegd hoe dat werkt:
 
 {{< video https://youtu.be/32CuxWdOlow?si=75mpR9UutZl4BBm3 >}}
 
@@ -23,13 +23,13 @@ We moeten dus rekening houden met de t-verdeling in ons onderzoek, omdat deze af
 
 Bij het hypothese toetsen via statistische significantie zijn er in essentie twee relevante t-waardes: de kritieke grenswaarde ($t_k$) en toetsingsgrootheid ($t_g$). De eerstgenoemde is de grenswaarde waarbij we de nulhypothese verwerpen. De $t_k$ is afhankelijk van het gekozen significantieniveau (bijv. 0,01; 0,05 of 0,1) en het aantal respondenten in de steekproef minus het aantal geschatte populatieparameters bij een t-toets (oftewel: het aantal vrijheidsgraden).
 
-Bij het [voorbeeld](004-01-onafhankelijkegroepen.qmd#sec-statistischesignificantie) uit het vorige hoofdstuk zagen we dat de nulhypothese werd verworpen wanneer het gemiddelde verschil in aantal glazen alcohol groter was dan 2,2 of kleiner dan -2,2. Deze waarden hebben we kunnen herleiden uit de $t_k$ . Als je voor dit voorbeeld de $t_k$ zou opzoeken in de t-tabel ([link](https://statisticsfundamentals.com/tables/t-distribution-table/)), dan zou je uitkomen op $t_k=2,024$.[^004-02-aspectenhypo-1] [^004-02-aspectenhypo-2]
+Bij het [voorbeeld](004-01-onafhankelijkegroepen.qmd#sec-statistischesignificantie) uit het vorige hoofdstuk zagen we dat de nulhypothese werd verworpen wanneer het gemiddelde verschil in aantal glazen alcohol groter was dan 2,2 of kleiner dan -2,2. Deze waarden hebben we kunnen herleiden uit de $t_k$ . Als je voor dit voorbeeld de $t_k$ zou opzoeken in de [t-tabel](https://statisticsfundamentals.com/tables/t-distribution-table/), dan zou je uitkomen op $t_k=2,024$.[^004-02-aspectenhypo-1] [^004-02-aspectenhypo-2]
 
 [^004-02-aspectenhypo-1]: Op basis van de volgende gegevens:
 
     - aantal vrijheidsgraden: $n-2$ in dit geval, dus $40-2=38$ .
     - gekozen significantieniveau: 5%
-    - Tweezijdig toetsen (zie verderop dit hoofdstuk)
+    - tweezijdig toetsen (zie verderop dit hoofdstuk)
 
 [^004-02-aspectenhypo-2]: Het aantal vrijheidsgraden bij een t-toets voor onafhankelijke groepen en ongelijke varianties wordt normaliter via een ingewikkelde formule berekend. Omdat bij dit voorbeeld de varianties gelijk zijn alsmede het aantal respondenten, hoeven we alleen $n-2$ te doen om het aantal vrijheidsgraden te verkrijgen.
 
@@ -41,7 +41,7 @@ In de figuur hieronder wordt bovenstaande gevisualiseerd. Je ziet dus dat dit in
 
 ### Bhi op basis van t-verdeling
 
-We maken het ons iets makkelijker in deze cursus door voornamelijk te kijken naar bhi's. Daarvoor hebben we alleen de kritieke grenswaarde nodig en niet de toetsingsgrootheid. De laatste is alleen van toepassing bij de methode van statistische significantie.
+We maken het ons iets makkelijker in deze cursus door voornamelijk te kijken naar bhi's. Daarvoor hebben we alleen de kritieke grenswaarde $t_k$ nodig en niet de toetsingsgrootheid $t_g$. De laatste is alleen van toepassing bij de methode van statistische significantie.
 
 We doorlopen nu nogmaals het voorbeeld uit het vorige hoofdstuk, maar nu met 15 mannen en 15 vrouwen. We berekenen handmatig het bhi volgens de t-verdeling. Dan krijg je een idee hoe een bhi voor een t-toets voor onafhankelijke groepen tot stand komt. De formule is als volgt:
 
@@ -49,7 +49,7 @@ $$
 bhi =(\bar{x}_1 - \bar{x}_2) \pm t_k \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
 $$
 
-Deze formule is niet veel anders dan bij het [Betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd). Hier neem je het gemiddelde van mannen $\bar{x}_1$ minus het gemiddelde van vrouwen $\bar{x}_2$. Het gedeelte achter de $\pm$ bereken je wederom apart. Daarvoor zoek je de bijbehorende $t_k$. Daarvoor kunnen we weer kijken in de t-tabel ([link](https://statisticsfundamentals.com/tables/t-distribution-table/)): $t_k=2,048$.[^004-02-aspectenhypo-3] Het laatste deel $\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$ is berekening van de standaardfout $s.e.$ voor deze toets.[^004-02-aspectenhypo-4] Net zoals bij [Betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd) kunnen we dit weer in R berekenen.
+Deze formule is niet veel anders dan bij het [Betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd). Hier neem je het gemiddelde van mannen $\bar{x}_1$ minus het gemiddelde van vrouwen $\bar{x}_2$. Het gedeelte achter de $\pm$ bereken je wederom apart. Daarvoor zoek je de bijbehorende $t_k$. Daarvoor kunnen we weer kijken in de [t-tabel](https://statisticsfundamentals.com/tables/t-distribution-table/): $t_k=2,048$.[^004-02-aspectenhypo-3] Het laatste deel $\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$ is de berekening van de standaardfout $s.e.$ voor deze toets.[^004-02-aspectenhypo-4] Net zoals bij [Betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd) kunnen we dit weer in R berekenen.
 
 [^004-02-aspectenhypo-3]: Op basis van de volgende gegevens:
 
@@ -104,13 +104,13 @@ Merk tenslotte op dat de formules van bhi's voor proporties en gemiddeldes bij [
 
 ## Hypotheses formuleren {#sec-hypoformuleren}
 
-In het vorige hoofdstuk bij [Hypothese opstellen](004-01-onafhankelijkegroepen.qmd#sec-opstellenhypo) werd genoemd dat het relevant is om een hypothese zo exact mogelijk te formuleren. Dit omdat een hypothese invulling geeft aan *wat* we willen onderzoeken en *hoe* wat dat willen meten (lees: operationaliseren). Daarom hanteren we volgende regels bij het opstellen van een hypothese:
+In het vorige hoofdstuk bij [Hypothese opstellen](004-01-onafhankelijkegroepen.qmd#sec-opstellenhypo) werd genoemd dat het relevant is om een hypothese zo exact mogelijk te formuleren. Dit omdat een hypothese invulling geeft aan *wat* we willen onderzoeken en *hoe* wat dat willen meten (lees: operationaliseren). Daarom hanteren we de volgende regels bij het opstellen van een hypothese:
 
 1.  De richting van het verband moet duidelijk zijn
 
-Hypotheses kunnen in principe tweezijdig of eenzijdig zijn (zie ook VOLGENDE SECTIE). Tweezijdig betekent dat we geen specifieke verwachting hebben over de richting van het verband. Bijvoorbeeld dat er geen verschil is tussen mannen en vrouwen in hoeveel glazen alcohol ze gemiddeld drinken (de nulhypothese). De originele verwachting is dan dat mannen meer drinken dan vrouwen, maar ook dat vrouwen meer drinken dan mannen. Je verwacht alleen een bepaald verschil te vinden.
+Hypotheses kunnen in principe tweezijdig of eenzijdig zijn (zie ook @sec-eenzijdigtweezijdig). Tweezijdig betekent dat we geen specifieke verwachting hebben over de richting van het verband. Bijvoorbeeld dat er geen verschil is tussen mannen en vrouwen in hoeveel glazen alcohol ze gemiddeld drinken (de nulhypothese). De originele verwachting is dan dat mannen mogelijk meer drinken dan vrouwen, maar ook dat vrouwen meer kunnen drinken dan mannen. Je verwacht alleen een bepaald verschil te vinden.
 
-Bij een eenzijdige hypothese maak je de richting expliciet. Dan zeg je bijvoorbeeld dat je verwacht dat mannen meer drinken vrouwen (en niet andersom). De nulhypothese is dan dat dan het gemiddelde aantal glazen dat mannen drinken *kleiner of gelijk is* aan het gemiddelde aantal glazen dat vrouwen drinken op een uitgaansdag.
+Bij een eenzijdige hypothese maak je de richting expliciet. Dan zeg je bijvoorbeeld dat je verwacht dat mannen meer drinken vrouwen (en niet andersom). De nulhypothese is dan dat het gemiddelde aantal glazen dat mannen drinken *kleiner of gelijk is* aan het gemiddelde aantal glazen dat vrouwen drinken op een uitgaansdag.
 
 2.  De nulhypothese moet het tegenovergestelde zijn van de originele verwachting (en elkaar uitsluiten)
 
@@ -140,7 +140,7 @@ Tot nu toe hebben we alleen een t-toets voor onafhankelijke groepen behandeld. D
 
 ## Tweezijdig/eenzijdig toetsen
 
-Hierboven is al genoemd dat er twee soorten hypotheses zijn: hypotheses zonder een specifieke richting (**tweezijdig**) en hypotheses waarin het verband een specifieke richting heeft (**eenzijdig**). Het verschil tussen tweezijdig en eenzijdig is niet alleen relevant in hoe we de hypothese formuleren, maar ook voor hoe we deze toetsen uitvoeren. Het heeft namelijk invloed op hoe de overschrijdingskans wordt berekend.
+Hierboven is al genoemd dat er twee soorten hypotheses zijn: hypotheses zonder een specifieke richting (**tweezijdig**) en hypotheses waarin het verband een specifieke richting heeft (**eenzijdig**). Het verschil tussen tweezijdig en eenzijdig is niet alleen relevant voor hoe we de hypothese formuleren, maar ook voor hoe we deze toetsen uitvoeren. Het heeft namelijk invloed op hoe de overschrijdingskans wordt berekend.
 
 Wanneer we een tweezijdige hypothese hebben, berekenen we de kans op het verkrijgen van een steekproefresultaat minstens zo extreem *in beide richtingen* van de verdeling (onder de H~0~ uiteraard). Teruggaand naar het [voorbeeld](004-01-onafhankelijkegroepen.qmd#sec-statistischesignificantie) uit het vorige hoofdstuk, betekent dit dat we de kans berekenen op het verkrijgen van een verschil in gemiddeldes van 2,7 of hoger of -2,7 of lager. Dat is hieronder verbeeld.
 
@@ -166,25 +166,25 @@ De uitleg hierboven heeft zich toegespitst op de methode van statistische signif
 
 [^004-02-aspectenhypo-9]: Bij een eenzijdige toets met een bhi krijg je namelijk alleen een vaste onder- of bovengrens, afhankelijk van de richting van je hypothese.
 
-## Type-I en type-II fouten
+## Type-I en type-II fouten {#sec-eenzijdigtweezijdig}
 
 Als laatste kijken we in dit hoofdstuk naar type-I en type-II fouten. Dit zijn fouten die kunnen voorkomen bij statistisch onderzoek waardoor we de verkeerde conclusie trekken over de nulhypothese.
 
-Een type-I fout houdt in dat we de nulhypothese verwerpen terwijl deze eigenlijk waar is. Dit gebeurt aan de hand van statistisch significant resultaat. Stel we doen een hypothesetoets bij een significantieniveau van 5% en vinden dat de toets significant is en verwerpen vervolgens de nulhypothese. Onze redenering is doorgaans dat het onwaarschijnlijk is om een waarde zo extreem (kans lager dan 5%) te vinden onder de H~0~-verdeling, en dat we daarom de nulhypothese kunnen verwerpen. Echter, het kan zo zijn dat we een willekeurige steekproef hebben getrokken waarvan de uitkomst toevallig heel ver van het midden van de H~0~-verdeling ligt (zie ook weer [Steekproevenverdeling](003-01-steekproeven.qmd#sec-steekproefcentraallimiet)). Dit weerspiegelt dan geen verschil in de populatie, maar eerder een steekproef met veel afwijkende waarden.
+Een type-I fout houdt in dat we de nulhypothese verwerpen terwijl deze eigenlijk waar is. Dit gebeurt aan de hand van statistisch significant resultaat. Stel we doen een hypothesetoets bij een significantieniveau van 5% en vinden dat de toets significant is en verwerpen vervolgens de nulhypothese. Onze redenering is doorgaans dat het onwaarschijnlijk is om een steekproefresultaat zo extreem (kans lager dan 5%) te vinden onder de H~0~-verdeling, en dat we daarom de nulhypothese kunnen verwerpen. Echter, het kan zo zijn dat we een willekeurige steekproef hebben getrokken waarvan de uitkomst toevallig heel ver van het midden van de H~0~-verdeling ligt (zie ook weer [Steekproevenverdeling](003-01-steekproeven.qmd#sec-steekproefcentraallimiet)). Dit weerspiegelt dan geen verschil in de populatie, maar eerder een steekproef met veel afwijkende waarden.
 
-Elk nadeel hebse voordeel, in ieder geval bij een type-I fout. We weten namelijk hoe groot de kans is op het maken van deze fout, gegeven dat de nulhypothese waar is. Die is namelijk hetzelfde als het significantieniveau $\alpha$. Dat is namelijk de grens waarbij een hypothese verwerpen. Dit betekent dat een lager significantieniveau, zoals 0,01 of zelfs 0,001, het risico op een type-I fout verkleint. Met een lager significantieniveau stellen we wel strengere eisen aan wanneer een nulhypothese kan worden verworpen. Hier is dus een trade-off.
+Elk nadeel hebse voordeel, in ieder geval bij een type-I fout. We weten namelijk hoe groot de kans is op het maken van deze fout, gegeven dat de nulhypothese waar is. Die is namelijk hetzelfde als het significantieniveau $\alpha$. Dat is namelijk de grens waarbij we de hypothese verwerpen. Dit betekent dat een lager significantieniveau, zoals 0,01 of zelfs 0,001, het risico op een type-I fout verkleint. Met een lager significantieniveau stellen we wel strengere eisen aan wanneer een nulhypothese kan worden verworpen. Dit is dus een trade-off.
 
-Een type–II fout is juist wanneer de nulhypothese niet verwerpen, terwijl dit wel zou moeten. De nulhypothese is in dit geval eigenlijk niet waar. Hier zijn twee oorzaken voor die vaak met elkaar samenhangen. Een is dat om een heel klein verschil of effect gaat, wat middels hypothese toetsen moeilijk is waar te nemen. Bijvoorbeeld als het verschil in glazen alcohol tussen mannen en vrouwen in de populatie 0,2 is. We zullen dan relatief veel steekproeven trekken die nul verschil vinden. De tweede oorzaak is een te laag aantal respondenten om een verschil goed waar te nemen. Zoals je in eerdere voorbeelden hebt gezien, leidt een lagere $n$ tot bijvoorbeeld een breder bhi of een grotere kritieke grenswaarde. De kans dat we de nulhypothese niet verwerpen terwijl dat wel zou moeten neemt dan toe, bijvoorbeeld omdat nul zich in het bhi bevindt terwijl de populatieparameter niet nul is.
+Een type–II fout is juist wanneer we de nulhypothese *niet* verwerpen, terwijl dit wel zou moeten. De nulhypothese is in dit geval niet waar. Dit type fout heeft twee oorzaken voor die vaak met elkaar samenhangen. De eerste oorzaak is dat het om een heel klein verschil of effect gaat, wat middels hypothese toetsen moeilijk is waar te nemen. Bijvoorbeeld als het verschil in glazen alcohol tussen mannen en vrouwen in de populatie 0,2 is. We zullen dan relatief veel (hypothetische) steekproeven trekken die nul verschil vinden. De tweede oorzaak is een te laag aantal respondenten om een verschil goed waar te nemen. Zoals je in eerdere voorbeelden hebt gezien, leidt een lagere $n$ tot bijvoorbeeld een breder bhi of een grotere kritieke grenswaarde. De kans dat we de nulhypothese niet verwerpen terwijl dat wel zou moeten neemt dan toe, bijvoorbeeld omdat nul zich in het bhi bevindt terwijl de populatieparameter niet nul is.
 
 In tegenoverstelling tot een type-I fout weten we niet hoe groot de kans is op een type-II fout. We weten alleen dat risico kleiner wordt naarmate we meer data verzamelen.
 
-Het voorkomen van deze fouten wijst ons erop dat we resultaten van een statistisch onderzoek nooit als definitief moeten beschouwen. Het kan zijn dat we de nulhypothese onterecht verwerpen (type-I fout), maar ook andersom dat we nulhypothese niet verwerpen terwijl deze eigenlijk waar is (type-II fout). Dit impliceert verder dat het verwerpen van de nulhypothese niet automatisch betekent dat het tegenovergestelde waar is, en dat het niet verwerpen van de nulhypothese betekent dat de nulhypothese waar is of 'bewezen'. De statistische tools die je hier leert zijn daarmee slechts hulpmiddelen in het ontdekken van de waarheid, maar geven ons nooit 100% uitsluitsel.
+Het bestaan van deze fouten wijst ons erop dat we resultaten van een statistisch onderzoek nooit als definitief moeten beschouwen. Het kan zijn dat we de nulhypothese onterecht verwerpen (type-I fout), maar ook andersom dat we nulhypothese niet verwerpen terwijl deze eigenlijk waar is (type-II fout). Dit impliceert verder dat het verwerpen van de nulhypothese niet automatisch betekent dat het tegenovergestelde waar is, en dat het niet verwerpen van de nulhypothese betekent dat de nulhypothese waar is of 'bewezen'. De statistische tools die je hier leert zijn daarmee slechts hulpmiddelen in het ontdekken van de waarheid, maar geven ons nooit 100% uitsluitsel.
 
-## Samenvatting 
+## Samenvatting
 
 Dit hoofdstuk heeft diverse aspecten behandeld die relevant zijn bij toetsen van hypotheses, zowel voor de methode van statistische significantie als bhi's. De belangrijkste take-aways zijn:
 
-- Bij het berekenen van een toetsingsresultaat moeten we rekening houden met de t-verdeling. Dit kan bij handmatige berekeningen worden opgezocht in de t-tabel, bij computermatige berekeningen houdt R hier automatisch rekening mee
+- Bij het berekenen van een toetsingsresultaat moeten we rekening houden met de t-verdeling. Dit kan bij handmatige berekeningen worden opgezocht in de [t-tabel](https://statisticsfundamentals.com/tables/t-distribution-table/), bij computermatige berekeningen houdt R hier automatisch rekening mee
 
 - Het formuleren van hypotheses vraagt om precisie m.b.t. wat we onderzoeken en hoe we dat meten
 

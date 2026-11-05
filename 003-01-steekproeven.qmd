@@ -127,7 +127,7 @@ Wat we zojuist hebben aangetoond, is de **centrale limietstelling**. Deze houdt 
 - Is de steekproevenverdeling normaal verdeeld, met eigen standaardfout
 - Zelfs als de oorspronkelijke variabele niet normaal verdeeld is! (zoals bijvoorbeeld xtc_gebruik_ooit; dit is een dichotome variabele)
 
-De regels rondom de centrale limietstelling zijn net wet anders bij minder dan 30 observaties, zie daarvoor bijvoorbeeld *Statistiek als hulpmiddel* of het internet.
+De regels rondom de centrale limietstelling zijn net wet anders bij minder dan 30 observaties, zie daarvoor bijvoorbeeld [Statistiek als hulpmiddel](https://www.uitgeverijvangorcum.nl/product/100-519_Statistiek-als-hulpmiddel) of het internet.
 
 Doordat we de standaardfout kennen, kunnen we in combinatie met [de empirische regel](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling) bepalen hoe waarschijnlijk een bepaalde (willekeurige) steekproefuitkomst voorkomt. Daar gaan we zo mee verder. Eerst laten we de magie van de steekproevenverdeling en centrale limietstelling even op ons inwerken.
 

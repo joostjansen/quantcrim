@@ -439,6 +439,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-03-afhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -453,7 +459,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
   </div>
 </li>
       </ul>
@@ -470,7 +476,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./004-opdrachten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
   </div>
 </li>
       </ul>
@@ -567,7 +573,7 @@ window.Quarto = {
 <pre><code>[1] 24.2</code></pre>
 </div>
 </div>
-<p>De gemiddelde leeftijd van deze vijf respondenten is is dus 24,2. In plaats een handmatige berekening kun je het ook berekenen middels de functie <em>mean()</em> in R:</p>
+<p>De gemiddelde leeftijd van deze vijf respondenten is is dus 24,2. In plaats een handmatige berekening kun je het ook berekenen middels de functie <code>mean()</code> in R:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vector aanmaken</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">22</span>, <span class="dv">22</span>, <span class="dv">28</span>, <span class="dv">33</span>)</span>
@@ -581,7 +587,7 @@ window.Quarto = {
 <pre><code>[1] 24.2</code></pre>
 </div>
 </div>
-<p>Eerst hebben we een vector, of eigenlijk een variabele, aangemaakt met de vijf observaties. Via de functie <em>mean()</em> bereken je vervolgens het gemiddelde.</p>
+<p>Eerst hebben we een vector, of eigenlijk een variabele, aangemaakt met de vijf observaties. Via de functie <code>mean()</code> bereken je vervolgens het gemiddelde.</p>
 </section>
 <section id="mediaan" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="mediaan"><span class="header-section-number">5.1.2</span> Mediaan</h3>
@@ -611,7 +617,7 @@ window.Quarto = {
 <h3 data-number="5.1.3" class="anchored" data-anchor-id="modus"><span class="header-section-number">5.1.3</span> Modus</h3>
 <p>De modus is de waarde die het vaakst voorkomt in een variabele.</p>
 <p>Bij de leeftijdsreeks (16, <u>22</u>, <u>22</u>, 28, 33) is dit 22 jaar omdat deze leeftijd tweemaal voorkomt en de rest slechts één keer.</p>
-<p>In R bereken je de modus via de functie <em>mfv().</em></p>
+<p>In R bereken je de modus via de functie <code>mfv()</code><em>.</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># modus berekenen</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mfv</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -636,7 +642,7 @@ window.Quarto = {
 <pre><code>[1] 17</code></pre>
 </div>
 </div>
-<p>Je kunt in R het minimum en maximum opvragen met de functies <em>min()</em> en <em>max()</em>. Ook kun je allebei tegelijk krijgen met de functie <em>range()</em></p>
+<p>Je kunt in R het minimum en maximum opvragen met de functies <code>min()</code> en <code>max()</code>. Ook kun je allebei tegelijk krijgen met de functie <code>range()</code><em>.</em></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># minimum opvragen</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -654,7 +660,7 @@ window.Quarto = {
 <pre><code>[1] 16 33</code></pre>
 </div>
 </div>
-<p>De functie <em>range()</em> geeft je alleen het minimum en maximum. Als je het bereik wilt weten, moet je zelf het minimum van het maximum aftrekken:</p>
+<p>De functie <code>range()</code> geeft je alleen het minimum en maximum. Als je het bereik wilt weten, moet je zelf het minimum van het maximum aftrekken:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bereik berekenen</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -769,7 +775,7 @@ S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 <pre><code>[1] 42.2</code></pre>
 </div>
 </div>
-<p>In R kun je met de functie <em>var()</em> de steekproefvariantie ook direct berekenen</p>
+<p>In R kun je met de functie <code>var()</code> de steekproefvariantie ook direct berekenen</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># steekproefvariantie </span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -795,7 +801,7 @@ s=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 <pre><code>[1] 6.496153</code></pre>
 </div>
 </div>
-<p>Je kunt de standaarddeviatie ook direct in R krijgen met <em>sd()</em></p>
+<p>Je kunt de standaarddeviatie ook direct in R krijgen met <code>sd()</code></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standaarddeviatie</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -842,7 +848,7 @@ s=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 </div>
 </div>
 <p>De minimumleeftijd is 16 jaar, de maximumleeftijd is 35 jaar en het leeftijdsbereik is 19 jaar. De standaarddeviatie is 4,8 jaar.</p>
-<p>Veel van deze statistieken (min., max., mediaan, gemiddelde) kun je ook in één keer bekijken middels de functie <em>summary()</em></p>
+<p>Veel van deze statistieken (min., max., mediaan, gemiddelde) kun je ook in één keer bekijken middels de functie <code>summary()</code></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># meerdere statistieken tegelijkertijd opvragen</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_uitgaan<span class="sc">$</span>leeftijd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -851,7 +857,7 @@ s=\sqrt\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
   16.00   20.00   23.00   23.52   27.00   35.00 </code></pre>
 </div>
 </div>
-<p>Je ziet dat de <em>summary()</em> functie ook de waardes voor 1st Qu. en 3rd Qu. geeft. Dit zijn het eerste en derde kwartiel, de grenzen waarbij respectievelijk 25% (Q1) en 75% (Q3) van de data ligt. In dit geval dus 20,0 en 27,0 jaar. Het tweede kwartiel (Q2) is de mediaan, dit is op de grens van 50% van de data.</p>
+<p>Je ziet dat de <code>summary()</code> functie ook de waardes voor 1st Qu. en 3rd Qu. geeft. Dit zijn het eerste en derde kwartiel, de grenzen waarbij respectievelijk 25% (Q1) en 75% (Q3) van de data ligt. In dit geval dus 20,0 en 27,0 jaar. Het tweede kwartiel (Q2) is de mediaan, dit is op de grens van 50% van de data.</p>
 <section id="doosdiagram" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="doosdiagram"><span class="header-section-number">5.3.1</span> Doosdiagram</h3>
 <p>Er bestaat ook een manier om de spreiding van een lineaire variabele te visualiseren. Dit is via een <strong>doosdiagram</strong>.</p>

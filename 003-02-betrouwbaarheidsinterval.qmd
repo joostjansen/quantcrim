@@ -283,5 +283,3 @@ Je zult inmiddels wel denken: wat moet ik hier allemaal mee (voor het tentamen)?
 - Over het algemeen geldt dat het betrouwbaarheidsinterval smaller wordt (en daarmee nauwkeuriger) wanneer we meer data verzamelen.
 
 - Bij het interpreteren van het bhi moeten we met verschillende assumpties en aspecten rekening houden. Dit is belangrijk omdat we daardoor meer bewust zijn van wat we eigenlijk aan het doen zijn.
-
-In het volgende hoofdstuk...

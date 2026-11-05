@@ -410,6 +410,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-03-afhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -424,7 +430,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
   </div>
 </li>
       </ul>
@@ -441,7 +447,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./004-opdrachten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
   </div>
 </li>
       </ul>
@@ -523,7 +529,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Kwalitatieve variabelen bestaan uit categorieën die een kwalitatieve eigenschap van een observatie beschrijven. Deze eigenschappen zijn niet direct in cijfers uit te drukken, zoals bij kwantitatieve variabelen. Een belangrijk aspect is dat de categorieën <em>discreet</em> zijn: ze moeten elkaar uitsluiten.</p>
 <section id="staafdiagram" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="staafdiagram"><span class="header-section-number">4.1.1</span> Staafdiagram</h3>
-<p>Laten we naar een voorbeeld kijken: geslacht. Stel dat we willen weten hoeveel mannen, vrouwen of anders-identificerenden er in de dataset zitten. Daarvoor kunnen we <strong>staafdiagram</strong> maken met <em>ggplot()</em>.</p>
+<p>Laten we naar een voorbeeld kijken: geslacht. Stel dat we willen weten hoeveel mannen, vrouwen of anders-identificerenden er in de dataset zitten. Daarvoor kunnen we <strong>staafdiagram</strong> maken met <code>ggplot()</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># staafdiagram maken</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_uitgaan, <span class="fu">aes</span>(<span class="at">x =</span> geslacht)) <span class="sc">+</span> <span class="co"># data en variabele selecteren</span></span>
@@ -555,7 +561,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="simpele-tabel" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="simpele-tabel"><span class="header-section-number">4.1.2</span> Simpele tabel</h3>
-<p>Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun je ook een simpele tabel maken met de functie <em>table()</em>.</p>
+<p>Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun je ook een simpele tabel maken met de functie <code>table()</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tabel van geslacht</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_uitgaan<span class="sc">$</span>geslacht)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -574,7 +580,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="taartdiagram" class="level3" data-number="4.1.4">
 <h3 data-number="4.1.4" class="anchored" data-anchor-id="taartdiagram"><span class="header-section-number">4.1.4</span> Taartdiagram</h3>
 <p>Een andere manier om een nominale variabele te presenteren, is via een <strong>taartdiagram</strong>. Een taartdiagram kan snel een overzicht geven van de verhouding tussen categorieën binnen een bepaalde variabele. Doorgaans werkt een taartdiagram het beste als er een beperkt aantal categorieën zijn.</p>
-<p>Hieronder staat een voorbeeld van taartdiagram van de variabele manier_verkrijgen_drugs. Dit gaat over de wijze waarop uitgaande jongeren meestal aan hun drugs komen.</p>
+<p>Hieronder staat een voorbeeld van taartdiagram van de variabele <code>manier_verkrijgen_drugs</code>. Dit gaat over de wijze waarop uitgaande jongeren meestal aan hun drugs komen.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># samenvatten van de relevante data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>drugs_verkrijgen <span class="ot">&lt;-</span> data_uitgaan <span class="sc">|&gt;</span></span>
@@ -678,7 +684,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sec-histogram" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="sec-histogram"><span class="header-section-number">4.2.2</span> Histogram</h3>
-<p>Voor een lineaire variabele met juist relatief veel unieke waarden gebruiken we meestal een histogram. Bij een een histogram worden bepaalde waardes gegroepeerd tot één staaf, waardoor de presentatie overzichtelijk blijft. Dit is hieronder weergeven voor de variabele gemoed_dinsdag_na_xtc<em>.</em> Dit is een score tussen de 0 en 100 die respondenten hebben gegeven hoe zich voelen op de dinsdag na xtc-gebruik in het weekend, waarbij 0 voor negatief staat en 100 voor positief.</p>
+<p>Voor een lineaire variabele met juist relatief veel unieke waarden gebruiken we meestal een histogram. Bij een een histogram worden bepaalde waardes gegroepeerd tot één staaf, waardoor de presentatie overzichtelijk blijft. Dit is hieronder weergeven voor de variabele <code>gemoed_dinsdag_na_xtc</code>. Dit is een score tussen de 0 en 100 die respondenten hebben gegeven over hoe ze zich voelen op de dinsdag na xtc-gebruik in het weekend, waarbij 0 voor negatief staat en 100 voor positief.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># histogram van gemoedstoestand op dinsdag na XTC gebruik</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_uitgaan, <span class="fu">aes</span>(<span class="at">x =</span> gemoed_dinsdag_na_xtc)) <span class="sc">+</span></span>
