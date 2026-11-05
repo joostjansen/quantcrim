@@ -109,13 +109,13 @@ Het bhi is dus $[-3,35, 5,84]$.
 
 ### Computerberekening
 
-Met een paar regels code kunnen we dit resultaat ook krijgen met `t.test()`
+Met een paar regels code kunnen we dit resultaat ook krijgen met `t.test()`.
 
 ```{r}
 # t-toets uitvoeren voor afhankelijke groepen
-t.test(gemoed_dinsdag_na_xtc, gemoed_dinsdag_na_mmc, # variabelen voor vergelijking
-       paired = TRUE, # aangeven dat het om afhankelijke groepen gaat
-       data = data_uitgaan) 
+t.test(data_uitgaan$gemoed_dinsdag_na_xtc, # eerste variabele
+       data_uitgaan$gemoed_dinsdag_na_mmc, # tweede variabele
+       paired = TRUE)
 ```
 
 ### Interpretatie en conclusie
