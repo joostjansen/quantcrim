@@ -7,20 +7,10 @@ execute:
 
 # Voorwoord {.unnumbered}
 
-Welkom bij het [quantcrim handboek](quantcrim.pdf "PDF handboek") Criminologie. Hier ga je leren hoe je kwantitatieve data kan analyseren met R. Het boek is ontworpen en beschikbaar gesteld door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel bachelor- als masterstudenten.
-
-Hieronder vind je een voorbeeld van hoe makkelijk het is om data in te laden, een regressiemodel te schatten en de resultaten ervan te presenteren in een plot.[^index-1]
-
-[^index-1]: We gaan in een later hoofdstuk zien wat een regressiemodel precies is.
-
-```{r}
-# test
-```
-
-Stuk tekst van McElrath over waarom werken met R en code
+Welkom bij het [quantcrim handboek](quantcrim.pdf "PDF handboek") Criminologie. Hier ga je leren hoe je allerlei vormen van kwantitatieve data kan analyseren met R. Het boek is ontworpen en *open-access* beschikbaar gesteld door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel bachelor- als masterstudenten...
 
 ## Voor we verder gaan..
 
-We hopen dat je dit boek handig vindt om mee te werken. In het kader van Open Science hebben we geprobeerd dit boek volledig transparant en reproduceerbaar te ontwikkelen. De broncode is beschikbaar via [https://github.com/joostjansen/quantcrim](https://github.com/joostjansen/QuantCrim){.uri}. Als je vragen, suggesties of aanpassingen hebt, aarzel niet deze te stellen.[^index-2]
+We hopen dat je dit boek handig vindt om mee te werken. In het kader van Open Science hebben we geprobeerd dit boek volledig transparant en reproduceerbaar te ontwikkelen. De broncode is beschikbaar via [https://github.com/joostjansen/quantcrim](https://github.com/joostjansen/QuantCrim){.uri}. Als je vragen, suggesties of aanpassingen hebt, aarzel niet deze te stellen.[^index-1]
 
-[^index-2]: Het beste is om dit via GitHub te doen in onze Repository.
+[^index-1]: Het beste is om dit via GitHub te doen in onze Repository.
