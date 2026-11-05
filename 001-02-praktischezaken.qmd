@@ -1,0 +1,40 @@
+---
+title: "Praktische zaken"
+format: html
+execute:
+  warning: false
+---
+
+Hier volgt een korte beschrijving met informatie en wat er van je wordt verwacht voor het kwanti-deel van het vak M&T I.
+
+## Docenten M&T I 2026-2027
+
+Gijs Custers - blokcoördinator en practicumdocent. Email: [custers\@law.eur.nl]{.underline}
+
+Zoë van Wingerden - practicumdocent. Email: [z.p.vanwingerden\@law.eur.nl]{.underline}
+
+## Onderwijsgroepen, practica en colleges     
+
+### Onderwijsgroepen
+
+In de onderwijsgroepen leer je over methodologische aspecten die relevant zijn voor kwantitatief onderzoek. Denk hierbij aan zaken als validiteit, betrouwbaarheid, operationaliseren en causaliteit. De kennis die je hier op doet zul je weer toepassen in de practica en colleges, en vice versa.
+
+### Practica
+
+In practica ga je aan de slag met de stof van die week. Je gaat opgaven maken die zich richten op het werken met data en beschrijvende en inferentiële technieken. Bij aanvang van het practicum kun je practicumopdracht van die week downloaden bij [LINK]{.underline}. Dit is een R markdown file waarin opdrachten en instructies staan.
+
+Je kunt tijdens de practica op je eigen laptop werken of op een pc in de computerzaal. Je bent zelf verantwoordelijk voor het goed opslaan en inleveren van je opdracht.
+
+Tijdens de practica kun je vragen stellen aan de docenten over de opdracht. Als de docenten druk zijn, kan het wat langer duren voordat je wordt geholpen. Wees lief en heb een beetje geduld (zo zijn wij ook).
+
+#### Voorbereiding
+
+**Om de opdrachten goed te kunnen maken, is het noodzakelijk dat je de stof van die week *voorafgaand* aan het practicum hebt bestudeerd.** Dit betekent alles (meerdere malen) goed doorlezen, aantekeningen maken en dingen opzoeken. Zonder voorbereiding kun je de practicumopdracht niet maken. Dan ga je vervolgens niet voldoen aan de inspanningsverplichting en uiteindelijk het vak het niet halen. Bespaar jezelf die stress en bereid je gewoon goed voor.
+
+### Colleges 
+
+## Tentamen
+
+Overzicht stof per week
+
+Tabel

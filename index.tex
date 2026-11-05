@@ -263,28 +263,90 @@ onderzoek}
 
 \markboth{Voorwoord}{Voorwoord}
 
-Welkom bij het \href{quantcrim.pdf}{quantcrim handboek} Criminologie.
-Hier ga je leren hoe je allerlei vormen van kwantitatieve data kan
-analyseren met R. Het boek is ontworpen en \emph{open-access}
-beschikbaar gesteld door docenten en onderzoekers van de opleiding
-Criminologie aan de Erasmus Universiteit. Het boek is bedoeld voor zowel
-bachelor- als masterstudenten\ldots{}
+Welkom bij het \textbf{quantcrim handboek} criminologie. Hier ga je
+leren hoe je allerlei vormen van kwantitatieve data kan analyseren met R
+en welke principes daaraan ten grondslag liggen. Het boek is ontworpen
+en \emph{open-access} beschikbaar gesteld door docenten en onderzoekers
+van de opleiding Criminologie aan de Erasmus Universiteit Rotterdam. Het
+boek is bedoeld voor zowel bachelor-, master als oud-studenten en
+iedereen met interesse in kwantitatief criminologisch onderzoek. Ons
+streven is om de studiematerialen van de vakken Methoden en Technieken I
+\& II en Research Lab in dit boek te verwerken.
+
+Waarom een apart boek voor onze opleiding? Statistiek en bijbehorende
+methoden worden vaak gezien als een vastomlijnd geheel waarover je kan
+leren door de `juiste' stappen te volgen. Hoewel we inderdaad vaak
+stappen volgen, bestaat binnen de wetenschap veel discussie over wat die
+juiste stappen zijn. Die onenigheid wordt echter niet altijd benoemd in
+introductie statistiekboeken. En dat is begrijpelijk, statistiek is bij
+de start al spannend genoeg! Dit boek representeert daarom onze visie op
+hoe je kwantitatief onderzoek zou moeten leren, en is daarmee een
+product van de kennis en ervaring die we de afgelopen jaren hebben
+opgedaan als onderzoekers en docenten.
+
+We denken dat dit boek handig is omdat:
+
+\begin{itemize}
+\item
+  Het laat zien dat er diverse manieren zijn om kwantitatieve
+  onderzoeksvraagstukken te benaderen
+\item
+  Het uitleg en voorbeelden integreert met werken in R. Daarmee
+  verbinden we theorie en praktijk
+\item
+  Het nadruk ligt op de presentatie en visualisatie van data. Dit bereid
+  jou beter voor op hedendaagse \emph{data science}
+\item
+  Het gebruik maakt van criminologische voorbeelden, waardoor je de soms
+  taaie stof hopelijk interessanter gaat vinden
+\item
+  Het een boek over R is, gemaakt met R 🤯
+\end{itemize}
 
 \section{Voor we verder gaan..}\label{voor-we-verder-gaan..}
 
-We hopen dat je dit boek handig vindt om mee te werken. In het kader van
-Open Science hebben we geprobeerd dit boek volledig transparant en
-reproduceerbaar te ontwikkelen. De broncode is beschikbaar via
+In het kader van Open Science hebben we geprobeerd dit boek volledig
+transparant en reproduceerbaar te ontwikkelen. De broncode is
+beschikbaar via
 \href{https://github.com/joostjansen/QuantCrim}{https://github.com/joostjansen/quantcrim}.
 Als je vragen, suggesties of aanpassingen hebt, aarzel niet deze te
 stellen.\footnote{Het beste is om dit via GitHub te doen in onze
   Repository.}
 
-\bookmarksetup{startatroot}
+Net als alle wetenschappers, staan wij op de schouders van reuzen. De
+inhoud van dit boek is onder andere gebaseerd op de volgende bronnen:
 
-\chapter{Voorbereiding}\label{voorbereiding}
+Favero, N. (2026). \emph{Statistics minus the math: An introduction for
+the social sciences} (2nd ed.). \url{https://minusthemath.com/2e/}
 
-\bookmarksetup{startatroot}
+Hespanhol, L., Vallio, C. S., Costa, L. M., \& Saragiotto, B. T. (2019).
+Understanding and interpreting confidence and credible intervals around
+effect estimates. \emph{Brazilian Journal of Physical Therapy},
+\emph{23}(4), 290-301.
+
+Lambert, B. (2018). \emph{A student's guide to Bayesian statistics}.
+SAGE Publications Ltd.
+
+McElreath, R. (2018). \emph{Statistical rethinking: A Bayesian course
+with examples in R and Stan}. CRC Press.
+
+Navarro, D.J. (2024). \emph{Learning statistics with R: A tutorial for
+psychology students and other beginners}. University of New South Wales.
+
+Spiegelhalter, D. (2019). \emph{The art of statistics}. Basic Books.
+
+van Groenestijn, P., \& Visser, M. (2023). \emph{Statistiek als
+hulpmiddel: Een overzicht van gangbare toepassingen in de sociale
+wetenschappen} (4e herz. dr.). Uitgeverij Koninklijke Van Gorcum.
+
+Wasserstein, R. L., Schirm, A. L., \& Lazar, N. A. (2019). Moving to a
+world beyond ``p\textless{} 0.05''. \emph{The American Statistician},
+\emph{73}(sup1), 1-19.
+
+\part{Voorbereiding}
+
+\chapter{Installatie en introductie
+R}\label{installatie-en-introductie-r}
 
 \chapter*{Voorbereidingen}\label{voorbereidingen}
 \addcontentsline{toc}{chapter}{Voorbereidingen}
@@ -348,6 +410,71 @@ nodig hebt.
 \FunctionTok{library}\NormalTok{(tidyverse)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{itemize}
+\item
+  Computervaardigheden en zelfstandigheid.
+\item
+  Codeacademy
+\end{itemize}
+
+\chapter{Praktische zaken}\label{praktische-zaken}
+
+Hier volgt een korte beschrijving met informatie en wat er van je wordt
+verwacht voor het kwanti-deel van het vak M\&T I.
+
+\section{Docenten M\&T I 2026-2027}\label{docenten-mt-i-2026-2027}
+
+Gijs Custers - blokcoördinator en practicumdocent. Email:
+\ul{custers@law.eur.nl}
+
+Zoë van Wingerden - practicumdocent. Email:
+\ul{z.p.vanwingerden@law.eur.nl}
+
+\section{Onderwijsgroepen, practica en
+colleges}\label{onderwijsgroepen-practica-en-colleges}
+
+\subsection{Onderwijsgroepen}\label{onderwijsgroepen}
+
+In de onderwijsgroepen leer je over methodologische aspecten die
+relevant zijn voor kwantitatief onderzoek. Denk hierbij aan zaken als
+validiteit, betrouwbaarheid, operationaliseren en causaliteit. De kennis
+die je hier op doet zul je weer toepassen in de practica en colleges, en
+vice versa.
+
+\subsection{Practica}\label{practica}
+
+In practica ga je aan de slag met de stof van die week. Je gaat opgaven
+maken die zich richten op het werken met data en beschrijvende en
+inferentiële technieken. Bij aanvang van het practicum kun je
+practicumopdracht van die week downloaden bij \ul{LINK}. Dit is een R
+markdown file waarin opdrachten en instructies staan.
+
+Je kunt tijdens de practica op je eigen laptop werken of op een pc in de
+computerzaal. Je bent zelf verantwoordelijk voor het goed opslaan en
+inleveren van je opdracht.
+
+Tijdens de practica kun je vragen stellen aan de docenten over de
+opdracht. Als de docenten druk zijn, kan het wat langer duren voordat je
+wordt geholpen. Wees lief en heb een beetje geduld (zo zijn wij ook).
+
+\subsubsection{Voorbereiding}\label{voorbereiding-1}
+
+\textbf{Om de opdrachten goed te kunnen maken, is het noodzakelijk dat
+je de stof van die week \emph{voorafgaand} aan het practicum hebt
+bestudeerd.} Dit betekent alles (meerdere malen) goed doorlezen,
+aantekeningen maken en dingen opzoeken. Zonder voorbereiding kun je de
+practicumopdracht niet maken. Dan ga je vervolgens niet voldoen aan de
+inspanningsverplichting en uiteindelijk het vak het niet halen. Bespaar
+jezelf die stress en bereid je gewoon goed voor.
+
+\subsection{Colleges}\label{colleges}
+
+\section{Tentamen}\label{tentamen}
+
+Overzicht stof per week
+
+Tabel
 
 \part{Data beschrijven}
 

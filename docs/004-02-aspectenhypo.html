@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Aspecten van hypothesetoetsing – quantcrim</title>
+<title>11&nbsp; Aspecten van hypothesetoetsing – quantcrim</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -318,7 +318,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-02-aspectenhypo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-02-aspectenhypo.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -354,16 +354,10 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Voorwoord</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./001-voorbereiding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Voorbereiding</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Data beschrijven</span></a>
+ <span class="menu-text">Voorbereiding</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -371,26 +365,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./002-01-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  <a href="./001-01-installatie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installatie en introductie R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./002-02-meetniveaus-visualisaties.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./002-03-centrum-en-spreidingsmaten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Centrum- en spreidingsmaten, normale verdeling en z-score</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./002-04-relatiesvariabelen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></span></a>
+  <a href="./001-02-praktischezaken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Praktische zaken</span></span></a>
   </div>
 </li>
       </ul>
@@ -398,7 +380,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Steekproeven en betrouwbaarheidsinterval</span></a>
+ <span class="menu-text">Data beschrijven</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -406,14 +388,26 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-01-steekproeven.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></span></a>
+  <a href="./002-01-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-02-betrouwbaarheidsinterval.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></span></a>
+  <a href="./002-02-meetniveaus-visualisaties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-03-centrum-en-spreidingsmaten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Centrum- en spreidingsmaten, normale verdeling en z-score</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-04-relatiesvariabelen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></span></a>
   </div>
 </li>
       </ul>
@@ -421,7 +415,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Hypotheses toetsen</span></a>
+ <span class="menu-text">Steekproeven en betrouwbaarheidsinterval</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -429,20 +423,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./004-01-onafhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesetoetsing</span></span></a>
+  <a href="./003-01-steekproeven.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./004-02-aspectenhypo.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./004-03-afhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span></a>
+  <a href="./003-02-betrouwbaarheidsinterval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></span></a>
   </div>
 </li>
       </ul>
@@ -450,7 +438,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Colleges</span></a>
+ <span class="menu-text">Hypotheses toetsen</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -458,8 +446,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+  <a href="./004-01-onafhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hypothesetoetsing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-02-aspectenhypo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-03-afhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span></a>
   </div>
 </li>
       </ul>
@@ -467,7 +467,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Opdrachten</span></a>
+ <span class="menu-text">Colleges</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -475,8 +475,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./004-opdrachten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+  <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
   </div>
 </li>
       </ul>
@@ -484,12 +484,29 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Opdrachten</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-opdrachten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./formuleblad.html" class="sidebar-item-text sidebar-link">
@@ -510,14 +527,14 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#t-verdeling" id="toc-t-verdeling" class="nav-link active" data-scroll-target="#t-verdeling"><span class="header-section-number">10.1</span> T-verdeling</a>
+  <li><a href="#t-verdeling" id="toc-t-verdeling" class="nav-link active" data-scroll-target="#t-verdeling"><span class="header-section-number">11.1</span> T-verdeling</a>
   <ul class="collapse">
-  <li><a href="#bhi-op-basis-van-t-verdeling" id="toc-bhi-op-basis-van-t-verdeling" class="nav-link" data-scroll-target="#bhi-op-basis-van-t-verdeling"><span class="header-section-number">10.1.1</span> Bhi op basis van t-verdeling</a></li>
+  <li><a href="#bhi-op-basis-van-t-verdeling" id="toc-bhi-op-basis-van-t-verdeling" class="nav-link" data-scroll-target="#bhi-op-basis-van-t-verdeling"><span class="header-section-number">11.1.1</span> Bhi op basis van t-verdeling</a></li>
   </ul></li>
-  <li><a href="#sec-hypoformuleren" id="toc-sec-hypoformuleren" class="nav-link" data-scroll-target="#sec-hypoformuleren"><span class="header-section-number">10.2</span> Hypotheses formuleren</a></li>
-  <li><a href="#tweezijdigeenzijdig-toetsen" id="toc-tweezijdigeenzijdig-toetsen" class="nav-link" data-scroll-target="#tweezijdigeenzijdig-toetsen"><span class="header-section-number">10.3</span> Tweezijdig/eenzijdig toetsen</a></li>
-  <li><a href="#sec-eenzijdigtweezijdig" id="toc-sec-eenzijdigtweezijdig" class="nav-link" data-scroll-target="#sec-eenzijdigtweezijdig"><span class="header-section-number">10.4</span> Type-I en type-II fouten</a></li>
-  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">10.5</span> Samenvatting</a></li>
+  <li><a href="#sec-hypoformuleren" id="toc-sec-hypoformuleren" class="nav-link" data-scroll-target="#sec-hypoformuleren"><span class="header-section-number">11.2</span> Hypotheses formuleren</a></li>
+  <li><a href="#tweezijdigeenzijdig-toetsen" id="toc-tweezijdigeenzijdig-toetsen" class="nav-link" data-scroll-target="#tweezijdigeenzijdig-toetsen"><span class="header-section-number">11.3</span> Tweezijdig/eenzijdig toetsen</a></li>
+  <li><a href="#sec-eenzijdigtweezijdig" id="toc-sec-eenzijdigtweezijdig" class="nav-link" data-scroll-target="#sec-eenzijdigtweezijdig"><span class="header-section-number">11.4</span> Type-I en type-II fouten</a></li>
+  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">11.5</span> Samenvatting</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/004-02-aspectenhypo.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -525,9 +542,9 @@ window.Quarto = {
 <main class="content page-columns page-full" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-02-aspectenhypo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-02-aspectenhypo.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></h1>
 </div>
 
 
@@ -546,8 +563,8 @@ window.Quarto = {
 
 <p>In het vorige hoofdstuk heb je geleerd wat hypothese toetsen inhoudt en welke stappen je daarbij moet nemen. Als je dit voor deze eerste keer leert, kan het behoorlijk uitdagend zijn om het allemaal te verwerken. Je zult echter zien dat naarmate je het vaker oefent en verschillende bhi’s hebt berekend, je het principe ervan beter zult gaan begrijpen. Oefening baart kunst (OBK)!</p>
 <p>We hebben tot nu een paar bochten afgesneden. Zoals gesignaleerd in het vorige hoofdstuk, zijn er bij hypothese toetsen meerdere aspecten waar je rekening mee moet houden. Een aantal van die aspecten behandelen we hier. Daarna heb je, als het goed is, een aardig overzicht van wat er allemaal bij hypothese toetsen komt kijken. We gaan in op de volgende vier zaken: 1) de t-verdeling 2) het formuleren van hypotheses 3) eenzijdig en tweezijdig toetsen en 4) type-I en type-II fouten.</p>
-<section id="t-verdeling" class="level2 page-columns page-full" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="t-verdeling"><span class="header-section-number">10.1</span> T-verdeling</h2>
+<section id="t-verdeling" class="level2 page-columns page-full" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="t-verdeling"><span class="header-section-number">11.1</span> T-verdeling</h2>
 <p>Zoals je inmiddels weet, gebeurt het berekenen van dingen zoals de overschrijdingskans en een bhi op basis van de normale verdeling. Tot nu toe hebben we aangenomen dat de <a href="./002-03-centrum-en-spreidingsmaten.html#sec-normaleverdeling">normale verdeling</a> altijd hetzelfde is, waarbij de distributie van waarden de empirische regel volgt. Dit houdt in dat binnen een xx aantal standaarddeviaties van het gemiddelde xx% van alle waarden ligt, afhankelijk van hoeveel standaarddeviaties je neemt. Deze vaste vorm staat ook wel bekend als de <em>standaard</em>normale verdeling of z-verdeling en geldt over het algemeen voor populatiedata.</p>
 <p>Het blijkt echter dat de standaardnormale verdeling niet altijd even goed van toepassing is. Met name voor kleinere steekproeven vinden we dat de normale verdeling een andere vorm heeft dan standaardnormale verdeling. In deze video wordt uitgelegd hoe dat werkt:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/32CuxWdOlow?si=75mpR9UutZl4BBm3" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
@@ -563,8 +580,8 @@ window.Quarto = {
 </div><div id="fn2"><p><sup>2</sup>&nbsp;Het aantal vrijheidsgraden bij een t-toets voor onafhankelijke groepen en ongelijke varianties wordt normaliter via een ingewikkelde formule berekend. Omdat bij dit voorbeeld de varianties gelijk zijn alsmede het aantal respondenten, hoeven we alleen <span class="math inline">\(n-2\)</span> te doen om het aantal vrijheidsgraden te verkrijgen.</p></div></div><p>De toetsingsgrootheid <span class="math inline">\(t_g\)</span> is de t-waarde die correspondeert met het steekproefresultaat en waar deze zich bevindt onder de H<sub>0</sub>-verdeling. Elke toets kent zijn eigen formule om dit te berekenen. Bij de R-output uit het <a href="./004-01-onafhankelijkegroepen.html#sec-statistischesignificantie">voorbeeld</a> kun je zien dat (afgerond) <span class="math inline">\(t_g=2,440\)</span>. Deze waarde komt dus overeen met gevonden verschil in gemiddeldes van 2,7 glazen.</p>
 <p>In de figuur hieronder wordt bovenstaande gevisualiseerd. Je ziet dus dat dit in feite niet anders is dan wat we in het vorige hoofdstuk hebben gezien. De t-waardes worden gebruikt om de bijbehorende grens van het significantieniveau en de overschrijdingskans te bepalen.</p>
 <p><img src="afbeeldingen/h0_kritieke_grens_t.png" class="img-fluid"></p>
-<section id="bhi-op-basis-van-t-verdeling" class="level3 page-columns page-full" data-number="10.1.1">
-<h3 data-number="10.1.1" class="anchored" data-anchor-id="bhi-op-basis-van-t-verdeling"><span class="header-section-number">10.1.1</span> Bhi op basis van t-verdeling</h3>
+<section id="bhi-op-basis-van-t-verdeling" class="level3 page-columns page-full" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="bhi-op-basis-van-t-verdeling"><span class="header-section-number">11.1.1</span> Bhi op basis van t-verdeling</h3>
 <p>We maken het ons iets makkelijker in deze cursus door voornamelijk te kijken naar bhi’s. Daarvoor hebben we alleen de kritieke grenswaarde <span class="math inline">\(t_k\)</span> nodig en niet de toetsingsgrootheid <span class="math inline">\(t_g\)</span>. De laatste is alleen van toepassing bij de methode van statistische significantie.</p>
 <p>We doorlopen nu nogmaals het voorbeeld uit het vorige hoofdstuk, maar nu met 15 mannen en 15 vrouwen. We berekenen handmatig het bhi volgens de t-verdeling. Dan krijg je een idee hoe een bhi voor een t-toets voor onafhankelijke groepen tot stand komt. De formule is als volgt:</p>
 <p><span class="math display">\[
@@ -637,8 +654,8 @@ sample estimates:
 <p>Merk tenslotte op dat de formules van bhi’s voor proporties en gemiddeldes bij <a href="./003-02-betrouwbaarheidsinterval.html">Betrouwbaarheidsinterval</a> niet helemaal correct waren voor steekproeven. Daar gingen we nog van z-waardes uit i.p.v. t-waardes. De ‘juiste’ formules kun je vinden in het <a href="./formuleblad.html">Formuleblad</a>. Daarmee zullen we ook werken in de practica.</p>
 </section>
 </section>
-<section id="sec-hypoformuleren" class="level2 page-columns page-full" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="sec-hypoformuleren"><span class="header-section-number">10.2</span> Hypotheses formuleren</h2>
+<section id="sec-hypoformuleren" class="level2 page-columns page-full" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="sec-hypoformuleren"><span class="header-section-number">11.2</span> Hypotheses formuleren</h2>
 <p>In het vorige hoofdstuk bij <a href="./004-01-onafhankelijkegroepen.html#sec-opstellenhypo">Hypothese opstellen</a> werd genoemd dat het relevant is om een hypothese zo exact mogelijk te formuleren. Dit omdat een hypothese invulling geeft aan <em>wat</em> we willen onderzoeken en <em>hoe</em> wat dat willen meten (lees: operationaliseren). Daarom hanteren we de volgende regels bij het opstellen van een hypothese:</p>
 <ol type="1">
 <li>De richting van het verband moet duidelijk zijn</li>
@@ -668,8 +685,8 @@ sample estimates:
 </ol>
 <p>Tot nu toe hebben we alleen een t-toets voor onafhankelijke groepen behandeld. Daarin vergelijken we de gemiddeldes van twee groepen (nominale variabele) op één kwantitatieve variabele met elkaar: <span class="math inline">\(\mu_1 =\mu_2\)</span>. In de komende hoofdstukken gaan we nog meer toetsen behandelen: t-toets voor afhankelijke groepen, chi-kwadraat, en correlatie. Uit de formulering van de hypotheses en statistische notatie moet volgen om wat voor soort toets het steeds gaat. Hoe je dat per toets doet, wordt bij de voorbeelden uitgelegd.</p>
 </section>
-<section id="tweezijdigeenzijdig-toetsen" class="level2 page-columns page-full" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="tweezijdigeenzijdig-toetsen"><span class="header-section-number">10.3</span> Tweezijdig/eenzijdig toetsen</h2>
+<section id="tweezijdigeenzijdig-toetsen" class="level2 page-columns page-full" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="tweezijdigeenzijdig-toetsen"><span class="header-section-number">11.3</span> Tweezijdig/eenzijdig toetsen</h2>
 <p>Hierboven is al genoemd dat er twee soorten hypotheses zijn: hypotheses zonder een specifieke richting (<strong>tweezijdig</strong>) en hypotheses waarin het verband een specifieke richting heeft (<strong>eenzijdig</strong>). Het verschil tussen tweezijdig en eenzijdig is niet alleen relevant voor hoe we de hypothese formuleren, maar ook voor hoe we deze toetsen uitvoeren. Het heeft namelijk invloed op hoe de overschrijdingskans wordt berekend.</p>
 <p>Wanneer we een tweezijdige hypothese hebben, berekenen we de kans op het verkrijgen van een steekproefresultaat minstens zo extreem <em>in beide richtingen</em> van de verdeling (onder de H<sub>0</sub> uiteraard). Teruggaand naar het <a href="./004-01-onafhankelijkegroepen.html#sec-statistischesignificantie">voorbeeld</a> uit het vorige hoofdstuk, betekent dit dat we de kans berekenen op het verkrijgen van een verschil in gemiddeldes van 2,7 of hoger of -2,7 of lager. Dat is hieronder verbeeld.</p>
 <p><img src="afbeeldingen/h0_tweezijdige_p.png" class="img-fluid"></p>
@@ -680,8 +697,8 @@ sample estimates:
 <p>De keuze voor eenzijdig of tweezijdig toetsen kan gevolgen hebben voor het vaststellen van statistische significantie, en uiteindelijk jouw conclusies. Stel je had een steekproef getrokken waarbij het verschil in gemiddeldes tussen mannen en vrouwen 2,0 glazen is. Bij een tweezijdige hypothese zou dit resultaat zich niet in het H<sub>0</sub>-verwerpingsgebied bevinden, maar bij eenzijdig toetsen wel. In het eerste geval zou je de nulhypothese dus niet verwerpen, in het tweede geval wel.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> Daarom is het belangrijk dat je <em>vooraf</em> aan een analyse duidelijk bent over de richting van je hypothese en gekozen significantieniveau, zodat je niet achteraf de resultaten gaat aanpassen om een statistisch significant resultaat te krijgen.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Bij een steekproefresultaat van bijvoorbeeld -2,5 glazen zou dit andersom zijn. Hopelijk kun je al bedenken waarom.</p></div><div id="fn8"><p><sup>8</sup>&nbsp;Zulke praktijken worden ook wel <em>p-hacking</em> genoemd.</p></div><div id="fn9"><p><sup>9</sup>&nbsp;Bij een eenzijdige toets met een bhi krijg je namelijk alleen een vaste onder- of bovengrens, afhankelijk van de richting van je hypothese.</p></div></div><p>De uitleg hierboven heeft zich toegespitst op de methode van statistische significantie. Bij bhi’s is het tevens relevant of je een eenzijdige of tweezijdige verwachting hebt, omdat de berekening van het bhi daar in principe op moet worden aangepast. In de praktijk gaan we bij bhi’s echter bijna altijd uit van een tweezijdige toets, ook al hebben we een eenzijdige hypothese. Dat is niet helemaal statistisch correct, maar meestal zijn we geïnteresseerd in zowel de ondergrens als de bovengrens van het bhi.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> Dit betekent dat we soms wat conservatiever toetsen op het verwerpen van de nulhypothese dan nodig, maar better be safe than sorry. En het houdt de interpretatie ook eenvoudiger (weer een win voor het bhi t.o.v. statistische significantie!).</p>
 </section>
-<section id="sec-eenzijdigtweezijdig" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="sec-eenzijdigtweezijdig"><span class="header-section-number">10.4</span> Type-I en type-II fouten</h2>
+<section id="sec-eenzijdigtweezijdig" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="sec-eenzijdigtweezijdig"><span class="header-section-number">11.4</span> Type-I en type-II fouten</h2>
 <p>Als laatste kijken we in dit hoofdstuk naar type-I en type-II fouten. Dit zijn fouten die kunnen voorkomen bij statistisch onderzoek waardoor we de verkeerde conclusie trekken over de nulhypothese.</p>
 <p>Een type-I fout houdt in dat we de nulhypothese verwerpen terwijl deze eigenlijk waar is. Dit gebeurt aan de hand van statistisch significant resultaat. Stel we doen een hypothesetoets bij een significantieniveau van 5% en vinden dat de toets significant is en verwerpen vervolgens de nulhypothese. Onze redenering is doorgaans dat het onwaarschijnlijk is om een steekproefresultaat zo extreem (kans lager dan 5%) te vinden onder de H<sub>0</sub>-verdeling, en dat we daarom de nulhypothese kunnen verwerpen. Echter, het kan zo zijn dat we een willekeurige steekproef hebben getrokken waarvan de uitkomst toevallig heel ver van het midden van de H<sub>0</sub>-verdeling ligt (zie ook weer <a href="./003-01-steekproeven.html#sec-steekproefcentraallimiet">Steekproevenverdeling</a>). Dit weerspiegelt dan geen verschil in de populatie, maar eerder een steekproef met veel afwijkende waarden.</p>
 <p>Elk nadeel hebse voordeel, in ieder geval bij een type-I fout. We weten namelijk hoe groot de kans is op het maken van deze fout, gegeven dat de nulhypothese waar is. Die is namelijk hetzelfde als het significantieniveau <span class="math inline">\(\alpha\)</span>. Dat is namelijk de grens waarbij we de hypothese verwerpen. Dit betekent dat een lager significantieniveau, zoals 0,01 of zelfs 0,001, het risico op een type-I fout verkleint. Met een lager significantieniveau stellen we wel strengere eisen aan wanneer een nulhypothese kan worden verworpen. Dit is dus een trade-off.</p>
@@ -689,8 +706,8 @@ sample estimates:
 <p>In tegenoverstelling tot een type-I fout weten we niet hoe groot de kans is op een type-II fout. We weten alleen dat risico kleiner wordt naarmate we meer data verzamelen.</p>
 <p>Het bestaan van deze fouten wijst ons erop dat we resultaten van een statistisch onderzoek nooit als definitief moeten beschouwen. Het kan zijn dat we de nulhypothese onterecht verwerpen (type-I fout), maar ook andersom dat we nulhypothese niet verwerpen terwijl deze eigenlijk waar is (type-II fout). Dit impliceert verder dat het verwerpen van de nulhypothese niet automatisch betekent dat het tegenovergestelde waar is, en dat het niet verwerpen van de nulhypothese betekent dat de nulhypothese waar is of ‘bewezen’. De statistische tools die je hier leert zijn daarmee slechts hulpmiddelen in het ontdekken van de waarheid, maar geven ons nooit 100% uitsluitsel.</p>
 </section>
-<section id="samenvatting" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="samenvatting"><span class="header-section-number">10.5</span> Samenvatting</h2>
+<section id="samenvatting" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="samenvatting"><span class="header-section-number">11.5</span> Samenvatting</h2>
 <p>Dit hoofdstuk heeft diverse aspecten behandeld die relevant zijn bij toetsen van hypotheses, zowel voor de methode van statistische significantie als bhi’s. De belangrijkste take-aways zijn:</p>
 <ul>
 <li><p>Bij het berekenen van een toetsingsresultaat moeten we rekening houden met de t-verdeling. Dit kan bij handmatige berekeningen worden opgezocht in de <a href="https://statisticsfundamentals.com/tables/t-distribution-table/">t-tabel</a>, bij computermatige berekeningen houdt R hier automatisch rekening mee</p></li>
@@ -1120,12 +1137,12 @@ sample estimates:
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./004-01-onafhankelijkegroepen.html" class="pagination-link" aria-label="Hypothesetoetsing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesetoetsing</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hypothesetoetsing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./004-03-afhankelijkegroepen.html" class="pagination-link" aria-label="T-toets afhankelijke groepen">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

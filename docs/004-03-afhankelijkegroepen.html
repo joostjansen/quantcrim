@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; T-toets afhankelijke groepen – quantcrim</title>
+<title>12&nbsp; T-toets afhankelijke groepen – quantcrim</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -318,7 +318,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-03-afhankelijkegroepen.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-03-afhankelijkegroepen.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -354,16 +354,10 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Voorwoord</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./001-voorbereiding.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Voorbereiding</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Data beschrijven</span></a>
+ <span class="menu-text">Voorbereiding</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -371,26 +365,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./002-01-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  <a href="./001-01-installatie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installatie en introductie R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./002-02-meetniveaus-visualisaties.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./002-03-centrum-en-spreidingsmaten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Centrum- en spreidingsmaten, normale verdeling en z-score</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./002-04-relatiesvariabelen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></span></a>
+  <a href="./001-02-praktischezaken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Praktische zaken</span></span></a>
   </div>
 </li>
       </ul>
@@ -398,7 +380,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Steekproeven en betrouwbaarheidsinterval</span></a>
+ <span class="menu-text">Data beschrijven</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -406,14 +388,26 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-01-steekproeven.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></span></a>
+  <a href="./002-01-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-02-betrouwbaarheidsinterval.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></span></a>
+  <a href="./002-02-meetniveaus-visualisaties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-03-centrum-en-spreidingsmaten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Centrum- en spreidingsmaten, normale verdeling en z-score</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-04-relatiesvariabelen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></span></a>
   </div>
 </li>
       </ul>
@@ -421,7 +415,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Hypotheses toetsen</span></a>
+ <span class="menu-text">Steekproeven en betrouwbaarheidsinterval</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -429,20 +423,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./004-01-onafhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Hypothesetoetsing</span></span></a>
+  <a href="./003-01-steekproeven.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./004-02-aspectenhypo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./004-03-afhankelijkegroepen.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span></a>
+  <a href="./003-02-betrouwbaarheidsinterval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></span></a>
   </div>
 </li>
       </ul>
@@ -450,7 +438,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Colleges</span></a>
+ <span class="menu-text">Hypotheses toetsen</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -458,8 +446,20 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+  <a href="./004-01-onafhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hypothesetoetsing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-02-aspectenhypo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-03-afhankelijkegroepen.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span></a>
   </div>
 </li>
       </ul>
@@ -467,7 +467,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Opdrachten</span></a>
+ <span class="menu-text">Colleges</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -475,8 +475,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./004-opdrachten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+  <a href="./003-colleges.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
   </div>
 </li>
       </ul>
@@ -484,12 +484,29 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Opdrachten</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-opdrachten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./formuleblad.html" class="sidebar-item-text sidebar-link">
@@ -510,14 +527,14 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#beetje-pips-van-de-dips" id="toc-beetje-pips-van-de-dips" class="nav-link active" data-scroll-target="#beetje-pips-van-de-dips"><span class="header-section-number">11.1</span> Beetje pips van de dips</a>
+  <li><a href="#beetje-pips-van-de-dips" id="toc-beetje-pips-van-de-dips" class="nav-link active" data-scroll-target="#beetje-pips-van-de-dips"><span class="header-section-number">12.1</span> Beetje pips van de dips</a>
   <ul class="collapse">
-  <li><a href="#hypothese-opstellen" id="toc-hypothese-opstellen" class="nav-link" data-scroll-target="#hypothese-opstellen"><span class="header-section-number">11.1.1</span> Hypothese opstellen</a></li>
-  <li><a href="#handmatige-berekening" id="toc-handmatige-berekening" class="nav-link" data-scroll-target="#handmatige-berekening"><span class="header-section-number">11.1.2</span> Handmatige berekening</a></li>
-  <li><a href="#computerberekening" id="toc-computerberekening" class="nav-link" data-scroll-target="#computerberekening"><span class="header-section-number">11.1.3</span> Computerberekening</a></li>
-  <li><a href="#interpretatie-en-conclusie" id="toc-interpretatie-en-conclusie" class="nav-link" data-scroll-target="#interpretatie-en-conclusie"><span class="header-section-number">11.1.4</span> Interpretatie en conclusie</a></li>
+  <li><a href="#hypothese-opstellen" id="toc-hypothese-opstellen" class="nav-link" data-scroll-target="#hypothese-opstellen"><span class="header-section-number">12.1.1</span> Hypothese opstellen</a></li>
+  <li><a href="#handmatige-berekening" id="toc-handmatige-berekening" class="nav-link" data-scroll-target="#handmatige-berekening"><span class="header-section-number">12.1.2</span> Handmatige berekening</a></li>
+  <li><a href="#computerberekening" id="toc-computerberekening" class="nav-link" data-scroll-target="#computerberekening"><span class="header-section-number">12.1.3</span> Computerberekening</a></li>
+  <li><a href="#interpretatie-en-conclusie" id="toc-interpretatie-en-conclusie" class="nav-link" data-scroll-target="#interpretatie-en-conclusie"><span class="header-section-number">12.1.4</span> Interpretatie en conclusie</a></li>
   </ul></li>
-  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">11.2</span> Samenvatting</a></li>
+  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">12.2</span> Samenvatting</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/004-03-afhankelijkegroepen.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -525,9 +542,9 @@ window.Quarto = {
 <main class="content page-columns page-full" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-03-afhankelijkegroepen.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./004-01-onafhankelijkegroepen.html">Hypotheses toetsen</a></li><li class="breadcrumb-item"><a href="./004-03-afhankelijkegroepen.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></h1>
 </div>
 
 
@@ -548,8 +565,8 @@ window.Quarto = {
 <p>Onder <a href="./004-01-onafhankelijkegroepen.html">Hypothese toetsen</a> hebben we onderzocht wat het verschil is tussen twee groepen (mannen en vrouwen) op een numerieke hoeveelheid (aantal glazen alcohol). Daarbij nemen we een nominale variabele<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> om de groepen te bepalen en een kwantitatieve variabele om hun gemiddeldes op te vergelijken. Dit noemen we een t-toets voor onafhankelijke groepen.</p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Dit kan in principe ook met een ordinale variabele, zolang je maar twee waardes (lees: groepen) selecteert.</p></div><div id="fn2"><p><sup>2</sup>&nbsp;De terminologie rondom t-toetsen kan wat verwarrend zijn, omdat beide type t-toetsen het over ‘groepen’ hebben. Belangrijk om te onthouden is dat we bij ‘onafhankelijke groepen’ in principe tussen twee groepen vergelijken (zoals we het woord groepen normaliter gebruiken) en bij ‘afhankelijke groepen’ in principe binnen één groep vergelijken.</p></div></div><p>In dit hoofdstuk gaan we naar een andere t-toets kijken: de <strong>t-toets voor afhankelijke groepen</strong>. Deze toets gebruiken we om een net iets ander type vraag te beantwoorden: wat is het verschil in het gemiddelde op <em>twee kwantitatieve variabelen binnen één groep.</em> Die groep kan bijvoorbeeld de populatie uitgaanders zijn als geheel, of alleen mannen <em>of</em> vrouwen. In plaats van één nominale variabele en één kwantitatieve variabele zoals bij de t-toets voor onafhankelijke groepen, staan bij de t-toets voor afhankelijke groepen twee kwantitatieve variabelen centraal in de analyse.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>We gaan de t-toets voor afhankelijke groepen uitwerken met een voorbeeld. Volgens traditie doen we dit eerst handmatig en daarna computermatig om inzicht te krijgen in het proces. Na alle voorgaande hoofdstukken kunnen we natuurlijk niet anders dan een betrouwbaarheidsinterval te berekenen.</p>
-<section id="beetje-pips-van-de-dips" class="level2 page-columns page-full" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="beetje-pips-van-de-dips"><span class="header-section-number">11.1</span> Beetje pips van de dips</h2>
+<section id="beetje-pips-van-de-dips" class="level2 page-columns page-full" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="beetje-pips-van-de-dips"><span class="header-section-number">12.1</span> Beetje pips van de dips</h2>
 <p>Onder feestgangers is het een bekend verschijnsel: de dinsdagdip. Na een weekend feesten met uitbundig 🥳 of excessief😬 drugsgebruik voelen gebruikers zich vaak de dinsdag erna bijzonder matig. Dit uit zich in klachten als somberheid, vermoeidheid, en slecht concentratievermogen.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Drugs hebben echter verschillende effecten op gebruikers, wat impliceert dat de dinsdagdip voor de ene drug zwaarder kan aankomen dan voor de andere drug.</p>
 <div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;3-MMC is een zogenoemde designerdrug die de laatste jaren populair is geworden onder uitgaande jongeren. Voor meer informatie: Trimbos.</p></div><div id="fn4"><p><sup>4</sup>&nbsp;3-MMC is een zogenoemde designerdrug die de laatste jaren populair is geworden onder uitgaande jongeren. Voor meer informatie: <a href="https://www.trimbos.nl/kennis/drugs/informatiepermiddel/3-mmc/">Trimbos</a>.</p></div><div id="fn5"><p><sup>5</sup>&nbsp;De <span class="math inline">\(_d\)</span> komt uit het Engels en staat voor <em>difference</em>.</p></div></div><p>In dit voorbeeld gaan we kijken of uitgaanders een verschil in dinsdagdip ervaren voor xtc en 3-mmc.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> We nemen daarbij de hele populatie van uitgaanders als startpunt. Aangezien we uitgaanders willen vergelijken die zowel xtc als 3-mmc hebben gebruikt, beperken we onze populatie tot deze specifieke groep gebruikers. De variabele <code>gemoed_dinsdag_na_xtc</code> hebben we al eerder gezien <a href="./002-02-meetniveaus-visualisaties.html#sec-histogram">Histogram</a>.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> We gebruiken voor 3-mmc een zelfde soort variabele: <code>gemoed_dinsdag_na_mmc</code>. Laten net als bij de histogram van <code>gemoed_dinsdag_na_xtc</code> een histogram maken voor <code>gemoed_dinsdag_na_mmc</code>.</p>
 <div class="cell">
@@ -569,15 +586,15 @@ window.Quarto = {
 </div>
 </div>
 <p>Je ziet dat de variabele redelijk normaal verdeeld lijkt. De meeste waarden bevinden zich tussen de 40 en 80.</p>
-<section id="hypothese-opstellen" class="level3 page-columns page-full" data-number="11.1.1">
-<h3 data-number="11.1.1" class="anchored" data-anchor-id="hypothese-opstellen"><span class="header-section-number">11.1.1</span> Hypothese opstellen</h3>
+<section id="hypothese-opstellen" class="level3 page-columns page-full" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="hypothese-opstellen"><span class="header-section-number">12.1.1</span> Hypothese opstellen</h3>
 <p>Voor aanvang willen we specificeren wat we gaan toetsen. We zijn hier geïnteresseerd in de gemiddelde verschilscore tussen <code>gemoed_dinsdag_na_xtc</code> en <code>gemoed_dinsdag_na_mmc</code>. We hebben geen verwachting over de richting van het gemiddelde, of het positief of negatief is. Daarom kunnen we de nulhypothese als volgt formuleren:</p>
 <p>H<sub>0</sub>: Het gemiddelde verschil tussen gemoedstoestand op dinsdag na xtc- en 3-mmc-gebruik voor uitgaanders is nul.</p>
 <p>Notatie: <span class="math inline">\(\mu_d=0\)</span></p>
 <p>Deze notatie hierboven is nieuw. <span class="math inline">\(\mu_d\)</span> staat voor het populatiegemiddelde van de verschilscore.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;De <sub>d</sub> komt uit het Engels en staat voor <em>difference</em>.</p></div></div></section>
-<section id="handmatige-berekening" class="level3" data-number="11.1.2">
-<h3 data-number="11.1.2" class="anchored" data-anchor-id="handmatige-berekening"><span class="header-section-number">11.1.2</span> Handmatige berekening</h3>
+<section id="handmatige-berekening" class="level3" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="handmatige-berekening"><span class="header-section-number">12.1.2</span> Handmatige berekening</h3>
 <p>Eerst even wat uitleg over die verschilscore. Wat je vergelijkt bij een t-toets voor afhankelijke groepen is iets anders dan bij een t-toets voor onafhankelijke groepen. Bij de laatste bereken je eerst het gemiddelde op een variabele voor beide groepen, en vervolgens vergelijk je die twee gemiddeldes met elkaar. Je schat daarmee twee populatieparameters (twee gemiddeldes).</p>
 <p>Bij t-toets voor afhankelijke groepen neem je eerst de verschilscore tussen de variabelen voor alle observaties en daar bereken je in principe het gemiddelde van. Hier schat je dan maar één populatieparameter.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -643,8 +660,8 @@ Deze verschilscores tel je dan bij elkaar op, waarna je het gemiddelde berekent.
 </div>
 <p>Het bhi is dus <span class="math inline">\([-3,35, 5,84]\)</span>.</p>
 </section>
-<section id="computerberekening" class="level3" data-number="11.1.3">
-<h3 data-number="11.1.3" class="anchored" data-anchor-id="computerberekening"><span class="header-section-number">11.1.3</span> Computerberekening</h3>
+<section id="computerberekening" class="level3" data-number="12.1.3">
+<h3 data-number="12.1.3" class="anchored" data-anchor-id="computerberekening"><span class="header-section-number">12.1.3</span> Computerberekening</h3>
 <p>Met een paar regels code kunnen we dit resultaat ook krijgen met <code>t.test()</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-toets uitvoeren voor afhankelijke groepen</span></span>
@@ -666,8 +683,8 @@ mean difference
 </div>
 </div>
 </section>
-<section id="interpretatie-en-conclusie" class="level3 page-columns page-full" data-number="11.1.4">
-<h3 data-number="11.1.4" class="anchored" data-anchor-id="interpretatie-en-conclusie"><span class="header-section-number">11.1.4</span> Interpretatie en conclusie</h3>
+<section id="interpretatie-en-conclusie" class="level3 page-columns page-full" data-number="12.1.4">
+<h3 data-number="12.1.4" class="anchored" data-anchor-id="interpretatie-en-conclusie"><span class="header-section-number">12.1.4</span> Interpretatie en conclusie</h3>
 <p>We laten onze befaamde interpretatie los op de uitkomst:</p>
 <blockquote class="blockquote">
 <p>We kunnen met 95% betrouwbaarheid stellen dat het gemiddelde verschil tussen gemoedstoestand op dinsdag na xtc- en 3-mmc-gebruik tussen de -3,35 en 5,84 ligt, gebaseerd op (hypothetische) herhaalde steekproeven en geen additionele relevante kennis.</p>
@@ -676,8 +693,8 @@ mean difference
 <p>Omdat nul ook binnen het bhi valt, concluderen we dat we de nulhypothese niet verwerpen.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> Er lijkt dus geen wezenlijk verschil te zijn tussen de gemoedstoestand op dinsdag na het gebruik van xtc of 3-mmc. We kunnen er, bij gebrek aan ander bewijs, vanuit gaan dat de drugs een vergelijkbare kater geven.</p>
 <div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Je kunt ook zien dat de p-waarde (0,59) veel hoger is dan het significantieniveau (0,05).</p></div></div></section>
 </section>
-<section id="samenvatting" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="samenvatting"><span class="header-section-number">11.2</span> Samenvatting</h2>
+<section id="samenvatting" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="samenvatting"><span class="header-section-number">12.2</span> Samenvatting</h2>
 <p>We hebben in dit hoofdstuk een t-toets voor afhankelijke groepen uitgevoerd door de gemoedstoestand op dinsdag van drugsgebruikers te vergelijken m.b.t. xtc en 3-mmc. Bij deze t-toets vergelijken we voor één groep de scores op twee kwantitatieve variabelen. Bij een t-toets voor onafhankelijke groepen vergelijken we juist twee groepen op één variabele. Het hoofdstuk toont verder dat we eerder geleerd hebben rondom betrouwbaarheidsintervallen hier ook goed toepasbaar is, ditmaal voor een gemiddelde verschilscore 🤓.</p>
 
 
@@ -1101,12 +1118,12 @@ mean difference
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./004-02-aspectenhypo.html" class="pagination-link" aria-label="Aspecten van hypothesetoetsing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./003-colleges.html" class="pagination-link" aria-label="Collegeslides">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Collegeslides</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collegeslides</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -23,7 +23,10 @@ book:
 
   chapters:
     - index.qmd
-    - 001-voorbereiding.qmd
+    - part: "Voorbereiding"
+      chapters:
+        - 001-01-installatie.qmd
+        - 001-02-praktischezaken.qmd
     - part: "Data beschrijven"
       chapters:
         - 002-01-data.qmd
