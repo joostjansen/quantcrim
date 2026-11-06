@@ -42,16 +42,14 @@ book:
         - 004-01-onafhankelijkegroepen.qmd
         - 004-02-aspectenhypo.qmd
         - 004-03-afhankelijkegroepen.qmd
-    - part: "Colleges"
+    - part: "Colleges en practica"
       chapters:
-        - 003-colleges.qmd
-    - part: "Opdrachten"
-      chapters: 
-        - 004-opdrachten.qmd
+        - 009-01-colleges.qmd
+        - 009-02-opdrachten.qmd
   appendices: 
         - formuleblad.qmd
 license:
-  text: "CC BY-NC 4.0"
+  text: "Erasmus Universiteit Rotterdam<br>CC BY-NC 4.0"
   url: "https://creativecommons.org/licenses/by-nc/4.0/"
 
 bibliography: references.bib
