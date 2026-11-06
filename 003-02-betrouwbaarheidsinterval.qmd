@@ -15,13 +15,13 @@ We moeten nu een volgende stap maken, namelijk die van het trekken van één ste
 
 ### Denkbeeldig voorbeeld
 
-We beginnen met een denkbeeldig voorbeeld. We gaan er net als bij het vorige hoofdstuk vanuit dat we het populatieproportie en de standaardfout al kennen van xtc-gebruik onder uitgaande jongeren, waarbij we de dataset als populatie beschouwen. Dit is uiteraard zelden het geval (daarom doen we onderzoek!), maar voor de uitleg die volgt is dit wel handig.
+We beginnen met een denkbeeldig voorbeeld. We gaan er net als bij het vorige hoofdstuk vanuit dat we de populatieproportie en de standaardfout al kennen van xtc-gebruik onder uitgaande jongeren, waarbij we de dataset als populatie beschouwen. Dit is uiteraard zelden het geval (daarom doen we onderzoek!), maar voor de uitleg die volgt is dit wel handig.
 
 Als we volgens de centrale limietstelling oneindig steekproeven trekken van 30 personen, willen we weten wat het bereik is van 95% van de steekproefuitkomsten (proporties in dit geval) rondom het populatiegemiddelde. Met 95% hebben we een aardig beeld van wat voor proporties de meeste steekproeven zouden opleveren. Dat is hieronder gevisualiseerd.
 
 ![](afbeeldingen/normal_distribution.png)
 
-De afbeelding hierboven is afgeleid van het [voorbeeld](003-01-steekproeven.qmd#sec-steekproefcentraallimiet) uit het vorige hoofdstuk. Het toont dat we als herhaalde steekproeven zouden doen waarbij de proportie in de populatie van xtc-gebruik 0,685 is, dat 95% van de steekproeven een proportie tussen de 0,518 en 0,852 zou opleveren.
+De afbeelding hierboven is afgeleid van het [voorbeeld](003-01-steekproeven.qmd#sec-steekproefcentraallimiet) uit het vorige hoofdstuk. Het toont dat als we herhaalde steekproeven zouden doen waarbij de proportie in de populatie van xtc-gebruik 0,685 is, dat 95% van de steekproeven een proportie tussen de 0,518 en 0,852 zou opleveren.
 
 Waarom kiezen we hier voor 95%? Dat is afgeleid uit de empirische regel die we bij de [Normale verdeling](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling) hebben besproken. Daar zag je bijvoorbeeld dat 95,4% van alle observaties tussen 2 standaarddeviaties boven en onder het midden van de verdeling liggen. 95% wordt vaak als conventioneel interval gebruikt, omdat het een breed interval betreft dat veel mogelijke uitkomsten bevat zonder dat het betekenisloos wordt.[^003-02-betrouwbaarheidsinterval-1] Het 95%-betrouwbaarheidsinterval correspondeert met 1,96 standaarddeviaties boven en onder het midden van de verdeling.
 
@@ -91,7 +91,7 @@ Het denkbeeldige voorbeeld is instructief, maar eigenlijk overbodig. We gingen e
 
 We weten nu echter ook het volgende: omdat 95% van de verdeling van mogelijke steekproefproporties tussen 0,518 en 0,852 ligt (0,167 boven of onder 0,685), is de kans 95% dat een proportie van een willekeurige steekproef binnen dit bereik valt. Dit betekent dat als we herhaaldelijk een proportie $\hat{p}$ berekenen op basis van een willekeurige steekproef (van 30 personen in dit geval), en vervolgens een interval berekenen tussen $\hat{p}-0,167$ en $\hat{p}+0,167$ , dat dit interval de populatieproportie zal bevatten in 95% van de steekproeven.
 
-Simpel gezegd, kunnen we in de formule $bhi = P \pm z\times\sigma_{\hat{p}}$ de $P$ vervangen door $\hat{p}$, en dan voor elke steekproef berekenen in welk interval de populatieparameter mogelijk ligt. We zullen daarbij ook de standaardfout $\sigma_{\hat{p}}$ opnieuw moeten berekenen, omdat die we berekend hebben aan de hand van $P=0,685$ maar die kennen we in de werkelijkheid niet. De nieuwe formule voor het schatten van een betrouwbaarheidsinterval is:
+Simpel gezegd, kunnen we in de formule $bhi = P \pm z\times\sigma_{\hat{p}}$ de $P$ vervangen door $\hat{p}$, en dan voor elke steekproef berekenen in welk interval de populatieparameter mogelijk ligt. We zullen daarbij ook de standaardfout $\sigma_{\hat{p}}$ opnieuw moeten berekenen, omdat we die berekend hebben aan de hand van $P=0,685$ maar die kennen we in de werkelijkheid niet. De nieuwe formule voor het schatten van een betrouwbaarheidsinterval is:
 
 $$ bhi = \hat{p} \pm z\times\sigma_{\hat{p}}  $$
 
@@ -207,7 +207,7 @@ We nemen nu dus het gemiddelde van de steekproef $\bar{x}$ en de standaardfout v
 
 $$ \sigma_{\bar{x}}=\frac{s}{\sqrt{n}} $$
 
-We kunnen nu vrij eenvoudig schatten wat het gemiddeld aantal glazen alcohol is dat uitgaande jongeren drinken op een uitgaansdag. Let op dat deze statistiek alleen van toepassing is op mensen die minimaal één glas hebben gedronken. Eerst berekenen we het gemiddelde en standaarddeviatie in de dataset.
+We kunnen nu vrij eenvoudig schatten wat het gemiddeld aantal glazen alcohol is dat uitgaande jongeren drinken op een uitgaansdag. Let op dat deze statistiek alleen van toepassing is op mensen die minimaal één glas hebben gedronken. Eerst berekenen we het gemiddelde en de standaarddeviatie in de dataset.
 
 ```{r}
 # gemiddelde aantal glazen alcohohol
@@ -242,7 +242,7 @@ Op basis van steekproef, kunnen we zeggen dat in 95% van herhaalde steekproeven 
 
 We hebben hierboven al een aantal keer een interpretatie van een betrouwbaarheidsinterval gegeven. Daarbij hebben we het er een beetje makkelijk vanaf gebracht, want een bhi heeft een meer uitgebreide interpretatie nodig dan we tot nu toe hebben gedaan. Een technische correcte interpretatie van een 95%-bhi is:
 
-> Als we steekproeven oneindig herhalen en we berekenen een 95%-bhi voor voor alle steekproeven, dan zullen 95% van deze bhi's de ware populatieparameter bevatten (terwijl 5% van de bhi's deze niet bevatten).
+> Als we steekproeven oneindig herhalen en we berekenen een 95%-bhi voor alle steekproeven, dan zullen 95% van deze bhi's de ware populatieparameter bevatten (terwijl 5% van de bhi's deze niet bevatten).
 
 Deze wat langdradige formulering weerspiegelt de achterliggende aannames van een bhi. Namelijk dat deze
 
@@ -274,7 +274,7 @@ Je zult inmiddels wel denken: wat moet ik hier allemaal mee (voor het tentamen)?
 
 - Dat je begrijpt wat we bedoelen met "95% betrouwbaarheid ... gebaseerd op (hypothethische) herhaalde steekproeven" en hoe dit voorkomt uit de [steekproevenverdeling](003-01-steekproeven.qmd#sec-steekproefcentraallimiet)
 
-- Dat je begrijpt waar de toevoeging "en geen additionele relevante kennis" vandaan komt en ook in hoeverre dit van toepassing kan zijn op zaken die zelf onderzoekt.
+- Dat je begrijpt waar de toevoeging "en geen additionele relevante kennis" vandaan komt en ook in hoeverre dit van toepassing kan zijn op zaken die je zelf onderzoekt.
 
 ## Samenvatting
 

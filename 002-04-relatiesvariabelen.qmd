@@ -27,8 +27,7 @@ In hoofdstuk xxx hebben we al een tabel gemaakt voor `geslacht`. We kunnen aan h
 
 ```{r}
 # kruistabel tussen geslacht en vapen laatste jaar
-table(data_uitgaan$vapen_laatste_jaar, data_uitgaan$geslacht) # vapen in de rijen, 
-                                              # geslacht in de kolommen
+table(data_uitgaan$vapen_laatste_jaar, data_uitgaan$geslacht) # vapen in de rijen, # geslacht in de kolommen
 ```
 
 We zien in bovenstaande tabel hoe vaak personen van een bepaald geslacht hebben gevapet het afgelopen jaar. Zo kun je zien dat 73 vrouwen niet hebben gevapet en 97 wel.
@@ -64,7 +63,7 @@ We zien nu dat 57,1% van de vrouwen heeft gevapet en 42,9% niet. Bij de mannen l
 
 ### Nominaal vs. ordinaal
 
-De werkwijze bij het onderzoeken van een relatie tussen nominaal en ordinaal is in principe hetzelfde. We nemen hier de relatie tussen volgende twee variabelen: `xtc_laatste_jaar` en `acceptatie_xtc_vrienden`. De eerste variabele meet of respondenten het laatste jaar xtc hebben gebruikt en de tweede variabele meet in hoeverre respondenten het eens zijn met de stelling dat het gebruik van xtc onder vrienden geaccepteerd is.
+De werkwijze bij het onderzoeken van een relatie tussen nominaal en ordinaal is in principe hetzelfde. We nemen hier de relatie tussen de volgende twee variabelen: `xtc_laatste_jaar` en `acceptatie_xtc_vrienden`. De eerste variabele meet of respondenten het laatste jaar xtc hebben gebruikt en de tweede variabele meet in hoeverre respondenten het eens zijn met de stelling dat het gebruik van xtc onder vrienden geaccepteerd is.
 
 We bekijken eerst weer de aantallen in een kruistabel.
 
@@ -111,12 +110,12 @@ Kruistabellen en (gestapelde) staafdiagrammen zijn ook goed toepasbaar voor het 
 
 ## Kwalitatief vs. kwantitatief
 
-We beschikken over verschillende opties wanneer we de relatie tussen een kwalitatieve en kwantitatieve variabele willen onderzoeken. De meest eenvoudige optie is om naar het verschil in gemiddeldes te kijken. Als voorbeeld kijken we hier naar geslacht en het aantal sigaretten dat men rookt tijdens het uitgaan (`sigaretten_uitgaansdag`). Let op dat hier alleen gaat over jongeren die minimaal één sigaret roken tijdens het uitgaan (rokers).
+We beschikken over verschillende opties wanneer we de relatie tussen een kwalitatieve en kwantitatieve variabele willen onderzoeken. De meest eenvoudige optie is om naar het verschil in gemiddeldes te kijken. Als voorbeeld kijken we hier naar geslacht en het aantal sigaretten dat men rookt tijdens het uitgaan (`sigaretten_uitgaansdag`). Let op dat het hier alleen gaat over jongeren die minimaal één sigaret roken tijdens het uitgaan (rokers).
 
 We berekenen het gemiddelde door de data eerst te groeperen en daarna het gemiddelde per groep te berekenen. Hoe je dat moet doen, leer je in het practicum.
 
 ```{r}
-# gemiddelde berekenen van van aantal sigaretten voor geslacht
+# gemiddelde berekenen van aantal sigaretten voor geslacht
 data_uitgaan |> group_by(geslacht) |>
   filter(!is.na(sigaretten_uitgaansdag)) |> # respondenten die niet roken eruit laten
   summarise(gem_sigaretten = mean(sigaretten_uitgaansdag)) # summarise() en mean() voor gemiddelde berekenen
@@ -153,9 +152,9 @@ ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaans
   ylab("aantal sigaretten uitgaansdag")
 ```
 
-Elke punt vertegenwoordigd een respondent in deze diagram, die laat zien hoe ze scoren op aantal glazen alcohol (x-as) en aantal sigaretten (y-as) tijdens het uitgaan. Er komt hier nog niet een heel duidelijk patroon uit naar voren. Zowel bij jongeren die relatief weinig drinken (10\< glazen) zijn er wat uitschieters naar boven qua roken (\>30 sigaretten), maar ook bij jongeren die relatief veel drinken. De dichste concentratie van punten zit linksonder, wat betekent dat de meeste respondenten rond de 5-15 glazen alcohol drinken en 1-15 sigaretten roken.
+Elke punt vertegenwoordigt een respondent in deze diagram, die laat zien hoe ze scoren op aantal glazen alcohol (x-as) en aantal sigaretten (y-as) tijdens het uitgaan. Er komt hier nog niet een heel duidelijk patroon uit naar voren. Zowel bij jongeren die relatief weinig drinken (10\< glazen) zijn er wat uitschieters naar boven qua roken (\>30 sigaretten), maar ook bij jongeren die relatief veel drinken. De dichste concentratie van punten zit linksonder, wat betekent dat de meeste respondenten rond de 5-15 glazen alcohol drinken en 1-15 sigaretten roken.
 
-We kunnen de spreidingsdiagram nog wat aanpassen om beter inzicht te krijgen in de relatie. Sommige punten zijn nu niet goed te zien omdat ze dicht op elkaar zitten. Met die optie `"jitter"` wordt de puntenwolk wat meer uitgespreid.
+We kunnen de spreidingsdiagram nog wat aanpassen om beter inzicht te krijgen in de relatie. Sommige punten zijn nu niet goed te zien omdat ze dicht op elkaar zitten. Met de optie `"jitter"` wordt de puntenwolk wat meer uitgespreid.
 
 ```{r}
 # spreidingsdiagram met aantal glazen alcohol en sigaretten

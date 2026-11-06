@@ -11,11 +11,11 @@ execute:
 
 We zijn tot nu toe met beschrijvende statistiek bezig geweest. Je hebt nu een idee hoe we data kunnen samenvatten en visualiseren, en hoe we de relaties tussen variabelen kunnen analyseren. Dit zijn nuttige skills voor de rest van de cursus en (wellicht) ook voor later in je carrière als criminoloog.
 
-We hebben ons in de vorige hoofdstukken gericht op de xxx respondenten die in de dataset zitten. Hoewel interessant, vertelt dit ons nog vrij weinig over de bredere populatie van uitgaande jongeren. Terwijl dit juist het centrale doel is van statistisch onderzoek: op basis van een steekproef willen we uitspraken doen die voor deze gehele populatie gelden! Dit noemen we ook wel **inferentie**, of **inferentiële statistiek**. Om dit te begrijpen, is het handig de begrippen populatie en steekproef kort uit te leggen.
+We hebben ons in de vorige hoofdstukken gericht op de 350 respondenten die in de dataset zitten. Hoewel interessant, vertelt dit ons nog vrij weinig over de bredere populatie van uitgaande jongeren. Terwijl dit juist het centrale doel is van statistisch onderzoek: op basis van een steekproef willen we uitspraken doen die voor deze gehele populatie gelden! Dit noemen we ook wel **inferentie**, of **inferentiële statistiek**. Om dit te begrijpen, is het handig de begrippen populatie en steekproef kort uit te leggen.
 
-**Populatie**: De complete groep van analyse-eenheden waarin we geïnteresseerd zijn. In de criminologie gaat dit vaak om personen in een groep die we zo helder mogelijk proberen te identificeren en af te bakenen. Bijvoorbeeld alle leden van criminele motorclub of smokkelnetwerk. In deze cursus richten we ons in principe op alle jongeren in Nederland die weleens op stap gaan.
+**Populatie**: De complete groep van analyse-eenheden waarin we geïnteresseerd zijn. In de criminologie gaat dit vaak om personen in een groep die we zo helder mogelijk proberen te identificeren en af te bakenen. Bijvoorbeeld alle leden van een criminele motorclub of smokkelnetwerk. In deze cursus richten we ons in principe op alle jongeren in Nederland die weleens op stap gaan.
 
-**Steekproef**: Een willekeurige selectie van eenheden uit de populatie. Willekeurige selectie betekent dat iedereen evenveel kans heeft om onderdeel te zijn van de steekproef (*random sample*). De steekproef is daarmee in principe een representatieve afspiegeling is van de populatie. De steekproef bestaat uit onze observaties in de dataset, in dit geval alle jongeren die de vragenlijst hebben ingevuld.
+**Steekproef**: Een willekeurige selectie van eenheden uit de populatie. Willekeurige selectie betekent dat iedereen evenveel kans heeft om onderdeel te zijn van de steekproef (*random sample*). De steekproef is daarmee in principe een representatieve afspiegeling van de populatie. De steekproef bestaat uit onze observaties in de dataset, in dit geval alle jongeren die de vragenlijst hebben ingevuld.
 
 Het idee achter inferentie is eigenlijk vrij simpel. In de praktijk is het vaak lastig om data over de hele populatie te verzamelen. We kunnen onmogelijk alle uitgaande jongeren in Nederland interviewen, dat gaat om miljoenen mensen! Toch willen we iets zinnigs kunnen zeggen over deze populatie. Bijvoorbeeld over het aandeel jongeren dat een bepaalde drugs gebruikt. Op basis van statistische kennis weten we dat we met slechts een klein deel van die jongeren (de steekproef) toch met bepaalde zekerheid (en onder bepaalde assumpties) iets kunnen zeggen over de populatie als geheel.
 
@@ -74,14 +74,14 @@ Je ziet dat sommige proporties $\hat{p}$ vrij dicht bij $P$ liggen (bijvoorbeeld
 
 Een uitgangspunt van inferentiële statistiek is dat een steekproef één mogelijke uitkomst is van een denkbeeldig universum met een oneindig aantal uitkomsten. Deze uitkomsten zijn willekeurige variaties op een onderliggende 'ware' populatieparameter (in dit geval $P$). Als we steekproeven oneindig zouden blijven herhalen, dan zal uiteindelijk het gemiddelde van alle mogelijke uitkomsten deze ware populatieparameter weergeven. Dit omdat eventuele afwijkingen het gevolg zijn van willekeurige variatie.
 
-Als je hoofd inmiddels begint te duizelen, geen paniek. We komen hier later meer op terug. Ook zullen we vooral kijken naar wat dit in praktijk betekent.
+Als je hoofd inmiddels begint te duizelen, geen paniek. We komen hier later meer op terug. Ook zullen we vooral kijken naar wat dit in de praktijk betekent.
 
 Zoals je wellicht kunt voorstellen, is het logisch niet mogelijk om oneindig steekproeven te blijven trekken. Daarom doen we dat hier bij benadering door 'slechts' 10.000 steekproeven te trekken van 30 personen.
 
 ```{r}
 set.seed(010)
 
-# 10 keer een steekproef van 30 trekken en de proportie xtc-gebruikers berekenen
+# 10.000 keer een steekproef van 30 personen trekken en de proportie xtc-gebruikers berekenen
 proporties_xtc_10k <- replicate(10000, {
   sample_30 <- slice_sample(data_uitgaan, n = 30)
   mean(sample_30$xtc_ooit == "ja", na.rm = TRUE) # na.rm om eventuele missenden waarden te verwijderen
@@ -106,7 +106,7 @@ sd(proporties_xtc_10k)
 
 Wat je hierboven ziet, staat ook wel bekend als de **steekproevenverdeling**. Dat wil zeggen, de verdeling van de mogelijke uitkomsten (hier: proporties) van herhaalde steekproeven (in dit geval: 10.000 steekproeven van 30 personen betreffende de proportie xtc-gebruikers).
 
-Er vallen een paar dingen op als we bovenstaande gegevens kijken. Ten eerste lijkt de verdeling van steekproefproporties nagenoeg op een normale verdeling, zoals we eerder hebben gezien ([Normale verdeling](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling)). Dit betekent dat de steekproevenverdeling dezelfde eigenschappen heeft als een normale verdeling, zoals dat het kansverdeling is (we kunnen de kans op een bepaalde uitkomst berekenen) en dat het een gemiddelde en een standaarddeviatie heeft. Je kunt verder zien dat het gemiddelde van 0,685 nagenoeg gelijk is aan de mediaan van 0,690, wat verder indiceert dat we hier met een normale verdeling te maken hebben (symmetrie). Het minimum (0,300) en maximum (0,967) tonen verder bij enkele steekproeven de proportie juist ver af zit van het populatiegemiddelde, maar de verdeling toont tevens dat dit uitzonderlijke uitkomsten zijn.
+Er vallen een paar dingen op als we bovenstaande gegevens kijken. Ten eerste lijkt de verdeling van steekproefproporties nagenoeg op een normale verdeling, zoals we eerder hebben gezien ([Normale verdeling](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling)). Dit betekent dat de steekproevenverdeling dezelfde eigenschappen heeft als een normale verdeling, zoals dat het een kansverdeling is (we kunnen de kans op een bepaalde uitkomst berekenen) en dat het een gemiddelde en een standaarddeviatie heeft. Je kunt verder zien dat het gemiddelde van 0,685 nagenoeg gelijk is aan de mediaan van 0,690, wat verder indiceert dat we hier met een normale verdeling te maken hebben (symmetrie). Het minimum (0,300) en maximum (0,967) tonen verder dat bij enkele steekproeven de proportie juist ver af zit van het populatiegemiddelde, maar de verdeling toont tevens dat dit uitzonderlijke uitkomsten zijn.
 
 Het meest interessant is echter dat de steekproevenverdeling van proporties allesbehalve willekeurig is. Het resulteert immers in een normale verdeling! En dat niet alleen: de gemiddelde proportie van de steekproevenverdeling ($\bar{x}_{\hat{p}}=0,685$) is afgerond gelijk aan het populatiegemiddelde ($P=0,685$). In het algemeen geldt dan ook dat het gemiddelde van de steekproevenverdeling gelijk is aan het populatiegemiddelde.
 
@@ -127,7 +127,7 @@ Wat we zojuist hebben aangetoond, is de **centrale limietstelling**. Deze houdt 
 - Is de steekproevenverdeling normaal verdeeld, met eigen standaardfout
 - Zelfs als de oorspronkelijke variabele niet normaal verdeeld is! (zoals bijvoorbeeld xtc_gebruik_ooit; dit is een dichotome variabele)
 
-De regels rondom de centrale limietstelling zijn net wet anders bij minder dan 30 observaties, zie daarvoor bijvoorbeeld [Statistiek als hulpmiddel](https://www.uitgeverijvangorcum.nl/product/100-519_Statistiek-als-hulpmiddel) of het internet.
+De regels rondom de centrale limietstelling zijn net wat anders bij minder dan 30 observaties, zie daarvoor bijvoorbeeld [Statistiek als hulpmiddel](https://www.uitgeverijvangorcum.nl/product/100-519_Statistiek-als-hulpmiddel) of het internet.
 
 Doordat we de standaardfout kennen, kunnen we in combinatie met [de empirische regel](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling) bepalen hoe waarschijnlijk een bepaalde (willekeurige) steekproefuitkomst voorkomt. Daar gaan we zo mee verder. Eerst laten we de magie van de steekproevenverdeling en centrale limietstelling even op ons inwerken.
 
@@ -153,12 +153,12 @@ In deze formule zie je dat de proportie van de steekproef $\hat{p}$ wordt vermen
 
 Dat de $n$ in deze formule in de noemer staat (onder de streep) heeft een belangrijke implicatie. Dit betekent namelijk dat hoe meer data we verzamelen voor een steekproef (het aantal observaties), hoe kleiner de standaardfout wordt. En met een kleinere standaardfout kunnen we weer meer exact de populatieparameter schatten! (komen we later nog op terug)
 
-Laten we dit even illustreren aan de hand van een voorbeeld. We selecteren willekeurig 10, 30, en 100 mensen uit de dataset, wat neerkomt op steekproeven met een verschillend aantal observaties. Ook berekenen we de standaardfout voor de gehele dataset (xxx respondenten).
+Laten we dit even illustreren aan de hand van een voorbeeld. We selecteren willekeurig 10, 30, en 100 mensen uit de dataset, wat neerkomt op steekproeven met een verschillend aantal observaties. Ook berekenen we de standaardfout voor de gehele dataset (350 respondenten).
 
 ```{r}
 set.seed(010)
 
-# Functie om de standaardfout van een proportie te bereknen
+# Functie om de standaardfout van een proportie te berekenen
 se_proportie <- function(x) {
   x <- na.omit(x)
   p <- mean(x == "ja")
@@ -174,7 +174,7 @@ steekproef_100 <- slice_sample(data_uitgaan, n = 100)
 se_proportie(steekproef_10$xtc_ooit) # 10 respondenten
 se_proportie(steekproef_30$xtc_ooit) # 30 respondenten
 se_proportie(steekproef_100$xtc_ooit) # 100 respondenten
-se_proportie(data_uitgaan$xtc_ooit) # xxx respondenten (complete dataset)
+se_proportie(data_uitgaan$xtc_ooit) # 350 respondenten (complete dataset)
 ```
 
 Je ziet dus dat de standaardfout steeds kleiner wordt naarmate we een grotere steekproef hebben. Bij 10 respondenten is de standaardfout nog 0,16; bij xxx respondenten is deze 0,02. Dit toont dat, als de assumpties kloppen, meer data meer beter is.
@@ -187,7 +187,7 @@ Je hebt het al een paar keer voorbij horen komen: onder bepaalde assumpties kunn
 
 ### Willekeurige en systematische fouten
 
-Een eerste belangrijke assumptie is dat eventuele afwijkingen/fouten in de steekproef willekeurig zijn (**willekeurige fout**; *random error* in het Engels). Dit hebben we al deels besproken in dit hoofdstuk. Er zal altijd een zekere mate van toeval zijn bij het trekken van steekproef. Zolang dit een willekeurige afwijking betreft, is er niet zoveel aan de hand. We weten immers wat de kans is op een bepaalde mate van toeval (hoever een steekproefuitkomst van $P$ of $\mu$ kan liggen) en kunnen daarmee rekening houden bij het schatten van de populatieparameter.
+Een eerste belangrijke assumptie is dat eventuele afwijkingen/fouten in de steekproef willekeurig zijn (**willekeurige fout**; *random error* in het Engels). Dit hebben we al deels besproken in dit hoofdstuk. Er zal altijd een zekere mate van toeval zijn bij het trekken van een steekproef. Zolang dit een willekeurige afwijking betreft, is er niet zoveel aan de hand. We weten immers wat de kans is op een bepaalde mate van toeval (hoever een steekproefuitkomst van $P$ of $\mu$ kan liggen) en kunnen daarmee rekening houden bij het schatten van de populatieparameter.
 
 Helaas komt het in steekproefonderzoek vaak voor dat fouten niet willekeurig zijn, maar eerder systematisch van aard. Dit kan op diverse wijzen gebeuren en zullen we daarom niet uitputtend behandelen hier. We geven een aantal voorbeelden om dit te verhelderen.
 
@@ -207,11 +207,11 @@ De hier genoemde fouten hebben te maken met de **validiteit** en **betrouwbaarhe
 
 ### De constante populatieparameter
 
-Naast mogelijke systematische fouten zijn de filosofische aannames achter statistiekonderzoek niet altijd even goed toepasbaar. Zoals eerder gesteld is het idee achter de dominante manier van statistiek bedrijven dat er zoiets bestaat als een ware populatieparameter $P$ die we in theorie kunnen achterhalen door een oneindig aantal onderzoeken (bijvoorbeeld experimenten of steekproeven) uit te voeren. Er wordt aangenomen dat de populatieparameter een constante, vaste waarde heeft. Als we onderzoek blijven herhalen, krijgen we steeds net wat andere data door willekeurige fouten. De data varieert dus, de populatieparameter niet. Op de lange termijn zal het gemiddelde van al deze onderzoeken echter leiden tot de ware $P$ (zie @sec-steekproefcentraallimiet). Dit denken gaat dus uit van soort denkbeeldig universum waarin we deze onderzoeken oneindig kunnen herhalen. In de praktijk voeren we het onderzoek vaak eenmaal uit.
+Naast mogelijke systematische fouten zijn de filosofische aannames achter statistiekonderzoek niet altijd even goed toepasbaar. Zoals eerder gesteld is het idee achter de dominante manier van statistiek bedrijven dat er zoiets bestaat als een ware populatieparameter $P$ die we in theorie kunnen achterhalen door een oneindig aantal onderzoeken (bijvoorbeeld experimenten of steekproeven) uit te voeren. Er wordt aangenomen dat de populatieparameter een constante, vaste waarde heeft. Als we onderzoek blijven herhalen, krijgen we steeds net wat andere data door willekeurige fouten. De data varieert dus, de populatieparameter niet. Op de lange termijn zal het gemiddelde van al deze onderzoeken echter leiden tot de ware $P$ (zie @sec-steekproefcentraallimiet). Dit denken gaat dus uit van een soort denkbeeldig universum waarin we deze onderzoeken oneindig kunnen herhalen. In de praktijk voeren we het onderzoek vaak eenmaal uit.
 
 In sommige situaties is deze manier van denken geschikt. Als we geïnteresseerd zijn in xtc-gebruik onder uitgaande jongeren in Nederland, kunnen we ervan uitgaan dat in er in deze populatie een zekere constante proportie van gebruik bestaat. Bij herhaalde onderzoeken zullen we dan los van toevallige fouten naar verwachting min of meer steeds op dezelfde proportie uitkomen (zie het voorbeeld onder @sec-steekproefcentraallimiet), althans op de korte tot middellange termijn. Over de tijd zal het gebruik als het gevolg van maatschappelijke en culturele veranderingen variëren.
 
-Voor meer specifieke vragen geeft de aanname van een universum met een ware populatieparameter die we ontdekken door oneindig herhaalde onderzoeken wel problemen (lees deze zin gerust nog een keer). Neem als voorbeeld dat we geïnteresseerd zijn in de proportie xtc-gebruikers op het festival Lowlands in 2026. Dit is een eenmalig evenement. We kunnen er wellicht van uitgaan dat er zoiets is als een constante populatieparameter 'proportie xtc-gebruik' voor dit festival, maar we kunnen in de praktijk geen herhaalde onderzoeken blijven doen om dit te meten. Deze editie van 2026, waar we specifiek in zijn geïnteresseerd, vind immers maar één keer plaats en we kunnen dus ook maar één keer onderzoek doen. De statistiekfilosofie laat ons hier in de steek.
+Voor meer specifieke vragen geeft de aanname van een universum met een ware populatieparameter die we ontdekken door oneindig herhaalde onderzoeken wel problemen (lees deze zin gerust nog een keer). Neem als voorbeeld dat we geïnteresseerd zijn in de proportie xtc-gebruikers op het festival Lowlands in 2026. Dit is een eenmalig evenement. We kunnen er wellicht van uitgaan dat er zoiets is als een constante populatieparameter 'proportie xtc-gebruik' voor dit festival, maar we kunnen in de praktijk geen herhaalde onderzoeken blijven doen om dit te meten. Deze editie van 2026, waar we specifiek in zijn geïnteresseerd, vindt immers maar één keer plaats en we kunnen dus ook maar één keer onderzoek doen. De statistiekfilosofie laat ons hier in de steek.
 
 Dat de filosofie niet helemaal kloppend is voor de onderzoekspraktijk is niet per se een probleem, onderzoek vergt wel vaker wat conceptueel rekwerk. Desalniettemin moeten we ons goed rekenschap geven van deze assumpties.
 
