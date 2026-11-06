@@ -23,7 +23,7 @@ We letten bij het onderzoeken van relaties tussen variabelen vooral op hun meetn
 
 Als we de relatie tussen twee nominale variabelen willen presenteren, kunnen we een eenvoudige kruistabel maken in R. We kijken in dit voorbeeld naar de relatie tussen geslacht (man/vrouw/anders) en of men heeft gevapet in het afgelopen jaar (ja/nee). We gaan er hier vanuit dat er geen rangorde bestaat tussen wel of niet vapen en het dus een nominale variabele betreft.
 
-In hoofdstuk xxx hebben we al een tabel gemaakt voor `geslacht`. We kunnen aan het commando `table()` een variabele `vapen_laatste_jaar` toevoegen om een kruistabel te krijgen.
+Bij [Meetniveaus en visualisaties](002-02-meetniveaus-visualisaties.qmd#sec-kwalivariabelen) hebben we al een tabel gemaakt voor `geslacht`. We kunnen aan het commando `table()` een variabele `vapen_laatste_jaar` toevoegen om een kruistabel te krijgen.
 
 ```{r}
 # kruistabel tussen geslacht en vapen laatste jaar

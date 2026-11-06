@@ -21,11 +21,11 @@ In de onderwijsgroepen leer je over methodologische aspecten die relevant zijn v
 
 ### Practica
 
-In practica ga je aan de slag met de stof van die week. Je gaat opgaven maken die zich richten op het werken met data en beschrijvende en inferentiële technieken. Bij aanvang van het practicum kun je practicumopdracht van die week downloaden bij [Opdrachten](009-02-opdrachten.qmd). Dit is een R markdown file waarin opdrachten en instructies staan.
+In practica ga je aan de slag met de stof van die week. Je gaat opgaven maken die zich richten op het werken met data en beschrijvende en inferentiële technieken. Bij aanvang van het practicum kun je de practicumopdracht van die week downloaden bij [Opdrachten](009-02-opdrachten.qmd). Dit is een R markdown file waarin opdrachten en instructies staan.
 
 Je kunt tijdens de practica op je eigen laptop werken of op een pc in de computerzaal. Je bent zelf verantwoordelijk voor het goed opslaan en inleveren van je opdracht.
 
-Tijdens de practica kun je vragen stellen aan de docenten over de opdracht. Als de docenten druk zijn, kan het wat langer duren voordat je wordt geholpen. Je kunt ook een mede-student proberen. Wees lief en heb een beetje geduld (zo zijn wij ook).
+Tijdens de practica kun je vragen stellen aan de docenten over de opdracht. Als de docenten druk zijn, kan het wat langer duren voordat je wordt geholpen. Je kunt ook mede-studenten vragen om hulp. Wees lief en heb een beetje geduld (zo zijn wij ook).
 
 Na de deadline voor de inspanningsverplichting worden de uitwerkingen van de opdrachten gepubliceerd onder [Opdrachten](009-02-opdrachten.qmd).
 
@@ -51,12 +51,12 @@ De colleges dienen zowel ter verdieping als herhaling van de stof. Week 5 is een
 
 ## Tentamen
 
-Het kwanti-tentamen zal een mix zijn van vragen over de stof uit de onderwijsgroepen, practica en colleges. Met name de problemen 4, 5 en 6 zijn relevant. Ook is de kennis uit problemen 1 en 2 nodig om de vragen überhaupt te begrijpen. Ongeveer 50% van de vragen zullen gaan over methodologische en inhoudelijke aspecten, en 50% is concreet werken met R. Uiteraard hangen deze twee dingen met elkaar samen.
+Het kwanti-tentamen zal een mix zijn van vragen over de stof uit de onderwijsgroepen, practica en colleges. Met name de problemen 4, 5 en 6 zijn relevant. Ook is de kennis uit problemen 1 en 2 nodig om de vragen überhaupt te begrijpen. Ongeveer 50% van de vragen zullen gaan over methodologische en inhoudelijke aspecten, en 50% is concreet werken met R. De tentamenvragen over R hebben dezelfde vorm als in de practica, je kunt dus oefenen met de practicum- en collegeopdrachten.
 
 ## Overzicht stof per week
 
 |  |  |  |
-|-----------|--------------------------------|------------------------|
+|-----------------|--------------------------------|------------------------|
 | **Week** | **Voorbereiding en practicum** | **College** |
 | 4 | Data beschrijven | \- |
 | 5 | Steekproeven en betrouwbaarheidsinterval | Verdieping onderzoeksontwerp en steekproeven |

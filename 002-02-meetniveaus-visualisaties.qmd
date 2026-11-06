@@ -11,7 +11,7 @@ Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit ob
 
 Doorgaans maken we onderscheid tussen **kwalitatieve** en **kwantitatieve** variabelen.
 
-## Kwalitatieve variabelen
+## Kwalitatieve variabelen {#sec-kwalivariabelen}
 
 Kwalitatieve variabelen bestaan uit categorieën die een kwalitatieve eigenschap van een observatie beschrijven. Deze eigenschappen zijn niet direct in cijfers uit te drukken, zoals bij kwantitatieve variabelen. Een belangrijk aspect is dat de categorieën *discreet* zijn: ze moeten elkaar uitsluiten.
 
@@ -25,7 +25,7 @@ ggplot(data_uitgaan, aes(x = geslacht)) + # data en variabele selecteren
   geom_bar() # staafdiagram
 ```
 
-De staafdiagram geeft een visuele presentatie van het aantal mannen, vrouwen en anders-identificerenden in de dataset. Het mooie aan R is dat we de figuur visueel nog wat aantrekkelijker kunnen maken. Hiermee ga je meer oefenen tijdens de cursus.
+De staafdiagram geeft een visuele presentatie van het aantal mannen, vrouwen en anders-identificerenden in de dataset. Het mooie aan R is dat we de figuur visueel nog wat aantrekkelijker kunnen maken. Hiermee ga je meer oefenen tijdens de practica.
 
 ```{r}
 # staafdiagram met betere visualisatie
@@ -46,7 +46,7 @@ Als je wilt weten hoeveel respondenten er precies in elke categorie zitten, kun 
 table(data_uitgaan$geslacht)
 ```
 
-De dataset bevat in totaal dus xxx mannen, xxx vrouwen en xxx in de categorie "anders".
+De dataset bevat in totaal dus 178 mannen, 170 vrouwen en 2 personen in de categorie "anders".
 
 ### Nominale variabele
 
@@ -88,7 +88,7 @@ ggplot(drugs_verkrijgen, aes(x= "", y = perc, fill = manier_verkrijgen_drugs)) +
   labs(fill = "Manieren van drugs verkrijgen (%)") # titel voor legenda
 ```
 
-We hebben nu een duidelijk inzicht in hoe jongeren die drugs gebruiken hier aan komen. Zo zien we bijvoorbeeld dat ongeveer xx procent dit via een dealer koopt, en ongeveer een kwart het koopt via vrienden/kennissen en een kwart het van deze krijgt.
+We hebben nu een duidelijk inzicht in hoe jongeren die drugs gebruiken hier aan komen. Zo zien we bijvoorbeeld dat ongeveer 40 procent dit via een dealer koopt, en ongeveer een kwart het koopt via vrienden/kennissen en een kwart het van deze krijgt.
 
 Dit toont meteen een relevante bevinding uit de literatuur over drugsgebruik onder jongeren, namelijk dat de helft van de jongeren hun drugs verkrijgen via "*sorting*" (zie [Parker et al., 2002](https://journals.sagepub.com/doi/10.1177/003803850203600408)). Dat wil zeggen, dat een bekende uit een vrienden- of kennissenkring iemand van drugs voorziet eerder dan een dealer.
 
@@ -131,7 +131,7 @@ Er zijn twee types kwantitatieve variabelen: **interval** en **ratio**. Het vers
 
 Leeftijd is bijvoorbeeld een ratio variabele, je kunt namelijk niet jonger dan 0 jaar zijn. Geboortejaar, aan de andere kant, is weer een interval variabele. De christelijke jaartelling begint bij het jaar 0, maar dat is eigenlijk arbitrair omdat de jaren daarvoor ook geteld worden. Het specifieke karakter van de variabele bepaalt dus het meetniveau.
 
-(nog een voorbeeld hier?)
+Om nog een ander voorbeeld te geven: inkomen is een ratio variabele. Inkomen wordt in euro's gemeten, maar kan niet negatief zijn. Aan de andere kant, als je banksaldo als variabele zou nemen, kan dit weer wel negatief zijn (als je in de min staat). Dat is dus een interval variabele.
 
 Voor een lineaire variabele met relatief weinig unieke waarden gebruiken we meestal een staafdiagram. Zie hieronder een voorbeeld van de variabele leeftijd.
 
@@ -192,6 +192,7 @@ data_uitgaan$leeftijd_cat <- recode_values(data_uitgaan$leeftijd,
                                    21:25 ~ "21-25 jaar",
                                    26:30 ~ "26-30 jaar",
                                    31:35 ~ "31-35 jaar")
+
 # nieuwe variabele leeftijd_cat inspecteren
 head(data_uitgaan$leeftijd_cat)
 ```

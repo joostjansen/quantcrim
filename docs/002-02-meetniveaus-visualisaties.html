@@ -487,7 +487,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#kwalitatieve-variabelen" id="toc-kwalitatieve-variabelen" class="nav-link active" data-scroll-target="#kwalitatieve-variabelen"><span class="header-section-number">5.1</span> Kwalitatieve variabelen</a>
+  <li><a href="#sec-kwalivariabelen" id="toc-sec-kwalivariabelen" class="nav-link active" data-scroll-target="#sec-kwalivariabelen"><span class="header-section-number">5.1</span> Kwalitatieve variabelen</a>
   <ul class="collapse">
   <li><a href="#staafdiagram" id="toc-staafdiagram" class="nav-link" data-scroll-target="#staafdiagram"><span class="header-section-number">5.1.1</span> Staafdiagram</a></li>
   <li><a href="#simpele-tabel" id="toc-simpele-tabel" class="nav-link" data-scroll-target="#simpele-tabel"><span class="header-section-number">5.1.2</span> Simpele tabel</a></li>
@@ -530,8 +530,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Op de vorige pagina heb je gezien wat een dataset is, en dat deze bestaat uit observaties (de rijen) en variabelen (de kolommen). In de basis zijn er vier manieren om variabelen meetbaar te maken (ook wel: operationaliseren). We noemen deze manieren <strong>meetniveaus.</strong> Elk meetniveau verschaft een ander soort informatie. We bespreken hier de vier meetniveaus en daarbij gaan we meteen in op hoe we de informatie die de variabelen verschaffen het beste visueel kunnen presenteren.</p>
 <p>Doorgaans maken we onderscheid tussen <strong>kwalitatieve</strong> en <strong>kwantitatieve</strong> variabelen.</p>
-<section id="kwalitatieve-variabelen" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="kwalitatieve-variabelen"><span class="header-section-number">5.1</span> Kwalitatieve variabelen</h2>
+<section id="sec-kwalivariabelen" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-kwalivariabelen"><span class="header-section-number">5.1</span> Kwalitatieve variabelen</h2>
 <p>Kwalitatieve variabelen bestaan uit categorieën die een kwalitatieve eigenschap van een observatie beschrijven. Deze eigenschappen zijn niet direct in cijfers uit te drukken, zoals bij kwantitatieve variabelen. Een belangrijk aspect is dat de categorieën <em>discreet</em> zijn: ze moeten elkaar uitsluiten.</p>
 <section id="staafdiagram" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="staafdiagram"><span class="header-section-number">5.1.1</span> Staafdiagram</h3>
@@ -548,7 +548,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>De staafdiagram geeft een visuele presentatie van het aantal mannen, vrouwen en anders-identificerenden in de dataset. Het mooie aan R is dat we de figuur visueel nog wat aantrekkelijker kunnen maken. Hiermee ga je meer oefenen tijdens de cursus.</p>
+<p>De staafdiagram geeft een visuele presentatie van het aantal mannen, vrouwen en anders-identificerenden in de dataset. Het mooie aan R is dat we de figuur visueel nog wat aantrekkelijker kunnen maken. Hiermee ga je meer oefenen tijdens de practica.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># staafdiagram met betere visualisatie</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_uitgaan, <span class="fu">aes</span>(<span class="at">x =</span> geslacht)) <span class="sc">+</span></span>
@@ -577,7 +577,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    178    170      2 </code></pre>
 </div>
 </div>
-<p>De dataset bevat in totaal dus xxx mannen, xxx vrouwen en xxx in de categorie “anders”.</p>
+<p>De dataset bevat in totaal dus 178 mannen, 170 vrouwen en 2 personen in de categorie “anders”.</p>
 </section>
 <section id="nominale-variabele" class="level3" data-number="5.1.3">
 <h3 data-number="5.1.3" class="anchored" data-anchor-id="nominale-variabele"><span class="header-section-number">5.1.3</span> Nominale variabele</h3>
@@ -627,7 +627,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>We hebben nu een duidelijk inzicht in hoe jongeren die drugs gebruiken hier aan komen. Zo zien we bijvoorbeeld dat ongeveer xx procent dit via een dealer koopt, en ongeveer een kwart het koopt via vrienden/kennissen en een kwart het van deze krijgt.</p>
+<p>We hebben nu een duidelijk inzicht in hoe jongeren die drugs gebruiken hier aan komen. Zo zien we bijvoorbeeld dat ongeveer 40 procent dit via een dealer koopt, en ongeveer een kwart het koopt via vrienden/kennissen en een kwart het van deze krijgt.</p>
 <p>Dit toont meteen een relevante bevinding uit de literatuur over drugsgebruik onder jongeren, namelijk dat de helft van de jongeren hun drugs verkrijgen via “<em>sorting</em>” (zie <a href="https://journals.sagepub.com/doi/10.1177/003803850203600408">Parker et al., 2002</a>). Dat wil zeggen, dat een bekende uit een vrienden- of kennissenkring iemand van drugs voorziet eerder dan een dealer.</p>
 </section>
 <section id="ordinale-variabele" class="level3" data-number="5.1.5">
@@ -669,7 +669,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="sec-intervalratio"><span class="header-section-number">5.2.1</span> Interval en ratio variabelen</h3>
 <p>Er zijn twee types kwantitatieve variabelen: <strong>interval</strong> en <strong>ratio</strong>. Het verschil tussen deze twee types is dat een interval variabele geen <em>absoluut nulpunt</em> kent en een ratio variabele wel. Een absoluut nulpunt is wanneer de laagste waarde van een variabele nul is en het niet mogelijk is dat er een nog logische waarde daaronder bestaat.</p>
 <p>Leeftijd is bijvoorbeeld een ratio variabele, je kunt namelijk niet jonger dan 0 jaar zijn. Geboortejaar, aan de andere kant, is weer een interval variabele. De christelijke jaartelling begint bij het jaar 0, maar dat is eigenlijk arbitrair omdat de jaren daarvoor ook geteld worden. Het specifieke karakter van de variabele bepaalt dus het meetniveau.</p>
-<p>(nog een voorbeeld hier?)</p>
+<p>Om nog een ander voorbeeld te geven: inkomen is een ratio variabele. Inkomen wordt in euro’s gemeten, maar kan niet negatief zijn. Aan de andere kant, als je banksaldo als variabele zou nemen, kan dit weer wel negatief zijn (als je in de min staat). Dat is dus een interval variabele.</p>
 <p>Voor een lineaire variabele met relatief weinig unieke waarden gebruiken we meestal een staafdiagram. Zie hieronder een voorbeeld van de variabele leeftijd.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># staafdiagram van leeftijd</span></span>
@@ -737,8 +737,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="dv">21</span><span class="sc">:</span><span class="dv">25</span> <span class="sc">~</span> <span class="st">"21-25 jaar"</span>,</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                                   <span class="dv">26</span><span class="sc">:</span><span class="dv">30</span> <span class="sc">~</span> <span class="st">"26-30 jaar"</span>,</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>                                   <span class="dv">31</span><span class="sc">:</span><span class="dv">35</span> <span class="sc">~</span> <span class="st">"31-35 jaar"</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># nieuwe variabele leeftijd_cat inspecteren</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_uitgaan<span class="sc">$</span>leeftijd_cat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># nieuwe variabele leeftijd_cat inspecteren</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_uitgaan<span class="sc">$</span>leeftijd_cat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "21-25 jaar" "21-25 jaar" "16-20 jaar" "26-30 jaar" "16-20 jaar"
 [6] "16-20 jaar"</code></pre>
