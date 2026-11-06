@@ -21,9 +21,9 @@ We gaan de t-toets voor afhankelijke groepen uitwerken met een voorbeeld. Volgen
 
 ## Beetje pips van de dips
 
-Onder feestgangers is het een bekend verschijnsel: de dinsdagdip. Na een weekend feesten met uitbundig 🥳 of excessief😬 drugsgebruik voelen gebruikers zich vaak de dinsdag erna bijzonder matig. Dit uit zich in klachten als somberheid, vermoeidheid, en slecht concentratievermogen.[^004-03-afhankelijkegroepen-3] Drugs hebben echter verschillende effecten op gebruikers, wat impliceert dat de dinsdagdip voor de ene drug zwaarder kan aankomen dan voor de andere drug.
+Onder feestgangers is het een bekend verschijnsel: de dinsdagdip. Na een weekend feesten met (excessief) drugsgebruik voelen gebruikers zich vaak de dinsdag erna bijzonder matig. Dit uit zich in klachten als somberheid, vermoeidheid, en slecht concentratievermogen.[^004-03-afhankelijkegroepen-3] Drugs hebben echter verschillende effecten op gebruikers, wat impliceert dat de dinsdagdip voor de ene drug zwaarder kan aankomen dan voor de andere drug.
 
-[^004-03-afhankelijkegroepen-3]: 3-MMC is een zogenoemde designerdrug die de laatste jaren populair is geworden onder uitgaande jongeren. Voor meer informatie: Trimbos.
+[^004-03-afhankelijkegroepen-3]: De dinsdagdip is ingeburgerd begrip dat ook door verslavingsinstanties wordt gebruikt, zoals [SGGZ](https://connection-sggz.nl/verslaving/drugs/dinsdagdip).
 
 In dit voorbeeld gaan we kijken of uitgaanders een verschil in dinsdagdip ervaren voor xtc en 3-mmc.[^004-03-afhankelijkegroepen-4] We nemen daarbij de hele populatie van uitgaanders als startpunt. Aangezien we uitgaanders willen vergelijken die zowel xtc als 3-mmc hebben gebruikt, beperken we onze populatie tot deze specifieke groep gebruikers. De variabele `gemoed_dinsdag_na_xtc` hebben we al eerder gezien [Histogram](002-02-meetniveaus-visualisaties.qmd#sec-histogram).[^004-03-afhankelijkegroepen-5] We gebruiken voor 3-mmc een zelfde soort variabele: `gemoed_dinsdag_na_mmc`. Laten net als bij de histogram van `gemoed_dinsdag_na_xtc` een histogram maken voor `gemoed_dinsdag_na_mmc`.
 
@@ -41,7 +41,7 @@ ggplot(data_uitgaan, aes(x = gemoed_dinsdag_na_mmc)) +
   xlim(0, 100)
 ```
 
-Je ziet dat de variabele redelijk normaal verdeeld lijkt. De meeste waarden bevinden zich tussen de 40 en 80.
+Je ziet dat de meeste waarden zich bevinden zich tussen de 40 en 80.
 
 ### Hypothese opstellen
 
@@ -124,7 +124,7 @@ We laten onze befaamde interpretatie los op de uitkomst:
 
 > We kunnen met 95% betrouwbaarheid stellen dat het gemiddelde verschil tussen gemoedstoestand op dinsdag na xtc- en 3-mmc-gebruik tussen de -3,35 en 5,84 ligt, gebaseerd op (hypothetische) herhaalde steekproeven en geen additionele relevante kennis.
 
-We vinden dus dat de gemiddelde verschilscore zowel negatief (-3,35) als positief (5,84) zou kunnen zijn. De potentiële populatieparameters zijn an sich niet heel groot; een verschil van 5 op een oorspronkelijk bereik van 0-100 stelt niet veel voor. De populatieparameters lijken zich vooral rondom nul te begeven.
+We vinden dus dat de gemiddelde verschilscore negatief (-3,35) of positief (5,84) zou kunnen zijn. De potentiële populatieparameters zijn an sich niet heel groot; een verschil van 5 op een oorspronkelijk bereik van 0-100 stelt niet veel voor. De populatieparameters lijken zich vooral rondom nul te begeven.
 
 Omdat nul ook binnen het bhi valt, concluderen we dat we de nulhypothese niet verwerpen.[^004-03-afhankelijkegroepen-7] Er lijkt dus geen wezenlijk verschil te zijn tussen de gemoedstoestand op dinsdag na het gebruik van xtc of 3-mmc. We kunnen er, bij gebrek aan ander bewijs, vanuit gaan dat de drugs een vergelijkbare kater geven.
 
@@ -132,4 +132,4 @@ Omdat nul ook binnen het bhi valt, concluderen we dat we de nulhypothese niet ve
 
 ## Samenvatting
 
-We hebben in dit hoofdstuk een t-toets voor afhankelijke groepen uitgevoerd door de gemoedstoestand op dinsdag van drugsgebruikers te vergelijken m.b.t. xtc en 3-mmc. Bij deze t-toets vergelijken we voor één groep de scores op twee kwantitatieve variabelen. Bij een t-toets voor onafhankelijke groepen vergelijken we juist twee groepen op één variabele. Het hoofdstuk toont verder dat we eerder geleerd hebben rondom betrouwbaarheidsintervallen hier ook goed toepasbaar is, ditmaal voor een gemiddelde verschilscore 🤓.
+We hebben in dit hoofdstuk een t-toets voor afhankelijke groepen uitgevoerd door de gemoedstoestand op dinsdag van drugsgebruikers te vergelijken m.b.t. xtc en 3-mmc. Bij deze t-toets vergelijken we voor één groep de scores op twee kwantitatieve variabelen. Bij een t-toets voor onafhankelijke groepen vergelijken we juist twee groepen op één variabele. Het hoofdstuk toont verder dat wat we eerder geleerd hebben rondom betrouwbaarheidsintervallen ook hier goed toepasbaar is, ditmaal voor een gemiddelde verschilscore 🤓.
