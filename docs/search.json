@@ -563,7 +563,7 @@
     "href": "formuleblad.html",
     "title": "Appendix A — Symbolen en formules",
     "section": "",
-    "text": "A.1 Belangrijke symbolen en formules\nHier vind je een overzicht van alle belangrijke symbolen en formules die we gebruiken.\nNog toe te voegen aan formuleblad:\n\\[ \\sigma^2=\\frac{\\sum_{i=1}^{n}(x_i-\\mu)^2}{N} \\]\n\\[ z=\\frac{x-\\bar{x}}{S} \\]\n\\[ s.e. =\\frac{S}{\\sqrt{n}} \\]",
+    "text": "A.1 Belangrijke symbolen en formules\nHier vind je een overzicht van alle belangrijke symbolen en formules die we gebruiken.",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Symbolen en formules</span>"
@@ -574,7 +574,7 @@
     "href": "formuleblad.html#belangrijke-symbolen-en-formules",
     "title": "Appendix A — Symbolen en formules",
     "section": "",
-    "text": "Symbool\nBetekenis\n\n\n\n\n\\(\\sum_{i=1}^n\\)\nGriekse hoofdletter sigma, staat voor ‘sommatie’: alles bij elkaar optellen. De \\(i\\) betekent dat je begint met tellen bij de eerste waarneming, de \\(n\\) dat je stopt bij de laatste.\n\n\n\\(\\alpha\\)\nAlpha, het significantieniveau\n\n\n\\(\\mu\\)\nMu, het gemiddelde in de populatie (vaak onbekend)\n\n\n\\(\\sigma\\)\nSigma, de standaarddeviatie in een populatie (vaak onbekend)\n\n\n\\(\\sigma^2\\)\nSigma kwadraat, de variantie in een populatie\n\n\n\\(\\sigma_{\\bar{x}}\\)\nSigma mean, standaardfout vna het gemiddelde",
+    "text": "Symbool\nFormule\nBetekenis\n\n\n\n\nAlgemeen\n\n\n\n\n\\(\\sum_{i=1}^n\\)\n\nGriekse hoofdletter sigma, staat voor ‘sommatie’: alles bij elkaar optellen. De \\(i\\) betekent dat je begint met tellen bij de eerste waarneming, de \\(n\\) dat je stopt bij de laatste.\n\n\n\\(\\alpha\\)\n\nAlpha, het significantieniveau\n\n\n\\(P\\)\n\nPopulatieproportie\n\n\n\\(\\hat{p}\\)\n\nSteekproefproportie\n\n\n\\(\\mu\\)\n\\(\\mu=\\frac{\\sum_{i=1}^{N}{x_i}}{N}\\)\nMu, het gemiddelde in de populatie (vaak onbekend)\n\n\n\\(\\bar{x}\\)\n\\(\\bar{x}=\\frac{\\sum_{i=1}^{n}{x_i}}{n}\\)\nSteekproefgemiddelde\n\n\n\\(\\sigma^2\\)\n\\(\\sigma^2=\\frac{\\sum_{i=1}^{N}(x_i-\\mu)^2}{N}\\)\nSigma kwadraat, de variantie in een populatie\n\n\n\\(S^2\\)\n\\(S^2=\\frac{\\sum_{i=1}^{n}(x_i-\\bar{x})^2}{n-1}\\)\nSteekproefvariantie\n\n\n\\(\\sigma\\)\n\\(\\sigma=\\sqrt{\\frac{\\sum_{i=1}^{N}(x_i-\\mu)^2}{N}}\\)\nSigma, de standaarddeviatie in een populatie (vaak onbekend)\n\n\n\\(s\\)\n\\(s=\\sqrt{\\frac{\\sum_{i=1}^{n}(x_i-\\bar{x})^2}{n-1}}\\)\nStandaardafwijking in de steekproef\n\n\n\\(s.e.\\)\n\\(s.e.=\\frac{s}{\\sqrt{n}}\\)\nStandaardfout\n\n\n\\(R\\)\n\\(R=x_{max}-x_{min}\\)\nRange, oftewel bereik\n\n\n\\(z\\)\n\\(z=\\frac{x-\\bar{x}}{s}\\)\nZ-score\n\n\nBhi’s\n\n\n\n\n\\(\\text{bhi}_{\\hat{p}}\\)\n\\(\\text{bhi}_{\\hat{p}}=\\hat{p}\\pm z\\times\\sigma_{\\hat{p}}\\)\nBhi proportie\n\n\n\\(\\sigma_{\\hat{p}}\\)\n\\(\\sigma_{\\hat{p}}=\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\\)\nStandaardfout proporties\n\n\n\\(\\text{bhi}_{\\bar{x}}\\)\n\\(\\text{bhi}_{\\bar{x}}=\\bar{x}\\pm z\\times\\sigma_{\\bar{x}}\\)\nBhi gemiddelde\n\n\n\\(\\sigma_{\\bar{x}}\\)\n\\(\\sigma_{\\bar{x}}=\\frac{s}{\\sqrt{n}}\\)\nStandaardfout gemiddeldes\n\n\n\\(\\text{bhi}_{\\bar{d}}\\)\n\\(\\bar{d}\\pm t_k\\frac{s_d}{\\sqrt{n}}\\)\nBhi t-toets verschillen",
     "crumbs": [
       "Appendices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Symbolen en formules</span>"
