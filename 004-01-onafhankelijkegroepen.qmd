@@ -71,7 +71,9 @@ De **overschrijdingskans**, ook wel p-waarde genoemd of simpelweg $p$, speelt ee
 
 Je zult inmiddels wel denken: "waar zijn we nu weer aanbeland"?
 
+::: {.content-visible when-format="html"}
 ![](afbeeldingen/Headache.gif){width="340"}
+:::
 
 Laten we het laag voor laag afpellen.
 

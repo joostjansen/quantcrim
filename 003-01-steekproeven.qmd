@@ -131,7 +131,9 @@ De regels rondom de centrale limietstelling zijn net wet anders bij minder dan 3
 
 Doordat we de standaardfout kennen, kunnen we in combinatie met [de empirische regel](002-03-centrum-en-spreidingsmaten.qmd#sec-normaleverdeling) bepalen hoe waarschijnlijk een bepaalde (willekeurige) steekproefuitkomst voorkomt. Daar gaan we zo mee verder. Eerst laten we de magie van de steekproevenverdeling en centrale limietstelling even op ons inwerken.
 
+::: {.content-visible when-format="html"}
 ![](afbeeldingen/Mind_blown.gif)
+:::
 
 ## Één steekproef en de standaardfout {#sec-standaardfout}
 
