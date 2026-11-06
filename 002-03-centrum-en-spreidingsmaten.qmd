@@ -269,7 +269,7 @@ Een doosdiagram weergeeft de spreiding van een variabele en bevat het minimum en
 
 Je kunt aan bovenstaande figuur bijvoorbeeld zien dat alle waarden tussen het 1ste kwartiel en mediaan tussen de 20 en 23 jaar liggen. Het hoogste kwartiel (Q4) omvat relatief veel leeftijden, van 27 tot 35 jaar.
 
-Vergelijk deze doosdiagram met de staafdiagram van leeftijd ([Staafdigram leeftijd](%7B002-02-meetniveaus-visualisaties.qmd#sec-intervalratio%7D)). Je ziet dat er verschillende manieren zijn om data te visualiseren.
+Vergelijk deze doosdiagram met de staafdiagram van leeftijd ([Staafdiagram leeftijd](002-02-meetniveaus-visualisaties.qmd#sec-intervalratio)). Je ziet dat er verschillende manieren zijn om data te visualiseren.
 
 ## Normale verdeling {#sec-normaleverdeling}
 
