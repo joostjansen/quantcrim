@@ -1,5 +1,5 @@
 ---
-title: "Praktische zaken"
+title: "Praktische zaken M&T I"
 format: html
 execute:
   warning: false
@@ -13,7 +13,7 @@ Gijs Custers - blokcoördinator en practicumdocent. Email: [custers\@law.eur.nl]
 
 Zoë van Wingerden - practicumdocent. Email: [z.p.vanwingerden\@law.eur.nl]{.underline}
 
-## Onderwijsgroepen, practica en colleges     
+## Onderwijsgroepen, practica en colleges
 
 ### Onderwijsgroepen
 
@@ -21,17 +21,29 @@ In de onderwijsgroepen leer je over methodologische aspecten die relevant zijn v
 
 ### Practica
 
-In practica ga je aan de slag met de stof van die week. Je gaat opgaven maken die zich richten op het werken met data en beschrijvende en inferentiële technieken. Bij aanvang van het practicum kun je practicumopdracht van die week downloaden bij [LINK]{.underline}. Dit is een R markdown file waarin opdrachten en instructies staan.
+In practica ga je aan de slag met de stof van die week. Je gaat opgaven maken die zich richten op het werken met data en beschrijvende en inferentiële technieken. Bij aanvang van het practicum kun je practicumopdracht van die week downloaden bij OPDRACHTEN. Dit is een R markdown file waarin opdrachten en instructies staan.
 
 Je kunt tijdens de practica op je eigen laptop werken of op een pc in de computerzaal. Je bent zelf verantwoordelijk voor het goed opslaan en inleveren van je opdracht.
 
 Tijdens de practica kun je vragen stellen aan de docenten over de opdracht. Als de docenten druk zijn, kan het wat langer duren voordat je wordt geholpen. Wees lief en heb een beetje geduld (zo zijn wij ook).
 
+Na de deadline voor de inspanningsverplichting worden de uitwerkingen van de opdrachten gepubliceerd onder OPDRACHTEN.
+
 #### Voorbereiding
 
 **Om de opdrachten goed te kunnen maken, is het noodzakelijk dat je de stof van die week *voorafgaand* aan het practicum hebt bestudeerd.** Dit betekent alles (meerdere malen) goed doorlezen, aantekeningen maken en dingen opzoeken. Zonder voorbereiding kun je de practicumopdracht niet maken. Dan ga je vervolgens niet voldoen aan de inspanningsverplichting en uiteindelijk het vak het niet halen. Bespaar jezelf die stress en bereid je gewoon goed voor.
 
-### Colleges 
+#### Aanwezigheids- en inspanningsverplichting
+
+De **aanwezigheidsplicht** betekent, zoals het woord al zegt, dat je bij elk practicum verplicht aanwezig moet zijn. Bij overmacht dien je *voorafgaand* aan het practicum Zoe via email ([z.p.vanwingerden\@law.eur.nl)]{.underline} te informeren over jouw afwezigheid met een geldige reden. Slappe smoesjes achteraf zijn we niet van gediend en zullen niet worden geaccepteerd.
+
+De **inspanningsverplichting** betekent dat je practicumopdracht van die week op tijd, volledig en op niveau inlevert. Dit om te laten zien dat je serieus aan de opdracht hebt gewerkt. De deadline is standaard **vrijdag 23:59** na het desbetreffende practicum. Je kunt de opdracht als pdf-bestand inleveren via een uploadbox in Canvas. De opdracht wordt beoordeeld als complete (volledig en op niveau) of incomplete. Bij een incomplete heb je niet aan de inspanningsverplichting voldaan. Een complete zegt daartegen niks over of de inhoudelijke antwoorden juist zijn. Dat moet je zelf later via de uitwerkingen checken.
+
+Bij afwezigheid dien je nog steeds aan de inspanningsverplichting te voldoen, behalve in het geval van overmacht.
+
+**Je dient aan beide verplichtingen te voldoen om recht te hebben je cijfer van kwanti-tentamen**, en daarmee je eindcijfer. Als je dit niet doet, moet je bij Gijs op het matje komen en dat wil je natuurlijk voorkomen.
+
+### Colleges
 
 ## Tentamen
 
