@@ -7,25 +7,23 @@ execute:
 
 # Voorwoord {.unnumbered}
 
-Welkom bij het **quantcrim handboek** criminologie. Hier ga je leren hoe je allerlei vormen van kwantitatieve data kan analyseren met R en welke principes daaraan ten grondslag liggen. Het boek is ontworpen en *open-access* beschikbaar gesteld door docenten en onderzoekers van de opleiding Criminologie aan de Erasmus Universiteit Rotterdam. Het boek is bedoeld voor zowel bachelor-, master als oud-studenten en iedereen met interesse in kwantitatief criminologisch onderzoek. Ons streven is om de studiematerialen van de vakken Methoden en Technieken I & II en Research Lab in dit boek te verwerken.
+Welkom bij het **quantcrim handboek**! Hier ga je leren hoe je allerlei vormen van kwantitatieve data kan analyseren met R en welke principes daaraan ten grondslag liggen. Het boek is ontworpen en *open-access* beschikbaar gesteld door docenten en onderzoekers van de opleiding [Criminologie](https://www.eur.nl/bachelor/criminologie) aan de Erasmus Universiteit Rotterdam. Het boek is bedoeld voor zowel bachelor-, master als oud-studenten en iedereen met interesse in kwantitatief criminologisch onderzoek. Ons streven is om de studiematerialen van de vakken Methoden en Technieken I & II en Research Labs in dit boek te verwerken.
 
-Waarom een apart boek voor onze opleiding? Statistiek en bijbehorende methoden worden vaak gezien als een vastomlijnd geheel waarover je kan leren door de 'juiste' stappen te volgen. Hoewel we inderdaad vaak stappen volgen, bestaat binnen de wetenschap veel discussie over wat die juiste stappen zijn. Die onenigheid wordt echter niet altijd benoemd in introductie statistiekboeken. En dat is begrijpelijk, statistiek is bij de start al spannend genoeg! Dit boek representeert daarom onze visie op hoe je kwantitatief onderzoek zou moeten leren, en is daarmee een product van de kennis en ervaring die we de afgelopen jaren hebben opgedaan als onderzoekers en docenten.
+Waarom een apart boek voor onze opleiding? Statistiek en kwantitatieve methodenvakken worden vaak beschouwd als een vastomlijnde set aan technieken die neerkomen op het volgen van een geheel aan 'juiste' stappen. Hoewel we inderdaad vaak stappen volgen, is er binnen de sociale wetenschappen in toenemende mate discussie over wat dan de juiste stappen zijn. Die onenigheid komt meestal niet aan bod in het doorsnee statistiekboek. Enerzijds is dat begrijpelijk; over statistiek leren is vaak al spannend genoeg! Anderzijds vinden wij het echter belangrijk - zeker in een tijd waarin data een steeds belangrijkere rol spelen in processen van bedrijfs- en besluitvorming en beleidsontwikkeling! - om te weten dat ook het doen van kwantitatief onderzoek omgeven is met allerlei complexiteit. Dat vergt ook een zekere nederigheid vanuit de onderzoekers. Statistieken vormen namelijk een krachtig hulpmiddel om allerlei vraagstukken mee van duiding te kunnen voorzien, maar kunnen in de verkeerde handen ook misbruikt worden voor allerlei [dubieuze ideologische doeleinden](https://lareviewofbooks.org/article/the-correlation-between-statistics-and-eugenics/). Niet voor niets luidt een bekende [uitspraak](https://en.wikipedia.org/wiki/Lies,_damned_lies,_and_statistics): *"There are three kinds of lies: lies, damned lies, and statistics."*
+
+We denken dat het belangrijk is om open en transparant te zijn over de aannames die we doen over de werkelijkheid, de stand van onze kennis daarover en de toepasbaarheid en zeggingskracht van onze analysemethodes. Met dit *open-access* boek proberen we aan deze visie zelf ook uitdrukking te geven. We willen niet dat jullie straks afgestudeerd zijn en denken dat statistiek alleen bestaat uit het bepalen of een resultaat significant is, en dat daarmee de kous af is. We hopen wat meer ruimte te bieden aan alle complexiteit rondom het doen van kwantitatieve analyses, zonder daarmee af te willen doen aan het nut van het analyseren van cijfers en statistieken. Onze visie op wat je over kwantitatief onderzoek zou moeten leren is een product van alle kennis en ervaring die we de afgelopen jaren hebben opgedaan als onderzoekers en docenten, maar ook van wat we achteraf zelf graag geleerd hadden willen hebben als student.
 
 We denken dat dit boek handig is omdat:
 
-- Het laat zien dat er diverse manieren zijn om kwantitatieve onderzoeksvraagstukken te benaderen
-
-- Het uitleg en voorbeelden integreert met werken in R. Daarmee verbinden we theorie en praktijk
-
-- Het nadruk ligt op de presentatie en visualisatie van data. Dit bereid jou beter voor op hedendaagse *data science*
-
-- Het gebruik maakt van criminologische voorbeelden, waardoor je de soms taaie stof hopelijk interessanter gaat vinden
-
-- Het een boek over R is, gemaakt met R 🤯
+- Het boek laat zien dat er diverse manieren zijn om kwantitatieve onderzoeksvraagstukken te benaderen, en dat er bij al die manieren aannames komen kijken waarover we expliciet moeten zijn als we over de resultaten communiceren;
+- Het boek uitleg en voorbeelden integreert met werken in R. Daarmee verbinden we theorie en praktijk;
+- Het boek nadruk de ligt op de presentatie en visualisatie van data. Dit bereid jou beter voor op wat tegenwoordig 'datageletterdheid' heet: het beschikken over de kennis en vaardigheden om - met behulp van allerlei databronnen - vraagstukken in het werkveld te kunnen duiden;
+- Het gebruik maakt van criminologische voorbeelden, waardoor we hopen dat je in gaat zien dat het spelen met en analyseren van kwantitatieve data bovenal ook leuk is;
+- Het een boek over R is, gemaakt met R 🤯 .
 
 ## Voor we verder gaan..
 
-In het kader van Open Science hebben we geprobeerd dit boek volledig transparant en reproduceerbaar te ontwikkelen. De broncode is beschikbaar via [https://github.com/joostjansen/quantcrim](https://github.com/joostjansen/QuantCrim){.uri}. Als je vragen, suggesties of aanpassingen hebt, aarzel niet deze te stellen.[^index-1]
+In het kader van [Open Science](https://www.knaw.nl/over-de-instituten/open-science) hebben we geprobeerd dit boek volledig transparant en reproduceerbaar te ontwikkelen. De broncode is beschikbaar via [GitHub](https://github.com/joostjansen/quantcrim). Als je vragen, suggesties of aanpassingen hebt, aarzel niet deze te stellen.[^index-1]
 
 [^index-1]: Het beste is om dit via GitHub te doen in onze Repository.
 
