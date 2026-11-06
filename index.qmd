@@ -35,6 +35,8 @@ Hespanhol, L., Vallio, C. S., Costa, L. M., & Saragiotto, B. T. (2019). Understa
 
 Lambert, B. (2018). *A student’s guide to Bayesian statistics*. SAGE Publications Ltd.
 
+Martin, J. L. (2018). *Thinking through statistics*. Chicago: University of Chicago Press.
+
 McElreath, R. (2018). *Statistical rethinking: A Bayesian course with examples in R and Stan*. CRC Press.
 
 Navarro, D.J. (2024). *Learning statistics with R: A tutorial for psychology students and other beginners*. University of New South Wales.
