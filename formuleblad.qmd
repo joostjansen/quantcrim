@@ -9,19 +9,25 @@ execute:
 
 Hier vind je een overzicht van alle belangrijke symbolen en formules die we gebruiken.
 
-| Symbool | Betekenis |
-|----|----|
-| $\sum_{i=1}^n$ | Griekse hoofdletter sigma, staat voor 'sommatie': alles bij elkaar optellen. De $i$ betekent dat je begint met tellen bij de eerste waarneming, de $n$ dat je stopt bij de laatste. |
-| $\alpha$ | Alpha, het significantieniveau |
-| $\mu$ | Mu, het gemiddelde in de *populatie* (vaak onbekend) |
-| $\sigma$ | Sigma, de standaarddeviatie in een *populatie* (vaak onbekend) |
-| $\sigma^2$ | Sigma kwadraat, de variantie in een *populatie* |
-| $\sigma_{\bar{x}}$ | Sigma mean, standaardfout vna het gemiddelde |
-
-Nog toe te voegen aan formuleblad:
-
-$$ \sigma^2=\frac{\sum_{i=1}^{n}(x_i-\mu)^2}{N} $$
-
-$$ z=\frac{x-\bar{x}}{S} $$
-
-$$ s.e. =\frac{S}{\sqrt{n}} $$
+| Symbool | Formule | Betekenis |
+|:--------|:--------|:----------|
+| *Algemeen* | | |
+| $\sum_{i=1}^n$ | | Griekse hoofdletter sigma, staat voor 'sommatie': alles bij elkaar optellen. De $i$ betekent dat je begint met tellen bij de eerste waarneming, de $n$ dat je stopt bij de laatste. |
+| $\alpha$ | | Alpha, het significantieniveau |
+| $P$ | | Populatieproportie |
+| $\hat{p}$ | | Steekproefproportie |
+| $\mu$ | $\mu=\frac{\sum_{i=1}^{N}{x_i}}{N}$ | Mu, het gemiddelde in de *populatie* (vaak onbekend) |
+| $\bar{x}$ | $\bar{x}=\frac{\sum_{i=1}^{n}{x_i}}{n}$ | Steekproefgemiddelde |
+| $\sigma^2$ | $\sigma^2=\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}$ | Sigma kwadraat, de variantie in een *populatie* |
+| $S^2$ | $S^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}$ | Steekproefvariantie |
+| $\sigma$ | $\sigma=\sqrt{\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}}$ | Sigma, de standaarddeviatie in een *populatie* (vaak onbekend) |
+| $s$ | $s=\sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}}$ | Standaardafwijking in de steekproef |
+| $s.e.$ | $s.e.=\frac{s}{\sqrt{n}}$ | Standaardfout |
+| $R$ | $R=x_{max}-x_{min}$ | Range, oftewel bereik |
+| $z$ | $z=\frac{x-\bar{x}}{s}$ | Z-score |
+| *Bhi's* | | |
+| $\text{bhi}_{\hat{p}}$ | $\text{bhi}_{\hat{p}}=\hat{p}\pm z\times\sigma_{\hat{p}}$ | Bhi proportie |
+| $\sigma_{\hat{p}}$ | $\sigma_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$ | Standaardfout proporties |
+| $\text{bhi}_{\bar{x}}$ | $\text{bhi}_{\bar{x}}=\bar{x}\pm z\times\sigma_{\bar{x}}$ | Bhi gemiddelde |
+| $\sigma_{\bar{x}}$ | $\sigma_{\bar{x}}=\frac{s}{\sqrt{n}}$ | Standaardfout gemiddeldes |
+| $\text{bhi}_{\bar{d}}$ | $\bar{d}\pm t_k\frac{s_d}{\sqrt{n}}$ | Bhi t-toets verschillen |
