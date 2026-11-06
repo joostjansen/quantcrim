@@ -79,7 +79,9 @@ mfv(x)
 
 ## Spreidingsmaten
 
-Tekst toevoegen over belang spreiding =\> Joost
+Zoals eerder aangegeven, draait statistiek voor een belangrijk deel om de analyse van variatie. We hebben een groep respondenten die over allerlei kenmerken beschikken. We kunnen tellen welke kenmerken het meest voorkomen, of wat het gemiddelde op een bepaald kenmerk is. Maar vaak zijn we als sociale wetenschappers niet zozeer geinteresseerd in dingen die algemeen zijn, maar juist in zaken die varieren. Welke groepen gebruiken welke vormen van drugs? Welke groepen gebruiken juist geen drugs? Het idee is dat variatie, bijvoorbeeld door het maken van vergelijkingen, ons iets kan leren over hoe de sociale werkelijkheid in elkaar zit.[^002-03-centrum-en-spreidingsmaten-1] Dat geeft ons bijvoorbeeld inzicht in welke theorie bruikbaar is om een bepaald fenomeen beter te begrijpen c.q. verklaren of om beleid te ontwikkelen dat specifiek gericht is op een bepaalde doelgroep.
+
+[^002-03-centrum-en-spreidingsmaten-1]: Sterker nog, onze methodes verklaren variat(n)ie met varia(n)tie. Als er geen variatie in een bepaald kenmerk is, kan het kenmerk ook niet als verklaring verschijnen. Of stel dat onze dataset alleen variatie meet op het niveau van individuen, dan gaan onze verklaringen ook te maken met individuele aspecten. Zie bijvoorbeeld het boek van [John Levi Martin](https://press.uchicago.edu/ucp/books/book/chicago/T/bo28394847.html).
 
 ### Bereik, minimum en maximum
 
@@ -320,6 +322,6 @@ We kunnen R gebruiken om dit uit te rekenen:
 (30-58.3)/14.0
 ```
 
-De persoon met score 30 bevindt dus ongeveer 2 standaarddeviaties onder het gemiddelde. Zoals de normale verdeling laat zien, is dit een vrij extreme score (slechts 2,2% van de waardes ligt nog onder 2 standaarddeviaties).[^002-03-centrum-en-spreidingsmaten-1] Deze partyprins of -prinses voelt zich dus niet zo lekker vergeleken met de rest op de dinsdag na een wild weekend!
+De persoon met score 30 bevindt dus ongeveer 2 standaarddeviaties onder het gemiddelde. Zoals de normale verdeling laat zien, is dit een vrij extreme score (slechts 2,2% van de waardes ligt nog onder 2 standaarddeviaties).[^002-03-centrum-en-spreidingsmaten-2] Deze partyprins of -prinses voelt zich dus niet zo lekker vergeleken met de rest op de dinsdag na een wild weekend!
 
-[^002-03-centrum-en-spreidingsmaten-1]: Vergelijk dit ook visueel met de verdeling van gemoed_dinsdag_na_xtc bij [Histogram](002-02-meetniveaus-visualisaties.qmd#sec-histogram). Waar ligt score 30 t.o.v. de rest van de verdeling?
+[^002-03-centrum-en-spreidingsmaten-2]: Vergelijk dit ook visueel met de verdeling van gemoed_dinsdag_na_xtc bij [Histogram](002-02-meetniveaus-visualisaties.qmd#sec-histogram). Waar ligt score 30 t.o.v. de rest van de verdeling?
