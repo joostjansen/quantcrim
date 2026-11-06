@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-deb916046d57902448ef8317134ba92a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-34cfa9cfa9935202557e813e66c18837.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-deb916046d57902448ef8317134ba92a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4d5af44521e8d2ac69805030d7e05dc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -487,12 +487,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#voorbereidingen" id="toc-voorbereidingen" class="nav-link active" data-scroll-target="#voorbereidingen">Voorbereidingen</a></li>
+  <li><a href="#voorbereidingen" id="toc-voorbereidingen" class="nav-link active" data-scroll-target="#voorbereidingen">Voorbereidingen</a>
+  <ul class="collapse">
+  <li><a href="#codecademy" id="toc-codecademy" class="nav-link" data-scroll-target="#codecademy"><span class="header-section-number">2.1</span> Codecademy</a></li>
+  <li><a href="#r-installeren" id="toc-r-installeren" class="nav-link" data-scroll-target="#r-installeren"><span class="header-section-number">2.2</span> R installeren</a>
+  <ul class="collapse">
+  <li><a href="#packages-installeren" id="toc-packages-installeren" class="nav-link" data-scroll-target="#packages-installeren"><span class="header-section-number">2.2.1</span> Packages installeren</a></li>
+  </ul></li>
+  <li><a href="#computervaardigheden" id="toc-computervaardigheden" class="nav-link" data-scroll-target="#computervaardigheden"><span class="header-section-number">2.3</span> Computervaardigheden</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/001-01-installatie.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./001-01-installatie.html">Voorbereiding</a></li><li class="breadcrumb-item"><a href="./001-01-installatie.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installatie en introductie R</span></a></li></ol></nav>
@@ -514,39 +522,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="voorbereidingen" class="level1 unnumbered">
+<section id="voorbereidingen" class="level1 unnumbered page-columns page-full">
 <h1 class="unnumbered">Voorbereidingen</h1>
-<p><em>Voor</em> aanvang van het eerste kwantitatieve practicum dien je drie dingen te hebben gedaan: het bestuderen van de stof van de eerste week (zie ook <a href="./001-02-praktischezaken.html#sec-voorbereiding">Voorbereiding</a>), een online-cursus met R en R installeren. De laatste twee dingen zul je sowieso 4-6 uur mee bezig zijn. Begin hier dus op tijd mee zodat je niet op de avond ervoor nog R aan de praat moet krijgen.</p>
-<p>Code</p>
-<p>We gaan werken met R (spreek uit op z’n Engels, als een piraat: arrrrh). R is een programmeertaal die veel statistici gebruiken om hun analyses mee te doen.</p>
-<p>Voor we tijdens de lessen aan de slag kunnen met het verrichten van kwantitatief onderzoek, moet de vereiste software geinstalleerd worden.</p>
-<p>De omgeving waarin je met R kan werken, heet RStudio. Zowel R als RStudio moeten apart geinstalleerd worden. Je vindt de installatielinks hieronder:</p>
+<p><em>Voor</em> aanvang van het eerste kwantitatieve practicum dien je drie dingen te hebben gedaan: het bestuderen van de stof van de eerste week (zie ook <a href="./001-02-praktischezaken.html#sec-voorbereiding">Voorbereiding</a>), een online cursus voor R en R installeren. De laatste twee dingen zul je sowieso 4 tot 6 uur mee bezig zijn. Begin hier dus op tijd mee zodat je niet op de avond voor het practicum R nog aan de praat moet krijgen.</p>
+<p>We gaan dus werken met R.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> R is een programmeertaal die veel statistici en sociale wetenschappers gebruiken om hun analyses mee te doen. Het is een superhandig programma, maar voor beginners ook uitdagend. Vooral als je geen ervaring hebt met programmeren en computeren in het algemeen. Het is normaal dat je paniek, frustratie en onzekerheid zult ervaren. Ga dus niet meteen bij de pakken neerzitten. R heeft een stijle leercurve. Op het begin lijkt het hocuspocus; na 4 weken zul je versteld staan van wat je allemaal kan. Ons advies is: blijf kalm en oefenen totdat het wel lukt.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Je spreekt het uit op z’n Engels, als een piraat: “arrrrh”. Als je meer een type bent voor Hollandse verbastering kun je “errr” zeggen.</p></div></div><section id="codecademy" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="codecademy"><span class="header-section-number">2.1</span> Codecademy</h2>
+<p>Om een zachte introductie in de programmeertaal R te hebben, moet je van tevoren een online cursus doen. Zonder deze cursus zul je niet het basisniveau hebben om de practicumopdrachten te maken.</p>
+<p>De gratis cursus is van <a href="https://www.codecademy.com/learn">Codecademy</a>. Je moet een gratis account aanmaken om de cursus te kunnen volgen, via Sign Up (je kunt alle bedrijfs- en persoonlijke informatie skippen). Vervolgens doorloop je <strong>de eerste twee modules</strong> van de cursus: Introduction en Data Frames. De rest hoef je niet te doen (ook niet de opties waar je voor moet betalen). De website van Codecademy spreekt voor zichzelf. De link naar de cursus kun je <a href="https://www.codecademy.com/learn/learn-r">hier</a> vinden. Wederom: deze cursus kost je wel een aantal uur, begin dus op tijd!</p>
+</section>
+<section id="r-installeren" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="r-installeren"><span class="header-section-number">2.2</span> R installeren</h2>
+<p>Om op je eigen laptop te kunnen werken tijdens de practica, moet je eerst R installeren. Dit is zeer aan te raden. Je kunt in principe ook op de PCs werken in de computerzalen, maar dan kun je thuis niet oefenen.</p>
+<p>R bestaat uit twee programma’s: R and RStudio. Je moet beide programma’s apart downloaden en installeren. Rstudio is het programma waar je uiteindelijk in werkt. R draait daarbij op de achtergrond. Rstudio werkt niet zonder dat je R hebt geïnstalleerd.</p>
+<p>Je vindt de installatielinks hieronder:</p>
 <ol type="1">
 <li><a href="https://cran.r-project.org/">R</a></li>
-<li><a href="https://docs.posit.co/ide/user/#rstudio-ide-oss-downloads">RStudio</a></li>
 </ol>
-<p>Na installatie van de benodigde software moeten we R gereed maken door de juiste packages (ook wel: libraries) te installeren. Veel databewerkingen en analyses vergen namelijk speciaal daarvoor software. Een package waarmee je mooie visualisaties kan maken van je data heet bijvoorbeeld ggplot. Je installeert zo’n package door RStudio te openen en in je console de volgende code te typen en dan te ‘runnen’:</p>
+<p>Klik op “Download R…” voor jouw besturingssysteem (Windows of Mac voor de meesten). Klik vervolgens op de link bij “install R for the first time”. Open het .exe bestand en volg de instructies voor installatie.</p>
+<ol start="2" type="1">
+<li><a href="https://docs.posit.co/ide/user/download.html">RStudio</a></li>
+</ol>
+<p>Klik op “Download installer”. Open het .exe bestand en volg de instructies voor installatie.</p>
+<section id="packages-installeren" class="level3 page-columns page-full" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="packages-installeren"><span class="header-section-number">2.2.1</span> Packages installeren</h3>
+<p>Na installatie moeten we R gereed maken voor de practica door de relevante packages (ook wel: libraries) te installeren. Veel databewerkingen en analyses vergen namelijk speciaal daarvoor ontwikkelde software. Je installeert zo’n package door RStudio te openen en in je console code te typen (<code>install.packages("jouw package")</code>) en dan te ‘runnen’. Of je opent een nieuw R script in RStudio waarbij je hetzelfde doet. Hieronder staat de code met de juiste packages. Dit is een kwestie van deze code kopiëren in R en het te runnen. Dit moet je dus doen voordat je aan de eerste practicumopdracht begint, anders zal R niet op de juiste manier werken.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># installeren packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"modeest"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"plotrix"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Als je het package geinstalleerd hebt (eenmalig) laad je in het vervolg aan het begin van elke sessie het package in. Let op: in tegenstelling tot bij het installeren van een package, gebruik je bij het laden ervan geen aanhalingstekens. R is zeer gevoelig voor het verkeerd gebruik van leestekens. Wees daar dus scherp op.</p>
+<p>Als je de packages hebt geïnstalleerd, laad je in het vervolg aan het begin van elke sessie de packages in via het commando <code>library()</code>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Let op: in tegenstelling tot bij het installeren van een package, gebruik je bij het laden ervan geen aanhalingstekens. R is zeer gevoelig voor het verkeerd gebruik van leestekens en ook hoofd- en kleine letters. Wees daar dus scherp op.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Het installeren van de packages via <code>install_packages()</code> hoef je slechts eenmalig te doen.</p></div></div><p>Hieronder vind je een lijst met alle packages die je tijdens dit vak nodig hebt. Deze code wordt al het begin van elk practicum gegeven.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden packages</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modeest)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotrix)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Hieronder vind je een lijst met alle packages die je tijdens dit vak nodig hebt.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden packages</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li><p>Computervaardigheden en zelfstandigheid.</p></li>
-<li><p>Codeacademy</p></li>
-</ul>
+</section>
+</section>
+<section id="computervaardigheden" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="computervaardigheden"><span class="header-section-number">2.3</span> Computervaardigheden</h2>
+<p>We willen tenslotte duidelijkheid scheppen over wat we verwachten van jullie op computervlak. We hebben de laatste jaren gemerkt dat een deel van de studenten steeds minder computervaardig is omdat je tegenwoordig zo’n beetje alles via je smartphone of tablet kan doen. Als je niet zo goed bent met een computer is dat niet meteen jouw schuld. Voor dit je vak, voor je gehele studie, en later voor je carrière zul je echter toch enige basis computervaardigheden moeten hebben. Daaronder verstaan wij dingen als bestanden kunnen opslaan/openen/verplaatsen in File Explorer, een programma kunnen downloaden en installeren, een vastgelopen programma afsluiten via Taakbeheer (Control+alt+delete), weten hoe je een bijlage verstuurt via email en zelfstandig oplossingen kunnen vinden via zoekmachines. Zonder dergelijke vaardigheden wordt het lastig om je studie te halen, laat staan met R leren werken.</p>
+<p>Wij zijn verder docenten die je met de inhoud van de cursus helpen, geen IT-helpdesk. Mocht je merken dat je moeite hebt deze basisvaardigheden, dan is nu het moment om je computerskills te gaan upgraden door te oefenen, oefenen, en nogmaals te oefenen. We gaan uit van een zekere mate van zelfstandigheid. Je kunt altijd een beroep doen op je mede-studenten, vrienden of familie. Mocht je dan alsnog helemaal vastlopen, dan kun je ons aanspreken.</p>
 
 
 </section>
+</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

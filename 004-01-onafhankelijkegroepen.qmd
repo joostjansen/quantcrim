@@ -63,11 +63,11 @@ Het **significantieniveau** is de grenswaarde waarbij we een nulhypothese verwer
 
 ### 3) Overschrijdingskans {#sec-overschrijdingskans}
 
-De **overschrijdingskans**, ook wel p-waarde genoemd of simpelweg $p$, speelt een centrale rol in het toetsen van hypotheses.[^004-01-onafhankelijkegroepen-1] Het geeft aan hoe waarschijnlijk het resultaat verkregen uit onze steekproef is, aangenomen dat de nulhypothese waar is.[^004-01-onafhankelijkegroepen-2]
+De **overschrijdingskans**, ook wel p-waarde genoemd of simpelweg $p$, speelt een centrale rol in het toetsen van hypotheses.[^004-01-onafhankelijkegroepen-1] Het geeft aan hoe waarschijnlijk het resultaat verkregen uit onze steekproef is (of extremer), aangenomen dat de nulhypothese waar is.[^004-01-onafhankelijkegroepen-2]
 
 [^004-01-onafhankelijkegroepen-1]: Let op dat $p$ hier naar iets heel anders verwijst dan $P$ en $\hat{p}$ uit de vorige hooddstukken. $p$ gaat over de overschrijdingskans terwijl $P$ en $\hat{p}$ gaan over proporties.
 
-[^004-01-onafhankelijkegroepen-2]: 'Resultaat' verwijst hier naar de populatieparameter waarin we geïnteresseerd zijn: het gemiddelde verschil tussen mannen en vrouwen in drankconsumptie.
+[^004-01-onafhankelijkegroepen-2]: 'Steekproefresultaat' verwijst hier naar de populatieparameter waarin we geïnteresseerd zijn: het gemiddelde verschil tussen mannen en vrouwen in drankconsumptie.
 
 Je zult inmiddels wel denken: "waar zijn we nu weer aanbeland"?
 
