@@ -31,7 +31,7 @@ In het kader van [Open Science](https://www.knaw.nl/over-de-instituten/open-scie
 
 Net als alle wetenschappers, staan wij op de schouders van reuzen. De inhoud van dit boek is onder andere gebaseerd op de volgende bronnen:
 
-Clayton, A. (2021). Bernoulli's fallacy: Statistical illogic and the crisis of modern science. In *Bernoulli's Fallacy*. Columbia University Press.
+Clayton, A. (2021). *Bernoulli's fallacy: Statistical illogic and the crisis of modern science.* Columbia University Press.
 
 Favero, N. (2026). *Statistics minus the math: An introduction for the social sciences* (2nd ed.). <https://minusthemath.com/2e/>
 

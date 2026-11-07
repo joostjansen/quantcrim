@@ -132,4 +132,4 @@ Omdat nul ook binnen het bhi valt, concluderen we dat we de nulhypothese niet ve
 
 ## Samenvatting
 
-We hebben in dit hoofdstuk een t-toets voor afhankelijke groepen uitgevoerd door de gemoedstoestand op dinsdag van drugsgebruikers te vergelijken m.b.t. xtc en 3-mmc. Bij deze t-toets vergelijken we voor één groep de scores op twee kwantitatieve variabelen. Bij een t-toets voor onafhankelijke groepen vergelijken we juist twee groepen op één variabele. Het hoofdstuk toont verder dat wat we eerder geleerd hebben rondom betrouwbaarheidsintervallen ook hier goed toepasbaar is, ditmaal voor een gemiddelde verschilscore 🤓.
+We hebben in dit hoofdstuk een t-toets voor afhankelijke groepen uitgevoerd door de gemoedstoestand op dinsdag van drugsgebruikers te vergelijken m.b.t. xtc en 3-mmc. Bij deze t-toets vergelijken we voor één groep de scores op twee kwantitatieve variabelen. Bij een t-toets voor onafhankelijke groepen vergelijken we juist twee groepen op één variabele. Het hoofdstuk toont verder dat wat we eerder geleerd hebben rondom betrouwbaarheidsintervallen ook hier goed toepasbaar is, ditmaal voor een gemiddelde verschilscore.
