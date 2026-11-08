@@ -13,9 +13,13 @@ We zijn tot nu toe met beschrijvende statistiek bezig geweest. Je hebt nu een id
 
 We hebben ons in de vorige hoofdstukken gericht op de 350 respondenten die in de dataset zitten. Hoewel interessant, vertelt dit ons nog vrij weinig over de bredere populatie van uitgaande jongeren. Terwijl dit juist het centrale doel is van statistisch onderzoek: op basis van een steekproef willen we uitspraken doen die voor deze gehele populatie gelden! Dit noemen we ook wel **inferentie**, of **inferentiële statistiek**. Om dit te begrijpen, is het handig de begrippen populatie en steekproef kort uit te leggen.
 
+::: callout-note
+## Uitleg populatie vs. steekproef
+
 **Populatie**: De complete groep van analyse-eenheden waarin we geïnteresseerd zijn. In de criminologie gaat dit vaak om personen in een groep die we zo helder mogelijk proberen te identificeren en af te bakenen. Bijvoorbeeld alle leden van een criminele motorclub of smokkelnetwerk. In deze cursus richten we ons in principe op alle jongeren in Nederland die weleens op stap gaan.
 
 **Steekproef**: Een willekeurige selectie van eenheden uit de populatie. Willekeurige selectie betekent dat iedereen evenveel kans heeft om onderdeel te zijn van de steekproef (*random sample*). De steekproef is daarmee in principe een representatieve afspiegeling van de populatie. De steekproef bestaat uit onze observaties in de dataset, in dit geval alle jongeren die de vragenlijst hebben ingevuld.
+:::
 
 Het idee achter inferentie is eigenlijk vrij simpel. In de praktijk is het vaak lastig om data over de hele populatie te verzamelen. We kunnen onmogelijk alle uitgaande jongeren in Nederland interviewen, dat gaat om miljoenen mensen! Toch willen we iets zinnigs kunnen zeggen over deze populatie. Bijvoorbeeld over het aandeel jongeren dat een bepaalde drugs gebruikt. Op basis van statistische kennis weten we dat we met slechts een klein deel van die jongeren (de steekproef) toch met bepaalde betrouwbaarheid (en onder bepaalde assumpties) iets kunnen zeggen over de populatie als geheel.
 
@@ -112,7 +116,7 @@ Het meest interessant is echter dat de steekproevenverdeling van proporties alle
 
 Hoe komt dat? Stel dat je een steekproef trekt met een selectie personen die op alle denkbare kenmerken gelijk zijn aan alle personen in de populatie. Het is met andere woorden een perfecte afspiegeling van de populatie. In dit geval vind je dat $P=\hat{p}$ . Dit is echter bijna nooit het geval. Omdat een steekproef willekeurig wordt getrokken, zul je bijna altijd toevallige afwijkingen hebben. Dat je bijvoorbeeld net iets meer xtc-gebruikers selecteert dan niet-gebruikers ten opzichte van de verhouding in de populatie, wat weer invloed heeft op de hoogte van de proportie xtc-gebruikers. Maar, ervan uitgaande dat elke afwijking willekeurig is, zal bij oneindige herhaling van steekproeven het gemiddelde van alle afwijkingen 0 zijn (het is immers willekeurig of je een hogere of lagere proportie krijgt in een steekproef).
 
-Een ander interessant gegeven is dat de steekproevenverdeling naast een gemiddelde zijn eigen standaarddeviatie heeft. Dit is een speciale variant van de standaarddeviatie, en wordt de **standaardfout** genoemd. Deze noteren we als $\sigma_{\hat{p}}$. [^003-01-steekproeven-2] De 'fout' geeft dus eigenlijk aan in hoeverre een steekproefuitkomst (proportie v/d steekproef) afwijkt van de populatieparameter (proportie v/d de populatie). De standaardfout is belangrijk omdat we deze, zoals we later zullen zien, kunnen gebruiken om te berekenen wat de foutmarge van onze steekproef is met betrekking tot het schatten van de populatieparameter.
+Een ander interessant gegeven is dat de steekproevenverdeling naast een gemiddelde zijn eigen standaarddeviatie heeft. Dit is een speciale variant van de standaarddeviatie, en wordt de **standaardfout** genoemd. Deze noteren we als $\sigma_{\hat{p}}$. [^003-01-steekproeven-2] De 'fout' geeft dus eigenlijk aan in hoeverre een steekproefuitkomst (proportie v/d steekproef) afwijkt van de populatieparameter (proportie van de populatie). De standaardfout is belangrijk omdat we deze, zoals we later zullen zien, kunnen gebruiken om te berekenen wat de foutmarge van onze steekproef is met betrekking tot het schatten van de populatieparameter.
 
 [^003-01-steekproeven-2]: goed om te weten: het aantal observaties (respondenten) in de steekproef noteren we met $n$; het aantal eenheden (personen) in de populatie noteren we met $N$
 
@@ -120,7 +124,7 @@ Knoop het dus goed in je oren: *de standaardfout is de standaarddeviatie van de 
 
 Dit is wat anders dan de gebruikelijke standaarddeviatie, die gaat om originele variabelen in de dataset die iets proberen te meten (bijvoorbeeld leeftijd of gemoedstoestand op dinsdag)
 
-Wat we zojuist hebben aangetoond, is de **centrale limietstelling**. Deze houdt in dat:
+Wat we zojuist hebben geïntroduceerd, is de **centrale limietstelling**. Deze houdt in dat:
 
 - Als een oneindig aantal willekeurige steekproeven bestaat uit ongeveer 30 observaties of meer, dan…
 - Is het gemiddelde van de steekproevenverdeling gelijk aan het populatiegemiddelde
@@ -194,8 +198,6 @@ Helaas komt het in steekproefonderzoek vaak voor dat fouten niet willekeurig zij
 Een type **systematische fout** (*systematic error*) is dat je selectie van respondenten niet willekeurig is omdat er een structurele afwijking in zit. Dit kan zijn omdat een bepaalde groep binnen de populatie waar je in geïnteresseerd bent om een specifieke reden niet deelneemt aan onderzoek. Jongeren die een problematische hoeveelheid xtc gebruiken, zullen vaker vermoeid zijn en wellicht mentale problemen hebben. Daardoor zullen ze minder snel meedoen aan surveyonderzoek vanwege een gebrek aan focus of andere prioriteiten. Wanneer deze groep systematisch ondervertegenwoordigd is in je steekproef, zul je de proportie xtc-gebruikers (en ook de frequentie van gebruik) steeds te laag in schatten. Hoe vaak je ook een steekproef afneemt! Het voorkomen van dit soort systematische fouten is erg lastig en vergt goede kennis van de doelpopulatie en goed zicht op het proces van dataverzameling.
 
 Een ander type systematisch fout kan in de vragenlijst zelf zitten. Stel dat die groep problematische en hoog-frequente gebruikers wel meedoet aan je onderzoek, maar in de vragenlijst hun gebruik stelselmatig onderrapporteert. Dat ze in hun antwoorden aangeven minder te gebruiken dan ze daadwerkelijk doen, vanwege sociale wenselijkheid of schaamte. Dan schat je het gebruik nog steeds te laag in.
-
-Een laatste type systematische fout - deze wordt vaak over het hoofd gezien - heeft te maken met de onafhankelijkheid tussen observaties. Geen enkele observatie mag informatie bevatten over andere observaties: alsof je twee keer een dobbelsteen gooit en beide worpen elkaar niet beinvloeden. Het is de vraag of die situatie van toepassing is op de sociale werkelijkheid. Als je respondenten op een of andere manier clusters vormen, bijvoorbeeld omdat ze op dezelfde scholen zitten of dezelfde culturele voorkeuren hebben en daardoor dezelfde activiteiten ondernemen, dan hebben we waarschijnlijk niet alleen te maken met willekeurige fouten bij onze schattingen. Onze schattingen worden dan onbetrouwbaar.
 
 ### Willekeurige selectie
 
