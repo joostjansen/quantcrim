@@ -7,7 +7,7 @@ execute:
 
 # Voorbereidingen {.unnumbered}
 
-*Voor* aanvang van het eerste kwantitatieve practicum dien je drie dingen te hebben gedaan: het bestuderen van de stof van de eerste week (zie ook [Voorbereiding](001-02-praktischezaken.qmd#sec-voorbereiding)), een online cursus voor R en R installeren. De laatste twee dingen zul je sowieso 4 tot 6 uur mee bezig zijn. Begin hier dus op tijd mee zodat je niet op de avond voor het practicum R nog aan de praat moet krijgen.
+*Voor* aanvang van het eerste kwantitatieve practicum dien je drie dingen te hebben gedaan: het bestuderen van de stof van de eerste week (zie ook [Praktische zaken](001-02-praktischezaken.qmd#sec-voorbereiding)), een online cursus voor R en R installeren. De laatste twee dingen zul je sowieso 4 tot 6 uur mee bezig zijn. Begin hier dus op tijd mee zodat je niet op de avond voor het practicum R nog aan de praat moet krijgen.
 
 We gaan dus werken met R.[^001-01-installatie-1] R is een programmeertaal die veel statistici en sociale wetenschappers gebruiken om hun analyses mee te doen. Het is een superhandig programma, maar voor beginners ook uitdagend. Vooral als je geen ervaring hebt met programmeren en computeren in het algemeen. Het is normaal dat je paniek, frustratie en onzekerheid zult ervaren. Ga dus niet meteen bij de pakken neerzitten. R heeft een steile leercurve. Op het begin lijkt het hocus pocus; na 4 weken zul je versteld staan van wat je allemaal kan. Ons advies is: blijf kalm en stop niet met oefenen totdat het wel lukt.
 
