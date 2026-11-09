@@ -1,0 +1,67 @@
+---
+title: "Practicumopdracht 1"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(error = TRUE) # zodat PDF knitten doorgaat in geval van fouten
+```
+
+## Introductie
+
+Welkom bij het eerste kwantitatieve practicum van M&T I! In dit practicum ga je leren hoe je R kan gebruiken voor data analyse. Je zult jouw eerste stappen maken in het bekijken, prepareren en analyseren van data. Voordat we aan de slag gaan, volgen eerst een aantal instructies.
+
+Als je nog niet in *Visual* mode werkt, klink dan eerst linksboven in jouw scherm op Visual in plaats van Source. Dit werkt een stuk makkelijker.
+
+### Voorbereiding
+
+In het [quantcrim handboek](www.quantcrim.com) staat beschreven welke voorbereiding je nodig hebt om deze practicumopdracht te kunnen maken. Dit zijn de volgende dingen:
+
+- Het installeren van R en Rstudio
+- Het installeren van de benodigde packages
+- Het bestuderen van de stof van week 4 ([Data beschrijven]{.underline})
+- Het voltooien van de Codecademy cursus
+
+Als het goed is, heb je deze dingen al gedaan. Mocht dat niet zo zijn, dan moet je hiermee eerst aan de slag. Anders zul je niet in staat zijn het practicum te maken.
+
+### Opdracht maken
+
+Je maakt de opdracht in deze zogenoemde .Rmd file. Dit is een bestand waarin je tekst kan typen en R code apart kan uitvoeren. Dat is handig om zowel analyses uit te voeren en daarover te rapporteren. De opdracht zal aangeven wanneer jij aan de beurt bent om iets doen. Dit gaat hoofdzakelijk om twee dingen: het typen van R code en het geven van een antwoord.
+
+R code type je in een veld zoals hieronder weergeven:
+
+```{r}
+# hier voer je R code in
+```
+
+Er staan het volgende wanneer je een antwoord moet geven:
+
+> [type hier jouw antwoord]
+
+Verder werken we volgens het principe
+
+Op het eind maak je een pdf van dit bestand en lever je dit in via Canvas om aan de **inspanningsverplichting** te voldoen (**deadline: vrijdag 23:59**). Instructies daarvoor staan op het eind.
+
+We werken
+
+Vooraf: 1) leren met R 2) voorbereiding 3) typen in R (J Roos) 4) manier van werken (antwoord geven, r chunks) 5) inleveren op einde
+
+- Introductie data
+
+- Verkennen data
+
+  - `summary, table`
+
+  - simpele visualisatie
+
+  - opbouwen opmaak visualisatie
+
+  - kort Beschrijven
+
+- Relatie tussen data.
+
+```{r}
+View(data_uitgaan)
+```

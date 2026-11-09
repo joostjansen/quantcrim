@@ -44,6 +44,9 @@ Na installatie moeten we R gereed maken voor de practica door de relevante packa
 install.packages("tidyverse")
 install.packages("modeest")
 install.packages("plotrix")
+install.packages("rmarkdown")
+tinytex::install_tinytex()
+install.packages("knitr")
 ```
 
 Als je de packages hebt geïnstalleerd, laad je in het vervolg aan het begin van elke sessie de packages in via het commando `library()`.[^001-01-installatie-2] Let op: in tegenstelling tot bij het installeren van een package, gebruik je bij het laden ervan geen aanhalingstekens. R is zeer gevoelig voor het verkeerd gebruik van leestekens en ook hoofd- en kleine letters. Wees daar dus scherp op.
@@ -57,6 +60,8 @@ Hieronder vind je een lijst met alle packages die je tijdens dit vak nodig hebt.
 library(tidyverse)
 library(modeest)
 library(plotrix)
+library(rmarkdown)
+library(knitr)
 ```
 
 ## Computervaardigheden
