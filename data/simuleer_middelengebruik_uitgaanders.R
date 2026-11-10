@@ -864,5 +864,5 @@ head(drugs[, c("respondentnr", "geslacht", "leeftijd", "alcohol_laatste_jaar")])
 # aangemaakt als hij nog niet bestaat.
 
 dir.create("data", showWarnings = FALSE)
-write.csv2(drugs, "data/middelengebruik_uitgaanders.csv", row.names = FALSE)
-saveRDS(drugs, "data/middelengebruik_uitgaanders.rds")
+write.csv2(drugs, "data/data_uitgaan.csv", row.names = FALSE)
+saveRDS(drugs, "data/data_uitgaan.rds")

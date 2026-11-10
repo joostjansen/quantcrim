@@ -4,7 +4,7 @@ library(tidyverse)
 library(modeest)
 library(plotrix)
 
-data_uitgaan <- read_rds("data/middelengebruik_uitgaanders.rds")
+data_uitgaan <- read_rds("data/data_uitgaan.rds")
 
 # functie voor t-toets groep aanmaken
 genereer_groep <- function(n, gemiddelde, s) {

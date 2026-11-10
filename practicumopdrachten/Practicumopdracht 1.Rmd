@@ -2,11 +2,11 @@
 title: "Practicumopdracht 1"
 output:
   pdf_document: default
-  html_document: default
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(error = TRUE) # zodat PDF knitten doorgaat in geval van fouten
+library(knitr)
+opts_chunk$set(error = TRUE) # zodat PDF knitten doorgaat in geval van fouten
 ```
 
 ## Introductie
@@ -30,7 +30,7 @@ Als het goed is, heb je deze dingen al gedaan. Mocht dat niet zo zijn, dan moet 
 
 Je maakt de opdracht in deze zogenoemde .Rmd file. Dit is een bestand waarin je tekst kan typen en R code apart kan uitvoeren. Dat is handig om zowel analyses uit te voeren en daarover te rapporteren. De opdracht zal aangeven wanneer jij aan de beurt bent om iets doen. Dit gaat hoofdzakelijk om twee dingen: het typen van R code en het geven van een antwoord.
 
-R code type je in een veld zoals hieronder weergeven:
+R code typ je in een veld zoals hieronder weergeven. Deze blokken waar je code invult, worden ook wel *code chunks* genoemd.
 
 ```{r}
 # hier voer je R code in
@@ -38,13 +38,162 @@ R code type je in een veld zoals hieronder weergeven:
 
 Er staan het volgende wanneer je een antwoord moet geven:
 
-> [type hier jouw antwoord]
+> [Typ hier jouw antwoord]
 
-Verder werken we volgens het principe
+Verder werken we bij de meeste opgaven volgens het principe van *see one, do one, teach one*. Je krijgt eerst een voorbeeld te zien van hoe het moet en daarna moet je het zelf proberen. Als je daarin geslaagd bent, kun je eventueel een medestudent helpen. Iets doceren is de beste manier om te leren!
 
-Op het eind maak je een pdf van dit bestand en lever je dit in via Canvas om aan de **inspanningsverplichting** te voldoen (**deadline: vrijdag 23:59**). Instructies daarvoor staan op het eind.
+Een ander belangrijk principe is dat je zo min mogelijk code kopieert en plakt, maar het juist zelf typt. Typen is een actieve handeling terwijl kopiëren/plakken passief is. Je zult R veel sneller leren als je zelf actief typt en daarbij nadenkt over wat hetgene betekent dat je aan typen bent.
 
-We werken
+Op het eind van de opdracht maak je een pdf van dit bestand en lever je dit in via Canvas om aan de **inspanningsverplichting** te voldoen (**deadline: vrijdag 23:59**). Instructies daarvoor staan op het eind.
+
+## Data laden
+
+Aan het begin van een analyse moeten we altijd als eerste de relevante packages laden. Die staan hieronder weergeven in het codeblok. Als het goed is, heb je deze al vooraf geïnstalleerd (zie [Installatie](https://joostjansen.github.io/quantcrim/001-01-installatie.html)). De code zal niet werken als je dit niet hebt gedaan.
+
+Je kunt de code selecteren en 'runnen' (Ctrl + Enter) of je klikt op het driehoekje rechtsboven in het codeblok. Dit runnen zul je bij veel codebloks moeten doen. Let dus goed op hoe het moet.
+
+Eventuele waarschuwingen in de output kun je hier negeren.
+
+```{r}
+# laden packages
+library(tidyverse)
+library(modeest)
+library(plotrix)
+library(rmarkdown)
+```
+
+De volgende stap is de dataset te laden die we gebruiken voor onze analyses. Dit is de synthetische dataset gebaseerd op Het Grote Uitgaansonderzoek, zoals beschreven onder [Data](https://joostjansen.github.io/quantcrim/002-01-data.html). Daarvoor moet je eerst de dataset [data_uitgaan.rds]{.underline} downloaden via [Opdrachten](#0) als je dat nog niet gedaan hebt. Sla deze dataset op in je Bureaublad.
+
+Hieronder staat voorbeeldcode van hoe je data laadt in R. Deze code hoef je niet te runnen (zal ook niet werken).
+
+```{r}
+# laden data
+data_uitgaan <- read_rds("C:/Users/gijs_/Desktop/data_uitgaan.rds")
+```
+
+Wat zie je hierboven?
+
+`# laden data` is een beschrijving van wat de regel daaronder doet. We gebruiken hashtags in R om toelichting te geven over wat een stukje code doet. Zoals je hebt gezien in het quantcrim handboek, kan dit zowel boven als naast de code worden gezet.
+
+`data_uitgaan` is de naam die we het aan dataframe geven. Die is in dit geval hetzelfde als de externe dataset.
+
+`read_rds()` is de functie om de externe dataset `data_uitgaan.rds` te laden. Je zou deze functie kunnen zien als "lees een .rds bestandstype in"
+
+`"C:/Users/gijs_/Desktop/data_uitgaan.rds"` is de locatie waar de externe dataset is opgeslagen op mijn persoonlijke computer. R weet dan waar de externe dataset zich bevindt. Je kunt zien dat ik het bestand op mijn Bureaublad (Desktop) heb opgeslagen.
+
+`<-` zorgt ervoor dat R de externe dataset opslaat in een dataframe object die we `data_uitgaan` noemen. Dit noemen we de *assignment operator.*
+
+Nu kun je de externe dataset zelf gaan laden. Zorg ervoor dat je de data hebt gedownload en opgeslagen op je Bureaublad. Pas vervolgens de code zo aan dat R de juiste locatie vindt van het bestand. Dit doe je door het juiste pad tussenhaakjes aan de te passen (`Hier_jouw_pad/data_uitgaan.rds`). Je kunt op je computer naar de locatie van het bestand gaan (Bureaublad) en dan via rechtermuisknop en 'Als pad kopieren' de exacte locatie van het bestand vinden en hier plakken. Let op dat je in R `/` gebruikt voor bestandslocaties in plaats van `\`. Dit moet je nog verder aanpassen. Zorg ervoor dat jouw code het voorbeeld volgt van het codeblok hierboven.
+
+CHECKEN VOOR MAC
+
+(Als je er echt niet uitkomt, kun je ook op het bestand van de externe dataset dubbelklikken en dit direct laden in R. Je krijg dan een pop-up met de vraag of je dit bestand direct wil laden in R. Klik op OK)
+
+```{r}
+# laden data
+data_uitgaan <- read_rds("Hier_jouw_pad/data_uitgaan.rds")
+```
+
+Als het is gelukt, zul je rechtsboven in Rstudio een regel zien met `data_uitgaan` onder het tabblad Environment. Daar zie je ook hoeveel observaties en variabelen de dataset heeft.
+
+## Data inspecteren
+
+De volgende stap na het laden van de data, is het inspecteren ervan. Hierdoor krijgen we een globaal idee van hoe onze dataset in elkaar zit. Hiervoor gebruiken we de functie `View()`. R opent dan het dataframe en je ziet de observaties en variabelen. Run onderstaande code. Scroll een beetje van onder naar boven en links en rechts en denk na over wat de waardes die je ziet kunnen betekenen.
+
+```{r}
+View(data_uitgaan)
+```
+
+## Variabelen beschrijven
+
+Een eerste stap in analyse is dat we een beschrijving geven van de variabelen waarmee we werken. In dit practicum werken we met de volgende variabelen (en antwoordcategorieen):
+
+`opleidingsniveau`: Het hoogst behaalde opleidingsniveau van de respondent
+
+- laag / midden / hoog
+
+`cannabis_ooit`: Of de respondent ooit cannabis (wiet of hasj) heeft gebruikt.
+
+- ja / nee
+
+`cannabis_frequentie`: frequentie waarmee respondent cannabis (wiet of hasj) gebruikt.
+
+- één keer / minder dan maandelijks / eens per maand / een paar keer per maand / eens per week / een paar keer per week / (bijna) elke dag
+
+`gevoelstemperatuur_cannabis`: welk gevoel een respondent bij cannabis in het algemeen heeft (de beoordeling ervan).
+
+- score van 0 tot en met 100, waarbij 0 staat voor negatief en 100 voor positief.
+
+Bedenk eerst wat het meetniveau is van deze variabelen. Geef je antwoord met korte uitleg hieronder:
+
+> `opleidingsniveau`: [Jouw antwoord hier]
+>
+> `cannabis_ooit`: [Jouw antwoord hier]
+>
+> `cannabis_frequentie`: [Jouw antwoord hier]
+>
+> `gevoelstemperatuur_cannabis`: [Jouw antwoord hier]
+
+### Eenvoudige tabel
+
+#### Met aantallen
+
+We gaan nu voor opleidingsniveau kijken wat de verdeling is op deze variabele. Dit doen we eerst middels een tabel. Daarvoor gebruiken we de functie `table()`. Hieronder zie je een voorbeeld voor de variabele `geslacht`.
+
+Je vraagt hier een tabel op van een variabele via `table()`. Om die variabele te selecteren, moet je eerst het dataframe aangeven: `data_uitgaan`. Binnen dat dataframe geef je aan om welke variabele het gaat. Dit doe je middels de `$` operator. Deze zegt het ware: binnen `data_uitgaan`, neem de variabele `geslacht`: `data_uitgaan$geslacht`. Run nu de code hieronder.
+
+```{r}
+# tabel van geslacht met aantallen 
+table(data_uitgaan$geslacht)
+```
+
+Als je dit codeblok runt, zul je net als bij [Meetniveas en visualisaties](https://joostjansen.github.io/quantcrim/002-02-meetniveaus-visualisaties.html#simpele-tabel) zien dat in de dataset 178 mannen, 170 vrouwen en 2 anders-identificerenden zitten.
+
+Je zou nu zelf in staat moeten zijn een tabel voor `opleidingsniveau` te maken. Doe dat in het codeblok hieronder. Typ de code zelf hier onder `# tabel van opleidingsniveau met aantallen`. Vergeet niet de code te runnen.
+
+```{r}
+# tabel van opleidingsniveau met aantallen
+
+```
+
+Als het is gelukt de tabel te maken, rapporteer dan hoeveel respondenten er voor elke categorie in de dataset zitten.
+
+> [Jouw antwoord hier]
+
+#### Met proporties
+
+Als je de proporties van elke categorie van een variabele wil weten, kun je expliciet aangeven dat je proporties wil berekenen. Dit doe je door `|> prop.table()` toe te voegen. `prop.table()` is een functie om de proporties binnen een tabel te berekenen.
+
+`|>` is een operator die je nog vaker zult tegenkomen. Het neemt een stuk code aan de linkerkant van de operator en geeft het als eerste argument aan de rechterkant. Dit wil zeggen dat `table(data_uitgaan$geslacht) |> prop.table()` hetzelfde is als `prop.table(table(data_uitgaan$geslacht))`. Als je dit nu nog niet snapt, is dat helemaal niet erg. Je zult gedurende de cursus gaan zien waarom het meerwaarde heeft om R code zo te schrijven. Hieronder staat een voorbeeld met de variabele `geslacht`. Run deze code.
+
+```{r}
+# tabel van geslacht met proporties
+table(data_uitgaan$geslacht) |> prop.table() 
+```
+
+De output geeft nu proporties weer. De dataset bestaat dus (afgerond) uit 50,9% mannen, 48,6% vrouwen en 0,6% anders-identificerenden.
+
+Maak nu een tabel van opleidingsniveau met proporties. Op basis van bovenstaande instructies kun je uitvogelen hoe dat moet. Typ de juiste code onder `# tabel van opleidingsniveau met proporties`en run vervolgens de code.
+
+```{r}
+# tabel van opleidingsniveau met proporties
+```
+
+Rapporteer nu de proporties voor elke categorie van de variabele `opleidingsniveau`.
+
+> [Jouw antwoord hier]
+
+### Staafdiagram
+
+We gaan nu een staafdiagram maken van `opleidingsniveau`. De basis van datavisualisatie (het maken van figuren) is de functie `ggplot()`. Deze functie kunnen we, zoals je zult zien, uitbouwen met diverse componenten waardoor we figuren laag voor laag kunnen vormgeven.
+
+De basis die we vaak gebruiken is iets als `ggplot(data, aes(x = variabele))`. Hier moeten we bij `data` de naam van onze dataset invoeren en bij `variabele` de naam van onze variabele die we willen visualiseren. Vervolgens voegen we een geometrische laag toe die aangeeft wat voor soort figuur het moet worden (bijvoorbeeld staafdiagram, puntenwolk, histogram etc.). We beginnen hier met een staafdiagram, dit gaat via `geom_bar()`.
+
+Hieronder zie je weer het voorbeeld van `geslacht`.
+
+```{r}
+summary(data_uitgaan$gevoelstemperatuur_cannabis)
+```
 
 Vooraf: 1) leren met R 2) voorbereiding 3) typen in R (J Roos) 4) manier van werken (antwoord geven, r chunks) 5) inleveren op einde
 
@@ -59,6 +208,8 @@ Vooraf: 1) leren met R 2) voorbereiding 3) typen in R (J Roos) 4) manier van wer
   - opbouwen opmaak visualisatie
 
   - kort Beschrijven
+
+  - hercoderen, missende waarden
 
 - Relatie tussen data.
 

@@ -23,7 +23,7 @@ We gaan de t-toets voor afhankelijke groepen uitwerken met een voorbeeld. Volgen
 
 Onder feestgangers is het een bekend verschijnsel: de dinsdagdip. Na een weekend feesten met (excessief) drugsgebruik voelen gebruikers zich vaak de dinsdag erna bijzonder matig. Dit uit zich in klachten als somberheid, vermoeidheid, en slecht concentratievermogen.[^004-03-afhankelijkegroepen-3] Drugs hebben echter verschillende effecten op gebruikers, wat impliceert dat de dinsdagdip voor de ene drug zwaarder kan aankomen dan voor de andere drug.
 
-[^004-03-afhankelijkegroepen-3]: De dinsdagdip is ingeburgerd begrip dat ook door verslavingsinstanties wordt gebruikt, zoals [SGGZ](https://connection-sggz.nl/verslaving/drugs/dinsdagdip).
+[^004-03-afhankelijkegroepen-3]: De dinsdagdip is een ingeburgerd begrip dat ook door verslavingsinstanties wordt gebruikt, zoals [SGGZ](https://connection-sggz.nl/verslaving/drugs/dinsdagdip).
 
 In dit voorbeeld gaan we kijken of uitgaanders een verschil in dinsdagdip ervaren voor xtc en 3-mmc.[^004-03-afhankelijkegroepen-4] We nemen daarbij de hele populatie van uitgaanders als startpunt. Aangezien we uitgaanders willen vergelijken die zowel xtc als 3-mmc hebben gebruikt, beperken we onze populatie tot deze specifieke groep gebruikers. De variabele `gemoed_dinsdag_na_xtc` hebben we al eerder gezien [Histogram](002-02-meetniveaus-visualisaties.qmd#sec-histogram).[^004-03-afhankelijkegroepen-5] We gebruiken voor 3-mmc een zelfde soort variabele: `gemoed_dinsdag_na_mmc`. Laten net als bij de histogram van `gemoed_dinsdag_na_xtc` een histogram maken voor `gemoed_dinsdag_na_mmc`.
 
