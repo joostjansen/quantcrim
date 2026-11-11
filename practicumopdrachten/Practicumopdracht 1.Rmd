@@ -17,7 +17,7 @@ Als je nog niet in *Visual* mode werkt, klink dan eerst linksboven in jouw scher
 
 ### Voorbereiding
 
-In het [quantcrim handboek](www.quantcrim.com) staat beschreven welke voorbereiding je nodig hebt om deze practicumopdracht te kunnen maken. Dit zijn de volgende dingen:
+In het [quantcrim handboek](https://joostjansen.github.io/quantcrim/) staat beschreven welke voorbereiding je nodig hebt om deze practicumopdracht te kunnen maken. Dit zijn de volgende dingen:
 
 - Het installeren van R en Rstudio
 - Het installeren van de benodigde packages
@@ -43,6 +43,8 @@ Er staan het volgende wanneer je een antwoord moet geven:
 Verder werken we bij de meeste opgaven volgens het principe van *see one, do one, teach one*. Je krijgt eerst een voorbeeld te zien van hoe het moet en daarna moet je het zelf proberen. Als je daarin geslaagd bent, kun je eventueel een medestudent helpen. Iets doceren is de beste manier om te leren!
 
 Een ander belangrijk principe is dat je zo min mogelijk code kopieert en plakt, maar het juist zelf typt. Typen is een actieve handeling terwijl kopiëren/plakken passief is. Je zult R veel sneller leren als je zelf actief typt en daarbij nadenkt over wat hetgene betekent dat je aan typen bent.
+
+R is tenslotte een programma dat gevoelig is voor hoofd- en kleine letters, leestekens en typfouten. Als je code niet werkt, check dan eerst goed of je nergens een foutje hebt gemaakt.
 
 Op het eind van de opdracht maak je een pdf van dit bestand en lever je dit in via Canvas om aan de **inspanningsverplichting** te voldoen (**deadline: vrijdag 23:59**). Instructies daarvoor staan op het eind.
 
@@ -83,11 +85,11 @@ Wat zie je hierboven?
 
 `<-` zorgt ervoor dat R de externe dataset opslaat in een dataframe object die we `data_uitgaan` noemen. Dit noemen we de *assignment operator.*
 
-Nu kun je de externe dataset zelf gaan laden. Zorg ervoor dat je de data hebt gedownload en opgeslagen op je Bureaublad. Pas vervolgens de code zo aan dat R de juiste locatie vindt van het bestand. Dit doe je door het juiste pad tussenhaakjes aan de te passen (`Hier_jouw_pad/data_uitgaan.rds`). Je kunt op je computer naar de locatie van het bestand gaan (Bureaublad) en dan via rechtermuisknop en 'Als pad kopieren' de exacte locatie van het bestand vinden en hier plakken. Let op dat je in R `/` gebruikt voor bestandslocaties in plaats van `\`. Dit moet je nog verder aanpassen. Zorg ervoor dat jouw code het voorbeeld volgt van het codeblok hierboven.
+Nu kun je de externe dataset zelf gaan laden. Zorg ervoor dat je de data hebt gedownload en opgeslagen op je Bureaublad. Pas vervolgens de code zo aan dat R de juiste locatie vindt van het bestand. Dit doe je door het juiste pad tussen aanhalingstekens aan de te passen (`"Hier_jouw_pad/data_uitgaan.rds"`). Je kunt op je computer naar de locatie van het bestand gaan (Bureaublad) en dan via rechtermuisknop en 'Als pad kopiëren' de exacte locatie van het bestand vinden en hier plakken. Let op dat je in R `/` gebruikt voor bestandslocaties in plaats van `\`. Dit moet je nog verder aanpassen. Zorg ervoor dat jouw code het voorbeeld volgt van het codeblok hierboven. Run vervolgens de code.
 
-CHECKEN VOOR MAC
+1.  (Als je er echt niet uitkomt, kun je ook op het bestand van de externe dataset dubbelklikken en dit direct laden in R. Je krijg dan een pop-up met de vraag of je dit bestand direct wil laden in R. Klik op OK)
 
-(Als je er echt niet uitkomt, kun je ook op het bestand van de externe dataset dubbelklikken en dit direct laden in R. Je krijg dan een pop-up met de vraag of je dit bestand direct wil laden in R. Klik op OK)
+2.  (Je kunt ook altijd Googlen of [DuckDuckGo](https://duckduckgo.com/) om uit te vinden hoe iets moet)
 
 ```{r}
 # laden data
@@ -101,6 +103,7 @@ Als het is gelukt, zul je rechtsboven in Rstudio een regel zien met `data_uitgaa
 De volgende stap na het laden van de data, is het inspecteren ervan. Hierdoor krijgen we een globaal idee van hoe onze dataset in elkaar zit. Hiervoor gebruiken we de functie `View()`. R opent dan het dataframe en je ziet de observaties en variabelen. Run onderstaande code. Scroll een beetje van onder naar boven en links en rechts en denk na over wat de waardes die je ziet kunnen betekenen.
 
 ```{r}
+# inspecteren van de data
 View(data_uitgaan)
 ```
 
@@ -116,7 +119,7 @@ Een eerste stap in analyse is dat we een beschrijving geven van de variabelen wa
 
 - ja / nee
 
-`cannabis_frequentie`: frequentie waarmee respondent cannabis (wiet of hasj) gebruikt.
+`cannabis_frequentie`: frequentie waarmee respondent cannabis (wiet of hasj) heeft gebruikt het afgelopen jaar.
 
 - één keer / minder dan maandelijks / eens per maand / een paar keer per maand / eens per week / een paar keer per week / (bijna) elke dag
 
@@ -136,7 +139,7 @@ Bedenk eerst wat het meetniveau is van deze variabelen. Geef je antwoord met kor
 
 ### Eenvoudige tabel
 
-#### Met aantallen
+#### Met aantallen {#sec-tabelaantallen}
 
 We gaan nu voor opleidingsniveau kijken wat de verdeling is op deze variabele. Dit doen we eerst middels een tabel. Daarvoor gebruiken we de functie `table()`. Hieronder zie je een voorbeeld voor de variabele `geslacht`.
 
@@ -177,6 +180,7 @@ Maak nu een tabel van opleidingsniveau met proporties. Op basis van bovenstaande
 
 ```{r}
 # tabel van opleidingsniveau met proporties
+
 ```
 
 Rapporteer nu de proporties voor elke categorie van de variabele `opleidingsniveau`.
@@ -185,11 +189,174 @@ Rapporteer nu de proporties voor elke categorie van de variabele `opleidingsnive
 
 ### Staafdiagram
 
+(Vanaf nu zeggen we niet meer 'run de code'. We gaan er vanuit dat je dit automatisch doet bij elk codeblok)
+
 We gaan nu een staafdiagram maken van `opleidingsniveau`. De basis van datavisualisatie (het maken van figuren) is de functie `ggplot()`. Deze functie kunnen we, zoals je zult zien, uitbouwen met diverse componenten waardoor we figuren laag voor laag kunnen vormgeven.
 
-De basis die we vaak gebruiken is iets als `ggplot(data, aes(x = variabele))`. Hier moeten we bij `data` de naam van onze dataset invoeren en bij `variabele` de naam van onze variabele die we willen visualiseren. Vervolgens voegen we een geometrische laag toe die aangeeft wat voor soort figuur het moet worden (bijvoorbeeld staafdiagram, puntenwolk, histogram etc.). We beginnen hier met een staafdiagram, dit gaat via `geom_bar()`.
+De basis die we vaak gebruiken is `ggplot(data, aes(x = variabele))`. Hier moeten we bij `data` de naam van onze dataset invoeren en bij `variabele` de naam van onze variabele die we willen visualiseren. Vervolgens voegen we een geometrische laag (een type figuur) toe die aangeeft wat voor soort visualisatie het moet worden (bijvoorbeeld staafdiagram, puntenwolk, histogram etc.). We beginnen hier met een staafdiagram, dit gaat via `geom_bar()`. Voor `ggplot()` geldt dat we elke laag toevoegen middels een `+`-teken. Zo kunnen we een plot/visualisatie laag voor laag opbouwen.
 
-Hieronder zie je weer het voorbeeld van `geslacht`.
+Hieronder zie je weer het voorbeeld van de variabele `geslacht`. We hebben tevens de naam onze dataset ingevuld: `data_uitgaan`.
+
+```{r}
+# staafdiagram van geslacht
+ggplot(data_uitgaan, aes(x = geslacht)) +
+  geom_bar()
+```
+
+Net als in het quantcrim handboek, zie je hier een basis staafdiagram van geslacht.
+
+Maak nu een staafdiagram van `opleidingsniveau`. Typ de juiste code in het codeblok hieronder (en run deze code uiteraard).
+
+```{r}
+# staafdiagram van opleidingsniveau
+
+```
+
+We gaan nu kijken hoe je een staafdiagram kan 'oppimpen'. ggplot biedt veel opties om figuren op een meer aantrekkelijke en duidelijke manier te presenteren. We gaan hier de achtergrond, de assenlabels en titel aanpassen.
+
+`theme_bw()` staat voor 'thema in zwart-wit (black and white)'. Dit zorgt ervoor dat de achtergrond wit wordt en de staven zwart.
+
+`ylab()` past het label van de y-as aan. Je moet het nieuwe label tussen aanhelingstekens zetten: `ylab("Aantal")`.
+
+`xlab()` werkt hetzelfde als `ylab()`, maar dan voor de x-as: `xlab("Geslacht")`
+
+`ggtitle()` geeft een titel aan de figuur, ook hier moet de tekst tussen aanhalingstekens: `ggtitle("Staafdiagram van de variabele 'geslacht'")` .
+
+Met behulp van het `+`-teken voegen we alle lagen toe aan de figuur van geslacht.
+
+```{r}
+# staafdiagram van geslacht met opmaak
+ggplot(data_uitgaan, aes(x = geslacht)) +
+  geom_bar() +
+  theme_bw() + 
+  ylab("Aantal") +
+  xlab("Geslacht") +
+  ggtitle("Staafdiagram van de variabele 'geslacht'")
+```
+
+Dat ziet er al een stuk beter uit. Vergelijk deze opgemaakte staafdiagram met de basis staafdiagram van geslacht en kijk welke veranderingen er plaats hebben gevonden.
+
+Pas nu de staafdiagram op dezelfde manier aan voor `opleidingsniveau`. Verander de achtergrond, labels van de assen en titel. Zorg dat deze passend zijn voor deze variabele. Breid de code uit die je eerder hebt gemaakt.
+
+```{r}
+# staafdiagram van opleidingsniveau met opmaak
+
+```
+
+## Variabelen hercoderen
+
+Het komt in onderzoek vaak voor dat we een variabele willen hercoderen. Hercoderen betekent dat we waardes van een variabele nieuwe waardes geven, bijvoorbeeld om categorieën samen te voegen of data anders te presenteren.
+
+Als voorbeeld kijken we naar frequentie van alcoholgebruik in het afgelopen jaar (`alcohol_frequentie`). De antwoorden zijn bij deze variabele hetzelfde als bij `cannabis_frequentie`. We vragen eerst een tabel op de aantallen per categorie.
+
+```{r}
+# tabel van alcohol frequentie met aantallen
+table(data_uitgaan$alcohol_frequentie)
+```
+
+Je kunt zien dat één respondent een keer alcohol heeft gedronken, 12 respondenten minder dan maandelijks, 12 respondenten eens per maand, etc.
+
+We willen nu bijvoorbeeld weten welk aandeel van de respondenten wekelijks drinkt (en welk deel niet). Daarvoor kunnen we alle antwoorden op 'een keer' tot en met 'een paar keer per maand' samenvoegen, en alle antwoorden op 'eens per week' tot en met '(bijna) elke dag'. Dit doen we middels hercoderen.
+
+We maken een nieuwe variabele aan, deze noemen we `alcohol_frequentie_her`.
+
+We gebruiken `recode_values()` om te hercoderen. We vertellen R wat de originele variabele is (`alcohol_frequentie`) en dan per waarde bepalen we een nieuwe categorie. Dat doen we door steeds de originele categorie te nemen (bijvoorbeeld `"een keer"`), dan een `~`-teken te plaatsen, en dan de nieuwe categorie aan te duiden (`"maandelijks of minder"`). Dit moeten we doen voor elke oorspronkelijke categorie. Dat is geïllustreerd in de code hieronder.
+
+```{r}
+# hercoderen naar alcohol_frequentie_her
+data_uitgaan$alcohol_frequentie_her <- 
+  recode_values(data_uitgaan$alcohol_frequentie,
+                "een keer"                ~ "maandelijks of minder",
+                "minder dan maandelijks"  ~ "maandelijks of minder",
+                "eens per maand"          ~ "maandelijks of minder",
+                "een paar keer per maand" ~ "maandelijks of minder",
+                "eens per week"           ~ "wekelijks",
+                "een paar keer per week"  ~ "wekelijks",
+                "(bijna) elke dag"        ~ "wekelijks")
+```
+
+Vervolgens vragen we een tabel op met aantallen van de nieuwe variabele `alcohol_frequentie_her` om te checken of het hercoderen goed is gegaan.
+
+```{r}
+# tabel van alcohol frequentie (gehercodeerd) met aantallen
+table(data_uitgaan$alcohol_frequentie_her)
+```
+
+Je ziet bijvoorbeeld dat 'wekelijks' 262 respondenten heeft. Als je de originele categorieen optelt, kom je op $86+160+16=262$ respondenten. Dit toont dus dat het hercoderen is gelukt! (dit kun je ook checken voor de nieuwe categorie 'maandelijks of minder').
+
+Ten slotte maken we een tabel met proporties om te zien welk deel wekelijks drinkt.
+
+```{r}
+# tabel van alcohol frequentie (gehercodeerd) met proporties
+table(data_uitgaan$alcohol_frequentie_her) |> prop.table()
+```
+
+77,1 procent van de respondenten drinkt dus wekelijks (van degenen die alcohol hebben gedronken het afgelopen jaar).
+
+Je hebt nu genoeg gezien om hetzelfde voor `cannabis_frequentie` te doen. Doorloop dus dezelfde stappen:
+
+1.  Maak een tabel van `cannabis_frequentie`.
+
+2.  Hercodeer de variabele op dezelfde wijze als bij `alcohol_frequentie`. Om het wat makkelijker te maken, hebben we een deel van de code al gegeven. Je moet `originele_variabele` en `nieuwe_variabele` vervangen met de juiste code. Verder moet je de middelste drie categorieën nog hercoderen (vervang de `...`) .
+
+3.  Check of het hercoderen van de variabele goed is gegaan middels tabel voor de nieuwe variabele.
+
+4.  Maak een tabel met proporties voor de nieuwe variabele en rapporteer het aandeel dat wekelijks cannabis gebruikt.
+
+```{r}
+# tabel van cannabis frequentie met aantallen
+
+```
+
+```{r}
+# hercoderen naar cannabis_frequentie_her
+nieuwe_variabele <- 
+  recode_values(originele_variabele,
+                "een keer"                ~ "maandelijks of minder",
+                "minder dan maandelijks"  ~ "maandelijks of minder",
+                ... ,
+                ... ,
+                ... ,
+                "een paar keer per week"  ~ "wekelijks",
+                "(bijna) elke dag"        ~ "wekelijks")
+```
+
+```{r}
+# tabel van cannabis frequentie (gehercodeerd) met aantallen
+
+```
+
+```{r}
+# tabel van cannabis frequentie (gehercodeerd) met proporties
+
+```
+
+> [Jouw antwoord hier]
+
+## Relaties tussen variabelen
+
+In het laatste deel van de opdracht gaan we relaties tussen variabelen beschrijven. Daarbij kijken we tevens hoe we met missende waarden kunnen omgaan. Dit is wanneer respondenten een ontbrekende waarde hebben op een variabele.
+
+### Doosdiagram (kwali vs kwanti)
+
+We gaan eerst het verband tussen `cannabis_ooit` en `gevoelstemperatuur_cannabis` onderzoeken. Het is handig eerst de verdeling van deze variabelen afzonderlijk te bekijken.
+
+Als voorbeeld nemen we twee vergelijkbare variabelen: `alcohol_ooit` en `gevoelstemperatuur_alcohol`.
+
+Voor `alcohol_ooit` vragen we een tabel op met aantallen. We voegen nu alleen het argument `useNA = "always"` toe om ook het aantal missende waarden te krijgen.
+
+```{r}
+# tabel van ooit alcohol gedronken (inclusief missende waarden)
+table(data_uitgaan$alcohol_ooit, useNA = "always")
+```
+
+Nul personen hebben een missende waarde (mooi nieuws!). Slechts drie respondenten geven aan nooit alcohol te hebben gedronken.
+
+Voor `gevoelstemperatuur_alcohol` gebruiken we de functie `summary()`. Deze geeft ons een aantal centrum- en spreidingsmaten, en ook nog het aantal missende waarden.
+
+```{r}
+# statistieken van gevoelstemperatuur alcohol
+```
 
 ```{r}
 summary(data_uitgaan$gevoelstemperatuur_cannabis)

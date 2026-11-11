@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.2)  10 NOV 2026 14:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.2)  11 NOV 2026 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,19 +466,35 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 {c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 212.
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 218.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 214.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 220.
 (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (76.2434pt too wide) in paragraph at lines 235--235
+Overfull \hbox (76.2434pt too wide) in paragraph at lines 237--237
 []\T1/lmtt/m/n/10 ## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors[] 
  []
 
 
-LaTeX Warning: Hyper reference `0' on page 2 undefined on input line 263.
+LaTeX Warning: Hyper reference `0' on page 2 undefined on input line 265.
 
-[2] [3] (./Practicumopdracht-1.aux)
+[2] [3] [4]
+<Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf, id=64, 469.755pt x 325.215pt>
+File: Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
+<use Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf>
+Package pdftex.def Info: Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf  used on input line 557.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[5 <./Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf>]
+Overfull \hbox (10.99448pt too wide) in paragraph at lines 585--589
+[]\T1/lmtt/m/n/10 ggtitle() \T1/lmr/m/n/10 (-20) geeft een ti-tel aan de figuur, ook hier moet de tekst tussen aan-hal-ing-stekens: \T1/lmtt/m/n/10 ggtitle("Staafdiagram
+ []
+
+<Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf, id=79, 469.755pt x 325.215pt>
+File: Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
+<use Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf>
+Package pdftex.def Info: Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf  used on input line 605.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[6] [7 <./Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf>] [8] (./Practicumopdracht-1.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
@@ -488,18 +504,18 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 13784 strings out of 468897
- 219897 string characters out of 5450550
- 692152 words of memory out of 5000000
- 42762 multiletter control sequences out of 15000+600000
- 653120 words of font info for 82 fonts, out of 8000000 for 9000
+ 13864 strings out of 468897
+ 221775 string characters out of 5450550
+ 692390 words of memory out of 5000000
+ 42788 multiletter control sequences out of 15000+600000
+ 653961 words of font info for 92 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 76i,5n,81p,1016b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 76i,6n,81p,1016b,606s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Practicumopdracht-1.pdf (3 pages, 206200 bytes).
+Output written on Practicumopdracht-1.pdf (8 pages, 233013 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 14377 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 193 PDF objects out of 1000 (max. 8388607)
+ 159 compressed objects within 2 object streams
+ 54 named destinations out of 1000 (max. 500000)
+ 14419 words of extra memory for PDF output out of 17280 (max. 10000000)
 
