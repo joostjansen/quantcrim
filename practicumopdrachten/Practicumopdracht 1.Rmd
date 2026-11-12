@@ -5,6 +5,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+
 library(knitr)
 opts_chunk$set(error = TRUE) # zodat PDF knitten doorgaat in geval van fouten
 ```
@@ -107,7 +108,7 @@ De volgende stap na het laden van de data, is het inspecteren ervan. Hierdoor kr
 View(data_uitgaan)
 ```
 
-## Variabelen beschrijven
+## Variabelen beschrijven {#sec-varbeschrijven}
 
 Een eerste stap in analyse is dat we een beschrijving geven van de variabelen waarmee we werken. In dit practicum werken we met de volgende variabelen (en antwoordcategorieen):
 
@@ -139,7 +140,7 @@ Bedenk eerst wat het meetniveau is van deze variabelen. Geef je antwoord met kor
 
 ### Eenvoudige tabel
 
-#### Met aantallen {#sec-tabelaantallen}
+#### Met aantallen
 
 We gaan nu voor opleidingsniveau kijken wat de verdeling is op deze variabele. Dit doen we eerst middels een tabel. Daarvoor gebruiken we de functie `table()`. Hieronder zie je een voorbeeld voor de variabele `geslacht`.
 
@@ -187,7 +188,7 @@ Rapporteer nu de proporties voor elke categorie van de variabele `opleidingsnive
 
 > [Jouw antwoord hier]
 
-### Staafdiagram
+### Staafdiagram {#sec-staafdiagram}
 
 (Vanaf nu zeggen we niet meer 'run de code'. We gaan er vanuit dat je dit automatisch doet bij elk codeblok)
 
@@ -243,7 +244,7 @@ Pas nu de staafdiagram op dezelfde manier aan voor `opleidingsniveau`. Verander 
 
 ```
 
-## Variabelen hercoderen
+## Variabelen hercoderen {#sec-varhercoderen}
 
 Het komt in onderzoek vaak voor dat we een variabele willen hercoderen. Hercoderen betekent dat we waardes van een variabele nieuwe waardes geven, bijvoorbeeld om categorieën samen te voegen of data anders te presenteren.
 
@@ -303,6 +304,8 @@ Je hebt nu genoeg gezien om hetzelfde voor `cannabis_frequentie` te doen. Doorlo
 
 4.  Maak een tabel met proporties voor de nieuwe variabele en rapporteer het aandeel dat wekelijks cannabis gebruikt.
 
+Typ de code in de juiste codeblokken hieronder.
+
 ```{r}
 # tabel van cannabis frequentie met aantallen
 
@@ -337,29 +340,154 @@ nieuwe_variabele <-
 
 In het laatste deel van de opdracht gaan we relaties tussen variabelen beschrijven. Daarbij kijken we tevens hoe we met missende waarden kunnen omgaan. Dit is wanneer respondenten een ontbrekende waarde hebben op een variabele.
 
-### Doosdiagram (kwali vs kwanti)
+### Kwali vs. kwanti
 
 We gaan eerst het verband tussen `cannabis_ooit` en `gevoelstemperatuur_cannabis` onderzoeken. Het is handig eerst de verdeling van deze variabelen afzonderlijk te bekijken.
 
-Als voorbeeld nemen we twee vergelijkbare variabelen: `alcohol_ooit` en `gevoelstemperatuur_alcohol`.
+#### Centrum- en spreidingsmaten
 
-Voor `alcohol_ooit` vragen we een tabel op met aantallen. We voegen nu alleen het argument `useNA = "always"` toe om ook het aantal missende waarden te krijgen.
+Als voorbeeld nemen we twee vergelijkbare variabelen: `tabak_ooit` en `gevoelstemperatuur_tabak`. Deze variabelen meten respectievelijk of respondenten ooit hebben gerookt en wat hun gevoel is t.o.v. tabak.
+
+Voor `tabak_ooit` vragen we een tabel op met aantallen. We voegen nu alleen het argument `useNA = "always"` toe om ook het aantal missende waarden te krijgen.
 
 ```{r}
-# tabel van ooit alcohol gedronken (inclusief missende waarden)
-table(data_uitgaan$alcohol_ooit, useNA = "always")
+# tabel van ooit tabak gedronken (inclusief missende waarden)
+table(data_uitgaan$tabak_ooit, useNA = "always")
 ```
 
-Nul personen hebben een missende waarde (mooi nieuws!). Slechts drie respondenten geven aan nooit alcohol te hebben gedronken.
+De nul onder \<NA\> toont dat geen enkele respondent een missende waarde heeft (mooi nieuws!). 74 respondenten geven aan nooit gerookt te hebben.
 
-Voor `gevoelstemperatuur_alcohol` gebruiken we de functie `summary()`. Deze geeft ons een aantal centrum- en spreidingsmaten, en ook nog het aantal missende waarden.
+Voor `gevoelstemperatuur_tabak` gebruiken we de functie `summary()`. Deze geeft ons een aantal centrum- en spreidingsmaten, en ook nog het aantal missende waarden.
 
 ```{r}
-# statistieken van gevoelstemperatuur alcohol
+# statistieken van gevoelstemperatuur tabak
+summary(data_uitgaan$gevoelstemperatuur_tabak)
+```
+
+Je ziet dat de gemiddelde gevoelstemperatuur ten aanzien van tabak 35,2 is en de mediaan 35,0. Het aantal missings bedraagt 15. Dit is relatief laag ten opzichte van van de gehele dataset ($15/350=0,04$).
+
+Maak nu een tabel voor `cannabis_ooit` waarin je ook de missings opvraagt en vraag tevens de centrum- en spreidingsmaten op voor `gevoelstemperatuur_cannabis`. Rapporteer daarna: het aantal personen dat ooit cannabis heeft gebruikt, de gemiddelde gevoelstemperatuur t.a.v. cannabis en het aantal missings per variabele. Typ de code in de volgende blokken.
+
+```{r}
+# tabel van ooit cannabis gebruikt (inclusief missende waarden)
+
 ```
 
 ```{r}
-summary(data_uitgaan$gevoelstemperatuur_cannabis)
+# statistieken van gevoelstemperatuur cannabis
+
+```
+
+> [Jouw antwoord hier]
+
+#### Doosdiagram
+
+In de volgende stap maken we een doosdiagram waarin we de spreiding voor `gevoelstemperatuur_cannabis` apart bekijken voor mensen die wel en niet cannabis geprobeerd hebben (`cannabis_ooit`).
+
+Dit doen we eerst voor tabak om een voorbeeld te geven. We kunnen weer `ggplot()` gebruiken om de doosdiagram te maken. Omdat we nu twee variabelen hebben (`tabak_ooit` en `gevoelstemperatuur_tabak`), moeten we naast `x = ...` ook `y = ...` invullen. We kiezen er in principipe altijd voor om de kwalitatieve variabele op de x-as te zetten en de kwantitatieve op de y-as. Verder hebben we voor een doosdiagram `geom_boxplot()` nodig als geometrisch object. Ten slotte voegen we alvast alle opmaakopties toe die we eerder hebben gezien bij [Staafdiagram](#sec-staafdiagram): achtergrond, assenlabels en titel.
+
+```{r}
+# doosdiagram voor relatie tussen ooit tabak gebruikt en gevoelstemperatuur
+ggplot(data_uitgaan, aes(x = tabak_ooit, y = gevoelstemperatuur_tabak)) +
+  geom_boxplot() +
+  theme_bw() +
+  xlab("Ooit tabak gebruikt") +
+  ylab("Gevoelstemperatuur tabak") +
+  ggtitle("Doosdiagram van relatie tussen ooit tabak gebruikt en gevoelstemperatuur")
+```
+
+Je ziet dat de mediaan van gevoelstemperatuur voor respondenten die ooit hebben gerookt een stuk hoger ligt dan bij respondenten die dit nooit hebben gedaan. Eerstgenoemde groep staat dus positiever tegenover tabak dan laatstgenoemde groep; visueel gezien lijkt het ongeveer 13 punten te schelen. Ook is de spreiding in gevoelstemperatuur wat groter bij de groep die ooit tabak heeft gebruikt.
+
+(Je ziet ook dat R een waarschuwing geeft over hoeveel rijen (d.w.z., observaties) er zijn verwijderd, dit komt overeen met het aantal wat we eerder hebben vastgesteld)
+
+Maak nu eenzelfde doosdiagram voor de relatie tussen `cannabis_ooit` en `gevoelstemperatuur_cannabis`. Beschrijf vervolgens de relatie tussen deze variabelen m.b.t. het centrum en de spreiding. Type de code hieronder.
+
+```{r}
+# doosdiagram voor relatie tussen ooit cannabis gebruikt en gevoelstemperatuur
+
+```
+
+> [Jouw antwoord hier]
+
+### Kwali vs. kwali
+
+Voor dit onderdeel onderzoeken we de relatie tussen `opleidingsniveau` en `cannabis_frequentie_her`. Hiermee krijgen we inzicht in welke mate cannabisconsumptie verschilt naar opleidingsniveau. We hebben eerder al bekeken wat de verdeling is op deze variabelen afzonderlijk (onder [Variabelen beschrijven](#sec-varbeschrijven) en [Variabelen hercoderen](#sec-varhercoderen)).
+
+#### Kruistabel
+
+Ter illustratie kijken we eerst naar de relatie tussen `opleidingsniveau` en `alcohol_frequentie_her`. We kunnen een kruistabel maken met `table()` waarin we twee variabelen toevoegen (in plaats van één zoals tot nu toe). We zetten `opleidingsniveau` in de kolommen en `alcohol_frequentie_her` in de rijen. Zie het codeblok hieronder.
+
+```{r}
+# kruistabel tussen alcohol frequentie (gehercodeerd) en opleidingsniveau
+table(data_uitgaan$alcohol_frequentie_her, data_uitgaan$opleidingsniveau,
+      useNA = "always")
+```
+
+Je ziet nu de verdeling van respondenten in aantallen over de combinatie van categorieën. Zo zijn er bijvoorbeeld 74 respondenten met een middelbaar opleidingsniveau die wekelijks drinken.
+
+Het is vaak inzichtelijker om naar de proporties (of percentages) per kolom te kijken. Hiervoor voegen we weer `prop.table()` toe. Die berekent dat dan de proportie per categorie over het totaal aantal cellen. We willen echter alleen de kolomproporties weten. Daarvoor moeten we een `2` toevoegen aan `prop.table()`. (met een `1` krijgen we de rijproporties).
+
+```{r}
+# kruistabel tussen alcohol frequentie (gehercodeerd) en opleidingsniveau met kolomproporties
+table(data_uitgaan$alcohol_frequentie_her, data_uitgaan$opleidingsniveau,
+      useNA = "always") |> prop.table(2)
+```
+
+De kruistabel met kolomproporties toont dat 71,2% van de middelbaar opgeleiden wekelijks drinkt, tegenover 22,1% die maandelijks of minder drinken.
+
+Maak nu soortgelijke tabellen voor de relatie tussen `opleidingsniveau` en `cannabis_frequentie_her`. Zet `opleidingsniveau` in de kolommen en `cannabis_frequentie_her` in de rijen. Typ de relevante code in de blokken hieronder.
+
+(als het bij [Variabelen hercoderen](#sec-varhercoderen) niet is gelukt om `cannabis_frequentie_her` te maken, kun je de variabele `cannabis_frequentie_her2` gebruiken. Deze zit al in de dataset).
+
+```{r}
+# kruistabel tussen cannabis frequentie (gehercodeerd) en opleidingsniveau
+
+```
+
+```{r}
+# kruistabel tussen alcohol frequentie (gehercodeerd) en opleidingsniveau met kolomproporties
+
+```
+
+#### Gestapelde staafdiagram
+
+We gaan nu een visualisatie maken van de relatie tussen `opleidingsniveau` en `cannabis_frequentie_her`.
+
+Omdat `ggplot()` niet automatisch de kolomproporties berekend, moeten we dat eerst zelf doen. Als voorbeeld nemen we wederom de relatie tussen `opleidingsniveau` en `alcohol_frequentie_her`.
+
+Voor de visualisatie maken we eerst een apart dataframe getiteld `opleiding_alcohol`.
+
+We gebruiken de functie `summarise()`. Zoals de naam al zegt, kun je deze functie gebruiken om data samen te vatten. Zoals voor een gemiddelde te berekenen of een percentage.
+
+Met de functie `n()` zeggen we tegen R: tel het aantal respondenten per categorie van de aangegeven variabelen (`opleidingsniveau` en `alcohol_frequentie_her`). Daarvoor moeten we de data eerst 'groeperen' op deze variabelen met de functie `group_by()`, dan weet R voor welke voor welke combinatie van variabelen we de proporties willen berekenen. Het aantal respondenten per categorie-combinatie slaan we op in de variabele `aantal`.
+
+Dit staat in onderstaande code. We voegen meteen `View()` toe zodat het resulterende dataframe `opleiding_alcohol` kunt bekijken. We gebruiken de `|>`-operator om stap voor stap aan te geven wat we willen doen.
+
+```{r}
+# dataframe maken van relatie opleidingsniveau-alcohol frequentie
+opleiding_alcohol <- data_uitgaan |>
+  group_by(opleidingsniveau, alcohol_frequentie_her) |>
+  filter(!is.na(opleidingsniveau) & !is.na(alcohol_frequentie_her)) |>
+  summarise(aantal = n()) |>
+  mutate(perc = round(aantal/sum(aantal) * 100, 1))
+
+View(opleiding_alcohol)
+```
+
+Er zijn nu nog twee dingen die we moeten doen. Ten eerste zie je dat er ook rijen zijn waarin de `NAs` zijn berekend. Hier zijn we niet zo in geïnteresseerd. Deze halen we weg middels de functie `filter()`.
+
+`!is.na(opleidingsniveau) & !is.na(alcohol_frequentie_her)` zegt: behoud alle rijen met `opleidingsniveau` en `alcohol_frequentie_her` die geen `NAs` bevatten.
+
+We verwijderen de missende waarden *voorafgaand* aan berekenen van de de aantallen.
+
+```{r}
+# dataframe maken van relatie opleidingsniveau-alcohol frequentie
+opleiding_alcohol <- data_uitgaan |>
+  group_by(opleidingsniveau, alcohol_frequentie_her) |>
+  filter(!is.na(opleidingsniveau) & !is.na(alcohol_frequentie_her)) |> # hier invoegen filter()
+  summarise(aantal = n())
+
+View(opleiding_alcohol)
 ```
 
 Vooraf: 1) leren met R 2) voorbereiding 3) typen in R (J Roos) 4) manier van werken (antwoord geven, r chunks) 5) inleveren op einde

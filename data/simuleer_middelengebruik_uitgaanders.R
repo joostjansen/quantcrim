@@ -859,7 +859,19 @@ for (variabele in ja_nee_variabelen) {
 head(drugs[, c("respondentnr", "geslacht", "leeftijd", "alcohol_laatste_jaar")])
 
 
-## 16. Opslaan ----------------------------------------------------------------
+## 16. Hercodeer cannabis_frequentie voor practicum 1
+
+drugs$cannbais_frequentie_her2 <- 
+  recode_values(drugs$cannabis_frequentie,
+                "een keer"                ~ "maandelijks of minder",
+                "minder dan maandelijks"  ~ "maandelijks of minder",
+                "eens per maand"          ~ "maandelijks of minder",
+                "een paar keer per maand" ~ "maandelijks of minder",
+                "eens per week"           ~ "wekelijks",
+                "een paar keer per week"  ~ "wekelijks",
+                "(bijna) elke dag"        ~ "wekelijks")
+
+## 17. Opslaan ----------------------------------------------------------------
 # Wordt weggeschreven naar een 'data/' submap van de werkmap; deze wordt
 # aangemaakt als hij nog niet bestaat.
 
