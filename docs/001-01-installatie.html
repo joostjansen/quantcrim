@@ -539,15 +539,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><a href="https://cran.r-project.org/">R</a></li>
 </ol>
-<p>Klik op “Download R…” voor jouw besturingssysteem (Windows of Mac voor de meesten). Klik vervolgens op de link bij “install R for the first time”. Open het bestand en volg de instructies voor installatie.</p>
+<p>Klik op “Download R…” voor jouw besturingssysteem (Windows of Mac voor de meesten).</p>
+<p>Bij Windows, klik vervolgens op de link bij “install R for the first time” en daarna op de downloadlink.</p>
+<p>Bij Mac kun je direct op een link klikken die past bij jouw versie van het besturingssysteem.</p>
+<p>Open het gedownloade bestand en volg de instructies voor installatie.</p>
 <ol start="2" type="1">
 <li><a href="https://docs.posit.co/ide/user/download.html">RStudio</a></li>
 </ol>
 <p>Klik op “Download installer”. Open het bestand en volg de instructies voor installatie.</p>
 <section id="packages-installeren" class="level3 page-columns page-full" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="packages-installeren"><span class="header-section-number">2.2.1</span> Packages installeren</h3>
-<p>Na installatie moeten we R gereed maken voor de practica door de relevante packages (ook wel: libraries) te installeren. Veel databewerkingen en analyses vergen namelijk speciaal daarvoor ontwikkelde software. Je installeert zo’n package door RStudio te openen en in je console code te typen (<code>install.packages("jouw package")</code>) en dan te ‘runnen’. Of je opent een nieuw R script in RStudio waarbij je hetzelfde doet. Hieronder staat de code met de juiste packages. Dit is een kwestie van deze code kopiëren in R en het te runnen. Dit moet je dus doen voordat je aan de eerste practicumopdracht begint, anders zal R niet op de juiste manier werken.</p>
-<div class="cell">
+<p>Na installatie moeten we R gereed maken voor de practica door de relevante packages (ook wel: libraries) te installeren. Veel databewerkingen en analyses vergen namelijk speciaal daarvoor ontwikkelde software. Je installeert zo’n package door RStudio te openen en in je console code te typen (<code>install.packages("jouw package")</code>) en dan te ‘runnen’.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Of je opent een nieuw R script in RStudio waarbij je hetzelfde doet. Hieronder staat de code met de juiste packages. Dit is een kwestie van deze code kopiëren in R en het te runnen. Dit moet je dus doen <em>voordat</em> je aan de eerste practicumopdracht begint, anders zal R niet op de juiste manier werken.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Als we verwijzen naar R code in de tekst, wordt dat in een blokje weergeven: <code># dit zou toelichting in R kunnen zijn</code></p></div></div><div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># installeren packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"modeest"</span>)</span>
@@ -556,8 +559,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"knitr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Als je de packages hebt geïnstalleerd, laad je in het vervolg aan het begin van elke sessie de packages in via het commando <code>library()</code>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Let op: in tegenstelling tot bij het installeren van een package, gebruik je bij het laden ervan geen aanhalingstekens. R is zeer gevoelig voor het verkeerd gebruik van leestekens en ook hoofd- en kleine letters. Wees daar dus scherp op.</p>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Het installeren van de packages via <code>install_packages()</code> hoef je slechts eenmalig te doen.</p></div></div><p>Hieronder vind je een lijst met alle packages die je tijdens dit vak nodig hebt. Deze code wordt al het begin van elk practicum gegeven.</p>
+<p>Als je de packages hebt geïnstalleerd, laad je in het vervolg aan het begin van elke sessie de packages in via de functie <code>library()</code>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Let op: in tegenstelling tot bij het installeren van een package, gebruik je bij het laden ervan geen aanhalingstekens. R is zeer gevoelig voor het verkeerd gebruik van leestekens en ook hoofd- en kleine letters. Wees daar dus scherp op.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Het installeren van de packages via <code>install_packages()</code> hoef je slechts eenmalig te doen.</p></div></div><p>Hieronder vind je een lijst met alle packages die je tijdens dit vak nodig hebt. Deze code wordt al het begin van elk practicum gegeven.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># laden packages</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -571,10 +574,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="computervaardigheden" class="level2 page-columns page-full" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="computervaardigheden"><span class="header-section-number">2.3</span> Computervaardigheden</h2>
 <p>We willen ten slotte duidelijkheid scheppen over wat we verwachten van jullie op computervlak. We hebben de laatste jaren gemerkt dat een deel van de studenten steeds minder vaardig is als het gaat om wat we vroeger ‘computeren’ noemden. Dat is niet gek; tegenwoordig kan je zo’n beetje alles via je smartphone of tablet doen. Als je niet zo goed bent met computeren is dat niet meteen jouw schuld. Voor dit vak, voor je gehele studie, en later voor je carrière zul je echter toch enige basis computervaardigheden moeten hebben. Daaronder verstaan wij dingen als bestanden kunnen opslaan/openen/verplaatsen in File Explorer, een programma kunnen downloaden en installeren, een vastgelopen programma afsluiten via Taakbeheer (ctrl+alt+del), weten hoe je een bijlage verstuurt via email en zelfstandig oplossingen kunnen vinden via zoekmachines. Zonder dergelijke vaardigheden wordt het lastig om je studie te halen, laat staan met R leren werken.</p>
-<p>Wij zijn verder docenten die je met de inhoud van de cursus helpen, geen IT-helpdesk. Mocht je merken dat je moeite hebt deze basisvaardigheden, dan is nu het moment om je computerskills te gaan upgraden door te oefenen, oefenen, en nogmaals te oefenen. We gaan uit van een zekere mate van zelfstandigheid. Je kunt altijd een beroep doen Google<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, je medestudenten, vrienden of familie. Mocht je dan alsnog helemaal vastlopen, dan kun je ons aanspreken.</p>
+<p>Wij zijn verder docenten die je met de inhoud van de cursus helpen, geen IT-helpdesk. Mocht je merken dat je moeite hebt deze basisvaardigheden, dan is nu het moment om je computerskills te gaan upgraden door te oefenen, oefenen, en nogmaals te oefenen. We gaan uit van een zekere mate van zelfstandigheid. Je kunt altijd een beroep doen Google<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, je medestudenten, vrienden of familie. Mocht je dan alsnog helemaal vastlopen, dan kun je ons aanspreken.</p>
 
 
-<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Al verkiezen wij <a href="https://duckduckgo.com">DuckDuckGo</a>.</p></div></div></section>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Al verkiezen wij <a href="https://duckduckgo.com">DuckDuckGo</a>.</p></div></div></section>
 </section>
 
 

@@ -220,7 +220,7 @@ We gaan nu kijken hoe je een staafdiagram kan 'oppimpen'. ggplot biedt veel opti
 
 `xlab()` werkt hetzelfde als `ylab()`, maar dan voor de x-as: `xlab("Geslacht")`
 
-`ggtitle()` geeft een titel aan de figuur, ook hier moet de tekst tussen aanhalingstekens: `ggtitle("Staafdiagram van de variabele 'geslacht'")` .
+`ggtitle()` geeft een titel aan de figuur, ook hier moet de tekst tussen aanhalingstekens: `ggtitle("Staafdiagram van geslacht")` .
 
 Met behulp van het `+`-teken voegen we alle lagen toe aan de figuur van geslacht.
 
@@ -231,7 +231,7 @@ ggplot(data_uitgaan, aes(x = geslacht)) +
   theme_bw() + 
   ylab("Aantal") +
   xlab("Geslacht") +
-  ggtitle("Staafdiagram van de variabele 'geslacht'")
+  ggtitle("Staafdiagram van geslacht")
 ```
 
 Dat ziet er al een stuk beter uit. Vergelijk deze opgemaakte staafdiagram met de basis staafdiagram van geslacht en kijk welke veranderingen er plaats hebben gevonden.

@@ -23,7 +23,7 @@ We letten bij het onderzoeken van relaties tussen variabelen vooral op hun meetn
 
 Als we de relatie tussen twee nominale variabelen willen presenteren, kunnen we een eenvoudige kruistabel maken in R. We kijken in dit voorbeeld naar de relatie tussen geslacht (man/vrouw/anders) en of men heeft gevapet in het afgelopen jaar (ja/nee). We gaan er hier vanuit dat er geen rangorde bestaat tussen wel of niet vapen en het dus een nominale variabele betreft.
 
-Bij [Meetniveaus en visualisaties](002-02-meetniveaus-visualisaties.qmd#sec-kwalivariabelen) hebben we al een tabel gemaakt voor `geslacht`. We kunnen aan het commando `table()` een variabele `vapen_laatste_jaar` toevoegen om een kruistabel te krijgen.
+Bij [Meetniveaus en visualisaties](002-02-meetniveaus-visualisaties.qmd#sec-kwalivariabelen) hebben we al een tabel gemaakt voor `geslacht`. We kunnen aan de functie `table()` een variabele `vapen_laatste_jaar` toevoegen om een kruistabel te krijgen.
 
 ```{r}
 # kruistabel tussen geslacht en vapen laatste jaar
@@ -37,15 +37,17 @@ Visueel krijgen we vaak een beter inzicht in de verdeling van variabelen en de r
 ```{r}
 # samenvatten van de relevante data
 geslacht_vapen <- data_uitgaan |>
-  filter(geslacht != "anders") |> # categorie 'anders' eruit laten 
   group_by(geslacht, vapen_laatste_jaar) |> # groeperen op variabelen
-  summarise(n = n()) # aantal respondenten per categorie berekenen
+  filter(geslacht != "anders") |> # categorie 'anders' eruit laten 
+  summarise(aantal = n()) # aantal respondenten per categorie berekenen
 
 # staafdiagram maken voor relatie geslacht en vapen 
-ggplot(geslacht_vapen, aes(x = geslacht, y = n, fill = vapen_laatste_jaar)) +
+ggplot(geslacht_vapen, aes(x = geslacht, y = aantal, fill = vapen_laatste_jaar)) +
   geom_col(position = "dodge") +
   theme_bw() +
-  ylab("aantal") +
+  ylab("Aantal") +
+  xlab("Geslacht") +
+  ggtitle("Staafdiagram van relatie tussen geslacht en vapen laatste jaar") +
   labs(fill = "Vapen laatste jaar")
 ```
 
@@ -72,33 +74,34 @@ We bekijken eerst weer de aantallen in een kruistabel.
 table(data_uitgaan$acceptatie_xtc_vrienden, data_uitgaan$xtc_laatste_jaar) 
 ```
 
-Vervolgens kijken we naar de kolompercentages
+Vervolgens kijken we naar de kolomproporties.
 
 ```{r}
-# kolompercentages voor kruistabel
+# kolomproporties voor kruistabel
 table(data_uitgaan$acceptatie_xtc_vrienden, data_uitgaan$xtc_laatste_jaar) |>
   prop.table(2)
 ```
 
 Hier tekent zich al een duidelijk patroon af: onder jongeren die xtc hebben gebruikt, is de acceptatie onder vrienden ook hoog. Bijna alle respondenten in de rechterkolom geven aan het eens (16,4%) of helemaal mee eens (78,5%) met de stelling te zijn. Bij jongeren die niet hebben gebruikt is de acceptatie wat meer verdeeld, al geeft een meerderheid aan dat het gebruik van xtc is geaccepteerd onder hun vrienden (eens: 41,9%, helemaal mee eens: 14,8%).
 
-Als we deze relatie willen visualiseren, kunnen we het beste voor een zogenaamde gestapelde staafdiagram kiezen. Hierin worden de antwoordcategorieën op een variabele als het ware gestapeld binnen een staaf. We kunnen zo'n gestapelde staafdiagram maken voor de kolompercentages.
+Als we deze relatie willen visualiseren, kunnen we het beste voor een zogenaamde gestapelde staafdiagram kiezen. Hierin worden de antwoordcategorieën op een variabele als het ware gestapeld binnen een staaf. We kunnen zo'n gestapelde staafdiagram maken voor de kolomproporties.
 
 ```{r}
 # samenvatten van de relevante data
 xtc_gebruik_acceptatie <- data_uitgaan |>
   group_by(xtc_laatste_jaar, acceptatie_xtc_vrienden) |> 
-  summarise(n = n()) |>
-  mutate(perc = round(n/sum(n) * 100, 1)) # percentages berekenen en afronden op 1 decimaal
+  summarise(aantal = n()) |>
+  mutate(proportie = aantal/sum(aantal)) # proporties berekenen 
 
-# staafdiagram maken voor relatie geslacht en vapen 
+# staafdiagram maken voor relatie xtc gebruik en acceptatie 
 ggplot(xtc_gebruik_acceptatie, 
-       aes(x = xtc_laatste_jaar, y = perc, 
+       aes(x = xtc_laatste_jaar, y = proportie, 
            fill = acceptatie_xtc_vrienden)) +
   geom_col() + #
   theme_bw() +
-  ylab("percentage") +
-  xlab("xtc gebruik laatste jaar") +
+  ylab("Proportie acceptatie van xtc") +
+  xlab("Xtc gebruik laatste jaar") +
+  ggtitle("Staafdiagram van relatie tussen xtc gebruik laatste jaar \n en acceptatie door vrienden") +
   labs(fill = "Acceptatie xtc gebruik \n door vrienden ") +
   scale_fill_brewer(palette = 1)  # kleur bepalen van licht naar donkerblauw 
 
@@ -112,7 +115,7 @@ Kruistabellen en (gestapelde) staafdiagrammen zijn ook goed toepasbaar voor het 
 
 We beschikken over verschillende opties wanneer we de relatie tussen een kwalitatieve en kwantitatieve variabele willen onderzoeken. De meest eenvoudige optie is om naar het verschil in gemiddeldes te kijken. Als voorbeeld kijken we hier naar geslacht en het aantal sigaretten dat men rookt tijdens het uitgaan (`sigaretten_uitgaansdag`). Let op dat het hier alleen gaat over jongeren die minimaal één sigaret roken tijdens het uitgaan (rokers).
 
-We berekenen het gemiddelde door de data eerst te groeperen en daarna het gemiddelde per groep te berekenen. Hoe je dat moet doen, leer je in het practicum.
+We berekenen het gemiddelde door de data eerst te groeperen en daarna het gemiddelde per groep te berekenen.
 
 ```{r}
 # gemiddelde berekenen van aantal sigaretten voor geslacht
@@ -130,10 +133,12 @@ Het verschil in gemiddeldes geeft nog niet zoveel inzicht in de distributie van 
 ggplot(data_uitgaan, aes(x = geslacht, y = sigaretten_uitgaansdag)) +
   geom_boxplot() +
   theme_bw() +
-  ylab("aantal sigaretten uitgaansdag") 
+  ylab("Aantal sigaretten uitgaansdag") +
+  xlab("Geslacht") +
+  ggtitle("Doosdiagram van relatie tussen geslacht en aantal sigaretten per dag")
 ```
 
-Deze doosdiagrammen zien er wat anders uit dan in hoofdstuk xxx, omdat we hier met meer extreme waarden te maken hebben. Zo geeft de bovenste punt bij de mannen aan dat één respondent meer dan 100 sigaretten heeft gerookt. Gelet op de spreiding, is de afstand tussen Q1, Q2 en Q3 wat groter bij vrouwen dan mannen. Het lijkt er dus op dat bij de mannen meer extreme waarden voorkomen, terwijl bij de vrouwen er in het midden van de verdeling (interkwartielafstand) wat meer spreiding is.
+Deze doosdiagrammen zien er wat anders uit dan [eerder](002-02-meetniveaus-visualisaties.qmd#sec-doosdiagram), omdat we hier met meer extreme waarden te maken hebben. Zo geeft de bovenste punt bij de mannen aan dat één respondent meer dan 100 sigaretten heeft gerookt. Gelet op de spreiding, is de afstand tussen Q1, Q2 en Q3 wat groter bij vrouwen dan mannen. Het lijkt er dus op dat bij de mannen meer extreme waarden voorkomen, terwijl bij de vrouwen er in het midden van de verdeling (interkwartielafstand) wat meer spreiding is.
 
 Ook hier geldt weer: het onderzoeken van een beschrijvende relatie tussen ordinaal vs. kwantitatief kan doorgaans op dezelfde wijze als bij nominaal vs. kwantitatief.
 
@@ -145,11 +150,13 @@ Om de relatie te visualiseren, maken we eerst gebruik van een spreidingsdiagram.
 
 ```{r}
 # spreidingsdiagram met aantal glazen alcohol en sigaretten
-ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) +
-  geom_point() +
+ggplot(data_uitgaan, 
+       aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) +
+  geom_point() + #geom_point() voor puntenwolk
   theme_bw() +
-  xlab("aantal glazen alcohol uitgaansdag") +
-  ylab("aantal sigaretten uitgaansdag")
+  xlab("Aantal glazen alcohol") +
+  ylab("Aantal sigaretten") +
+  ggtitle("Relatie tussen aantal glazen alcohol en sigaretten op een uitgaansdag")
 ```
 
 Elke punt vertegenwoordigt een respondent in deze diagram, die laat zien hoe ze scoren op aantal glazen alcohol (x-as) en aantal sigaretten (y-as) tijdens het uitgaan. Er komt hier nog niet een heel duidelijk patroon uit naar voren. Zowel bij jongeren die relatief weinig drinken (10\< glazen) zijn er wat uitschieters naar boven qua roken (\>30 sigaretten), maar ook bij jongeren die relatief veel drinken. De dichste concentratie van punten zit linksonder, wat betekent dat de meeste respondenten rond de 5-15 glazen alcohol drinken en 1-15 sigaretten roken.
@@ -158,22 +165,26 @@ We kunnen de spreidingsdiagram nog wat aanpassen om beter inzicht te krijgen in 
 
 ```{r}
 # spreidingsdiagram met aantal glazen alcohol en sigaretten
-ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) +
+ggplot(data_uitgaan, 
+       aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) +
   geom_point(position = "jitter") + # jitter toevoegen
   theme_bw() +
-  xlab("aantal glazen alcohol uitgaansdag") +
-  ylab("aantal sigaretten uitgaansdag")
+  xlab("Aantal glazen alcohol") +
+  ylab("Aantal sigaretten") +
+  ggtitle("Relatie tussen aantal glazen alcohol en sigaretten op een uitgaansdag")
 ```
 
 Je ziet nu iets beter waar de concentratie van datapunten zit. Verder kun je kijken in hoeverre er een (lineair) verband is tussen aantal glazen alcohol en aantal sigaretten. Je kunt een zogenoemde regressielijn 'fitten' op de data met `stat_smooth()`*.*
 
 ```{r}
 # spreidingsdiagram met aantal glazen alcohol en sigaretten
-ggplot(data_uitgaan, aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) +
-  geom_point(position = "jitter") +
+ggplot(data_uitgaan, 
+       aes(x = glazen_alcohol_uitgaansdag, y = sigaretten_uitgaansdag)) +
+  geom_point(position = "jitter") + 
   theme_bw() +
-  xlab("aantal glazen alcohol uitgaansdag") +
-  ylab("aantal sigaretten uitgaansdag") +
+  xlab("Aantal glazen alcohol") +
+  ylab("Aantal sigaretten") +
+  ggtitle("Relatie tussen aantal glazen alcohol en sigaretten op een uitgaansdag") +
   stat_smooth(method = loess, se = FALSE)
 ```
 

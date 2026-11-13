@@ -21,7 +21,7 @@ In de onderwijsgroepen leer je over methodologische aspecten die relevant zijn v
 
 ### Practica
 
-Tijdens de practica ga je aan de slag met de stof van die week. Je gaat opgaven maken die zich richten op het werken met data en beschrijvende en inferentiële technieken. Bij aanvang van het practicum kun je de practicumopdracht van die week downloaden bij [Opdrachten](009-02-opdrachten.qmd). Dit is een R markdown file waarin opdrachten en instructies staan.
+Tijdens de practica ga je aan de slag met de stof van die week. Je gaat opgaven maken die zich richten op het werken met data en beschrijvende en inferentiële technieken. Bij aanvang van het practicum kun je de practicumopdracht van die week downloaden bij [Opdrachten](009-02-opdrachten.qmd). Dit is een dataset en R markdown file (.Rmd) waarin opdrachten en instructies staan.
 
 Je kunt tijdens de practica op je eigen laptop werken of op een pc in de computerzaal. Je bent zelf verantwoordelijk voor het goed opslaan en inleveren van je opdracht.
 
@@ -39,7 +39,7 @@ Zonder voorbereiding kun je de practicumopdracht niet maken. Dan ga je vervolgen
 
 De **aanwezigheidsplicht** betekent, zoals het woord al zegt, dat je bij elk practicum verplicht aanwezig moet zijn. Bij overmacht dien je *voorafgaand* aan het practicum Zoë via email ([z.p.vanwingerden\@law.eur.nl)]{.underline} te informeren over jouw afwezigheid met een geldige reden. Slappe smoesjes achteraf zijn we niet van gediend.
 
-De **inspanningsverplichting** betekent dat je de practicumopdracht van die week op tijd, volledig en op niveau inlevert. Dit om te laten zien dat je serieus aan de opdracht hebt gewerkt. De deadline is standaard **vrijdag 23:59** na het desbetreffende practicum. Je kunt de opdracht als pdf-bestand inleveren via een uploadbox in Canvas. De opdracht wordt beoordeeld als complete (volledig en op niveau) of incomplete. Bij een incomplete heb je niet aan de inspanningsverplichting voldaan. Een complete zegt daartegen niks over of de inhoudelijke antwoorden juist zijn. Dat moet je zelf later via de uitwerkingen checken.
+De **inspanningsverplichting** betekent dat je de practicumopdracht van die week op tijd, volledig en op niveau inlevert. Dit om te laten zien dat je serieus aan de opdracht hebt gewerkt. De deadline is standaard **vrijdag 23:59** na het desbetreffende practicum. Je kunt de opdracht als pdf-bestand inleveren via een uploadbox in Canvas. De opdracht wordt beoordeeld als complete (volledig en op niveau) of incomplete. Bij een incomplete heb je niet aan de inspanningsverplichting voldaan. Een complete zegt daarentegen niks over of de inhoudelijke antwoorden juist zijn. Dat moet je zelf later via de uitwerkingen checken.
 
 Bij afwezigheid dien je nog steeds aan de inspanningsverplichting te voldoen, behalve in het geval van overmacht.
 

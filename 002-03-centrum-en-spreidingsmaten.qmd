@@ -79,9 +79,9 @@ mfv(x)
 
 ## Spreidingsmaten
 
-Zoals eerder aangegeven, draait statistiek voor een belangrijk deel om de analyse van variatie. We hebben een groep respondenten die over allerlei kenmerken beschikken. We kunnen tellen welke kenmerken het meest voorkomen, of wat het gemiddelde op een bepaald kenmerk is. Maar vaak zijn we als sociale wetenschappers niet zozeer geinteresseerd in dingen die algemeen zijn, maar juist in zaken die variëren. Welke groepen gebruiken welke vormen van drugs? Welke groepen gebruiken juist geen drugs? Het idee is dat variatie, bijvoorbeeld door het maken van vergelijkingen, ons iets kan leren over hoe de sociale werkelijkheid in elkaar zit.[^002-03-centrum-en-spreidingsmaten-1] Dat geeft ons bijvoorbeeld inzicht in welke theorie bruikbaar is om een bepaald fenomeen beter te begrijpen c.q. verklaren of om beleid te ontwikkelen dat specifiek gericht is op een bepaalde doelgroep.
+Zoals eerder aangegeven, draait statistiek voor een belangrijk deel om de analyse van variatie. We hebben een groep respondenten die over allerlei kenmerken beschikken. We kunnen tellen welke kenmerken het meest voorkomen, of wat het gemiddelde op een bepaald kenmerk is. Maar vaak zijn we als sociale wetenschappers niet zozeer geïnteresseerd in dingen die algemeen zijn, maar juist in zaken die variëren. Welke groepen gebruiken welke vormen van drugs? Welke groepen gebruiken juist geen drugs? Het idee is dat variatie, bijvoorbeeld door het maken van vergelijkingen, ons iets kan leren over hoe de sociale werkelijkheid in elkaar zit.[^002-03-centrum-en-spreidingsmaten-1] Dat geeft ons bijvoorbeeld inzicht in welke theorie bruikbaar is om een bepaald fenomeen beter te begrijpen c.q. verklaren of om beleid te ontwikkelen dat specifiek gericht is op een bepaalde doelgroep.
 
-[^002-03-centrum-en-spreidingsmaten-1]: Sterker nog, onze methodes verklaren variat(n)ie met varia(n)tie. Als er geen variatie in een bepaald kenmerk is, kan het kenmerk ook niet als verklaring verschijnen. Of stel dat onze dataset alleen variatie meet op het niveau van individuen, dan gaan onze verklaringen ook te maken met individuele aspecten. Zie bijvoorbeeld het [boek](https://press.uchicago.edu/ucp/books/book/chicago/T/bo28394847.html) van John Levi Martin.
+[^002-03-centrum-en-spreidingsmaten-1]: Sterker nog, onze methodes verklaren varia(n)tie met varia(n)tie. Als er geen variatie in een bepaald kenmerk is, kan het kenmerk ook niet als verklaring verschijnen. Of stel dat onze dataset alleen variatie meet op het niveau van individuen, dan gaan onze verklaringen ook over individuele aspecten. Zie bijvoorbeeld het [boek](https://press.uchicago.edu/ucp/books/book/chicago/T/bo28394847.html) van John Levi Martin.
 
 ### Bereik, minimum en maximum
 
@@ -124,35 +124,35 @@ $$
 S^2=\frac{\sum_{i=1}^{n}{(x_i-\bar{x})^2}}{n-1}
 $$ De steekproefvariantie $S^2$ kun je bereken in een aantal stappen.
 
-Dit doen we aan de hand van de leeftijdsreeks (16, 22, 22, 28, 33) en het gemiddelde hiervan $\bar{x}$ = 24,2
+Dit doen we aan de hand van de leeftijdsreeks (16, 22, 22, 28, 33) en het gemiddelde hiervan $\bar{x} = 24,2$.
 
 Eerst berekenen we voor elke observatie de afstand tot het gemiddelde (de deviatie):
 
-| $x_i$ |  $x_i-\bar{x}$   |
-|:-----:|:----------------:|
-|  16   | 16 - 24,2 = -8,2 |
-|  22   | 22 - 24,2 = -2,2 |
-|  22   | 22 - 24,2 = -2,2 |
-|  28   | 28 - 24,2 = 3,8  |
-|  33   | 33 - 24,2 = 8,8  |
+| $x_i$ |   $x_i-\bar{x}$    |
+|:-----:|:------------------:|
+|  16   | $16 - 24,2 = -8,2$ |
+|  22   | $22 - 24,2 = -2,2$ |
+|  22   | $22 - 24,2 = -2,2$ |
+|  28   | $28 - 24,2 = 3,8$  |
+|  33   | $33 - 24,2 = 8,8$  |
 
-De optelsom van alle deviaties moet altijd nul zijn: -8,2 + -2,2 + -2,2 + 3,8 + 8,8 = 0
+De optelsom van alle deviaties moet altijd nul zijn: $-8,2 + -2,2 + -2,2 + 3,8 + 8,8 = 0$.
 
 In de volgende stap kwadrateren we alle deviaties:
 
-| $x_i$ |  $x_i-\bar{x}$   | $(x_i-\bar{x})^2$  |
-|:-----:|:----------------:|:------------------:|
-|  16   | 16 - 24,2 = -8,2 | $(-8,2)^2 = 67,24$ |
-|  22   | 22 - 24,2 = -2,2 | $(-2,2)^2 = 4,84$  |
-|  22   | 22 - 24,2 = -2,2 | $(-2,2)^2 = 4,84$  |
-|  28   | 28 - 24,2 = 3,8  |  $3,8^2 = 14,44$   |
-|  33   | 33 - 24,2 = 8,8  |  $8,8^2 = 77,44$   |
+| $x_i$ |   $x_i-\bar{x}$    | $(x_i-\bar{x})^2$  |
+|:-----:|:------------------:|:------------------:|
+|  16   | $16 - 24,2 = -8,2$ | $(-8,2)^2 = 67,24$ |
+|  22   | $22 - 24,2 = -2,2$ | $(-2,2)^2 = 4,84$  |
+|  22   | $22 - 24,2 = -2,2$ | $(-2,2)^2 = 4,84$  |
+|  28   | $28 - 24,2 = 3,8$  |  $3,8^2 = 14,44$   |
+|  33   | $33 - 24,2 = 8,8$  |  $8,8^2 = 77,44$   |
 
-Daarvan nemen we de som der kwadraten $\sum_{i=1}^{n}{(x_i-\bar{x})^2}$ : 67,24 + 4,84 + 4,84 + 14,44 + 77,44 = 168,8
+Daarvan nemen we de som der kwadraten $\sum_{i=1}^{n}{(x_i-\bar{x})^2}$ : $67,24 + 4,84 + 4,84 + 14,44 + 77,44 = 168,8$.
 
 In de laatste stap delen we de som der kwadraten door het aantal observaties minus één ($n-1$) :
 
-168,8 / (5-1) = 42,2
+$168,8 / (5-1) = 42,2$
 
 De steekproefvariantie van de leeftijd van vijf respondenten is dus 42,2.
 
@@ -245,7 +245,7 @@ summary(data_uitgaan$leeftijd)
 
 Je ziet dat de `summary()` functie ook de waardes voor 1st Qu. en 3rd Qu. geeft. Dit zijn het eerste en derde kwartiel, de grenzen waarbij respectievelijk 25% (Q1) en 75% (Q3) van de data ligt. In dit geval dus 20,0 en 27,0 jaar. Het tweede kwartiel (Q2) is de mediaan, dit is op de grens van 50% van de data.
 
-### Doosdiagram
+### Doosdiagram {#sec-doosdiagram}
 
 Er bestaat ook een manier om de spreiding van een lineaire variabele te visualiseren. Dit is via een **doosdiagram**.
 
@@ -260,8 +260,10 @@ Zoals we inmiddels hebben gezien, kan de presentatie van de figuur kan nog verbe
 ```{r}
 # doosdiagram maken
 ggplot(data_uitgaan, aes(x = leeftijd)) + 
-  geom_boxplot() + # doosdiagram
+  geom_boxplot() +
   theme_bw() +
+  xlab("Leeftijd") +
+  ggtitle("Doosdiagram van leeftijd") +
   scale_x_continuous(breaks = seq(16, 35, by = 1)) + # aanpassen labels x-as, van 16 tot 35 met steeds 1 eenheid ertussen (1 jaar)
   scale_y_continuous(breaks = NULL) # verwijderen labels y-as (hebben geen betekenis hier)
 
