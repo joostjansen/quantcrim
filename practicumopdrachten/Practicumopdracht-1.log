@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.2)  11 NOV 2026 17:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.11.13)  13 NOV 2026 13:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -41,7 +41,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2026/03/07 v6.0 Page Geometry
+Package: geometry 2026/11/03 v6.1 Page Geometry
 (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2026-06-01 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
@@ -283,7 +283,7 @@ Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
 (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package: pdftexcmds 2026-10-28 v0.34 Utility functions of pdfTeX for LuaTeX (HO)
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
@@ -466,35 +466,127 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 {c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 214.
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 220.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 218.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 224.
 (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Overfull \hbox (76.2434pt too wide) in paragraph at lines 237--237
+Overfull \hbox (76.2434pt too wide) in paragraph at lines 241--241
 []\T1/lmtt/m/n/10 ## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors[] 
  []
 
 
-LaTeX Warning: Hyper reference `0' on page 2 undefined on input line 265.
+LaTeX Warning: Hyper reference `0' on page 2 undefined on input line 269.
 
 [2] [3] [4]
 <Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf, id=64, 469.755pt x 325.215pt>
 File: Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
 <use Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf>
-Package pdftex.def Info: Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf  used on input line 557.
+Package pdftex.def Info: Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf  used on input line 563.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[5 <./Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf>]
-Overfull \hbox (10.99448pt too wide) in paragraph at lines 585--589
+[5]
+Overfull \hbox (10.99448pt too wide) in paragraph at lines 591--595
 []\T1/lmtt/m/n/10 ggtitle() \T1/lmr/m/n/10 (-20) geeft een ti-tel aan de figuur, ook hier moet de tekst tussen aan-hal-ing-stekens: \T1/lmtt/m/n/10 ggtitle("Staafdiagram
  []
 
-<Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf, id=79, 469.755pt x 325.215pt>
+[6 <./Practicumopdracht-1_files/figure-latex/unnamed-chunk-10-1.pdf>]
+<Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf, id=90, 469.755pt x 325.215pt>
 File: Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
 <use Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf>
-Package pdftex.def Info: Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf  used on input line 605.
+Package pdftex.def Info: Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf  used on input line 611.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[6] [7 <./Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf>] [8] (./Practicumopdracht-1.aux)
+[7 <./Practicumopdracht-1_files/figure-latex/unnamed-chunk-12-1.pdf>]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 712.
+(c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 712.
+(c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 712.
+(c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 712.
+(c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 712.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 712.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 712.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 712.
+(c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 712.
+(c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) [8{c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] [9]
+Underfull \hbox (badness 1810) in paragraph at lines 890--893
+ []\T1/lmr/bx/n/10 (+20) Doosdiagram[] \T1/lmr/m/n/10 (+20) In de vol-gende stap maken we een doos-di-a-gram waarin we de sprei-d-ing voor
+ []
+
+
+Underfull \hbox (badness 1264) in paragraph at lines 890--893
+\T1/lmtt/m/n/10 gevoelstemperatuur_cannabis \T1/lmr/m/n/10 (+20) apart bek-i-jken voor mensen die wel en niet cannabis geprobeerd
+ []
+
+<Practicumopdracht-1_files/figure-latex/unnamed-chunk-26-1.pdf, id=153, 469.755pt x 325.215pt>
+File: Practicumopdracht-1_files/figure-latex/unnamed-chunk-26-1.pdf Graphic file (type pdf)
+<use Practicumopdracht-1_files/figure-latex/unnamed-chunk-26-1.pdf>
+Package pdftex.def Info: Practicumopdracht-1_files/figure-latex/unnamed-chunk-26-1.pdf  used on input line 923.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[10{c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+Overfull \hbox (21.65863pt too wide) in paragraph at lines 964--971
+ []\T1/lmr/bx/n/10 (-20) Kruistabel[] \T1/lmr/m/n/10 (-20) Ter il-lus-tratie ki-jken we eerst naar de re-latie tussen \T1/lmtt/m/n/10 opleidingsniveau \T1/lmr/m/n/10 (-20) en \T1/lmtt/m/n/10 alcohol_frequentie_her\T1/lmr/m/n/10 (-20) .
+ []
+
+[11 <./Practicumopdracht-1_files/figure-latex/unnamed-chunk-26-1.pdf>]
+Overfull \hbox (20.22968pt too wide) detected at line 1001
+[][]\T1/lmtt/m/it/10 # kruistabel tussen alcohol frequentie (gehercodeerd) en opleidingsniveau met kolomproporties[] 
+ []
+
+
+Overfull \hbox (20.22968pt too wide) detected at line 1038
+[][]\T1/lmtt/m/it/10 # kruistabel tussen alcohol frequentie (gehercodeerd) en opleidingsniveau met kolomproporties[] 
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 1108--1112
+[]\T1/lmtt/m/n/10 !is.na(opleidingsniveau) & !is.na(alcohol_frequentie_her) \T1/lmr/m/n/10 (+20) zegt: be-houd alle ri-jen met
+ []
+
+
+Overfull \hbox (30.72964pt too wide) detected at line 1122
+[]  []\T1/lmtt/b/n/10 filter[]\T1/lmtt/m/n/10 ([]\T1/lmtt/b/n/10 ![][]is.na[]\T1/lmtt/m/n/10 (opleidingsniveau) []\T1/lmtt/b/n/10 &[] []![][]is.na[]\T1/lmtt/m/n/10 (alcohol_frequentie_her)) []\T1/lmtt/b/n/10 |>[] []\T1/lmtt/m/it/10 # hier invoegen filter()[] 
+ []
+
+
+Overfull \hbox (30.72964pt too wide) detected at line 1159
+[]  []\T1/lmtt/b/n/10 filter[]\T1/lmtt/m/n/10 ([]\T1/lmtt/b/n/10 ![][]is.na[]\T1/lmtt/m/n/10 (opleidingsniveau) []\T1/lmtt/b/n/10 &[] []![][]is.na[]\T1/lmtt/m/n/10 (alcohol_frequentie_her)) []\T1/lmtt/b/n/10 |>[] []\T1/lmtt/m/it/10 # hier invoegen filter()[] 
+ []
+
+[13]
+<Practicumopdracht-1_files/figure-latex/unnamed-chunk-36-1.pdf, id=220, 469.755pt x 325.215pt>
+File: Practicumopdracht-1_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file (type pdf)
+<use Practicumopdracht-1_files/figure-latex/unnamed-chunk-36-1.pdf>
+Package pdftex.def Info: Practicumopdracht-1_files/figure-latex/unnamed-chunk-36-1.pdf  used on input line 1236.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[14]
+<Practicumopdracht-1_files/figure-latex/unnamed-chunk-37-1.pdf, id=241, 469.755pt x 325.215pt>
+File: Practicumopdracht-1_files/figure-latex/unnamed-chunk-37-1.pdf Graphic file (type pdf)
+<use Practicumopdracht-1_files/figure-latex/unnamed-chunk-37-1.pdf>
+Package pdftex.def Info: Practicumopdracht-1_files/figure-latex/unnamed-chunk-37-1.pdf  used on input line 1269.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[15 <./Practicumopdracht-1_files/figure-latex/unnamed-chunk-36-1.pdf>] [16 <./Practicumopdracht-1_files/figure-latex/unnamed-chunk-37-1.pdf>] (./Practicumopdracht-1.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026-09-09>
@@ -504,18 +596,18 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 13864 strings out of 468897
- 221775 string characters out of 5450550
- 692390 words of memory out of 5000000
- 42788 multiletter control sequences out of 15000+600000
- 653961 words of font info for 92 fonts, out of 8000000 for 9000
+ 14283 strings out of 468897
+ 230581 string characters out of 5450549
+ 693697 words of memory out of 5000000
+ 43013 multiletter control sequences out of 15000+600000
+ 668005 words of font info for 130 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 76i,6n,81p,1016b,606s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Practicumopdracht-1.pdf (8 pages, 233013 bytes).
+ 76i,6n,81p,1016b,680s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/gijs_/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on Practicumopdracht-1.pdf (16 pages, 281386 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
- 54 named destinations out of 1000 (max. 500000)
- 14419 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 395 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
+ 162 named destinations out of 1000 (max. 500000)
+ 20610 words of extra memory for PDF output out of 20736 (max. 10000000)
 
