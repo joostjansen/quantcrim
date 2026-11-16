@@ -249,6 +249,8 @@ Het komt in onderzoek vaak voor dat we een variabele willen hercoderen. Hercoder
 
 Als voorbeeld kijken we naar frequentie van alcoholgebruik in het afgelopen jaar (`alcohol_frequentie`). De antwoorden zijn bij deze variabele hetzelfde als bij `cannabis_frequentie`. We vragen eerst een tabel op de aantallen per categorie.
 
+USENA = "always"
+
 ```{r}
 # tabel van alcohol frequentie met aantallen
 table(data_uitgaan$alcohol_frequentie)
