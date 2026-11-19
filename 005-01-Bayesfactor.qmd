@@ -1,0 +1,93 @@
+---
+title: "Bayes factor"
+format: html
+execute:
+  warning: false
+---
+
+## Ik word para(digma)!
+
+Op basis van logica, ervaring en empirisch onderzoek hebben zich in de geschiedenis van de mens meerdere revoluties voorgedaan die het denken over onze realiteit op zijn kop hebben gezet. Zo geloofden we ooit dat de aarde plat was en de zon om de aarde draaide in plaats van andersom.[^005-03-bayesfactor-1] En dankzij de relativiteitstheorie weten we dat tijd geen absolute grootheid is, maar afhankelijk is van ruimte.
+
+[^005-03-bayesfactor-1]: Al geloven enkele mensen nog steeds dat de aarde plat is. Zij staan ook wel bekend als de flat-Earthers.
+
+Dergelijke revoluties in kennis over de wereld noemde de beroemde wetenschapsfilosoof Thomas Kuhn 'paradigmawisselingen'. Dit vindt plaats wanneer binnen een wetenschappelijke discipline de basale aannames, theorieën en methodes (een paradigma) worden vervangen door een gehele nieuwe set aan aannames, theorieën en methodes, waardoor het oude paradigma overbodig wordt. Je zou kunnen zeggen dat onze opvatting over de aard van de werkelijkheid (ontologie) verandert, en daarmee ook hoe we die werkelijkheid kunnen kennen (epistemologie).
+
+Waarom lees je hierover in een hoofdstuk van een statistiekboek? Je gaat het misschien ongemakkelijk vinden, maar in de statistiek kennen we verschillende paradigma's. Alle uitgangspunten en technieken die we tot nu behandeld hebben, scharen we onder de zogenoemde **Frequentistische statistiek**. Er bestaat echter ook zoiets als **Bayesiaanse statistiek**.[^005-03-bayesfactor-2] Bayesiaanse statistiek omvat een hele andere manier om naar hypotheses en data te kijken dan Frequentistische statistiek.
+
+[^005-03-bayesfactor-2]: Deze vorm van statistiek is vernoemd naar de wiskundige en filosoof [Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes).
+
+Dit hoofdstuk behandelt een tipje van de sluier van Bayesiaanse statistiek. We verwachten niet direct dat je het zult begrijpen. Hopelijk zul je na enige tijd wel inzien waarom het belangrijk is hierover te leren. We kijken eerst naar de tekortkomingen van Frequentistische statistiek. Dit is nodig om te begrijpen waarom Bayesiaanse statistiek in de ogen van velen een beter alternatief biedt.
+
+## Limitaties Frequentistische statistiek
+
+Deze limitaties zijn in eerdere hoofdstukken al expliciet en meer impliciet aan bod gekomen en zullen we daarom niet uitgebreid herhalen. We zetten ze hier een aantal limitaties kort op een rijtje en laten zien hoe deze met elkaar samenhangen.
+
+Ten eerste gaat Frequentistische statistiek ervan uit dat populatieparameters een constante, vaste waarde hebben. In deze opvatting representeren populatieparameters de gemiddelde uitkomst van een (in principe) oneindig aantal herhaalde experimenten of onderzoeken. Dit betekent in essentie dat de populatieparameter een gefixeerde waarde is en dat we deze kunnen verkrijgen voor een steekproef uit de de populatie te trekken. Omdat elke steekproef willekeurige fouten bevat, is het de data die varieert (steekproevenverdeling) maar de populatieparameter is constant.
+
+We hebben al eerder besproken waarom [deze assumptie](003-01-steekproeven.qmd#sec-constantepoppara) problematisch is. Veel dingen die we willen onderzoeken zijn niet zo gefixeerd als we vaak aannemen. Zo is de aanname dat een steekproef één mogelijke uitkomst is van een serie oneindige uitkomsten niet logisch verenigbaar met populatiewaardes van eenmalige events (bijv. een festival) of dingen die sterk kunnen variëren over de tijd (bijv. meningen).
+
+Ten tweede, door de bijzondere aannames achter Frequentistische statistiek leiden resultaten bijna inherent tot verkeerde interpretaties. Denk bijvoorbeeld aan dat de p-waarde iets zegt over "de kans dat de nulhypothese waar is" of dat statistische significantie iets zegt over de praktische relevantie van een effect. Dergelijke dwalingen kunnen we deels ondervangen door strikt te letten op de 'juiste' interpretatie en deels door andere methoden dan statistische significantie te gebruiken, zoals het schatten van een betrouwbaarheidsinterval.
+
+Dit neemt echter niet weg dat de interpretatie bij Frequentistische statistiek een struikelblok blijft. Want ook bij een bhi is men geneigd fouten te maken als dat "er een 95% kans is dat de populatiewaarde binnen dit interval ligt". Je kunt teruglezen bij [Betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd) en [Hypothesetoetsing](004-01-onafhankelijkegroepen.qmd) waarom dergelijke interpretaties niet kloppen.
+
+Frequentistische statistiek komt er in essentie op neer dat iets wel of niet waar is. Een nulhypothese wordt wel of niet verworpen; een populatieparameter ligt wel of niet in een interval. In de wetenschap hebben we echter vaak een andere zienswijze: we willen weten hoe groot de kans op iets is, hoe waarschijnlijk iets is. En die (on)zekerheid willen we kwantificeren.[^005-03-bayesfactor-3] We weten bijna nooit helemaal zeker of iets waar is of niet, maar willen juist uitdrukking geven aan hoe zeker we iets denken te weten.
+
+[^005-03-bayesfactor-3]: In Frequentistische statistiek kwantificeren we onzekerheid wel een bepaalde manier middels p-waardes, bhi's, etc. maar dat is niet het type kwantificatie waar we meestal naar op zoek zijn (i.e. probabilistisch).
+
+Dit laatste punt relateert aan een derde limitatie, namelijk dat het moeilijk is om eerdere kennis te incorporeren in statistisch onderzoek. Elk nieuw Frequentistisch onderzoek produceert een nieuwe uitkomst, op basis waarvan we een nulhypothese verwerpen of niet. Je kunt stellen dat als we vaak dezelfde nulhypothese verwerpen, het zeer onwaarschijnlijk dat deze waar is in het algemeen. Dat zegt ons tegelijkertijd nog niet zoveel over de kwantiteit waarin we geïnteresseerd zijn. Ook dit is deels te ondervangen door meer te richten op bhi's. Denk terug aan het voorbeeld bij de [interpretatie van een betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd#sec-interpretatiebhi). Als je vindt dat het proportie xtc-gebruik in jouw onderzoek tussen de 0,636 en 0,737 ligt, maar je weet uit eerder onderzoek dat het meestal tussen de 0,300 en 0,400 is, hoe moet je daar dan mee omgaan? Hiervoor biedt de Frequentistische benadering geen oplossing (maar de Bayesiaanse wel, zoals we later zullen zien).
+
+## Bayesiaanse statistiek
+
+We hebben vaak een bepaalde overtuiging over hoe de wereld (of werkelijkheid) in elkaar zit. Als we daarbij eerlijk zijn over wat we precies weten, moeten we toegeven dat we de meeste dingen nooit helemaal zeker weten. We kunnen bijvoorbeeld een feestje bezoeken en vermoeden dat het drugsgebruik er relatief hoog is, maar hoe hoog precies (en wie gebruikt wat), dat is lastig te zeggen. We hebben dus een bepaald geloof of idee over een staat van de wereld, waarvan we erkennen dat dit geloof niet absoluut is en onderhevig aan zekere mate van subjectiviteit. De elementen **geloof** en **waarschijnlijkheid** vormen de basis van de Bayesiaanse statistiek. We gebruiken Bayesiaanse statistiek om ons geloof in een toestand (staat van de wereld) te kwantificeren, rekening houdende met een bepaalde mate van onzekerheid die we uitdrukken in waarschijnlijkheid.
+
+In de onderzoekspraktijk betekent dit dat we er wel van uitgaan dat er een populatieparameter een bepaalde vaste waarde heeft, maar dat onze kennis hiervan imperfect is.[^005-03-bayesfactor-4] Naarmate we meer data verzamelen en kennis vergaren, kunnen we onze eerdere bevindingen over de grootte van deze populatieparameter updaten. Een ook onze mate van zekerheid erover te kwantificeren, zonder dat we aannemen de precieze waarde van de populatieparameter ooit te zullen kennen. Dit is een wezenlijk ander uitgangspunt dan bij Frequentistische statistiek, waar we populatieparameters met een vaste waarde zien als een gemiddelde uitkomst van oneindig herhaalde onderzoeken.
+
+[^005-03-bayesfactor-4]: Dit is één perspectief binnen Bayesiaanse statistiek over hoe we parameters kunnen beschouwen. Een ander perspectief gaat ervan uit dat parameters variëren en dat elke steekproef een expressie is van deze variatie. Dit laatstgenoemde perspectief zullen we niet verder behandelen.
+
+Om het meer tastbaar te maken, kijken we naar hoe naar hypothese toetsen werkt binnen Bayesiaanse statistiek.
+
+### Hypothese toetsen
+
+Bij het toetsen van hypotheses binnen Frequentistische statistiek hanteren we de methode van statistische significantie. Daarbij kiezen we een bepaald criterium (significantieniveau) waarbij we de nulhypothese verwerpen. Als we vervolgens vinden dat de overschrijdingskans kleiner is dan het significantieniveau ($p<\alpha$ ), dan verwerpen we de nulhypothese. Uitgaande van een significantieniveau van 0,05, stellen we bij significant resultaat dat het gevonden uitkomst in minder dan 5% van de herhaalde steekproeven zal voorkomen, en daarmee zo onwaarschijnlijk is (onder een H~0~-verdeling) dat we de nulhypothese verwerpen. Dit is een essentie een binaire benadering: de nulhypothese wordt wel of niet verworpen.[^005-03-bayesfactor-5]
+
+[^005-03-bayesfactor-5]: We weten ook wat hier de nadelen van zijn, zoals we bijvoorbeeld gezien hebben bij [type-I en type-II fouten](004-02-aspectenhypo.qmd#sec-type-I-II).
+
+Binnen Bayesiaanse statistiek hanteren we een andere benadering. Hier willen we weten met welke waarschijnlijkheid de nulhypothese waar is ten opzichte van de originele verwachting (de orginele hypothese). Dit veronderstelt dat beide hypotheses tot bepaalde hoogte waar kunnen zijn, maar dat de een meer aannemelijk is dan de andere. Dit toetsen we middels de **Bayes factor (BF)**. De Bayes factor geeft aan in welke mate de data van de steekproef beide hypotheses (nulhypothese en originele hypothese) ondersteunt, en berekent de verhouding hiertussen. Met andere woorden, we berekenen de waarschijnlijkheid op de steekproefuitkomst onder de originele hypothese $p(d|H_1)$ en delen dit door de waarschijnlijkheid op de steekproefuitkomst onder de nulhypothese $p(d|H_0)$[^005-03-bayesfactor-6]:
+
+[^005-03-bayesfactor-6]: Bij de Bayes factor berekenen we de waarschijnlijkheid/aannemelijkheid (*likelihood*) en niet de kans zoals bij de p-waarde. Dit zijn net andere statistische maten. Daar gaan we niet verder op in hier.
+
+$$
+BF = \frac{p(d|H_1)}{p(d|H_0)}
+$$
+
+De Bayes factor geeft vervolgens een getal dat aangeeft hoe waarschijnlijk de originele hypothese in verhouding tot de nulhypothese is. Dit noemen we ook wel de *odds*. Een Bayes factor van 4 betekent bijvoorbeeld dat de odds 4 tot 1 (4:1) in het voordeel zijn van de originele hypothese.[^005-03-bayesfactor-7] Dit is eigenlijk hetzelfde als zeggen dat de uitkomst van de steekproef voor 80% de originele hypothese ondersteunt en voor 20% de nulhypothese. Het geeft dus een indicatie van de sterkte van het bewijs voor beide hypotheses op basis van de data.
+
+[^005-03-bayesfactor-7]: Het gebruik van odds zien we vaak terug in de gokwereld, waar bijvoorbeeld wordt aangegeven wat de odds zijn van het ene team om van het andere team te winnen.
+
+Het mooie aan Bayesiaanse statistiek is dat er vuistregels zijn voor wanneer het bewijs als zwakker of sterker wordt gezien. Hiervoor zijn de volgende categorieën vastgesteld:
+
+| Bayes factor (odds) | Betekenis              |
+|---------------------|------------------------|
+| 1-3                 | Verwaarloosbaar bewijs |
+| 3-20                | Zwak bewijs            |
+| 20-150              | Sterk bewijs           |
+| \>150               | Zeer sterk bewijs      |
+
+Je kunt dus aan de hand van de Bayes factor makkelijker uitspraken doen over hoe aannemelijk de originele hypothese is t.o.v. de nulhypothese. Let verder op de dat de Bayes factor ook kleiner dan 1 kan zijn (met een minimum van 0). Dit geeft aan de nulhypothese waarschijnlijker is dan originele hypothese. De odds van de Bayes factor kan bijvoorbeeld 0,2 zijn. Om dit eenvoudig te interpreteren door de odds 'om te draaien'. Dit doe je door 1 te delen door de odds: $1/0,2=5$ . In dit geval zou de nulhypothese dus 5 keer waarschijnlijker zijn dan de originele hypothese.
+
+We gaan even terug naar ons voorbeeld bij [Hypothesetoetsing](004-01-onafhankelijkegroepen.qmd#sec-statistischesignificantie). Om het verschil met Bayesiaanse statistiek te verduidelijk, toetsen we de hypothese van
+
+nulhypothese verwerpen met zoveel zekerheid (freq) vs. zo waarschijnlijkis H0 vs H1 (Bayesian)
+
+vergelijken bhi's
+
+Verdere aspecten bayesian
+
+- priors (en posteriors)
+
+  - Incorporeren eerdere overtuigingen.
+
+  - VOORBEELD OP EINDE MET PROPORTIE XTC-GEBRUIKERS
+
+- Waarom niet alles Bayesian doen?

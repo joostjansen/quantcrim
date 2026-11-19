@@ -114,6 +114,8 @@ De output van deze toets geeft aardig wat informatie. Voorlopig kijken we alleen
 
 > de kans op het verkrijgen van een steekproefresultaat minstens zo extreem als het huidige, aangenomen dat de nulhypothese waar is (en alle andere model assumpties).
 
+TOEVOEGEN NOTATIE: $Pr(d|H_0)$
+
 Je kunt zien dat die kans in dit voorbeeld klein is (ongeveer 2%).
 
 Het gemiddelde verschil tussen mannen en vrouwen dat we hebben gevonden in de steekproef bedraagt 2,7 glazen. Deze uitkomst ligt ver van het midden van de verdeling en is daarmee onwaarschijnlijk onder de H~0~-verdeling (zie figuur hieronder). Het corresponderende gebied onder de grafiek (de kans) is daarmee klein.
@@ -165,7 +167,7 @@ Het kan aan de andere kant ook voorkomen dat je vindt dat er slechts een klein v
 
 In de onderzoekspraktijk zul je vaker vinden dat er wel een bepaald verschil is, maar dat de substantiële betekenis hiervan niet meteen duidelijk is. In het voorbeeld op deze pagina is het gevonden gemiddelde verschil 2,7 glazen. Is dit veel of weinig? Dat is gedeeltelijk een subjectieve opvatting. In de sociale wetenschappen zijn er geen vastomlijnde regels van wanneer iets praktisch significant is, dat hangt af van de context. Meestal bepaal je de praktische relevantie aan de hand van logisch redeneren en afvragen waarom deze bevinding relevant is. Als je bijvoorbeeld gaat autorijden, kunnen 2-3 glazen een groot verschil maken. Voor een avond stappen waarin sowieso heel veel gedronken wordt, heeft een verschil van 2-3 glazen wellicht minder effect op de totale mate van intoxicatie. Context doet er dus toe.
 
-## Betrouwbaarheidsinterval voor hypothesetoetsing
+## Betrouwbaarheidsinterval voor hypothesetoetsing {#sec-bhivoorhypo}
 
 Bovenstaande duidt er op dat hypothesetoetsen via statistische significantie zijn beperkingen heeft. Deze komen er grotendeels op neer dat:
 
@@ -177,7 +179,7 @@ Deze beperkingen kunnen we grotendeels ondervangen door een alternatieve methode
 
 Wellicht was het je opgevallen dat we dit al hebben gedaan. De output bij het berekenen van de @sec-overschrijdingskans geeft tevens een bhi. Die bedraagt voor het voorbeeld op deze pagina $[0,46; 4,94]$. Op basis van wat we eerder hebben gezien bij de [interpretatie van een betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd#sec-interpretatiebhi), kunnen we dit interval hier interpreteren als:
 
-> We kunnen met 95% betrouwbaarheid stellen dat het gemiddelde verschil tussen mannen en vrouwen in glazen alcoholconsumptie op een een uitgangsdag ergens tussen de 0,46 en 4,94 ligt, gebaseerd op (hypothetische) herhaalde steekproeven engeen additionele relevante kennis.
+> We kunnen met 95% betrouwbaarheid stellen dat het gemiddelde verschil tussen mannen en vrouwen in glazen alcoholconsumptie op een een uitgangsdag ergens tussen de 0,46 en 4,94 ligt, gebaseerd op (hypothetische) herhaalde steekproeven en geen additionele relevante kennis.
 
 We kunnen een dergelijk bhi op vrij simpele wijze gebruiken om tevens de nulhypothese te toetsen. Omdat we bij de t-toets gekozen hebben voor het standaard 5% significantieniveau, correspondeert dit met een (tweezijdig) 95%-bhi. Omdat onze verwachting onder de nulhypothese is dat het gemiddelde verschil 0 is, hoeven we alleen te kijken of die waarde in het geschatte bhi ligt. Dat is hier niet het geval: 0 valt niet binnen het bereik van $[0,46; 4,94]$ . Wat we al wisten, hebben we nu op alternatieve wijze aangetoond: de nulhypothese kan worden verworpen. We gaan er voorlopig vanuit dat er een statistisch significant verschil bestaat tussen mannen en vrouwen in hoeveel ze gemiddeld drinken.
 

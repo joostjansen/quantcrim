@@ -138,7 +138,7 @@ Dit is een wat langdradige formulering, maar beschrijft wel zo exact mogelijk wa
 
 Tot nu toe hebben we alleen een t-toets voor onafhankelijke groepen behandeld. Daarin vergelijken we de gemiddeldes van twee groepen (nominale variabele) op één kwantitatieve variabele met elkaar: $\mu_1 =\mu_2$. In de komende hoofdstukken gaan we nog meer toetsen behandelen: t-toets voor afhankelijke groepen, chi-kwadraat, en correlatie. Uit de formulering van de hypotheses en statistische notatie moet volgen om wat voor soort toets het steeds gaat. Hoe je dat per toets doet, wordt bij de voorbeelden uitgelegd.
 
-## Tweezijdig/eenzijdig toetsen
+## Tweezijdig/eenzijdig toetsen {#sec-eenzijdigtweezijdig}
 
 Hierboven is al genoemd dat er twee soorten hypotheses zijn: hypotheses zonder een specifieke richting (**tweezijdig**) en hypotheses waarin het verband een specifieke richting heeft (**eenzijdig**). Het verschil tussen tweezijdig en eenzijdig is niet alleen relevant voor hoe we de hypothese formuleren, maar ook voor hoe we deze toetsen uitvoeren. Het heeft namelijk invloed op hoe de overschrijdingskans wordt berekend.
 
@@ -166,7 +166,7 @@ De uitleg hierboven heeft zich toegespitst op de methode van statistische signif
 
 [^004-02-aspectenhypo-9]: Bij een eenzijdige toets met een bhi krijg je namelijk alleen een vaste onder- of bovengrens, afhankelijk van de richting van je hypothese.
 
-## Type-I en type-II fouten {#sec-eenzijdigtweezijdig}
+## Type-I en type-II fouten {#sec-type-I-II}
 
 Als laatste kijken we in dit hoofdstuk naar type-I en type-II fouten. Dit zijn fouten die kunnen voorkomen bij statistisch onderzoek waardoor we de verkeerde conclusie trekken over de nulhypothese.
 

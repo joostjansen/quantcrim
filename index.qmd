@@ -49,4 +49,6 @@ Spiegelhalter, D. (2019). *The art of statistics*. Basic Books.
 
 van Groenestijn, P., & Visser, M. (2023). *Statistiek als hulpmiddel: Een overzicht van gangbare toepassingen in de sociale wetenschappen* (4e herz. dr.). Uitgeverij Koninklijke Van Gorcum.
 
+Van Zyl, C. J. (2018). Frequentist and Bayesian inference: A conceptual primer. *New Ideas in Psychology*, *51*, 44-49.
+
 Wasserstein, R. L., Schirm, A. L., & Lazar, N. A. (2019). Moving to a world beyond “p\< 0.05”. *The American Statistician*, *73*(sup1), 1-19.

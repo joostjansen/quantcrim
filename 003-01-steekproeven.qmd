@@ -209,7 +209,7 @@ Dit wil niet zeggen dat het onderzoek geen zin heeft of meteen niet valide is. H
 
 De hier genoemde fouten hebben te maken met de **validiteit** en **betrouwbaarheid** van kwantitatief onderzoek. Dit zijn belangrijke aspecten waar we in de colleges en onderwijsgroepen ook meer aandacht aan zullen besteden.
 
-### De constante populatieparameter
+### De constante populatieparameter {#sec-constantepoppara}
 
 Naast mogelijke systematische fouten zijn de filosofische aannames achter statistiekonderzoek niet altijd even goed toepasbaar. Zoals eerder gesteld is het idee achter de dominante manier van statistiek bedrijven dat er zoiets bestaat als een ware populatieparameter $P$ die we in theorie kunnen achterhalen door een oneindig aantal onderzoeken (bijvoorbeeld experimenten of steekproeven) uit te voeren. Er wordt aangenomen dat de populatieparameter een constante, vaste waarde heeft. Als we onderzoek blijven herhalen, krijgen we steeds net wat andere data door willekeurige fouten. De data varieert dus, de populatieparameter niet. Op de lange termijn zal het gemiddelde van al deze onderzoeken echter leiden tot de ware $P$ (zie @sec-steekproefcentraallimiet). Dit denken gaat dus uit van een soort denkbeeldig universum waarin we deze onderzoeken oneindig kunnen herhalen. In de praktijk voeren we het onderzoek vaak eenmaal uit.
 
