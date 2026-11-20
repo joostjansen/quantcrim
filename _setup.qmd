@@ -3,6 +3,7 @@
 library(tidyverse)
 library(modeest)
 library(plotrix)
+library(BayesFactor)
 
 data_uitgaan <- read_rds("data/data_uitgaan.rds")
 

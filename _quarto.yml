@@ -42,6 +42,9 @@ book:
         - 004-01-onafhankelijkegroepen.qmd
         - 004-02-aspectenhypo.qmd
         - 004-03-afhankelijkegroepen.qmd
+    - part: "Bayes, Chi2 en correlatie"
+      chapters:
+        - 005-01-Bayesfactor.qmd
     - part: "Colleges en practica"
       chapters:
         - 009-01-colleges.qmd

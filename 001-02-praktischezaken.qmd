@@ -56,10 +56,10 @@ Het kwanti-tentamen zal een mix zijn van vragen over de stof uit de onderwijsgro
 ## Overzicht stof per week
 
 |  |  |  |
-|------------------|-------------------------------|-----------------------|
+|----|----|----|
 | **Week** | **Voorbereiding en practicum** | **College** |
 | 4 | Data beschrijven | \- |
 | 5 | Steekproeven en betrouwbaarheidsinterval | Verdieping onderzoeksontwerp en steekproeven |
 | 6 | Hypotheses toetsen | Herhaling stof week 4-5 |
-| 7 | Bayes fator, Chi^2^ en correlatie | Herhaling stof week 4-6 |
+| 7 | Bayes factor, Chi^2^ en correlatie | Herhaling stof week 4-6 |
 | 8 | Geen practicum | Herhaling stof week 4-7 & responsie |

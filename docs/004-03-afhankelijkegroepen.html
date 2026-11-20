@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./009-01-colleges.html" rel="next">
+<link href="./005-01-Bayesfactor.html" rel="next">
 <link href="./004-02-aspectenhypo.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -467,7 +467,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Colleges en practica</span></a>
+ <span class="menu-text">Bayes, Chi2 en correlatie</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -475,14 +475,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./009-01-colleges.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./009-02-opdrachten.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+  <a href="./005-01-Bayesfactor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bayes factor</span></span></a>
   </div>
 </li>
       </ul>
@@ -490,12 +484,35 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Appendices</span></a>
+ <span class="menu-text">Colleges en practica</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./009-01-colleges.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./009-02-opdrachten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./formuleblad.html" class="sidebar-item-text sidebar-link">
@@ -520,7 +537,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#hypothese-opstellen" id="toc-hypothese-opstellen" class="nav-link" data-scroll-target="#hypothese-opstellen"><span class="header-section-number">12.1.1</span> Hypothese opstellen</a></li>
   <li><a href="#handmatige-berekening" id="toc-handmatige-berekening" class="nav-link" data-scroll-target="#handmatige-berekening"><span class="header-section-number">12.1.2</span> Handmatige berekening</a></li>
-  <li><a href="#computerberekening" id="toc-computerberekening" class="nav-link" data-scroll-target="#computerberekening"><span class="header-section-number">12.1.3</span> Computerberekening</a></li>
+  <li><a href="#sec-afhankelijkgroepencomp" id="toc-sec-afhankelijkgroepencomp" class="nav-link" data-scroll-target="#sec-afhankelijkgroepencomp"><span class="header-section-number">12.1.3</span> Computerberekening</a></li>
   <li><a href="#interpretatie-en-conclusie" id="toc-interpretatie-en-conclusie" class="nav-link" data-scroll-target="#interpretatie-en-conclusie"><span class="header-section-number">12.1.4</span> Interpretatie en conclusie</a></li>
   </ul></li>
   <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">12.2</span> Samenvatting</a></li>
@@ -649,13 +666,13 @@ Deze verschilscores tel je dan bij elkaar op, waarna je het gemiddelde berekent.
 </div>
 <p>Het bhi is dus <span class="math inline">\([-3,35, 5,84]\)</span>.</p>
 </section>
-<section id="computerberekening" class="level3" data-number="12.1.3">
-<h3 data-number="12.1.3" class="anchored" data-anchor-id="computerberekening"><span class="header-section-number">12.1.3</span> Computerberekening</h3>
+<section id="sec-afhankelijkgroepencomp" class="level3" data-number="12.1.3">
+<h3 data-number="12.1.3" class="anchored" data-anchor-id="sec-afhankelijkgroepencomp"><span class="header-section-number">12.1.3</span> Computerberekening</h3>
 <p>Met een paar regels code kunnen we dit resultaat ook krijgen met <code>t.test()</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-toets uitvoeren voor afhankelijke groepen</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(data_uitgaan<span class="sc">$</span>gemoed_dinsdag_na_xtc, <span class="co"># eerste variabele</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>       data_uitgaan<span class="sc">$</span>gemoed_dinsdag_na_mmc, <span class="co"># tweede variabele</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> data_uitgaan<span class="sc">$</span>gemoed_dinsdag_na_xtc, <span class="co"># eerste variabele</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> data_uitgaan<span class="sc">$</span>gemoed_dinsdag_na_mmc, <span class="co"># tweede variabele</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -1111,8 +1128,8 @@ mean difference
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./009-01-colleges.html" class="pagination-link" aria-label="Collegeslides">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Collegeslides</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./005-01-Bayesfactor.html" class="pagination-link" aria-label="Bayes factor">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bayes factor</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

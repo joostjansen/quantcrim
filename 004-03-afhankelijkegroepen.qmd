@@ -107,14 +107,14 @@ We kunnen nu statistieken invullen in de formule. We moeten alleen nog de $t_k$ 
 
 Het bhi is dus $[-3,35, 5,84]$.
 
-### Computerberekening
+### Computerberekening {#sec-afhankelijkgroepencomp}
 
 Met een paar regels code kunnen we dit resultaat ook krijgen met `t.test()`.
 
 ```{r}
 # t-toets uitvoeren voor afhankelijke groepen
-t.test(data_uitgaan$gemoed_dinsdag_na_xtc, # eerste variabele
-       data_uitgaan$gemoed_dinsdag_na_mmc, # tweede variabele
+t.test(x = data_uitgaan$gemoed_dinsdag_na_xtc, # eerste variabele
+       y = data_uitgaan$gemoed_dinsdag_na_mmc, # tweede variabele
        paired = TRUE)
 ```
 

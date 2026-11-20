@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>13&nbsp; Bayes factor – quantcrim</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./009-01-colleges.html" rel="next">
+<link href="./004-03-afhankelijkegroepen.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4d5af44521e8d2ac69805030d7e05dc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./005-01-Bayesfactor.html">Bayes, Chi2 en correlatie</a></li><li class="breadcrumb-item"><a href="./005-01-Bayesfactor.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bayes factor</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">quantcrim</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/joostjansen/quantcrim" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./quantcrim.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Voorwoord</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Voorbereiding</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./001-01-installatie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installatie en introductie R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./001-02-praktischezaken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Praktische zaken M&amp;T I</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data beschrijven</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-01-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-02-meetniveaus-visualisaties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-03-centrum-en-spreidingsmaten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Centrum- en spreiding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-04-relatiesvariabelen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Steekproeven en betrouwbaarheidsinterval</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./003-01-steekproeven.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./003-02-betrouwbaarheidsinterval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hypotheses toetsen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-01-onafhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hypothesetoetsing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-02-aspectenhypo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-03-afhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bayes, Chi2 en correlatie</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./005-01-Bayesfactor.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bayes factor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Colleges en practica</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./009-01-colleges.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./009-02-opdrachten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./formuleblad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Symbolen en formules</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p>Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#ik-word-paradigma" id="toc-ik-word-paradigma" class="nav-link active" data-scroll-target="#ik-word-paradigma"><span class="header-section-number">13.1</span> Ik word para(digma)!</a></li>
+  <li><a href="#beperkingen-frequentistische-statistiek" id="toc-beperkingen-frequentistische-statistiek" class="nav-link" data-scroll-target="#beperkingen-frequentistische-statistiek"><span class="header-section-number">13.2</span> Beperkingen Frequentistische statistiek</a></li>
+  <li><a href="#bayesiaanse-statistiek" id="toc-bayesiaanse-statistiek" class="nav-link" data-scroll-target="#bayesiaanse-statistiek"><span class="header-section-number">13.3</span> Bayesiaanse statistiek</a>
+  <ul class="collapse">
+  <li><a href="#hypothese-toetsen" id="toc-hypothese-toetsen" class="nav-link" data-scroll-target="#hypothese-toetsen"><span class="header-section-number">13.3.1</span> Hypothese toetsen</a></li>
+  <li><a href="#update-je-kennis" id="toc-update-je-kennis" class="nav-link" data-scroll-target="#update-je-kennis"><span class="header-section-number">13.3.2</span> Update je kennis</a></li>
+  </ul></li>
+  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">13.4</span> Samenvatting</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/005-01-Bayesfactor.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./005-01-Bayesfactor.html">Bayes, Chi2 en correlatie</a></li><li class="breadcrumb-item"><a href="./005-01-Bayesfactor.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bayes factor</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bayes factor</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="ik-word-paradigma" class="level2 page-columns page-full" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="ik-word-paradigma"><span class="header-section-number">13.1</span> Ik word para(digma)!</h2>
+<p>Op basis van logica, ervaring en empirisch onderzoek hebben zich in de geschiedenis van de mens meerdere revoluties voorgedaan die het denken over onze realiteit op zijn kop hebben gezet. Zo geloofden we ooit dat de aarde plat was en de zon om de aarde draaide in plaats van andersom.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> En dankzij de relativiteitstheorie weten we dat tijd geen absolute grootheid is, maar afhankelijk is van ruimte.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Al geloven enkele mensen nog steeds dat de aarde plat is. Zij staan ook wel bekend als de flat-Earthers.</p></div></div><p>Dergelijke revoluties in kennis over de wereld noemde de beroemde wetenschapsfilosoof Thomas Kuhn ‘paradigmawisselingen’. Dit vindt plaats wanneer binnen een wetenschappelijke discipline de basale aannames, theorieën en methodes (een paradigma) worden vervangen door een gehele nieuwe set aan aannames, theorieën en methodes, waardoor het oude paradigma overbodig wordt. Je zou kunnen zeggen dat onze opvatting over de aard van de werkelijkheid (ontologie) verandert, en daarmee ook hoe we die werkelijkheid kunnen kennen (epistemologie).</p>
+<p>Waarom lees je hierover in een hoofdstuk van een statistiekboek? Je gaat het misschien ongemakkelijk vinden, maar in de statistiek kennen we verschillende paradigma’s. Alle uitgangspunten en technieken die we tot nu behandeld hebben, scharen we onder de zogenoemde <strong>Frequentistische statistiek</strong>. Er bestaat echter ook de <strong>Bayesiaanse statistiek</strong>.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Bayesiaanse statistiek omvat een hele andere manier om naar hypotheses en data te kijken dan Frequentistische statistiek.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Deze vorm van statistiek is vernoemd naar de wiskundige en filosoof <a href="https://en.wikipedia.org/wiki/Thomas_Bayes">Thomas Bayes</a>.</p></div></div><p>Dit hoofdstuk behandelt een tipje van de sluier van Bayesiaanse statistiek. We verwachten niet direct dat je het zult begrijpen. Hopelijk zul je na enige tijd wel inzien waarom het belangrijk is hierover te leren. We kijken eerst naar de tekortkomingen van Frequentistische statistiek. Dit is nodig om te begrijpen waarom Bayesiaanse statistiek in de ogen van velen een beter alternatief biedt.</p>
+</section>
+<section id="beperkingen-frequentistische-statistiek" class="level2 page-columns page-full" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="beperkingen-frequentistische-statistiek"><span class="header-section-number">13.2</span> Beperkingen Frequentistische statistiek</h2>
+<p>Deze beperkingen zijn in eerdere hoofdstukken al expliciet en meer impliciet aan bod gekomen en zullen we daarom niet uitgebreid herhalen. We zetten hier een aantal beperkingen kort op een rijtje en laten zien hoe deze met elkaar samenhangen.</p>
+<p>Ten eerste gaat Frequentistische statistiek ervan uit dat populatieparameters een constante, vaste waarde hebben. In deze opvatting representeren populatieparameters de gemiddelde uitkomst van een (in principe) oneindig aantal herhaalde experimenten of onderzoeken. Dit betekent in essentie dat de populatieparameter een gefixeerde waarde is en dat we deze kunnen verkrijgen voor een steekproef uit de de populatie te trekken. Omdat elke steekproef willekeurige fouten bevat, is het de data die varieert (steekproevenverdeling) maar de populatieparameter is constant.</p>
+<p>We hebben al eerder besproken waarom <a href="./003-01-steekproeven.html#sec-constantepoppara">deze assumptie</a> problematisch is. Veel dingen die we willen onderzoeken zijn niet zo gefixeerd als we vaak aannemen. Zo is de aanname dat een steekproef één mogelijke uitkomst is van een serie oneindige uitkomsten niet logisch verenigbaar met populatiewaardes van eenmalige events (bijv. een festival) of dingen die sterk kunnen variëren over de tijd (bijv. meningen).</p>
+<p>Ten tweede, door de bijzondere aannames achter Frequentistische statistiek leiden resultaten bijna inherent tot verkeerde interpretaties. Denk bijvoorbeeld aan dat de p-waarde iets zegt over “de kans dat de nulhypothese waar is” of dat statistische significantie iets zegt over de praktische relevantie van een effect. Dergelijke dwalingen kunnen we deels ondervangen door strikt te letten op de ‘juiste’ interpretatie en deels door andere methoden dan statistische significantie te gebruiken, zoals het schatten van een betrouwbaarheidsinterval.</p>
+<p>Dit neemt echter niet weg dat de interpretatie bij Frequentistische statistiek een struikelblok blijft. Want ook bij een bhi is men geneigd fouten te maken als dat “er een 95% kans is dat de populatiewaarde binnen dit interval ligt”. Je kunt teruglezen bij <a href="./003-02-betrouwbaarheidsinterval.html">Betrouwbaarheidsinterval</a> en <a href="./004-01-onafhankelijkegroepen.html">Hypothesetoetsing</a> waarom dergelijke interpretaties niet kloppen.</p>
+<p>Frequentistische statistiek komt er in essentie op neer dat iets wel of niet waar is. Een nulhypothese wordt wel of niet verworpen; een populatieparameter ligt wel of niet in een interval. In de wetenschap hebben we echter vaak een andere zienswijze: we willen weten hoe groot de kans op iets is, hoe waarschijnlijk iets is. En die (on)zekerheid willen we kwantificeren.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> We weten bijna nooit helemaal zeker of iets waar is of niet, maar willen juist uitdrukking geven aan hoe zeker we iets denken te weten.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;In Frequentistische statistiek kwantificeren we onzekerheid wel een bepaalde manier middels p-waardes, bhi’s, etc. maar dat is niet het type kwantificatie waar we meestal naar op zoek zijn (i.e.&nbsp;probabilistisch).</p></div></div><p>Dit laatste punt relateert aan een derde beperking, namelijk dat het moeilijk is om eerdere kennis te incorporeren in Frequentistisch onderzoek. Elk nieuw Frequentistisch onderzoek produceert een nieuwe uitkomst, op basis waarvan we een nulhypothese verwerpen of niet. Je kunt stellen dat als we vaak dezelfde nulhypothese verwerpen, het zeer onwaarschijnlijk dat deze waar is in het algemeen. Dat zegt ons tegelijkertijd nog niet zoveel over de kwantiteit waarin we geïnteresseerd zijn.</p>
+<p>Ook dit is deels te ondervangen door ons meer te richten op bhi’s. Denk terug aan het voorbeeld bij de <a href="./003-02-betrouwbaarheidsinterval.html#sec-interpretatiebhi">interpretatie van een betrouwbaarheidsinterval</a>. Als je vindt dat de proportie xtc-gebruik in jouw onderzoek tussen de 0,636 en 0,737 ligt, maar je weet uit eerder onderzoek dat het meestal tussen de 0,300 en 0,400 is, hoe moet je daar dan mee omgaan? Hiervoor biedt de Frequentistische benadering geen directe oplossing (maar de Bayesiaanse wel, zoals we later zullen zien).</p>
+</section>
+<section id="bayesiaanse-statistiek" class="level2 page-columns page-full" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="bayesiaanse-statistiek"><span class="header-section-number">13.3</span> Bayesiaanse statistiek</h2>
+<p>Bayesiaanse statistiek werkt anders dan Frequentistische statistiek. Het uitgangspunt is dat we bepaalde kennis hebben over hoe de wereld (of werkelijkheid) in elkaar zit, maar dat deze kennis ook deels incompleet en subjectief is. We hebben bepaalde overtuigingen of een bepaald geloof over de staat van de wereld. Als we eerlijk zijn over wat we precies weten, moeten we toegeven dat we de meeste dingen nooit helemaal zeker weten. We kunnen bijvoorbeeld een feestje bezoeken en vermoeden dat het drugsgebruik er relatief hoog is, maar hoe hoog precies (en wie gebruikt wat), dat is lastig te zeggen. De elementen <strong>geloof</strong> en <strong>waarschijnlijkheid</strong> vormen de basis van de Bayesiaanse statistiek. We gebruiken Bayesiaanse statistiek om ons geloof van een toestand (staat van de wereld) te kwantificeren die we uitdrukken in waarschijnlijkheid in plaats van absoluut gegeven.</p>
+<p>In de onderzoekspraktijk betekent dit dat we er wel van uitgaan dat er een populatieparameter een bepaalde vaste waarde heeft, maar dat onze kennis hiervan imperfect is.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Naarmate we meer data verzamelen en kennis vergaren, kunnen we onze eerdere bevindingen over de grootte van deze populatieparameter updaten. We kunnen dan kwantificeren hoe waarschijnlijk de waarde van een populatieparameter is. Dit is een wezenlijk ander uitgangspunt dan bij Frequentistische statistiek, waar we populatieparameters met een vaste waarde zien als een gemiddelde uitkomst van oneindig herhaalde onderzoeken.</p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Dit is één perspectief binnen Bayesiaanse statistiek over hoe we parameters kunnen beschouwen. Een ander perspectief gaat ervan uit dat parameters variëren en dat elke steekproef een expressie is van deze achterliggende variatie. Dit laatstgenoemde perspectief zullen we niet verder behandelen.</p></div></div><p>Om het meer tastbaar te maken, kijken we naar hoe naar hypothese toetsen werkt binnen Bayesiaanse statistiek.</p>
+<section id="hypothese-toetsen" class="level3 page-columns page-full" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="hypothese-toetsen"><span class="header-section-number">13.3.1</span> Hypothese toetsen</h3>
+<p>Bij het toetsen van hypotheses binnen Frequentistische statistiek hanteren we de methode van statistische significantie. Daarbij kiezen we een bepaald criterium (significantieniveau <span class="math inline">\(\alpha\)</span>) waarbij we de nulhypothese verwerpen. Als we vervolgens vinden dat de overschrijdingskans kleiner is dan het significantieniveau (<span class="math inline">\(p&lt;\alpha\)</span> ), dan verwerpen we de nulhypothese. Uitgaande van een significantieniveau van 0,05, stellen we bij significant resultaat dat het gevonden uitkomst in minder dan 5% van de herhaalde steekproeven zal voorkomen, en daarmee zo onwaarschijnlijk is (onder een H<sub>0</sub>-verdeling) dat we de nulhypothese verwerpen. Dit is in essentie een binaire benadering: de nulhypothese wordt wel of niet verworpen.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;We weten ook wat hier de nadelen van zijn, zoals we bijvoorbeeld gezien hebben bij <a href="./004-02-aspectenhypo.html#sec-type-I-II">type-I en type-II fouten</a>.</p></div><div id="fn6"><p><sup>6</sup>&nbsp;Bij de Bayes factor berekenen we de waarschijnlijkheid/aannemelijkheid (<em>likelihood</em>) en niet de kans zoals bij de p-waarde. Dit zijn net andere statistische maten. Hier gaan we niet verder op in.</p></div></div><p>Binnen Bayesiaanse statistiek hanteren we een andere benadering. Hier willen we weten met welke waarschijnlijkheid de nulhypothese waar is ten opzichte van de originele verwachting (de originele hypothese). Dit veronderstelt dat beide hypotheses tot bepaalde hoogte waar kunnen zijn, maar dat de een meer aannemelijk is dan de andere. Dit toetsen we middels de <strong>Bayes factor (BF)</strong>. De Bayes factor geeft aan in welke mate de data van de steekproef beide hypotheses (nulhypothese en originele hypothese) ondersteunt, en berekent de verhouding hiertussen. Met andere woorden, we berekenen de waarschijnlijkheid op de steekproefuitkomst onder de originele hypothese <span class="math inline">\(p(d|H_1)\)</span> en delen dit door de waarschijnlijkheid op de steekproefuitkomst onder de nulhypothese <span class="math inline">\(p(d|H_0)\)</span><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>:</p>
+<p><span class="math display">\[
+BF = \frac{p(d|H_1)}{p(d|H_0)}
+\]</span></p>
+<p>De Bayes factor geeft vervolgens een getal dat aangeeft hoe waarschijnlijk de originele hypothese is in verhouding tot de nulhypothese. Dit noemen we ook wel de <em>odds</em>. Een Bayes factor van 4 betekent bijvoorbeeld dat de odds 4 tot 1 (4:1) in het voordeel zijn van de originele hypothese.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> Dit is eigenlijk hetzelfde als zeggen dat de uitkomst van de steekproef voor 80% de originele hypothese ondersteunt en voor 20% de nulhypothese. Het geeft dus een indicatie van de sterkte van het bewijs voor beide hypotheses op basis van de data.</p>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Het gebruik van odds zien we vaak terug in de gokwereld, waar bijvoorbeeld wordt aangegeven wat de odds zijn van het ene team om van het andere team te winnen.</p></div></div><p>Het mooie aan Bayesiaanse statistiek is dat er vuistregels zijn voor wanneer het bewijs als zwakker of sterker wordt gezien. Hiervoor zijn de volgende categorieën vastgesteld:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Bayes factor (odds)</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1-3</td>
+<td>Verwaarloosbaar bewijs</td>
+</tr>
+<tr class="even">
+<td>3-20</td>
+<td>Zwak bewijs</td>
+</tr>
+<tr class="odd">
+<td>20-150</td>
+<td>Sterk bewijs</td>
+</tr>
+<tr class="even">
+<td>&gt;150</td>
+<td>Zeer sterk bewijs</td>
+</tr>
+</tbody>
+</table>
+<p>Je kunt dus aan de hand van de Bayes factor makkelijker uitspraken doen over hoe aannemelijk de originele hypothese is t.o.v. de nulhypothese. Let verder op dat de Bayes factor ook kleiner dan 1 kan zijn (met een minimum van 0). Dit geeft aan dat de nulhypothese waarschijnlijker is dan originele hypothese. De odds van de Bayes factor kan bijvoorbeeld 0,2 zijn. Dit is eenvoudig te interpreteren door de odds ‘om te draaien’. Dit doe je door 1 te delen door de odds: <span class="math inline">\(1/0,2=5\)</span> . In dit geval zou de nulhypothese dus 5 keer waarschijnlijker zijn dan de originele hypothese.</p>
+<section id="t-toets-voor-onafhankelijke-groepen" class="level4 page-columns page-full" data-number="13.3.1.1">
+<h4 data-number="13.3.1.1" class="anchored" data-anchor-id="t-toets-voor-onafhankelijke-groepen"><span class="header-section-number">13.3.1.1</span> T-toets voor onafhankelijke groepen</h4>
+<p>Het makkelijkst om dit te begrijpen is om te kijken naar een voorbeeld. We gaan even terug naar ons voorbeeld bij <a href="./004-01-onafhankelijkegroepen.html#sec-statistischesignificantie">Hypothesetoetsing</a> over het verschil tussen mannen en vrouwen in hoeveel glazen alcohol ze gemiddeld drinken. Om het verschil tussen Frequentistische en Bayesiaanse statistiek te verduidelijken, voeren we de hypothesetoetsing op beide manieren uit.</p>
+<p>De eerdere voorbeelden rondom het verschil tussen mannen en vrouwen in alcoholconsumptie hadden nog geen betrekking op de gehele dataset. We kijken nu wel hoe dat zit vanuit Frequentistisch oogpunt. We toetsen de nulhypothese dat er geen verschil is in het populatiegemiddeldes van alcoholconsumptie tussen mannen en vrouwen, bij een significantieniveau van <span class="math inline">\(\alpha=0,05\)</span>. Omdat de variabele <code>geslacht</code> in dataset uit drie categorieën bestaat, moeten we eerst een aparte dataset aanmaken waarin anders-identificerenden respondenten zijn verwijderd.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># aanmaken dataset met alleen mannen en vrouwen</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data_manvrouw <span class="ot">&lt;-</span> data_uitgaan <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(geslacht <span class="sc">!=</span> <span class="st">"anders"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># t-test uitvoeren</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> glazen_alcohol_uitgaansdag <span class="sc">~</span> geslacht,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> data_manvrouw) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  glazen_alcohol_uitgaansdag by geslacht
+t = 4.6806, df = 327.87, p-value = 4.193e-06
+alternative hypothesis: true difference in means between group man and group vrouw is not equal to 0
+95 percent confidence interval:
+ 1.658906 4.064391
+sample estimates:
+  mean in group man mean in group vrouw 
+          12.068966            9.207317 </code></pre>
+</div>
+</div>
+<p>De p-waarde is zeer klein (<span class="math inline">\(p=0,000004\)</span>).<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> We constateren dus dat <span class="math inline">\(p&lt;\alpha\)</span> en verwerpen daarmee de nulhypothese dat er geen verschil is in drinkgedrag tussen mannen en vrouwen.</p>
+<div class="no-row-height column-margin column-container"><div id="fn8"><p><sup>8</sup>&nbsp;R weergeeft cijfers met veel nullen als decimalen op een andere manier (hier: 4.193e-06). Je kunt zelf terugrekenen wat dit cijfer is.</p></div></div><p>We doorlopen nu dezelfde proces voor Bayesiaanse statistiek. De t-test voeren we uit via de functie <code>ttestBF()</code>. Het zal je opvallen dat de code zeer vergelijkbaar is als bij <code>t.test()</code>. <code>ttestBF()</code> is wel wat gevoeliger voor dataspecificaties. We moeten dus eerst nog expliciet de missende waarden verwijderen op <code>glazen_alcohol_uitgaansdag</code> middels <code>filter()</code> en <code>is.na()</code>, en van <code>geslacht</code> een factor variabele maken middels <code>factor()</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># verwijderen missende waarden op glazen_alcohol_uitgaansdag</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data_manvrouw <span class="ot">&lt;-</span> data_manvrouw <span class="sc">|&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(glazen_alcohol_uitgaansdag))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># factor variabele maken van geslacht</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>data_manvrouw<span class="sc">$</span>geslacht <span class="ot">&lt;-</span> <span class="fu">factor</span>(data_manvrouw<span class="sc">$</span>geslacht)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># t-test onafhankelijke groepen uitvoeren voor Bayes factor</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ttestBF</span>(<span class="at">formula =</span> glazen_alcohol_uitgaansdag <span class="sc">~</span> geslacht,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> data_manvrouw)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bayes factor analysis
+--------------
+[1] Alt., r=0.707 : 2997.105 ±0%
+
+Against denominator:
+  Null, mu1-mu2 = 0 
+---
+Bayes factor type: BFindepSample, JZS</code></pre>
+</div>
+</div>
+<p>In de output hoeven we alleen maar naar het getal in de tweede regel te kijken: 2997,1. Dit is onze Bayes factor. In dit geval geeft onze data aan dat de originele hypothese ongeveer 3000 maal zo aannemelijk als de nulhypothese. Als we teruggaan naar de tabel over de betekenis van de Bayes factor, toont dit dat onze uitkomst zeer sterk bewijs levert voor de aannemelijkheid van de originele hypothese. Er is dus zeker een verschil in gemiddelde alcoholconsumptie op een uitgaansdag gekeken naar mannen en vrouwen.</p>
+<p>Hoewel we bij dit voorbeeld voor beide benaderingen (Frequentistisch en Bayesiaans) in principe tot dezelfde conclusie komen (nulhypothese verwerpen), verschilt de interpretatie en sterkte van het bewijs. Op basis van de Frequentistische benadering stellen we dat het gevonden resultaat zo zeldzaam is onder de H0-verdeling, dat het in minder dan 5% van de herhaalde steekproeven zal voorkomen. Bij de Bayesiaanse benadering kwantificeren we de sterkte van het bewijs op een andere manier, wat ons meer overtuigingskracht geeft dat de originele hypothese aannemelijk is. Namelijk met een odds van 3000:1.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> Bij andere onderzoeken is het mogelijk om tot heel andere conclusies te komen, afhankelijk van of je Frequentistische of Bayesiaanse statistiek hanteert.</p>
+<div class="no-row-height column-margin column-container"><div id="fn9"><p><sup>9</sup>&nbsp;We zouden bij Frequentistische statistiek voorafgaand aan de analyse een meer strikt significantieniveau kunnen kiezen, bijvoorbeeld <span class="math inline">\(\alpha=0,01\)</span> . In principe verlaagt dit de kans op een type-I fout, maar deze blijft aanwezig. Ook blijven andere beperkingen bestaan, zoals een type-II fout en geen echte kwantificatie van de aannemelijkheid van de nulhypothese tegenover de originele hypothese (zoals bij Bayesiaanse statistiek)</p></div></div></section>
+<section id="t-toets-voor-afhankelijke-groepen" class="level4 page-columns page-full" data-number="13.3.1.2">
+<h4 data-number="13.3.1.2" class="anchored" data-anchor-id="t-toets-voor-afhankelijke-groepen"><span class="header-section-number">13.3.1.2</span> T-toets voor afhankelijke groepen</h4>
+<p>Laten we voor de volledigheid ook kijken wat het resultaat is als we Bayes factor toepassen op ons eerdere voorbeeld voor de <a href="./004-03-afhankelijkegroepen.html#sec-afhankelijkgroepencomp">t-toets voor afhankelijke groepen</a>, waar we de gemoedstoestand op dinsdag tussen xtc en 3-mmc vergeleken. Hier werd de nulhypothese van geen verschil niet verworpen.</p>
+<p>We voeren wederom de code in, maar nu voor <code>ttestBF()</code>. Wederom verwijderen we eerst de missende waarden, dit keer op beide variabelen.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># verwijderen missende waarden op beide variabelen</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data_xtcmmc <span class="ot">&lt;-</span> data_uitgaan <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(gemoed_dinsdag_na_xtc) <span class="sc">&amp;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>           <span class="sc">!</span><span class="fu">is.na</span>(gemoed_dinsdag_na_mmc))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># t-test onafhankelijke groepen uitvoeren voor Bayes factor</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ttestBF</span>(<span class="at">x =</span> data_xtcmmc<span class="sc">$</span>gemoed_dinsdag_na_xtc,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> data_xtcmmc<span class="sc">$</span>gemoed_dinsdag_na_mmc,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bayes factor analysis
+--------------
+[1] Alt., r=0.707 : 0.1400794 ±0.11%
+
+Against denominator:
+  Null, mu = 0 
+---
+Bayes factor type: BFoneSample, JZS</code></pre>
+</div>
+</div>
+<p>Zoals we konden verwachten, is de Bayes factor ten gunste van de nulhypothese. De odds zijn 0,14:1, wat onder de 1 ligt. Als we dit omrekenen, komen we op een factor van <span class="math inline">\(1/0,14=7,14\)</span> . Dit interpreteren we als zwak bewijs voor de nulhypothese tegenover de originele hypothese. Het blijft dus redelijk ongewis of de nulhypothese of originele hypothese meer aannemelijk is.</p>
+<p>Dit is wederom een andere conclusie dan we op basis van Frequentistische statistiek trekken. Daar verwerpen we de nulhypothese niet, en namen we aan dat deze voorlopig waar is. Zoals besproken bij <a href="./004-02-aspectenhypo.html#sec-type-I-II">type-I en type-II fouten</a> moeten we echter oppassen met zulke aannames. In die zin geeft Bayesiaanse statistiek ons meer duidelijkheid over welke hypothese (de nul of originele) meer aannemelijk is.</p>
+<p><strong>Credible interval</strong></p>
+<p>In de Bayesiaanse statistiek werken we, net als bij Frequentistische statistiek, met intervallen om statistische uitkomsten te interpreteren. De betekenis is uiteraard anders dan we gewend zijn. Daarom hebben Bayesiaanse intervallen ook hun eigen naam: <strong>credible intervals</strong>.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn10"><p><sup>10</sup>&nbsp;Als we deze term letterlijk zouden vertalen naar het Nederlands, zouden we het ´geloofwaardigheidsintervals´ noemen. Dat klinkt zo ongemakkelijk dat we het maar bij de Engelse term houden.</p></div></div><p>Het mooie aan credible intervals is dat de interpretatie gelijk is aan de fout die vaak gemaakt wordt bij de interpretatie van betrouwbaarheidsintervallen. Een 95% credible interval kan namelijk als volgt worden gepresenteerd:</p>
+<blockquote class="blockquote">
+<p>Er is een 95% kans dat de populatieparameter tussen [ondergrens] en [bovengrens] ligt, op basis van de geobserveerde data.</p>
+</blockquote>
+<p>Bij een credible interval gaat het dus <em>wel</em> om de kans dat een populatieparameter binnen een bepaald interval ligt. Dit is intuïtief vaak beter te begrijpen dan de interpretatie van een betrouwbaarheidsinterval, er is immers een reden dat mensen de laatste vaak verkeerd interpreteren. Kijken we naar ons eerdere voorbeeld van het xtc-gebruik schatten, dan zouden we kunnen zeggen dat er een 95% kans bestaat dat de proportie xtc-gebruik in de populatie uitgaande jongeren tussen de 0,636 en 0,737 ligt.<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> <a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a> Credible intervals zijn verder op diverse populatieparameters toe te passen (verschil in gemiddeldes, correlatie, etc.)</p>
+<div class="no-row-height column-margin column-container"><div id="fn11"><p><sup>11</sup>&nbsp;Ervan uitgaande dat een credible interval hetzelfde resultaat zou geven.</p></div><div id="fn12"><p><sup>12</sup>&nbsp;Afhankelijk van de dichtheid van de kansverdeling zou je ook nog kunnen zeggen welke waardes binnen dit interval een grotere kans hebben om de populatieparameter te zijn.</p></div></div><p>Het bereken van een credible interval is doorgaans wel ingewikkelder dan een betrouwbaarheidsinterval en valt daarmee buiten de scope van deze cursus. Daarom gaan hier niet verder op in.</p>
+</section>
+</section>
+<section id="update-je-kennis" class="level3 page-columns page-full" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="update-je-kennis"><span class="header-section-number">13.3.2</span> Update je kennis</h3>
+<p>We hebben een van de beloftes van Bayesiaanse statistiek nog niet geadresseerd, namelijk hoe je eerdere bevindingen kan incorporeren in nieuw onderzoek. In Bayesiaanse statistiek doen we dit middels de <strong>prior</strong>. De prior drukt onze kennis uit van de wereld <em>voorafgaand</em> aan het onderzoek: het geloof of onze overtuiging van hoe wereld op dat moment in elkaar zit. Dit neemt statistisch gezien de vorm van een bepaalde populatiewaarde of een kansverdeling. Dit geloof confronteren we vervolgens met de data die we vinden. Een nieuw onderzoek geeft ons als het ware nieuwe informatie om onze bestaande overtuigingen te updaten. In de praktijk vermenigvuldigen we de prior met de uitkomst van ons onderzoek (bijv. de Bayes factor). Daardoor combineren we dus eerdere kennis met het huidige onderzoek. Dit leidt uiteindelijk tot wat we de <strong>posterior</strong> noemen: ons geüpdatete geloof over de staat van de wereld. De posterior vertegenwoordigt daarmee ons meest recente inzicht waarin eerdere kennis en resultaten van het huidige onderzoek samenkomen.</p>
+<p>Kijken we weer naar ons voorbeeld over xtc-gebruik, dan zou onze prior zijn dat deze proportie tussen de 0,300 en 0,400 is. Deze prior vertegenwoordigt op dat moment ons beste beschikbare kennis over dit onderwerp.<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a> Stel dat we dan in een onderzoek een credible interval van 0,636 en 0,737 vinden. Dit ligt hoger dan onze prior. Hier kunnen verschillende redenen voor zijn. Wellicht hebben we in eerder onderzoek het xtc-gebruik niet helemaal goed gemeten en daarmee onderschat. Of het gebruik is in de tussentijd toegenomen. Het kan ook zijn dat we toevallig een steekproef hebben getrokken waarin het gebruik hoog is. In elk geval geeft het onderzoek nieuwe informatie waarmee we onze eerdere kennis over het gebruik in de populatie kunnen updaten. Als we de prior <span class="math inline">\([0,300; 0,400]\)</span> combineren met de nieuwe data <span class="math inline">\([0,636; 0,737]\)</span>, dan zouden we kunnen uitkomen op een posterior <span class="math inline">\([0,452; 0,551]\)</span>. Naar onze beste kennis concluderen we dan dat de kans 95% is dat de proportie xtc-gebruik in de populatie uitgaande jongeren ergens tussen de 0,452 en 0,551 ligt. In meer algemene taal zeggen we dat waarschijnlijk tussen de 45% en 55% van de uitgaande jongeren weleens xtc heeft gebruikt.</p>
+<div class="no-row-height column-margin column-container"><div id="fn13"><p><sup>13</sup>&nbsp;Officieel zou onze prior een kansverdeling zijn die verdeling van deze proporties uitdrukt.</p></div></div><p>Dit voorbeeld hierboven is fictief en niet gebaseerd op echt onderzoek. Het is bedoeld om te laten zien hoe het Bayesiaanse redeneren werkt. We hebben dus een bepaald <strong>geloof</strong> of idee over de wereld. Dit is vaak gebaseerd op bestaande kennis maar ook deels subjectief. Hoewel subjectiviteit wat ongebruikelijk klinkt in de domein van de statistiek, doet het wel recht aan hoe het in de praktijk eraan toe gaat. We weten niet altijd alles precies. We kunnen onze deels subjectieve kennis wel steeds verfijnen door deze te <strong>updaten</strong> met nieuw onderzoek. Uiteindelijk drukken we dan uit hoe <strong>waarschijnlijk</strong> ons geloof is in bepaalde kwantiteit.</p>
+<p>Voor verdere uitleg hierover, inclusief een voorbeeld, kun je dit filmpje hieronder bekijken.<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn14"><p><sup>14</sup>&nbsp;Het filmpje geeft ook de statistische formule achter de Bayesiaanse wijze. Die hebben we hier bewust achterwege gelaten om het wat eenvoudiger te houden.</p></div></div><p>[insert video hiero]</p>
+</section>
+</section>
+<section id="samenvatting" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="samenvatting"><span class="header-section-number">13.4</span> Samenvatting</h2>
+<p>In de statistiek zijn er twee paradigma’s: het Frequentistische en Bayesiaanse perspectief. De Frequentistische statistiek vormt het dominante paradigma, maar kent ook een aantal beperkingen. De logica van een vaste, constante populatieparameter die de gemiddelde uitkomst representeert van oneindig herhaalde onderzoeken, is niet altijd goed toepasbaar. Bovendien is de interpretatie van resultaten soms wat lastig. Bayesiaanse statistiek daarentegen heeft als voordeel dat de interpretatie van uitkomsten intuïtiever is, dat de mate van aannemelijkheid eenvoudiger gekwantificeerd kan worden en dat eerdere kennis wordt meegenomen. Met de Bayes factor kunnen we daarom de aannemelijkheid van hypotheses met meer betekenis toetsen, in plaats van de nulhypothese wel of niet verwerpen zoals bij Frequentistische statistiek.</p>
+<p>De vraag die resteert is waarom we dan niet hoofdzakelijk Bayesiaanse statistiek behandelen in plaats van Frequentistische statistiek. Het korte (en eerlijke) antwoord is dat wij en de rest van criminologisch Nederland daar nog niet helemaal klaar voor zijn. Bayesiaanse statistiek is wellicht intuïtief makkelijker te begrijpen, maar technisch ook ingewikkelder en daarmee lastig voor een introductie cursus kwantitatieve methode en statistiek. Bovendien is de Frequentistische statistiek nog steeds dominant in veel literatuur die je zult lezen. Je zult hier dus ook begrip van moeten hebben. Wellicht in verre toekomst, volgens het idee van paradigmawisselingen van Thomas Kuhn, zal de Bayesiaanse statistiek het vigerendere paradigma zijn.</p>
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./004-03-afhankelijkegroepen.html" class="pagination-link" aria-label="T-toets afhankelijke groepen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./009-01-colleges.html" class="pagination-link" aria-label="Collegeslides">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Collegeslides</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/005-01-Bayesfactor.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
