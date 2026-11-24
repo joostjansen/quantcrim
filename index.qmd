@@ -35,20 +35,22 @@ Clayton, A. (2021). *Bernoulli's fallacy: Statistical illogic and the crisis of 
 
 Favero, N. (2026). *Statistics minus the math: An introduction for the social sciences* (2nd ed.). <https://minusthemath.com/2e/>
 
-Hespanhol, L., Vallio, C. S., Costa, L. M., & Saragiotto, B. T. (2019). Understanding and interpreting confidence and credible intervals around effect estimates. *Brazilian Journal of Physical Therapy*, *23*(4), 290-301.
+Hespanhol, L., Vallio, C. S., Costa, L. M., & Saragiotto, B. T. (2019). Understanding and interpreting confidence and credible intervals around effect estimates. *Brazilian Journal of Physical Therapy*, *23*(4), 290-301. [Link](https://www.sciencedirect.com/science/article/pii/S141335551831058X)
 
 Lambert, B. (2018). *A student’s guide to Bayesian statistics*. SAGE Publications Ltd.
+
+Lane, D. M. (2007). *Online statistics education: An interactive multimedia course of study*. Rice University. <https://onlinestatbook.com/2/index.html>
 
 Martin, J. L. (2018). *Thinking through statistics*. Chicago: University of Chicago Press.
 
 McElreath, R. (2018). *Statistical rethinking: A Bayesian course with examples in R and Stan*. CRC Press.
 
-Navarro, D.J. (2024). *Learning statistics with R: A tutorial for psychology students and other beginners*. University of New South Wales.
+Navarro, D.J. (2024). *Learning statistics with R: A tutorial for psychology students and other beginners*. University of New South Wales. [Link](https://stats.libretexts.org/Bookshelves/Applied_Statistics/Learning_Statistics_with_R_-_A_tutorial_for_Psychology_Students_and_other_Beginners_(Navarro))
 
 Spiegelhalter, D. (2019). *The art of statistics*. Basic Books.
 
 van Groenestijn, P., & Visser, M. (2023). *Statistiek als hulpmiddel: Een overzicht van gangbare toepassingen in de sociale wetenschappen* (4e herz. dr.). Uitgeverij Koninklijke Van Gorcum.
 
-Van Zyl, C. J. (2018). Frequentist and Bayesian inference: A conceptual primer. *New Ideas in Psychology*, *51*, 44-49.
+Van Zyl, C. J. (2018). Frequentist and Bayesian inference: A conceptual primer. *New Ideas in Psychology*, *51*, 44-49. [Link](https://www.sciencedirect.com/science/article/pii/S0732118X18300746)
 
-Wasserstein, R. L., Schirm, A. L., & Lazar, N. A. (2019). Moving to a world beyond “p\< 0.05”. *The American Statistician*, *73*(sup1), 1-19.
+Wasserstein, R. L., Schirm, A. L., & Lazar, N. A. (2019). Moving to a world beyond “p\< 0.05”. *The American Statistician*, *73*(sup1), 1-19. [Link](https://www.tandfonline.com/doi/full/10.1080/00031305.2019.1583913)

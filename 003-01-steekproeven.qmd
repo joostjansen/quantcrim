@@ -183,7 +183,7 @@ se_proportie(data_uitgaan$xtc_ooit) # 350 respondenten (complete dataset)
 
 Je ziet dus dat de standaardfout steeds kleiner wordt naarmate we een grotere steekproef hebben. Bij 10 respondenten is de standaardfout nog 0,16; bij xxx respondenten is deze 0,02. Dit toont dat, als de assumpties kloppen, meer data meer beter is.
 
-## Assumpties (the mother of all...)
+## Assumpties (the mother of all...) {#sec-assumpties}
 
 Je hebt het al een paar keer voorbij horen komen: onder bepaalde assumpties kunnen we ervan uitgaan dat een schatting van de populatieparameter klopt.[^003-01-steekproeven-5] Maar wat zijn die assumpties? In de statistiek gaan we hier vaak makkelijk aan voorbij of kijken we er liever van weg, waarschijnlijk omdat de waarheid wat ongemakkelijk is en ook ingewikkeld. We hechten er echter veel waarde aan dat je toch op de hoogte bent van enkele assumpties. Omdat je daardoor beter begrijpt wat je wel en niet kan met statistiek. En dat je uiteindelijk hopelijk kritischer zal kijken naar veel statistieken die je in het dagelijks leven voorbij ziet komen.
 

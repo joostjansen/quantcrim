@@ -63,7 +63,7 @@ table(data_uitgaan$vapen_laatste_jaar, data_uitgaan$geslacht) |>
 
 We zien nu dat 57,1% van de vrouwen heeft gevapet en 42,9% niet. Bij de mannen ligt dit percentage iets lager (52,2% vs. 47,8%). Je zou dus al (voorzichtig) kunnen concluderen dat vrouwen relatief meer vapen dan mannen.
 
-### Nominaal vs. ordinaal
+### Nominaal vs. ordinaal {#sec-nominaalordinaal}
 
 De werkwijze bij het onderzoeken van een relatie tussen nominaal en ordinaal is in principe hetzelfde. We nemen hier de relatie tussen de volgende twee variabelen: `xtc_laatste_jaar` en `acceptatie_xtc_vrienden`. De eerste variabele meet of respondenten het laatste jaar xtc hebben gebruikt en de tweede variabele meet in hoeverre respondenten het eens zijn met de stelling dat het gebruik van xtc onder vrienden geaccepteerd is.
 

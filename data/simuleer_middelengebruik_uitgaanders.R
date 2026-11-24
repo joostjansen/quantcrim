@@ -822,6 +822,31 @@ for (m in middelen_volgorde) {
 }
 
 
+## 13b. "Weet niet" bij de frequentievariabelen ------------------------------
+# Bij elke _frequentie-variabele geven enkele laatste-jaar-gebruikers (per
+# variabele willekeurig 8 tot 12 respondenten) als antwoord "weet niet". Dit is
+# een docentenaanname (het rapport geeft hier geen aantallen voor), bedoeld
+# als oefening in het omgaan met 'weet niet'-antwoorden.
+# De trekking gebeurt in een EIGEN random-stream (zie 'met_eigen_seed'), zodat
+# alle andere scores in de dataset gelijk blijven aan de vorige versie.
+# De variabelen worden hiermee een gewone (niet-geordende) factor, omdat
+# "weet niet" geen plek heeft in de volgorde van de frequentiecategorieen;
+# studenten kunnen "weet niet" zelf naar NA hercoderen.
+# Let op: 'makkelijk_aan_drugs_komen' en de acceptatievariabelen hebben al
+# "weet niet"-antwoorden (percentages uit het rapport, sectie 7).
+
+met_eigen_seed(2028, {
+  for (frequentie_var in grep("_frequentie$", names(drugs), value = TRUE)) {
+    gebruikers_met_antwoord <- which(!is.na(drugs[[frequentie_var]]))
+    aantal_weet_niet <- min(sample(8:12, 1), length(gebruikers_met_antwoord))
+    gekozen <- sample(gebruikers_met_antwoord, aantal_weet_niet)
+    antwoorden <- as.character(drugs[[frequentie_var]])
+    antwoorden[gekozen] <- "weet niet"
+    drugs[[frequentie_var]] <- factor(antwoorden, levels = c(frequentie_labels, "weet niet"))
+  }
+})
+
+
 ## 14. Rijen husselen, met een niet-drinker in de eerste vijf rijen ----------
 # Puur voor onderwijsdoeleinden: bij 98% laatste-jaar-alcoholgebruik bestaat
 # anders een reele kans dat de eerste rijen (head(drugs)) allemaal precies
@@ -861,7 +886,7 @@ head(drugs[, c("respondentnr", "geslacht", "leeftijd", "alcohol_laatste_jaar")])
 
 ## 16. Hercodeer cannabis_frequentie voor practicum 1
 
-drugs$cannbais_frequentie_her2 <- 
+drugs$cannabis_frequentie_her2 <- 
   recode_values(drugs$cannabis_frequentie,
                 "een keer"                ~ "maandelijks of minder",
                 "minder dan maandelijks"  ~ "maandelijks of minder",
@@ -869,7 +894,8 @@ drugs$cannbais_frequentie_her2 <-
                 "een paar keer per maand" ~ "maandelijks of minder",
                 "eens per week"           ~ "wekelijks",
                 "een paar keer per week"  ~ "wekelijks",
-                "(bijna) elke dag"        ~ "wekelijks")
+                "(bijna) elke dag"        ~ "wekelijks",
+                "weet niet"               ~  NA)
 
 ## 17. Opslaan ----------------------------------------------------------------
 # Wordt weggeschreven naar een 'data/' submap van de werkmap; deze wordt

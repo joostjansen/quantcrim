@@ -144,7 +144,7 @@ Zoals we konden verwachten, is de Bayes factor ten gunste van de nulhypothese. D
 
 Dit is wederom een andere conclusie dan we op basis van Frequentistische statistiek trekken. Daar verwerpen we de nulhypothese niet, en namen we aan dat deze voorlopig waar is. Zoals besproken bij [type-I en type-II fouten](004-02-aspectenhypo.qmd#sec-type-I-II) moeten we echter oppassen met zulke aannames. In die zin geeft Bayesiaanse statistiek ons meer duidelijkheid over welke hypothese (de nul of originele) aannemelijker is.
 
-**Credible interval**
+### Credible interval
 
 In de Bayesiaanse statistiek werken we, net als bij Frequentistische statistiek, met intervallen om statistische uitkomsten te interpreteren. De betekenis is uiteraard anders dan we gewend zijn. Daarom hebben Bayesiaanse intervallen ook hun eigen naam: **credible intervals**.[^005-01-bayesfactor-10]
 
@@ -160,7 +160,7 @@ Bij een credible interval gaat het dus *wel* om de *kans* dat een populatieparam
 
 [^005-01-bayesfactor-12]: Afhankelijk van de dichtheid van de kansverdeling zou je ook nog kunnen zeggen welke waardes binnen dit interval een grotere kans hebben om de populatieparameter te zijn.
 
-Het bereken van een credible interval is doorgaans wel ingewikkelder dan een betrouwbaarheidsinterval en valt daarmee buiten de scope van deze cursus. Daarom gaan we hier niet verder op in.
+Het berekenen van een credible interval is doorgaans wel ingewikkelder dan een betrouwbaarheidsinterval en valt daarmee buiten de scope van deze cursus. Daarom gaan we hier niet verder op in.
 
 ### Update je kennis
 
@@ -182,4 +182,4 @@ Voor verdere uitleg hierover, inclusief een voorbeeld, kun je dit filmpje hieron
 
 In de statistiek zijn er twee paradigma's: het Frequentistische en Bayesiaanse perspectief. De Frequentistische statistiek vormt het dominante paradigma, maar kent ook een aantal beperkingen. De logica van een vaste, constante populatieparameter die de gemiddelde uitkomst representeert van oneindig herhaalde onderzoeken, is niet altijd logisch toepasbaar op diverse situaties. Bovendien is de interpretatie van resultaten soms wat lastig. Bayesiaanse statistiek daarentegen heeft als voordeel dat de interpretatie van uitkomsten intuïtiever is, dat de mate van aannemelijkheid eenvoudiger te kwantificeren is en dat eerdere kennis wordt meegenomen. Met de Bayes factor kunnen we daarom de aannemelijkheid van hypotheses met meer betekenis toetsen, in plaats van de nulhypothese wel of niet verwerpen zoals bij Frequentistische statistiek.
 
-De vraag die resteert is waarom we dan niet hoofdzakelijk Bayesiaanse statistiek behandelen in plaats van Frequentistische statistiek. Het korte (en eerlijke) antwoord is dat wij en de rest van criminologisch Nederland daar nog niet helemaal klaar voor zijn. Bayesiaanse statistiek is wellicht intuïtief makkelijker te begrijpen, maar technisch ook ingewikkelder en daarmee lastig voor een introductie cursus kwantitatieve methode en statistiek. Bovendien is de Frequentistische statistiek nog steeds dominant in veel literatuur die je zult lezen. Je zult hier dus ook begrip van moeten hebben. Wellicht in verre toekomst, volgens het idee van paradigmawisselingen van Thomas Kuhn, zal de Bayesiaanse statistiek het vigerendere paradigma zijn.
+De vraag die resteert is waarom we dan niet hoofdzakelijk Bayesiaanse statistiek behandelen in plaats van Frequentistische statistiek. Het korte (en eerlijke) antwoord is dat wij en de rest van criminologisch Nederland daar nog niet helemaal klaar voor zijn. Bayesiaanse statistiek is wellicht intuïtief makkelijker te begrijpen, maar technisch ook ingewikkelder en daarmee lastig voor een introductie cursus kwantitatieve methode en statistiek. Bovendien is de Frequentistische statistiek nog steeds dominant in veel literatuur die je zult lezen. Je zult hier dus ook begrip van moeten hebben. Wellicht in verre toekomst, volgens het idee van paradigmawisselingen van Thomas Kuhn, zal de Bayesiaanse statistiek het vigerende paradigma zijn.
