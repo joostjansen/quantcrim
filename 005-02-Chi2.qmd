@@ -7,15 +7,15 @@ execute:
 
 {{< include _setup.qmd >}}
 
-We gaan in dit hoofdstuk vrolijk, en wellicht een beetje naïef na het leren over Bayesiaanse statistiek, verder met het onderzoeken van relaties tussen variabelen op Frequentistische wijze. Inmiddels zijn we niet alleen geïnteresseerd in relaties in de dataset, maar tevens of deze gelden voor de gehele populatie die we onderzoeken.
+We gaan in dit hoofdstuk vrolijk, en wellicht een beetje naïef na het leren over Bayesiaanse statistiek, verder met het onderzoeken van relaties tussen variabelen op Frequentistische wijze. Inmiddels zijn we niet alleen geïnteresseerd in [relaties in de dataset](002-04-relatiesvariabelen.qmd), maar tevens of deze gelden voor de gehele populatie die we onderzoeken.
 
 Een type relatie die we nog niet hebben onderzocht, is tussen *twee kwalitatieve* (ook wel: categorische) *variabelen*. Vaak willen we weten hoe dergelijke relaties in elkaar zitten. Denk aan de vraag of jongeren die weleens één soort drug hebben geprobeerd (bijv. xtc) ook vaker een soort drug hebben geprobeerd (bijv. cocaïne). Of dat jongeren die met hogere frequentie bepaalde drugs gebruiken (bijv. alcohol) hun gezondheid slechter beoordelen.
 
-Dergelijke vragen kunnen beantwoorden met behulp van de **Chi-kwadraat toets**.[^005-02-chi2-1] De intuïtie achter deze toets is vrij simpel. We vergelijken de verdelingen van twee kwalitatieve variabelen met elkaar. Dit kan middels een kruistabel, waar we inmiddels mee bekend zijn. Als we verwachten dat er een verband is tussen twee variabelen, gaan we ervan uit dat respondenten niet evenredig over de cellen zijn verdeeld. Als je bijvoorbeeld een positief verband verwacht tussen het proberen van xtc en cocaïne, dan zullen mensen die 'ja' antwoorden op de vraag of ze ooit xtc hebben geprobeerd ook vaker 'ja' antwoorden op de vraag of ze ooit cocaine hebben geprobeerd. En andersom: mensen die vaker 'nee' antwoorden op de ene vraag zullen ook vaker 'nee' antwoorden op de andere vraag.
+Dergelijke vragen kunnen we beantwoorden met behulp van de **Chi-kwadraat toets**.[^005-02-chi2-1] De intuïtie achter deze toets is vrij simpel. We vergelijken de verdelingen van twee kwalitatieve variabelen met elkaar. Dit kan middels een kruistabel, waar we inmiddels mee bekend zijn. Als we verwachten dat er een verband is tussen twee kwalitatieve variabelen, gaan we ervan uit dat respondenten niet evenredig over de cellen zijn verdeeld. Als je bijvoorbeeld een positief verband verwacht tussen het proberen van xtc en cocaïne, dan zullen mensen die 'ja' antwoorden op de vraag of ze ooit xtc hebben geprobeerd ook vaker 'ja' antwoorden op de vraag of ze ooit cocaïne hebben geprobeerd. En andersom: mensen die vaker 'nee' antwoorden op de ene vraag zullen ook vaker 'nee' antwoorden op de andere vraag.
 
 [^005-02-chi2-1]: Spreek je uit als "gie-kwadraat".
 
-Onze nulhypothese is dat er geen samenhang is tussen de variabelen. In dat geval zijn alle respondenten gelijk verdeeld over de cellen. Dit noemen we ook wel de **verwachte frequentieverdeling**. Dit testen we tegen de daadwerkelijke **geobserveerde frequentieverdeling**: de verdeling die we zien in onze dataset. Als deze volgens het criterium van de Chi-kwadraat toets significant afwijkt van de verwachte frequentieverdeling, concluderen dat er een significante samenhang is tussen de variabelen. We hanteren hier dus alleen de methode van statistische significantie (een geen bhi o.i.d.).
+Onze nulhypothese is dat er geen samenhang is tussen de variabelen. In dat geval zijn alle respondenten min of meer gelijk verdeeld over de cellen. Dit noemen we ook wel de **verwachte frequentieverdeling**. Dit testen we tegen de daadwerkelijke **geobserveerde frequentieverdeling**: de verdeling die we zien in onze dataset. Als deze volgens het criterium van de Chi-kwadraat toets significant afwijkt van de verwachte frequentieverdeling, concluderen dat er een significante samenhang is tussen de variabelen. We hanteren hier dus de methode van statistische significantie (een geen bhi o.i.d.). We gaan later wel in op hoe je het verband meer substantieel kan interpreteren (praktische significantie).
 
 Uiteraard laten we weer aan de hand van een voorbeeld zien hoe dit werkt, met eerst een handmatige uitwerking gevolgd door hoe je het in R doet.
 
@@ -37,7 +37,7 @@ data_xtc$acceptatie_xtc_vrienden <- factor(data_xtc$acceptatie_xtc_vrienden)
 table(data_xtc$acceptatie_xtc_vrienden, data_xtc$xtc_laatste_jaar) 
 ```
 
-We zagen al eerder dat er een verband lijkt te zijn tussen de variabelen. Het kolomtotaal van 'nee' is $28+19+20+65+23=155$ respondenten en dat van 'ja' is $2+4+4+32+153=195$ . Van de niet-gebruikers is $23/155=0,148$ (14,8%) het helemaal eens dat xtc-gebruik geaccepteerd is onder vrienden, terwijl dit bij gebuikers veel hoger ligt: $153/195=0,785$ (78,5%).
+We zagen al eerder dat er een verband lijkt te zijn tussen de variabelen. Het kolomtotaal van 'nee' is $28+19+20+65+23=155$ respondenten en dat van 'ja' is $2+4+4+32+153=195$ . Van de niet-gebruikers is $23/155=0,148$ (14,8%) het helemaal eens dat xtc-gebruik geaccepteerd is onder vrienden, terwijl dit bij gebuikers veel hoger ligt: $153/195=0,785$ (78,5%). De acceptatie onder vrienden is bij gebruikers is dus hoger dan bij niet-gebruikers.
 
 ### Chi-kwadraat toets
 
@@ -47,7 +47,7 @@ We gaan bij dit voorbeeld weer uit van een siginificantieniveau van 5% ($\alpha=
 
 #### Hypothese opstellen
 
-Als eerste stellen we een hypothese op. Bij de nulhypothese gaan we ervan uit dat er geen verband is tussen de variabelen. Dit zouden we als volgt kunnen formuleren:
+Als eerste stellen we een hypothese op. Bij de nulhypothese gaan we ervan uit dat er geen verband is tussen de variabelen. Dit kunnen we als volgt formuleren:
 
 H~0~: Er bestaat geen verband tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden.
 
@@ -57,7 +57,7 @@ $$
 f_o=f_v
 $$
 
-Oftewel, de geobserveerde frequenties $f_0$ zijn gelijk aan de verwachte $f_v$ .[^005-02-chi2-2] De betekenis hiervan komen we zo op terug.
+Oftewel, de geobserveerde frequenties $f_0$ zijn gelijk aan de verwachte $f_v$ .[^005-02-chi2-2] Op de betekenis van deze symbolen komen we zo terug.
 
 [^005-02-chi2-2]: Al is zo'n statistische notatie niet per se gebruikelijk bij deze toets.
 
@@ -69,11 +69,11 @@ $$
 \chi^2=\sum\frac{(f_0-f_v)^2}{f_v}
 $$
 
-Laten we het weer in stapjes uiteenzetten. We moeten dus de geobserveerde frequenties $f_0$ weten, dit zijn de aantallen in de cellen van de kruistabel.
+Laten we het weer in stappen uiteenzetten. We moeten dus de geobserveerde frequenties $f_0$ weten, dit zijn de aantallen in de cellen van de kruistabel.
 
-De verwachte frequentie $f_v$ is het totaal van een rij vermenigvuldigt met het totaal van een kolom, gedeeld door totaal van alle cellen (rijtotaal\*kolomtotaal/totaal tabel). Kijk naar dit voorbeeld hieronder.
+De verwachte frequentie $f_v$ is het totaal van een rij vermenigvuldigt met het totaal van een kolom, gedeeld door het totaal van alle cellen (rijtotaal\*kolomtotaal/totaal tabel). Kijk naar dit voorbeeld hieronder.
 
-Als we de verwachte frequentie van de eerste cel willen berekenen (nee vs. helemaal mee oneens), dan doen we $rijtotaal*kolomtotaal/totaal tabel=30*155/350=13,3$. Als alle respondenten dus evenredig over de cellen zouden zijn verdeeld (op basis van de rij- en kolomtotalen), dan zouden in deze cel zich 13,3 respondenten moeten bevinden (de $f_v$). De geobserveerde frequentie $f_0$ van deze cel is daarentegen 28, en daarmee dus hoger dan 13,3.
+Als we de verwachte frequentie van de eerste cel willen berekenen (nee vs. helemaal mee oneens), dan doen we $rijtotaal*kolomtotaal/totaal tabel=30*155/350=13,3$. Als alle 350 respondenten dus evenredig over de cellen zouden zijn verdeeld (op basis van de rij- en kolomtotalen), dan zouden in deze cel zich 13,3 respondenten moeten bevinden (de $f_v$). De geobserveerde frequentie $f_0$ van deze cel is daarentegen 28, en daarmee dus hoger dan 13,3.
 
 |                         | xtc laatste jaar |     |        |
 |-------------------------|------------------|-----|--------|
@@ -101,10 +101,12 @@ Dit kunnen we nu ook voor andere cellen in de tabel doen. De verwachte frequenti
 
 : **Kruistabel van `xtc_laatste_jaar` vs. `acceptatie_xtc_vrienden`**
 
-Nu we dit hebben gedaan, kunnen we vrij eenvoudig de Chi^2^ $\chi^2$ uitrekenen. Voor elke cel nemen we het kwadraat van de geobserveerde frequentie $f_0$ minus de verwachte frequentie $f_v$ , dat is $(f_0-f_v)^2$ , en dat delen we door de verwachte frequentie $f_v$. En van al die delen nemen we weer de som $\sum$ .
+Nu we dit hebben gedaan, kunnen we vrij eenvoudig de Chi^2^ $\chi^2$ uitrekenen.
+
+Voor elke cel nemen we het kwadraat van de geobserveerde frequentie $f_0$ minus de verwachte frequentie $f_v$ , dat is $(f_0-f_v)^2$ , en dat delen we door de verwachte frequentie $f_v$. En van al die delen nemen we weer de som $\sum$ .
 
 $$
-\chi^2=\sum\frac{(f_0-f_v)^2}{f_v}=\frac{(28-13,3)^2}{28} +...+\frac{(153-98,1)^2}{98,1}=147,59  
+\chi^2=\sum\frac{(f_0-f_v)^2}{f_v}=\frac{(28-13,3)^2}{13,3} +...+\frac{(153-98,1)^2}{98,1}=147,59  
 $$
 
 Voila, we hebben de Chi^2^ berekend! Deze bedraagt 147,59.
@@ -117,7 +119,7 @@ $$
 df=(aantal\; rijen-1)*(aantal\;kolommen-1)=(5-1)*(2-1)=4*1=4
 $$
 
-In dit voorbeeld zijn er dus vier vrijheidsgraden. Vervolgens kunnen we vergelijkbaar met een t-tabel aflezen uit een [Chi^2^-tabel](https://statcalc.net/chi-square-table/) bij welke kritieke grenswaarde we de nulhypothese moeten verwerpen. Let hierbij op dat de Chi^2^-verdeling niet hetzelfde is als een normale verdeling, deze heeft namelijk een asymmetrische verdeling (rechtsscheef). Dit komt doordat de Chi^2^ een andere type statistiek is en de toetsingsgrootheden daardoor ook anders verdeeld zijn. De Chi^2^-verdeling toont dat bij $\alpha=0,05$ en de $df=4$ de kritieke grenswaarde 9,488 is.
+In dit voorbeeld zijn er dus vier vrijheidsgraden. Vervolgens kunnen we vergelijkbaar met een t-tabel aflezen uit een [Chi^2^-tabel](https://statcalc.net/chi-square-table/) bij welke kritieke grenswaarde we de nulhypothese moeten verwerpen. Let hierbij op dat de Chi^2^-verdeling dezelfde voom heeft als een normale verdeling, deze heeft namelijk een asymmetrische verdeling (rechtsscheef). Dit komt doordat de Chi^2^ een andere type statistiek is en de toetsingsgrootheden daardoor ook anders verdeeld zijn. De Chi^2^-verdeling toont dat bij $\alpha=0,05$ en de $df=4$ de kritieke grenswaarde 9,488 is (dit kun je aflezen uit de tabel op de website).
 
 #### Statistische significantie
 
@@ -125,7 +127,7 @@ Bij een Chi^2^-toets hoef je alleen te kijken of de toetsingsgrootheid groter is
 
 #### In R
 
-Om tot bovenstaande conclusie te komen, kunnen we de Chi^2^-toets ook direct door R laten uitvoeren. Daarvoor gebruiken we de functie `chisq.test()` waarvoor de tabel als input geven. Om de code wat netter te maken, is het handig eerst de tabel apart als object op te slaan.
+Om tot bovenstaande conclusie te komen, kunnen we de Chi^2^-toets ook direct door R laten uitvoeren. Daarvoor gebruiken we de functie `chisq.test()`, waarvoor we de tabel als input geven. Om de code wat netter te maken, is het handig eerst de tabel apart als object op te slaan.
 
 ```{r}
 # opslaan van tabel
@@ -146,6 +148,10 @@ De Chi^2^-toets kent een aantal assumpties waaraan moet worden voldaan om deze v
 Een andere assumptie is dat cellen doorgaans geen verwachte frequenties lager dan 1 zouden moeten hebben, en dat niet meer dan 20% van de cellen een verwachte frequentie onder de 5 zou moeten hebben (al hangt dit wel van de casus af). Dit maakt de test namelijk gevoeliger voor toevallige afwijkingen.
 
 Conclusie
+
+De conclusie van ons onderzoek luidt als volgt: Er bestaat een significant verband tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden ($\chi^2(4)=147,59,\; p<0,05$).
+
+We rapporteren hierbij dus het aantal vrijheidsgraden (tussenhaakjes), de grootte van de Chi2-toetsingsgrootheid en bij welk significantieniveau.
 
 Interpretatie
 
