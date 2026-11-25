@@ -45,6 +45,7 @@ book:
     - part: "Bayes, Chi2 en correlatie"
       chapters:
         - 005-01-Bayesfactor.qmd
+        - 005-02-Chi2.qmd
     - part: "Colleges en practica"
       chapters:
         - 009-01-colleges.qmd

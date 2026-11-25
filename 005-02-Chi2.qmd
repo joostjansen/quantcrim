@@ -19,7 +19,7 @@ Onze nulhypothese is dat er geen samenhang is tussen de variabelen. In dat geval
 
 Uiteraard laten we weer aan de hand van een voorbeeld zien hoe dit werkt, met eerst een handmatige uitwerking gevolgd door hoe je het in R doet.
 
-## De gradatie van acceptatie
+## De gradatie van acceptatie {#sec-gradatieacceptatie}
 
 Voor het voorbeeld grijpen we terug op de relatie tussen of men xtc heeft gebruikt in het laatste jaar (`xtc_laatste_jaar`) en de mate van acceptatie van xtc-gebruik onder vrienden (`acceptatie_xtc_vrienden`). In een [eerder hoofdstuk](002-04-relatiesvariabelen.qmd#sec-nominaalordinaal) zagen we al dat er een verband lijkt te zijn. Jongeren die het afgelopen jaar xtc hebben gebruikt geven aan dat er ook meer acceptatie bestaat onder vrienden. We gaan dus testen of dit verband statistisch significant is. Let op dat we hier een nominale variabele (`xtc_laatste_jaar`) met een ordinale variabele (`acceptatie_xtc_vrienden`) vergelijken.
 
@@ -147,14 +147,22 @@ De Chi^2^-toets kent een aantal assumpties waaraan moet worden voldaan om deze v
 
 Een andere assumptie is dat cellen doorgaans geen verwachte frequenties lager dan 1 zouden moeten hebben, en dat niet meer dan 20% van de cellen een verwachte frequentie onder de 5 zou moeten hebben (al hangt dit wel van de casus af). Dit maakt de test namelijk gevoeliger voor toevallige afwijkingen.
 
-Conclusie
+#### Conclusie
 
 De conclusie van ons onderzoek luidt als volgt: Er bestaat een significant verband tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden ($\chi^2(4)=147,59,\; p<0,05$).
 
-We rapporteren hierbij dus het aantal vrijheidsgraden (tussenhaakjes), de grootte van de Chi2-toetsingsgrootheid en bij welk significantieniveau.
+We rapporteren hierbij dus het aantal vrijheidsgraden (tussenhaakjes), de grootte van de Chi2 en bij welk significantieniveau het resultaat significant is.
 
-Interpretatie
+Vervolgens verwerpen we de nulhypothese dat er geen verband bestaat tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden, en gaan we er voorlopig vanuit dat er wel een verband is.
 
-<https://www.datacamp.com/tutorial/chi-square-test-r>
+## Interpretatie praktische significantie
 
-Op einde: uitleg waarom geen bhi / odds ratio hier. Nadruk op interpretatie verschillen in kruistabel.
+We hebben al vaker gesignaleerd dat statistische significantie ons wel iets zegt over dat het aannemelijk is dat er een verband op populatieniveau bestaat, maar niet zoveel over de sterkte van het verband. Daarvoor moeten we een uitkomst toch nauwkeuriger bekijken. Bij de Chi^2^-toets doen we dit door de verschillen in de tabel nader te bekijken.
+
+Dit hebben we al gedaan voor dit voorbeeld bij [Relaties tussen variabelen](002-04-relatiesvariabelen.qmd#sec-nominaalordinaal) en @sec-gradatieacceptatie . Daaruit bleek dat er een sterk verband is, omdat de mate van acceptatie sterk verschilt tussen wel- en niet-gebruikers. Je kunt eenzelfde wijze van interpretatie, door goed te kijken naar de verdelingen van aantallen en proporties, en het eventueel te visualiseren, ook toepassen op andere voorbeelden.[^005-02-chi2-4]
+
+[^005-02-chi2-4]: Voor 2x2 tabellen (met twee dichotome variabelen) zijn er ook andere manieren om de sterkte van een verband te interpreteren, bijvoorbeeld door te kijken naar residuals, verschillen in proporties of odds ratio's. Zie daarvoor [link1](https://www.datacamp.com/tutorial/chi-square-test-r) en [link2](https://whitlockschluter3e.zoology.ubc.ca/RLabs/R_tutorial_Contingency_analysis.html).
+
+## Samenvatting
+
+De Chi-kwadraat toets gebruiken we om het verband tussen twee kwalitatieve variabelen te onderzoeken, op basis van de verwachte en geobserveerde frequenties. We vergelijken de Chi^2^-toetsingsgrootheid met een kritieke grenswaarde om te bepalen of een verband statistisch significant. Daarnaast is het belangrijk om de verschillen in een tabel te interpreteren om te zien hoe sterk het verband is tussen twee variabelen.

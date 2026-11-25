@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>14&nbsp; Chi-kwadraat – quantcrim</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./009-01-colleges.html" rel="next">
+<link href="./005-01-Bayesfactor.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-4d5af44521e8d2ac69805030d7e05dc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./005-01-Bayesfactor.html">Bayes, Chi2 en correlatie</a></li><li class="breadcrumb-item"><a href="./005-02-Chi2.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Chi-kwadraat</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">quantcrim</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/joostjansen/quantcrim" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./quantcrim.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Voorwoord</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Voorbereiding</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./001-01-installatie.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installatie en introductie R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./001-02-praktischezaken.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Praktische zaken M&amp;T I</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data beschrijven</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-01-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-02-meetniveaus-visualisaties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Meetniveaus en visualisaties</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-03-centrum-en-spreidingsmaten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Centrum- en spreiding</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./002-04-relatiesvariabelen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Relaties tussen variabelen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Steekproeven en betrouwbaarheidsinterval</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./003-01-steekproeven.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inferentie en steekproeven</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./003-02-betrouwbaarheidsinterval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Betrouwbaarheidsinterval</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hypotheses toetsen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-01-onafhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Hypothesetoetsing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-02-aspectenhypo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Aspecten van hypothesetoetsing</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./004-03-afhankelijkegroepen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">T-toets afhankelijke groepen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bayes, Chi2 en correlatie</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./005-01-Bayesfactor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bayes factor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./005-02-Chi2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Chi-kwadraat</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Colleges en practica</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./009-01-colleges.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Collegeslides</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./009-02-opdrachten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Opdrachten</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./formuleblad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Symbolen en formules</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p>Licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-gradatieacceptatie" id="toc-sec-gradatieacceptatie" class="nav-link active" data-scroll-target="#sec-gradatieacceptatie"><span class="header-section-number">14.1</span> De gradatie van acceptatie</a>
+  <ul class="collapse">
+  <li><a href="#chi-kwadraat-toets" id="toc-chi-kwadraat-toets" class="nav-link" data-scroll-target="#chi-kwadraat-toets"><span class="header-section-number">14.1.1</span> Chi-kwadraat toets</a></li>
+  </ul></li>
+  <li><a href="#interpretatie-praktische-significantie" id="toc-interpretatie-praktische-significantie" class="nav-link" data-scroll-target="#interpretatie-praktische-significantie"><span class="header-section-number">14.2</span> Interpretatie praktische significantie</a></li>
+  <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">14.3</span> Samenvatting</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/005-02-Chi2.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./005-01-Bayesfactor.html">Bayes, Chi2 en correlatie</a></li><li class="breadcrumb-item"><a href="./005-02-Chi2.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Chi-kwadraat</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Chi-kwadraat</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>We gaan in dit hoofdstuk vrolijk, en wellicht een beetje naïef na het leren over Bayesiaanse statistiek, verder met het onderzoeken van relaties tussen variabelen op Frequentistische wijze. Inmiddels zijn we niet alleen geïnteresseerd in <a href="./002-04-relatiesvariabelen.html">relaties in de dataset</a>, maar tevens of deze gelden voor de gehele populatie die we onderzoeken.</p>
+<p>Een type relatie die we nog niet hebben onderzocht, is tussen <em>twee kwalitatieve</em> (ook wel: categorische) <em>variabelen</em>. Vaak willen we weten hoe dergelijke relaties in elkaar zitten. Denk aan de vraag of jongeren die weleens één soort drug hebben geprobeerd (bijv. xtc) ook vaker een soort drug hebben geprobeerd (bijv. cocaïne). Of dat jongeren die met hogere frequentie bepaalde drugs gebruiken (bijv. alcohol) hun gezondheid slechter beoordelen.</p>
+<p>Dergelijke vragen kunnen we beantwoorden met behulp van de <strong>Chi-kwadraat toets</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> De intuïtie achter deze toets is vrij simpel. We vergelijken de verdelingen van twee kwalitatieve variabelen met elkaar. Dit kan middels een kruistabel, waar we inmiddels mee bekend zijn. Als we verwachten dat er een verband is tussen twee kwalitatieve variabelen, gaan we ervan uit dat respondenten niet evenredig over de cellen zijn verdeeld. Als je bijvoorbeeld een positief verband verwacht tussen het proberen van xtc en cocaïne, dan zullen mensen die ‘ja’ antwoorden op de vraag of ze ooit xtc hebben geprobeerd ook vaker ‘ja’ antwoorden op de vraag of ze ooit cocaïne hebben geprobeerd. En andersom: mensen die vaker ‘nee’ antwoorden op de ene vraag zullen ook vaker ‘nee’ antwoorden op de andere vraag.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Spreek je uit als “gie-kwadraat”.</p></div></div><p>Onze nulhypothese is dat er geen samenhang is tussen de variabelen. In dat geval zijn alle respondenten min of meer gelijk verdeeld over de cellen. Dit noemen we ook wel de <strong>verwachte frequentieverdeling</strong>. Dit testen we tegen de daadwerkelijke <strong>geobserveerde frequentieverdeling</strong>: de verdeling die we zien in onze dataset. Als deze volgens het criterium van de Chi-kwadraat toets significant afwijkt van de verwachte frequentieverdeling, concluderen dat er een significante samenhang is tussen de variabelen. We hanteren hier dus de methode van statistische significantie (een geen bhi o.i.d.). We gaan later wel in op hoe je het verband meer substantieel kan interpreteren (praktische significantie).</p>
+<p>Uiteraard laten we weer aan de hand van een voorbeeld zien hoe dit werkt, met eerst een handmatige uitwerking gevolgd door hoe je het in R doet.</p>
+<section id="sec-gradatieacceptatie" class="level2 page-columns page-full" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="sec-gradatieacceptatie"><span class="header-section-number">14.1</span> De gradatie van acceptatie</h2>
+<p>Voor het voorbeeld grijpen we terug op de relatie tussen of men xtc heeft gebruikt in het laatste jaar (<code>xtc_laatste_jaar</code>) en de mate van acceptatie van xtc-gebruik onder vrienden (<code>acceptatie_xtc_vrienden</code>). In een <a href="./002-04-relatiesvariabelen.html#sec-nominaalordinaal">eerder hoofdstuk</a> zagen we al dat er een verband lijkt te zijn. Jongeren die het afgelopen jaar xtc hebben gebruikt geven aan dat er ook meer acceptatie bestaat onder vrienden. We gaan dus testen of dit verband statistisch significant is. Let op dat we hier een nominale variabele (<code>xtc_laatste_jaar</code>) met een ordinale variabele (<code>acceptatie_xtc_vrienden</code>) vergelijken.</p>
+<p>Laten we eerst even kijken hoe de kruistabel van deze variabelen er ook alweer uit zag. We laten voor de eenvoud de categorie ‘weet niet’ even weg.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe zonder "weet niet" op acceptatie_xtc_vrienden</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>data_xtc <span class="ot">&lt;-</span> data_uitgaan <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(acceptatie_xtc_vrienden <span class="sc">!=</span> <span class="st">"weet niet"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># factor maken acceptatie_xtc_vrienden</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data_xtc<span class="sc">$</span>acceptatie_xtc_vrienden <span class="ot">&lt;-</span> <span class="fu">factor</span>(data_xtc<span class="sc">$</span>acceptatie_xtc_vrienden)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># kruistabel van xtc gebruik en acceptatie onder vrienden</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(data_xtc<span class="sc">$</span>acceptatie_xtc_vrienden, data_xtc<span class="sc">$</span>xtc_laatste_jaar) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                         
+                          nee  ja
+  helemaal mee oneens      28   2
+  mee oneens               19   4
+  niet mee eens of oneens  20   4
+  mee eens                 65  32
+  helemaal mee eens        23 153</code></pre>
+</div>
+</div>
+<p>We zagen al eerder dat er een verband lijkt te zijn tussen de variabelen. Het kolomtotaal van ‘nee’ is <span class="math inline">\(28+19+20+65+23=155\)</span> respondenten en dat van ‘ja’ is <span class="math inline">\(2+4+4+32+153=195\)</span> . Van de niet-gebruikers is <span class="math inline">\(23/155=0,148\)</span> (14,8%) het helemaal eens dat xtc-gebruik geaccepteerd is onder vrienden, terwijl dit bij gebuikers veel hoger ligt: <span class="math inline">\(153/195=0,785\)</span> (78,5%). De acceptatie onder vrienden is bij gebruikers is dus hoger dan bij niet-gebruikers.</p>
+<section id="chi-kwadraat-toets" class="level3 page-columns page-full" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="chi-kwadraat-toets"><span class="header-section-number">14.1.1</span> Chi-kwadraat toets</h3>
+<p>De Chi-kwadraat toets werkt in principe niet veel anders dan wat we eerder hebben gezien bij <a href="./004-01-onafhankelijkegroepen.html">Hypothesetoetsing</a> en <a href="./004-02-aspectenhypo.html">Aspecten van hypothesetoetsing</a>. We stellen een hypothese op, we kiezen een significantieniveau, berekenen de toetsingsgrootheid en vergelijken deze vervolgens met de juiste kritieke grenswaarde. Daarna concluderen we of het steekproefresultaat statistisch significant is.</p>
+<p>We gaan bij dit voorbeeld weer uit van een siginificantieniveau van 5% (<span class="math inline">\(\alpha=0,05\)</span>).</p>
+<section id="hypothese-opstellen" class="level4 page-columns page-full" data-number="14.1.1.1">
+<h4 data-number="14.1.1.1" class="anchored" data-anchor-id="hypothese-opstellen"><span class="header-section-number">14.1.1.1</span> Hypothese opstellen</h4>
+<p>Als eerste stellen we een hypothese op. Bij de nulhypothese gaan we ervan uit dat er geen verband is tussen de variabelen. Dit kunnen we als volgt formuleren:</p>
+<p>H<sub>0</sub>: Er bestaat geen verband tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden.</p>
+<p>Statistisch zouden we dat volgt kunnen formuleren:</p>
+<p><span class="math display">\[
+f_o=f_v
+\]</span></p>
+<p>Oftewel, de geobserveerde frequenties <span class="math inline">\(f_0\)</span> zijn gelijk aan de verwachte <span class="math inline">\(f_v\)</span> .<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Op de betekenis van deze symbolen komen we zo terug.</p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Al is zo’n statistische notatie niet per se gebruikelijk bij deze toets.</p></div></div></section>
+<section id="berekenen-chi-kwadraat" class="level4" data-number="14.1.1.2">
+<h4 data-number="14.1.1.2" class="anchored" data-anchor-id="berekenen-chi-kwadraat"><span class="header-section-number">14.1.1.2</span> Berekenen Chi-kwadraat</h4>
+<p>De Chi-kwadraat (of Chi<sup>2</sup>) <span class="math inline">\(\chi^2\)</span> is de toetsingsgrootheid waarmee we bepalen hoe groot het verschil is tussen de geobserveerde en verwachte frequenties. Dit doen we middels de volgende formule:</p>
+<p><span class="math display">\[
+\chi^2=\sum\frac{(f_0-f_v)^2}{f_v}
+\]</span></p>
+<p>Laten we het weer in stappen uiteenzetten. We moeten dus de geobserveerde frequenties <span class="math inline">\(f_0\)</span> weten, dit zijn de aantallen in de cellen van de kruistabel.</p>
+<p>De verwachte frequentie <span class="math inline">\(f_v\)</span> is het totaal van een rij vermenigvuldigt met het totaal van een kolom, gedeeld door het totaal van alle cellen (rijtotaal*kolomtotaal/totaal tabel). Kijk naar dit voorbeeld hieronder.</p>
+<p>Als we de verwachte frequentie van de eerste cel willen berekenen (nee vs.&nbsp;helemaal mee oneens), dan doen we <span class="math inline">\(rijtotaal*kolomtotaal/totaal tabel=30*155/350=13,3\)</span>. Als alle 350 respondenten dus evenredig over de cellen zouden zijn verdeeld (op basis van de rij- en kolomtotalen), dan zouden in deze cel zich 13,3 respondenten moeten bevinden (de <span class="math inline">\(f_v\)</span>). De geobserveerde frequentie <span class="math inline">\(f_0\)</span> van deze cel is daarentegen 28, en daarmee dus hoger dan 13,3.</p>
+<table class="caption-top table">
+<caption><strong>Kruistabel van <code>xtc_laatste_jaar</code> vs.&nbsp;<code>acceptatie_xtc_vrienden</code></strong></caption>
+<thead>
+<tr class="header">
+<th></th>
+<th>xtc laatste jaar</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>acceptatie xtc</strong></td>
+<td>nee</td>
+<td>ja</td>
+<td>Totaal</td>
+</tr>
+<tr class="even">
+<td>helemaal mee oneens</td>
+<td>28 (<em>13,3</em>)</td>
+<td>2</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>mee oneens</td>
+<td>19</td>
+<td>4</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>niet mee eens of oneens</td>
+<td>20</td>
+<td>4</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>mee eens</td>
+<td>65</td>
+<td>32</td>
+<td>97</td>
+</tr>
+<tr class="even">
+<td>helemaal mee eens</td>
+<td>23</td>
+<td>153</td>
+<td>176</td>
+</tr>
+<tr class="odd">
+<td><strong>Totaal</strong></td>
+<td>155</td>
+<td>195</td>
+<td>350</td>
+</tr>
+</tbody>
+</table>
+<p>Dit kunnen we nu ook voor andere cellen in de tabel doen. De verwachte frequenties <span class="math inline">\(f_v\)</span> staan steeds tussenhaakjes.</p>
+<table class="caption-top table">
+<caption><strong>Kruistabel van <code>xtc_laatste_jaar</code> vs.&nbsp;<code>acceptatie_xtc_vrienden</code></strong></caption>
+<thead>
+<tr class="header">
+<th></th>
+<th>xtc laatste jaar</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>acceptatie xtc</strong></td>
+<td>nee</td>
+<td>ja</td>
+<td>Totaal</td>
+</tr>
+<tr class="even">
+<td>helemaal mee oneens</td>
+<td>28 (<em>13,3</em>)</td>
+<td>2 (<em>16,7</em>)</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>mee oneens</td>
+<td>19 (<em>10,2</em>)</td>
+<td>4 (<em>12,8</em>)</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>niet mee eens of oneens</td>
+<td>20 (<em>10,6</em>)</td>
+<td>4 (<em>13,4</em>)</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>mee eens</td>
+<td>65 (<em>43,0</em>)</td>
+<td>32 (<em>54,0</em>)</td>
+<td>97</td>
+</tr>
+<tr class="even">
+<td>helemaal mee eens</td>
+<td>23 (<em>77,9</em>)</td>
+<td>153 (<em>98,1</em>)</td>
+<td>176</td>
+</tr>
+<tr class="odd">
+<td><strong>Totaal</strong></td>
+<td>155</td>
+<td>195</td>
+<td>350</td>
+</tr>
+</tbody>
+</table>
+<p>Nu we dit hebben gedaan, kunnen we vrij eenvoudig de Chi<sup>2</sup> <span class="math inline">\(\chi^2\)</span> uitrekenen.</p>
+<p>Voor elke cel nemen we het kwadraat van de geobserveerde frequentie <span class="math inline">\(f_0\)</span> minus de verwachte frequentie <span class="math inline">\(f_v\)</span> , dat is <span class="math inline">\((f_0-f_v)^2\)</span> , en dat delen we door de verwachte frequentie <span class="math inline">\(f_v\)</span>. En van al die delen nemen we weer de som <span class="math inline">\(\sum\)</span> .</p>
+<p><span class="math display">\[
+\chi^2=\sum\frac{(f_0-f_v)^2}{f_v}=\frac{(28-13,3)^2}{13,3} +...+\frac{(153-98,1)^2}{98,1}=147,59  
+\]</span></p>
+<p>Voila, we hebben de Chi<sup>2</sup> berekend! Deze bedraagt 147,59.</p>
+</section>
+<section id="kritieke-grenswaarde" class="level4" data-number="14.1.1.3">
+<h4 data-number="14.1.1.3" class="anchored" data-anchor-id="kritieke-grenswaarde"><span class="header-section-number">14.1.1.3</span> Kritieke grenswaarde</h4>
+<p>De volgende stap is dat we deze toetsingsgrootheid met de juiste kritieke grenswaarde moeten vergelijken. Daarvoor moeten we eerst het aantal vrijheidsgraden weten. Deze wordt berekend door:</p>
+<p><span class="math display">\[
+df=(aantal\; rijen-1)*(aantal\;kolommen-1)=(5-1)*(2-1)=4*1=4
+\]</span></p>
+<p>In dit voorbeeld zijn er dus vier vrijheidsgraden. Vervolgens kunnen we vergelijkbaar met een t-tabel aflezen uit een <a href="https://statcalc.net/chi-square-table/">Chi<sup>2</sup>-tabel</a> bij welke kritieke grenswaarde we de nulhypothese moeten verwerpen. Let hierbij op dat de Chi<sup>2</sup>-verdeling dezelfde voom heeft als een normale verdeling, deze heeft namelijk een asymmetrische verdeling (rechtsscheef). Dit komt doordat de Chi<sup>2</sup> een andere type statistiek is en de toetsingsgrootheden daardoor ook anders verdeeld zijn. De Chi<sup>2</sup>-verdeling toont dat bij <span class="math inline">\(\alpha=0,05\)</span> en de <span class="math inline">\(df=4\)</span> de kritieke grenswaarde 9,488 is (dit kun je aflezen uit de tabel op de website).</p>
+</section>
+<section id="statistische-significantie" class="level4" data-number="14.1.1.4">
+<h4 data-number="14.1.1.4" class="anchored" data-anchor-id="statistische-significantie"><span class="header-section-number">14.1.1.4</span> Statistische significantie</h4>
+<p>Bij een Chi<sup>2</sup>-toets hoef je alleen te kijken of de toetsingsgrootheid groter is dan de kritieke grenswaarde. In dit geval is 147,59 groter dan 9,49, de uitkomst is dus statistisch significant bij een significantieniveau van 5%.</p>
+</section>
+<section id="in-r" class="level4" data-number="14.1.1.5">
+<h4 data-number="14.1.1.5" class="anchored" data-anchor-id="in-r"><span class="header-section-number">14.1.1.5</span> In R</h4>
+<p>Om tot bovenstaande conclusie te komen, kunnen we de Chi<sup>2</sup>-toets ook direct door R laten uitvoeren. Daarvoor gebruiken we de functie <code>chisq.test()</code>, waarvoor we de tabel als input geven. Om de code wat netter te maken, is het handig eerst de tabel apart als object op te slaan.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># opslaan van tabel</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tabel_xtc <span class="ot">&lt;-</span> <span class="fu">table</span>(data_xtc<span class="sc">$</span>acceptatie_xtc_vrienden, data_xtc<span class="sc">$</span>xtc_laatste_jaar)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># uitvoeren van de chi2-toets</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(tabel_xtc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  tabel_xtc
+X-squared = 147.59, df = 4, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Je ziet dat R de grootte van de toetsingsgrootheid <span class="math inline">\(\chi^2\)</span> geeft, het aantal vrijheidsgraden en de p-waarde. De p-waarde heeft hier dezelfde functie zoals we eerder hebben gezien. Je hoeft alleen te checken of <span class="math inline">\(p&lt;\alpha\)</span> . De p-waarde is hier heel klein <span class="math inline">\(p=0,000\)</span>.</p>
+</section>
+<section id="assumpties" class="level4 page-columns page-full" data-number="14.1.1.6">
+<h4 data-number="14.1.1.6" class="anchored" data-anchor-id="assumpties"><span class="header-section-number">14.1.1.6</span> Assumpties</h4>
+<p>De Chi<sup>2</sup>-toets kent een aantal assumpties waaraan moet worden voldaan om deze valide te kunnen uitvoeren. Een van deze assumpties zijn we al <a href="./003-01-steekproeven.html#sec-assumpties">eerder tegengekomen</a>: de observaties moeten onafhankelijk van elkaar zijn.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Dit betekent dat om mee te doen in het onderzoek, jongeren in de steekproef willekeurig van elkaar geselecteerd moeten zijn en dat er geen systematische fout in zit.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Deze assumptie geldt voor alle statistische toetsen die we uitvoeren.</p></div></div><p>Een andere assumptie is dat cellen doorgaans geen verwachte frequenties lager dan 1 zouden moeten hebben, en dat niet meer dan 20% van de cellen een verwachte frequentie onder de 5 zou moeten hebben (al hangt dit wel van de casus af). Dit maakt de test namelijk gevoeliger voor toevallige afwijkingen.</p>
+</section>
+<section id="conclusie" class="level4" data-number="14.1.1.7">
+<h4 data-number="14.1.1.7" class="anchored" data-anchor-id="conclusie"><span class="header-section-number">14.1.1.7</span> Conclusie</h4>
+<p>De conclusie van ons onderzoek luidt als volgt: Er bestaat een significant verband tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden (<span class="math inline">\(\chi^2(4)=147,59,\; p&lt;0,05\)</span>).</p>
+<p>We rapporteren hierbij dus het aantal vrijheidsgraden (tussenhaakjes), de grootte van de Chi2 en bij welk significantieniveau het resultaat significant is.</p>
+<p>Vervolgens verwerpen we de nulhypothese dat er geen verband bestaat tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden, en gaan we er voorlopig vanuit dat er wel een verband is.</p>
+</section>
+</section>
+</section>
+<section id="interpretatie-praktische-significantie" class="level2 page-columns page-full" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="interpretatie-praktische-significantie"><span class="header-section-number">14.2</span> Interpretatie praktische significantie</h2>
+<p>We hebben al vaker gesignaleerd dat statistische significantie ons wel iets zegt over dat het aannemelijk is dat er een verband op populatieniveau bestaat, maar niet zoveel over de sterkte van het verband. Daarvoor moeten we een uitkomst toch nauwkeuriger bekijken. Bij de Chi<sup>2</sup>-toets doen we dit door de verschillen in de tabel nader te bekijken.</p>
+<p>Dit hebben we al gedaan voor dit voorbeeld bij <a href="./002-04-relatiesvariabelen.html#sec-nominaalordinaal">Relaties tussen variabelen</a> en <a href="#sec-gradatieacceptatie" class="quarto-xref"><span>Section 14.1</span></a> . Daaruit bleek dat er een sterk verband is, omdat de mate van acceptatie sterk verschilt tussen wel- en niet-gebruikers. Je kunt eenzelfde wijze van interpretatie, door goed te kijken naar de verdelingen van aantallen en proporties, en het eventueel te visualiseren, ook toepassen op andere voorbeelden.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Voor 2x2 tabellen (met twee dichotome variabelen) zijn er ook andere manieren om de sterkte van een verband te interpreteren, bijvoorbeeld door te kijken naar residuals, verschillen in proporties of odds ratio’s. Zie daarvoor <a href="https://www.datacamp.com/tutorial/chi-square-test-r">link1</a> en <a href="https://whitlockschluter3e.zoology.ubc.ca/RLabs/R_tutorial_Contingency_analysis.html">link2</a>.</p></div></div></section>
+<section id="samenvatting" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="samenvatting"><span class="header-section-number">14.3</span> Samenvatting</h2>
+<p>De Chi-kwadraat toets gebruiken we om het verband tussen twee kwalitatieve variabelen te onderzoeken, op basis van de verwachte en geobserveerde frequenties. We vergelijken de Chi<sup>2</sup>-toetsingsgrootheid met een kritieke grenswaarde om te bepalen of een verband statistisch significant. Daarnaast is het belangrijk om de verschillen in een tabel te interpreteren om te zien hoe sterk het verband is tussen twee variabelen.</p>
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./005-01-Bayesfactor.html" class="pagination-link" aria-label="Bayes factor">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Bayes factor</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./009-01-colleges.html" class="pagination-link" aria-label="Collegeslides">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Collegeslides</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/joostjansen/quantcrim/blob/main/005-02-Chi2.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/joostjansen/quantcrim/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
