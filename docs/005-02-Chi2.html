@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,14 +79,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-4d5af44521e8d2ac69805030d7e05dc7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-5ab6d3a42f965672fa09f0ec9e60cd37.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-deb916046d57902448ef8317134ba92a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-34cfa9cfa9935202557e813e66c18837.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-deb916046d57902448ef8317134ba92a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -541,7 +541,7 @@ window.Quarto = {
   <ul>
   <li><a href="#sec-gradatieacceptatie" id="toc-sec-gradatieacceptatie" class="nav-link active" data-scroll-target="#sec-gradatieacceptatie"><span class="header-section-number">14.1</span> De gradatie van acceptatie</a>
   <ul class="collapse">
-  <li><a href="#chi-kwadraat-toets" id="toc-chi-kwadraat-toets" class="nav-link" data-scroll-target="#chi-kwadraat-toets"><span class="header-section-number">14.1.1</span> Chi-kwadraat toets</a></li>
+  <li><a href="#chi-kwadraattoets" id="toc-chi-kwadraattoets" class="nav-link" data-scroll-target="#chi-kwadraattoets"><span class="header-section-number">14.1.1</span> Chi-kwadraattoets</a></li>
   <li><a href="#bayes-factor" id="toc-bayes-factor" class="nav-link" data-scroll-target="#bayes-factor"><span class="header-section-number">14.1.2</span> Bayes factor</a></li>
   </ul></li>
   <li><a href="#interpretatie-praktische-significantie" id="toc-interpretatie-praktische-significantie" class="nav-link" data-scroll-target="#interpretatie-praktische-significantie"><span class="header-section-number">14.2</span> Interpretatie praktische significantie</a></li>
@@ -572,14 +572,14 @@ window.Quarto = {
 </header>
 
 
-<p>We gaan in dit hoofdstuk vrolijk, en wellicht een beetje naïef na het leren over Bayesiaanse statistiek, verder met het onderzoeken van relaties tussen variabelen op Frequentistische wijze. Inmiddels zijn we niet alleen geïnteresseerd in <a href="./002-04-relatiesvariabelen.html">relaties in de dataset</a>, maar tevens of deze gelden voor de gehele populatie die we onderzoeken.</p>
-<p>Een type relatie die we nog niet hebben onderzocht, is tussen <em>twee kwalitatieve</em> (ook wel: categorische) <em>variabelen</em>. Vaak willen we weten hoe dergelijke relaties in elkaar zitten. Denk aan de vraag of jongeren die weleens één soort drug hebben geprobeerd (bijv. xtc) ook vaker een soort drug hebben geprobeerd (bijv. cocaïne). Of dat jongeren die met hogere frequentie bepaalde drugs gebruiken (bijv. alcohol) hun gezondheid slechter beoordelen.</p>
-<p>Dergelijke vragen kunnen we beantwoorden met behulp van de <strong>Chi-kwadraat toets</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> De intuïtie achter deze toets is vrij simpel. We vergelijken de verdelingen van twee kwalitatieve variabelen met elkaar. Dit kan middels een kruistabel, waar we inmiddels mee bekend zijn. Als we verwachten dat er een verband is tussen twee kwalitatieve variabelen, gaan we ervan uit dat respondenten niet evenredig over de cellen zijn verdeeld. Als je bijvoorbeeld een positief verband verwacht tussen het proberen van xtc en cocaïne, dan zullen mensen die ‘ja’ antwoorden op de vraag of ze ooit xtc hebben geprobeerd ook vaker ‘ja’ antwoorden op de vraag of ze ooit cocaïne hebben geprobeerd. En andersom: mensen die vaker ‘nee’ antwoorden op de ene vraag zullen ook vaker ‘nee’ antwoorden op de andere vraag.</p>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Spreek je uit als “gie-kwadraat”.</p></div></div><p>Onze nulhypothese is dat er geen samenhang is tussen de variabelen. In dat geval zijn alle respondenten min of meer gelijk verdeeld over de cellen. Dit noemen we ook wel de <strong>verwachte frequentieverdeling</strong>. Dit testen we tegen de daadwerkelijke <strong>geobserveerde frequentieverdeling</strong>: de verdeling die we zien in onze dataset. Als deze volgens het criterium van de Chi-kwadraat toets significant afwijkt van de verwachte frequentieverdeling, concluderen dat er een significante samenhang is tussen de variabelen. We hanteren hier dus de methode van statistische significantie (een geen bhi o.i.d.). We gaan later wel in op hoe je het verband meer substantieel kan interpreteren (praktische significantie).</p>
+<p>We gaan in dit hoofdstuk vrolijk, en wellicht een beetje naïef na het leren over Bayesiaanse statistiek, verder met het onderzoeken van relaties tussen variabelen op Frequentistische wijze. Inmiddels zijn we niet alleen geïnteresseerd in <a href="./002-04-relatiesvariabelen.html">relaties in de dataset</a>, maar tevens of deze gelden voor de gehele populatie waarin we geïnteresseerd zijn.</p>
+<p>Een type relatie die we nog niet hebben onderzocht, is die tussen <em>twee kwalitatieve</em> (ook wel: categorische) <em>variabelen</em>. Vaak willen we weten hoe dergelijke relaties in elkaar zitten. Denk aan de vraag of jongeren die weleens één soort drug hebben geprobeerd (bijv. xtc) ook vaker een soort drug hebben geprobeerd (bijv. cocaïne). Of dat jongeren die met hogere frequentie bepaalde drugs gebruiken (bijv. alcohol) hun gezondheid slechter beoordelen.</p>
+<p>Dergelijke vragen kunnen we beantwoorden met behulp van de <strong>Chi-kwadraattoets</strong>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> De intuïtie achter deze toets is vrij simpel. We analyseren de gezamenlijke frequentieverdeling van twee kwalitatieve variabelen. Dit kan middels een kruistabel, waar we inmiddels mee bekend zijn. Als we verwachten dat er een verband is tussen twee kwalitatieve variabelen, gaan we ervan uit dat respondenten niet evenredig over de cellen zijn verdeeld. Als je bijvoorbeeld een positief verband verwacht tussen het proberen van xtc en cocaïne, dan zullen mensen die ‘ja’ antwoorden op de vraag of ze ooit xtc hebben geprobeerd ook vaker ‘ja’ antwoorden op de vraag of ze ooit cocaïne hebben geprobeerd. En andersom: mensen die vaker ‘nee’ antwoorden op de ene vraag zullen ook vaker ‘nee’ antwoorden op de andere vraag.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Over de uitspraak hiervan in het Nederlands zijn wetenschappers al decennia verdeeld.</p></div></div><p>Onze nulhypothese is dat er geen samenhang is tussen de variabelen. In dat geval zijn alle respondenten min of meer gelijk verdeeld over de cellen. Dit noemen we ook wel de <strong>verwachte frequentieverdeling</strong>. Dit testen we tegen de daadwerkelijke <strong>geobserveerde frequentieverdeling</strong>: de verdeling die we zien bij onze steekproef. Als deze volgens het criterium van de Chi-kwadraattoets significant afwijkt van de verwachte frequentieverdeling, concluderen dat er een significante samenhang is tussen de variabelen. We hanteren hier dus de (Frequentistische) methode van statistische significantie (en geen bhi o.i.d.). We gaan later wel in op hoe je het verband meer substantieel kan interpreteren (praktische significantie).</p>
 <p>Uiteraard laten we weer aan de hand van een voorbeeld zien hoe dit werkt, met eerst een handmatige uitwerking gevolgd door hoe je het in R doet.</p>
 <section id="sec-gradatieacceptatie" class="level2 page-columns page-full" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="sec-gradatieacceptatie"><span class="header-section-number">14.1</span> De gradatie van acceptatie</h2>
-<p>Voor het voorbeeld grijpen we terug op de relatie tussen of men xtc heeft gebruikt in het laatste jaar (<code>xtc_laatste_jaar</code>) en de mate van acceptatie van xtc-gebruik onder vrienden (<code>acceptatie_xtc_vrienden</code>). In een <a href="./002-04-relatiesvariabelen.html#sec-nominaalordinaal">eerder hoofdstuk</a> zagen we al dat er een verband lijkt te zijn. Jongeren die het afgelopen jaar xtc hebben gebruikt geven aan dat er ook meer acceptatie bestaat onder vrienden. We gaan dus testen of dit verband statistisch significant is. Let op dat we hier een nominale variabele (<code>xtc_laatste_jaar</code>) met een ordinale variabele (<code>acceptatie_xtc_vrienden</code>) vergelijken.</p>
+<p>Voor het voorbeeld grijpen we terug op de relatie tussen of men xtc heeft gebruikt in het laatste jaar (<code>xtc_laatste_jaar</code>) en de mate van acceptatie van xtc-gebruik onder vrienden (<code>acceptatie_xtc_vrienden</code>). In een <a href="./002-04-relatiesvariabelen.html#sec-nominaalordinaal">eerder hoofdstuk</a> zagen we al dat er een verband lijkt te bestaan. Jongeren die het afgelopen jaar xtc hebben gebruikt geven vaker aan dat er ook meer acceptatie bestaat onder vrienden. We gaan dus testen of dit verband statistisch significant is. Let op dat we hier een nominale variabele (<code>xtc_laatste_jaar</code>) met een ordinale variabele (<code>acceptatie_xtc_vrienden</code>) vergelijken.</p>
 <p>Laten we eerst even kijken hoe de kruistabel van deze variabelen er ook alweer uit zag. We laten voor de eenvoud de categorie ‘weet niet’ even weg.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe zonder "weet niet" op acceptatie_xtc_vrienden</span></span>
@@ -601,10 +601,10 @@ window.Quarto = {
   helemaal mee eens        23 153</code></pre>
 </div>
 </div>
-<p>We zagen al eerder dat er een verband lijkt te zijn tussen de variabelen. Het kolomtotaal van ‘nee’ is <span class="math inline">\(28+19+20+65+23=155\)</span> respondenten en dat van ‘ja’ is <span class="math inline">\(2+4+4+32+153=195\)</span> . Van de niet-gebruikers is <span class="math inline">\(23/155=0,148\)</span> (14,8%) het helemaal eens dat xtc-gebruik geaccepteerd is onder vrienden, terwijl dit bij gebuikers veel hoger ligt: <span class="math inline">\(153/195=0,785\)</span> (78,5%). De acceptatie onder vrienden is bij gebruikers is dus hoger dan bij niet-gebruikers.</p>
-<section id="chi-kwadraat-toets" class="level3 page-columns page-full" data-number="14.1.1">
-<h3 data-number="14.1.1" class="anchored" data-anchor-id="chi-kwadraat-toets"><span class="header-section-number">14.1.1</span> Chi-kwadraat toets</h3>
-<p>De Chi-kwadraat toets werkt in principe niet veel anders dan wat we eerder hebben gezien bij <a href="./004-01-onafhankelijkegroepen.html">Hypothesetoetsing</a> en <a href="./004-02-aspectenhypo.html">Aspecten van hypothesetoetsing</a>. We stellen een hypothese op, we kiezen een significantieniveau, berekenen de toetsingsgrootheid en vergelijken deze vervolgens met de juiste kritieke grenswaarde. Daarna concluderen we of het steekproefresultaat statistisch significant is.</p>
+<p>We zagen al eerder dat er een verband lijkt te bestaan tussen de variabelen. Het kolomtotaal van ‘nee’ is <span class="math inline">\(28+19+20+65+23=155\)</span> respondenten en dat van ‘ja’ is <span class="math inline">\(2+4+4+32+153=195\)</span> . Van de niet-gebruikers is <span class="math inline">\(23/155=0,148\)</span> (14,8%) het helemaal eens dat xtc-gebruik geaccepteerd is onder vrienden, terwijl dit bij gebuikers veel hoger ligt: <span class="math inline">\(153/195=0,785\)</span> (78,5%). De acceptatie onder vrienden is onder gebruikers is dus hoger dan bij niet-gebruikers.</p>
+<section id="chi-kwadraattoets" class="level3 page-columns page-full" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="chi-kwadraattoets"><span class="header-section-number">14.1.1</span> Chi-kwadraattoets</h3>
+<p>De Chi-kwadraattoets werkt in principe niet veel anders dan wat we eerder hebben gezien bij <a href="./004-01-onafhankelijkegroepen.html">Hypothesetoetsing</a> en <a href="./004-02-aspectenhypo.html">Aspecten van hypothesetoetsing</a>. We stellen een (nul)hypothese op, kiezen een significantieniveau, berekenen de toetsingsgrootheid en vergelijken deze vervolgens met de kritieke grenswaarde die hoort bij het significantieniveau. Daarna concluderen we of het steekproefresultaat statistisch significant is.</p>
 <p>We gaan bij dit voorbeeld weer uit van een siginificantieniveau van 5% (<span class="math inline">\(\alpha=0,05\)</span>).</p>
 <section id="hypothese-opstellen" class="level4 page-columns page-full" data-number="14.1.1.1">
 <h4 data-number="14.1.1.1" class="anchored" data-anchor-id="hypothese-opstellen"><span class="header-section-number">14.1.1.1</span> Hypothese opstellen</h4>
@@ -614,11 +614,11 @@ window.Quarto = {
 <p><span class="math display">\[
 f_o=f_v
 \]</span></p>
-<p>Oftewel, de geobserveerde frequenties <span class="math inline">\(f_0\)</span> zijn gelijk aan de verwachte <span class="math inline">\(f_v\)</span> .<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Op de betekenis van deze symbolen komen we zo terug.</p>
+<p>Oftewel: de geobserveerde frequenties <span class="math inline">\(f_0\)</span> zijn gelijk aan de verwachte <span class="math inline">\(f_v\)</span> .<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Op de betekenis van deze symbolen komen we zo terug.</p>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Al is zo’n statistische notatie niet per se gebruikelijk bij deze toets.</p></div></div></section>
 <section id="berekenen-chi-kwadraat" class="level4" data-number="14.1.1.2">
 <h4 data-number="14.1.1.2" class="anchored" data-anchor-id="berekenen-chi-kwadraat"><span class="header-section-number">14.1.1.2</span> Berekenen Chi-kwadraat</h4>
-<p>De Chi-kwadraat (of Chi<sup>2</sup>) <span class="math inline">\(\chi^2\)</span> is de toetsingsgrootheid waarmee we bepalen hoe groot het verschil is tussen de geobserveerde en verwachte frequenties. Dit doen we middels de volgende formule:</p>
+<p>De Chi-kwadraat ( <span class="math inline">\(\chi^2\)</span>) is de toetsingsgrootheid waarmee we bepalen hoe groot het verschil is tussen de geobserveerde en verwachte frequenties. Dit doen we middels de volgende formule:</p>
 <p><span class="math display">\[
 \chi^2=\sum\frac{(f_0-f_v)^2}{f_v}
 \]</span></p>
@@ -742,12 +742,12 @@ f_o=f_v
 </tr>
 </tbody>
 </table>
-<p>Nu we dit hebben gedaan, kunnen we vrij eenvoudig de Chi<sup>2</sup> <span class="math inline">\(\chi^2\)</span> uitrekenen.</p>
+<p>Nu we dit hebben gedaan, kunnen we vrij eenvoudig de <span class="math inline">\(\chi^2\)</span>-waarde uitrekenen.</p>
 <p>Voor elke cel nemen we het kwadraat van de geobserveerde frequentie <span class="math inline">\(f_0\)</span> minus de verwachte frequentie <span class="math inline">\(f_v\)</span> , dat is <span class="math inline">\((f_0-f_v)^2\)</span> , en dat delen we door de verwachte frequentie <span class="math inline">\(f_v\)</span>. En van al die delen nemen we weer de som <span class="math inline">\(\sum\)</span> .</p>
 <p><span class="math display">\[
 \chi^2=\sum\frac{(f_0-f_v)^2}{f_v}=\frac{(28-13,3)^2}{13,3} +...+\frac{(153-98,1)^2}{98,1}=147,59  
 \]</span></p>
-<p>Voila, we hebben de Chi<sup>2</sup> berekend! Deze bedraagt 147,59.</p>
+<p>Voila, we hebben de <span class="math inline">\(\chi^2\)</span> berekend! Deze bedraagt 147,59.</p>
 </section>
 <section id="kritieke-grenswaarde" class="level4" data-number="14.1.1.3">
 <h4 data-number="14.1.1.3" class="anchored" data-anchor-id="kritieke-grenswaarde"><span class="header-section-number">14.1.1.3</span> Kritieke grenswaarde</h4>
@@ -755,15 +755,15 @@ f_o=f_v
 <p><span class="math display">\[
 df=(aantal\; rijen-1)*(aantal\;kolommen-1)=(5-1)*(2-1)=4*1=4
 \]</span></p>
-<p>In dit voorbeeld zijn er dus vier vrijheidsgraden. Vervolgens kunnen we vergelijkbaar met een t-tabel aflezen uit een <a href="https://statcalc.net/chi-square-table/">Chi<sup>2</sup>-tabel</a> bij welke kritieke grenswaarde we de nulhypothese moeten verwerpen. Let hierbij op dat de Chi<sup>2</sup>-verdeling dezelfde voom heeft als een normale verdeling, deze heeft namelijk een asymmetrische verdeling (rechtsscheef). Dit komt doordat de Chi<sup>2</sup> een andere type statistiek is en de toetsingsgrootheden daardoor ook anders verdeeld zijn. De Chi<sup>2</sup>-verdeling toont dat bij <span class="math inline">\(\alpha=0,05\)</span> en de <span class="math inline">\(df=4\)</span> de kritieke grenswaarde 9,488 is (dit kun je aflezen uit de tabel op de website).</p>
+<p>In dit voorbeeld zijn er dus vier vrijheidsgraden. Vervolgens kunnen we vergelijkbaar met een t-tabel aflezen uit een <span class="math inline">\(\chi^2\)</span><a href="https://statcalc.net/chi-square-table/">-tabel</a> bij welke kritieke grenswaarde we de nulhypothese moeten verwerpen. Let hierbij op dat de <span class="math inline">\(\chi^2\)</span>-verdeling dezelfde voom heeft als een normale verdeling, deze heeft namelijk een asymmetrische verdeling (rechtsscheef). Dit komt doordat de <span class="math inline">\(\chi^2\)</span> een andere type statistiek is en de toetsingsgrootheden daardoor ook anders verdeeld zijn. De <span class="math inline">\(\chi^2\)</span>-verdeling toont dat bij <span class="math inline">\(\alpha=0,05\)</span> en de <span class="math inline">\(df=4\)</span> de kritieke grenswaarde 9,488 is (dit kun je aflezen uit de tabel op de website).</p>
 </section>
 <section id="statistische-significantie" class="level4" data-number="14.1.1.4">
 <h4 data-number="14.1.1.4" class="anchored" data-anchor-id="statistische-significantie"><span class="header-section-number">14.1.1.4</span> Statistische significantie</h4>
-<p>Bij een Chi<sup>2</sup>-toets hoef je alleen te kijken of de toetsingsgrootheid groter is dan de kritieke grenswaarde. In dit geval is 147,59 groter dan 9,49, de uitkomst is dus statistisch significant bij een significantieniveau van 5%.</p>
+<p>Bij een <span class="math inline">\(\chi^2\)</span>-toets hoef je alleen te kijken of de toetsingsgrootheid groter is dan de kritieke grenswaarde. In dit geval is 147,59 groter dan 9,49, de uitkomst is dus statistisch significant bij een significantieniveau van 5%.</p>
 </section>
 <section id="in-r" class="level4" data-number="14.1.1.5">
 <h4 data-number="14.1.1.5" class="anchored" data-anchor-id="in-r"><span class="header-section-number">14.1.1.5</span> In R</h4>
-<p>Om tot bovenstaande conclusie te komen, kunnen we de Chi<sup>2</sup>-toets ook direct door R laten uitvoeren. Daarvoor gebruiken we de functie <code>chisq.test()</code>, waarvoor we de tabel als input geven. Om de code wat netter te maken, is het handig eerst de tabel apart als object op te slaan.</p>
+<p>Om tot bovenstaande conclusie te komen, kunnen we de <span class="math inline">\(\chi^2\)</span>-toets ook direct door R laten uitvoeren. Daarvoor gebruiken we de functie <code>chisq.test()</code>, waarvoor we de tabel als input geven. Om de code wat netter te maken, is het handig eerst de tabel apart als object op te slaan.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># opslaan van tabel</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tabel_xtc <span class="ot">&lt;-</span> <span class="fu">table</span>(data_xtc<span class="sc">$</span>acceptatie_xtc_vrienden, data_xtc<span class="sc">$</span>xtc_laatste_jaar)</span>
@@ -778,23 +778,22 @@ data:  tabel_xtc
 X-squared = 147.59, df = 4, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>Je ziet dat R de grootte van de toetsingsgrootheid <span class="math inline">\(\chi^2\)</span> geeft, het aantal vrijheidsgraden en de p-waarde. De p-waarde heeft hier dezelfde functie zoals we eerder hebben gezien. Je hoeft alleen te checken of <span class="math inline">\(p&lt;\alpha\)</span> . De p-waarde is hier heel klein <span class="math inline">\(p=0,000\)</span>.</p>
+<p>Je ziet dat R de grootte van de toetsingsgrootheid <span class="math inline">\(\chi^2\)</span> geeft, het aantal vrijheidsgraden en de p-waarde. De p-waarde heeft hier dezelfde functie zoals we eerder hebben gezien. Je hoeft alleen te checken of <span class="math inline">\(p&lt;\alpha\)</span> . De p-waarde is hier heel klein <span class="math inline">\(p\le0,001\)</span>. De kans op een Chi-kwadraatwaarde of extremer (gegeven de nulhypothese dat er geen verband is), is dus zeer klein.</p>
 </section>
 <section id="assumpties" class="level4 page-columns page-full" data-number="14.1.1.6">
 <h4 data-number="14.1.1.6" class="anchored" data-anchor-id="assumpties"><span class="header-section-number">14.1.1.6</span> Assumpties</h4>
-<p>De Chi<sup>2</sup>-toets kent een aantal assumpties waaraan moet worden voldaan om deze valide te kunnen uitvoeren. Een van deze assumpties zijn we al <a href="./003-01-steekproeven.html#sec-assumpties">eerder tegengekomen</a>: de observaties moeten onafhankelijk van elkaar zijn.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Dit betekent dat om mee te doen in het onderzoek, jongeren in de steekproef willekeurig van elkaar geselecteerd moeten zijn en dat er geen systematische fout in zit.</p>
+<p>De <span class="math inline">\(\chi^2\)</span>-toets kent een aantal assumpties waaraan moet worden voldaan om deze valide te kunnen uitvoeren. Een van deze assumpties zijn we al <a href="./003-01-steekproeven.html#sec-assumpties">eerder tegengekomen</a>: de observaties moeten onafhankelijk zijn.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Jongeren mogen elkaar dus niet beïnvloeden. Verder dienen de jongeren in onze steekproef idealiter willekeurig geselecteerd te zijn en dient de methode van steekproeftrekking vrij van systematische fouten te zijn.</p>
 <div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Deze assumptie geldt voor alle statistische toetsen die we uitvoeren.</p></div></div><p>Een andere assumptie is dat cellen doorgaans geen verwachte frequenties lager dan 1 zouden moeten hebben, en dat niet meer dan 20% van de cellen een verwachte frequentie onder de 5 zou moeten hebben (al hangt dit wel van de casus af). Dit maakt de test namelijk gevoeliger voor toevallige afwijkingen.</p>
 </section>
 <section id="conclusie" class="level4" data-number="14.1.1.7">
 <h4 data-number="14.1.1.7" class="anchored" data-anchor-id="conclusie"><span class="header-section-number">14.1.1.7</span> Conclusie</h4>
-<p>De conclusie van ons onderzoek luidt als volgt: Er bestaat een significant verband tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden (<span class="math inline">\(\chi^2(4)=147,59,\; p&lt;0,05\)</span>).</p>
-<p>We rapporteren hierbij dus het aantal vrijheidsgraden (tussenhaakjes), de grootte van de Chi2 en bij welk significantieniveau het resultaat significant is.</p>
-<p>Vervolgens verwerpen we de nulhypothese dat er geen verband bestaat tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden, en gaan we er voorlopig vanuit dat er wel een verband is.</p>
+<p>De conclusie van ons onderzoek luidt als volgt: Er bestaat een significant verband tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden (<span class="math inline">\(\chi^2(4)=147,59,\; p&lt;0,05\)</span>). De kans op ons steekproefresultaat of extremer zou, gegeven de nulhypothese van geen verband, heel klein zijn. Dat geeft aanleiding de nulhypothese te verwerpen dat er geen verband bestaat tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden.</p>
+<p>We rapporteren hierbij dus het aantal vrijheidsgraden (tussenhaakjes), de grootte van de <span class="math inline">\(\chi^2\)</span> en bij welk significantieniveau het resultaat significant is.</p>
 </section>
 </section>
 <section id="bayes-factor" class="level3" data-number="14.1.2">
 <h3 data-number="14.1.2" class="anchored" data-anchor-id="bayes-factor"><span class="header-section-number">14.1.2</span> Bayes factor</h3>
-<p>We zouden onszelf tekort doen als we de hypothese ook niet volgens de Bayesiaanse wijze toetsen. Dit doen we in R via <code>contingencyTableBF()</code>. We kunnen de tabel <code>tabel_xtc</code> hier in voeren als argument. Verder moeten we ook <code>sampleType = "poisson"</code> specificeren. Dit is een technisch detail dat aangeeft dat de steekproefgrootte vantevoren niet vaststond, daar hoeven we ons verder niet druk om te maken hier.</p>
+<p>We zouden onszelf tekort doen als we de hypothese ook niet volgens de Bayesiaanse wijze toetsen. Dit doen we in R via <code>contingencyTableBF()</code>. We kunnen de tabel <code>tabel_xtc</code> hier in voeren als argument. Verder moeten we ook <code>sampleType = "poisson"</code> specificeren. Dit is een technisch detail dat aangeeft dat de steekproefgrootte vantevoren niet vaststond. Daar hoeven we ons verder niet druk om te maken hier.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayes factor van verband xtc gebruik en acceptatie onder vrienden </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contingencyTableBF</span>(tabel_xtc, <span class="at">sampleType =</span> <span class="st">"poisson"</span> )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -815,12 +814,12 @@ Bayes factor type: BFcontingencyTable, poisson</code></pre>
 </section>
 <section id="interpretatie-praktische-significantie" class="level2 page-columns page-full" data-number="14.2">
 <h2 data-number="14.2" class="anchored" data-anchor-id="interpretatie-praktische-significantie"><span class="header-section-number">14.2</span> Interpretatie praktische significantie</h2>
-<p>We hebben al gesignaleerd dat statistische significantie en de Bayes factor ons wel iets zeggen over de aannemelijkheid dat er een verband op populatieniveau bestaat, maar niet meteen alles over de sterkte van het verband. Daarvoor moeten we een uitkomst toch nauwkeuriger bekijken. Bij de Chi<sup>2</sup>-toets doen we dit door de verschillen in de tabel nader te bekijken.</p>
+<p>We hebben al gesignaleerd dat statistische significantie en de Bayes factor ons wel iets zeggen over de aannemelijkheid dat er een verband op populatieniveau bestaat, maar niet meteen alles over de sterkte van het verband. Daarvoor moeten we een uitkomst toch nauwkeuriger bekijken. Bij de <span class="math inline">\(\chi^2\)</span>-toets doen we dit door de verschillen in de tabel nader te bekijken.</p>
 <p>Dit hebben we al gedaan voor dit voorbeeld bij <a href="./002-04-relatiesvariabelen.html#sec-nominaalordinaal">Relaties tussen variabelen</a> en <a href="#sec-gradatieacceptatie" class="quarto-xref"><span>Section 14.1</span></a> . Daaruit bleek dat er een sterk verband is, omdat de mate van acceptatie sterk verschilt tussen wel- en niet-gebruikers. Je kunt eenzelfde wijze van interpretatie, door goed te kijken naar de verdelingen van aantallen en proporties (en het te visualiseren), ook toepassen op andere voorbeelden.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Voor 2x2 tabellen (met twee dichotome variabelen) zijn er ook andere manieren om de sterkte van een verband te interpreteren, bijvoorbeeld door te kijken naar residuals, verschillen in proporties of odds ratio’s. Zie daarvoor <a href="https://www.datacamp.com/tutorial/chi-square-test-r">link1</a> en <a href="https://whitlockschluter3e.zoology.ubc.ca/RLabs/R_tutorial_Contingency_analysis.html">link2</a>.</p></div></div></section>
 <section id="samenvatting" class="level2" data-number="14.3">
 <h2 data-number="14.3" class="anchored" data-anchor-id="samenvatting"><span class="header-section-number">14.3</span> Samenvatting</h2>
-<p>De Chi-kwadraat toets gebruiken we om het verband tussen twee kwalitatieve variabelen te onderzoeken, op basis van de verwachte en geobserveerde frequenties. We vergelijken de Chi<sup>2</sup>-toetsingsgrootheid met een kritieke grenswaarde om te bepalen of een verband statistisch significant. Daarnaast kunnen we ook Bayes factor berekenen om aannemelijkheid van de originele hypthese t.o.v. de nulhypothese te onderzoeken. Ten slotte is het belangrijk om de verschillen in een tabel te interpreteren om te zien hoe sterk het verband is tussen twee variabelen.</p>
+<p>De χ²-toets gebruiken we om het verband tussen twee kwalitatieve variabelen te onderzoeken, op basis van het verschil tussen geobserveerde en verwachte frequenties. We vergelijken de χ²-toetsingsgrootheid met een kritieke waarde (of kijken naar de p-waarde) om te bepalen of het verband statistisch significant is. Daarnaast kunnen we een Bayes factor berekenen, die aangeeft hoeveel beter de data passen bij de alternatieve hypothese dan bij de nulhypothese. Voorwaarden zijn dat de waarnemingen onafhankelijk zijn en dat de verwachte celfrequenties voldoende groot zijn. Ten slotte is het belangrijk om de verschillen in een tabel te interpreteren om te zien hoe sterk het verband is tussen twee variabelen.</p>
 
 
 </section>
