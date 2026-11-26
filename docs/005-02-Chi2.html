@@ -542,6 +542,7 @@ window.Quarto = {
   <li><a href="#sec-gradatieacceptatie" id="toc-sec-gradatieacceptatie" class="nav-link active" data-scroll-target="#sec-gradatieacceptatie"><span class="header-section-number">14.1</span> De gradatie van acceptatie</a>
   <ul class="collapse">
   <li><a href="#chi-kwadraat-toets" id="toc-chi-kwadraat-toets" class="nav-link" data-scroll-target="#chi-kwadraat-toets"><span class="header-section-number">14.1.1</span> Chi-kwadraat toets</a></li>
+  <li><a href="#bayes-factor" id="toc-bayes-factor" class="nav-link" data-scroll-target="#bayes-factor"><span class="header-section-number">14.1.2</span> Bayes factor</a></li>
   </ul></li>
   <li><a href="#interpretatie-praktische-significantie" id="toc-interpretatie-praktische-significantie" class="nav-link" data-scroll-target="#interpretatie-praktische-significantie"><span class="header-section-number">14.2</span> Interpretatie praktische significantie</a></li>
   <li><a href="#samenvatting" id="toc-samenvatting" class="nav-link" data-scroll-target="#samenvatting"><span class="header-section-number">14.3</span> Samenvatting</a></li>
@@ -639,7 +640,7 @@ f_o=f_v
 <td><strong>acceptatie xtc</strong></td>
 <td>nee</td>
 <td>ja</td>
-<td>Totaal</td>
+<td><strong>Totaal</strong></td>
 </tr>
 <tr class="even">
 <td>helemaal mee oneens</td>
@@ -682,6 +683,12 @@ f_o=f_v
 <p>Dit kunnen we nu ook voor andere cellen in de tabel doen. De verwachte frequenties <span class="math inline">\(f_v\)</span> staan steeds tussenhaakjes.</p>
 <table class="caption-top table">
 <caption><strong>Kruistabel van <code>xtc_laatste_jaar</code> vs.&nbsp;<code>acceptatie_xtc_vrienden</code></strong></caption>
+<colgroup>
+<col style="width: 36%">
+<col style="width: 26%">
+<col style="width: 20%">
+<col style="width: 17%">
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -695,7 +702,7 @@ f_o=f_v
 <td><strong>acceptatie xtc</strong></td>
 <td>nee</td>
 <td>ja</td>
-<td>Totaal</td>
+<td><strong>Totaal</strong></td>
 </tr>
 <tr class="even">
 <td>helemaal mee oneens</td>
@@ -785,15 +792,35 @@ X-squared = 147.59, df = 4, p-value &lt; 2.2e-16</code></pre>
 <p>Vervolgens verwerpen we de nulhypothese dat er geen verband bestaat tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden, en gaan we er voorlopig vanuit dat er wel een verband is.</p>
 </section>
 </section>
+<section id="bayes-factor" class="level3" data-number="14.1.2">
+<h3 data-number="14.1.2" class="anchored" data-anchor-id="bayes-factor"><span class="header-section-number">14.1.2</span> Bayes factor</h3>
+<p>We zouden onszelf tekort doen als we de hypothese ook niet volgens de Bayesiaanse wijze toetsen. Dit doen we in R via <code>contingencyTableBF()</code>. We kunnen de tabel <code>tabel_xtc</code> hier in voeren als argument. Verder moeten we ook <code>sampleType = "poisson"</code> specificeren. Dit is een technisch detail dat aangeeft dat de steekproefgrootte vantevoren niet vaststond, daar hoeven we ons verder niet druk om te maken hier.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayes factor van verband xtc gebruik en acceptatie onder vrienden </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">contingencyTableBF</span>(tabel_xtc, <span class="at">sampleType =</span> <span class="st">"poisson"</span> )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bayes factor analysis
+--------------
+[1] Non-indep. (a=1) : 4.233468e+32 ±0%
+
+Against denominator:
+  Null, independence, a = 1 
+---
+Bayes factor type: BFcontingencyTable, poisson</code></pre>
+</div>
+</div>
+<p>De Bayesfactor staat hier weer in de tweede regel: 4,23e+32. Dit is dus een extreem groot getal (32 cijfers voor de komma). De interpretatie is hier hetzelfde als we <a href="./005-01-Bayesfactor.html#sec-Baysiaans">eerder</a> hebben gezien: hoe waarschijnlijk de originele hypothese de data voorspelt ten opzichte van de nulhypothese. Dit komt tot uitdrukking in een odds. De odds zijn in dit geval dus extreem groot, wat extreem sterk bewijs levert voor de originele hypothese.</p>
+<p>Let hier wederom op dat de Bayes factor ons meer inzicht geeft in de aannemelijkheid van beide hypotheses in vergelijking met toetsen op statistische significantie.</p>
+</section>
 </section>
 <section id="interpretatie-praktische-significantie" class="level2 page-columns page-full" data-number="14.2">
 <h2 data-number="14.2" class="anchored" data-anchor-id="interpretatie-praktische-significantie"><span class="header-section-number">14.2</span> Interpretatie praktische significantie</h2>
-<p>We hebben al vaker gesignaleerd dat statistische significantie ons wel iets zegt over dat het aannemelijk is dat er een verband op populatieniveau bestaat, maar niet zoveel over de sterkte van het verband. Daarvoor moeten we een uitkomst toch nauwkeuriger bekijken. Bij de Chi<sup>2</sup>-toets doen we dit door de verschillen in de tabel nader te bekijken.</p>
-<p>Dit hebben we al gedaan voor dit voorbeeld bij <a href="./002-04-relatiesvariabelen.html#sec-nominaalordinaal">Relaties tussen variabelen</a> en <a href="#sec-gradatieacceptatie" class="quarto-xref"><span>Section 14.1</span></a> . Daaruit bleek dat er een sterk verband is, omdat de mate van acceptatie sterk verschilt tussen wel- en niet-gebruikers. Je kunt eenzelfde wijze van interpretatie, door goed te kijken naar de verdelingen van aantallen en proporties, en het eventueel te visualiseren, ook toepassen op andere voorbeelden.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>We hebben al gesignaleerd dat statistische significantie en de Bayes factor ons wel iets zeggen over de aannemelijkheid dat er een verband op populatieniveau bestaat, maar niet meteen alles over de sterkte van het verband. Daarvoor moeten we een uitkomst toch nauwkeuriger bekijken. Bij de Chi<sup>2</sup>-toets doen we dit door de verschillen in de tabel nader te bekijken.</p>
+<p>Dit hebben we al gedaan voor dit voorbeeld bij <a href="./002-04-relatiesvariabelen.html#sec-nominaalordinaal">Relaties tussen variabelen</a> en <a href="#sec-gradatieacceptatie" class="quarto-xref"><span>Section 14.1</span></a> . Daaruit bleek dat er een sterk verband is, omdat de mate van acceptatie sterk verschilt tussen wel- en niet-gebruikers. Je kunt eenzelfde wijze van interpretatie, door goed te kijken naar de verdelingen van aantallen en proporties (en het te visualiseren), ook toepassen op andere voorbeelden.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Voor 2x2 tabellen (met twee dichotome variabelen) zijn er ook andere manieren om de sterkte van een verband te interpreteren, bijvoorbeeld door te kijken naar residuals, verschillen in proporties of odds ratio’s. Zie daarvoor <a href="https://www.datacamp.com/tutorial/chi-square-test-r">link1</a> en <a href="https://whitlockschluter3e.zoology.ubc.ca/RLabs/R_tutorial_Contingency_analysis.html">link2</a>.</p></div></div></section>
 <section id="samenvatting" class="level2" data-number="14.3">
 <h2 data-number="14.3" class="anchored" data-anchor-id="samenvatting"><span class="header-section-number">14.3</span> Samenvatting</h2>
-<p>De Chi-kwadraat toets gebruiken we om het verband tussen twee kwalitatieve variabelen te onderzoeken, op basis van de verwachte en geobserveerde frequenties. We vergelijken de Chi<sup>2</sup>-toetsingsgrootheid met een kritieke grenswaarde om te bepalen of een verband statistisch significant. Daarnaast is het belangrijk om de verschillen in een tabel te interpreteren om te zien hoe sterk het verband is tussen twee variabelen.</p>
+<p>De Chi-kwadraat toets gebruiken we om het verband tussen twee kwalitatieve variabelen te onderzoeken, op basis van de verwachte en geobserveerde frequenties. We vergelijken de Chi<sup>2</sup>-toetsingsgrootheid met een kritieke grenswaarde om te bepalen of een verband statistisch significant. Daarnaast kunnen we ook Bayes factor berekenen om aannemelijkheid van de originele hypthese t.o.v. de nulhypothese te onderzoeken. Ten slotte is het belangrijk om de verschillen in een tabel te interpreteren om te zien hoe sterk het verband is tussen twee variabelen.</p>
 
 
 </section>

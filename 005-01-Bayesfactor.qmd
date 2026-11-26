@@ -41,7 +41,7 @@ Dit laatste punt relateert aan een derde beperking, namelijk dat het moeilijk is
 
 Ook dit is deels te ondervangen door ons meer te richten op bhi's, maar ook hier lopen we tegen beperkingen aan. Denk terug aan het voorbeeld bij de [interpretatie van een betrouwbaarheidsinterval](003-02-betrouwbaarheidsinterval.qmd#sec-interpretatiebhi). Als je vindt dat de proportie xtc-gebruik in jouw onderzoek tussen de 0,636 en 0,737 ligt, maar je weet uit eerder onderzoek dat het meestal tussen de 0,300 en 0,400 is, hoe moet je daar dan mee omgaan? Hiervoor biedt de Frequentistische benadering geen directe oplossing (maar de Bayesiaanse wel, zoals we later zullen zien).
 
-## Bayesiaanse statistiek
+## Bayesiaanse statistiek {#sec-Baysiaans}
 
 Bayesiaanse statistiek werkt anders dan Frequentistische statistiek. Het uitgangspunt is dat we bepaalde kennis hebben over hoe de wereld (of werkelijkheid) in elkaar zit, maar deze kennis is deels incompleet en subjectief. Onze kennis neemt dus meer de vorm aan van bepaalde overtuigingen of een bepaald geloof dat we hebben over de staat van de wereld. Als we eerlijk zijn over wat we precies weten, moeten we toegeven dat we de meeste dingen nooit helemaal zeker weten. We kunnen bijvoorbeeld een feestje bezoeken en vermoeden dat het drugsgebruik er relatief hoog is, maar hoe hoog precies (en wie gebruikt wat), dat is lastig te zeggen. De elementen **geloof** en **waarschijnlijkheid** vormen de basis van de Bayesiaanse statistiek. We gebruiken Bayesiaanse statistiek om ons geloof van een toestand (staat van de wereld) te kwantificeren die we uitdrukken in waarschijnlijkheid in plaats van absoluut gegeven.
 
@@ -71,12 +71,13 @@ De Bayes factor is een getal dat aangeeft hoe waarschijnlijk de originele hypoth
 
 Het mooie aan Bayesiaanse statistiek is dat er vuistregels zijn voor wanneer het bewijs als zwakker of sterker wordt gezien. Hiervoor zijn de volgende categorieën vastgesteld:
 
-| Bayes factor (odds) | Betekenis              |
-|---------------------|------------------------|
-| 1-3                 | Verwaarloosbaar bewijs |
-| 3-20                | Zwak bewijs            |
-| 20-150              | Sterk bewijs           |
-| \>150               | Zeer sterk bewijs      |
+| Bayes factor (odds) | Betekenis            |
+|---------------------|----------------------|
+| 1-3                 | Anekdotisch bewijs   |
+| 3-10                | Gematigd bewijs      |
+| 10-30               | Sterk bewijs         |
+| 30-100              | Zeer sterk bewijs    |
+| \>100               | Extreem sterk bewijs |
 
 Je kunt dus aan de hand van de Bayes factor makkelijker uitspraken doen over hoe aannemelijk de originele hypothese is t.o.v. de nulhypothese. Let verder op dat de Bayes factor ook kleiner dan 1 kan zijn (met een minimum van 0). Dit geeft aan dat de nulhypothese waarschijnlijker is dan originele hypothese. De odds van de Bayes factor kan bijvoorbeeld 0,2 zijn. Dit is eenvoudig te interpreteren door de odds 'om te draaien'. Dit doe je door 1 te delen door de odds: $1/0,2=5$ . In dit geval zou de nulhypothese dus 5 keer waarschijnlijker de data voorspellen dan de originele hypothese.
 
@@ -98,7 +99,7 @@ t.test(formula = glazen_alcohol_uitgaansdag ~ geslacht,
 
 De p-waarde is zeer klein ($p=0,000004$).[^005-01-bayesfactor-8] We constateren dus dat $p<\alpha$ en verwerpen daarmee de nulhypothese dat er geen verschil is in drinkgedrag tussen mannen en vrouwen.
 
-[^005-01-bayesfactor-8]: R weergeeft cijfers met veel nullen als decimalen op een andere manier (hier: 4.193e-06). Je kunt zelf terugrekenen wat dit cijfer is.
+[^005-01-bayesfactor-8]: R weergeeft cijfers met veel nullen als decimalen op een andere manier (hier: 4,193e-06). Let op verschillende notaties. 4,0e-04 betekent bijvoorbeeld 0,0004, terwijl 4,0e+04 betekent 40000.
 
 We doorlopen nu dezelfde proces voor Bayesiaanse statistiek. De t-test voeren we uit via de functie `ttestBF()`. Het zal je opvallen dat de code zeer vergelijkbaar is als bij `t.test()`. `ttestBF()` is wel wat gevoeliger voor dataspecificaties. We moeten dus eerst nog expliciet de missende waarden verwijderen op `glazen_alcohol_uitgaansdag` middels `filter()` en `is.na()`, en van `geslacht` een factor variabele maken middels `factor()`.
 
@@ -115,7 +116,7 @@ ttestBF(formula = glazen_alcohol_uitgaansdag ~ geslacht,
         data = data_manvrouw)
 ```
 
-In de output hoeven we alleen maar naar het getal in de tweede regel te kijken: 2997,1. Dit is onze Bayes factor. In dit geval geeft het resultaat aan dat de originele hypothese ongeveer 3000 maal zo aannemelijk de data ondersteunt dan de nulhypothese. Als we teruggaan naar de tabel over de betekenis van de Bayes factor, toont dit dat onze uitkomst zeer sterk bewijs levert voor de aannemelijkheid van de originele hypothese. Er is dus zeker een verschil in gemiddelde alcoholconsumptie op een uitgaansdag gekeken naar mannen en vrouwen.
+In de output hoeven we alleen maar naar het getal in de tweede regel te kijken: 2997,1. Dit is onze Bayes factor. In dit geval geeft het resultaat aan dat de originele hypothese ongeveer 3000 maal zo aannemelijk de data ondersteunt dan de nulhypothese. Als we teruggaan naar de tabel over de betekenis van de Bayes factor, toont dit dat onze uitkomst extreem sterk bewijs levert voor de aannemelijkheid van de originele hypothese. Er is dus zeker een verschil in gemiddelde alcoholconsumptie op een uitgaansdag gekeken naar mannen en vrouwen.
 
 Hoewel we bij dit voorbeeld voor beide benaderingen (Frequentistisch en Bayesiaans) in principe tot dezelfde conclusie komen (nulhypothese verwerpen), verschilt de interpretatie en sterkte van het bewijs. Op basis van de Frequentistische benadering stellen we dat het gevonden resultaat zo zeldzaam is onder de H0-verdeling, dat het in minder dan 5% van de herhaalde steekproeven zal voorkomen. Bij de Bayesiaanse benadering kwantificeren we de sterkte van het bewijs op een andere manier, wat ons meer overtuigingskracht geeft dat de originele hypothese aannemelijk is. Namelijk met een odds van 2997:1.[^005-01-bayesfactor-9] Bij andere onderzoeken is het mogelijk om tot heel andere conclusies te komen, afhankelijk van of je Frequentistische of Bayesiaanse statistiek hanteert.
 
@@ -140,7 +141,7 @@ ttestBF(x = data_xtcmmc$gemoed_dinsdag_na_xtc,
         paired = TRUE)
 ```
 
-Zoals we konden verwachten, is de Bayes factor ten gunste van de nulhypothese. De odds zijn 0,14:1, wat onder de 1 ligt. Als we dit omrekenen, komen we op een factor van $1/0,14=7,14$ . Dit interpreteren we als zwak bewijs voor de nulhypothese tegenover de originele hypothese. Het blijft dus redelijk ongewis of de nulhypothese of originele hypothese meer aannemelijk is.
+Zoals we konden verwachten, is de Bayes factor ten gunste van de nulhypothese. De odds zijn 0,14:1, wat onder de 1 ligt. Als we dit omrekenen, komen we op een factor van $1/0,14=7,14$ . Dit interpreteren we als matig bewijs voor de nulhypothese tegenover de originele hypothese. Het blijft dus redelijk ongewis of de nulhypothese of originele hypothese meer aannemelijk is.
 
 Dit is wederom een andere conclusie dan we op basis van Frequentistische statistiek trekken. Daar verwerpen we de nulhypothese niet, en namen we aan dat deze voorlopig waar is. Zoals besproken bij [type-I en type-II fouten](004-02-aspectenhypo.qmd#sec-type-I-II) moeten we echter oppassen met zulke aannames. In die zin geeft Bayesiaanse statistiek ons meer duidelijkheid over welke hypothese (de nul of originele) aannemelijker is.
 
@@ -166,7 +167,7 @@ Het berekenen van een credible interval is doorgaans wel ingewikkelder dan een b
 
 We hebben een van de beloftes van Bayesiaanse statistiek nog niet geadresseerd, namelijk hoe je eerdere bevindingen kan incorporeren in nieuw onderzoek. In Bayesiaanse statistiek doen we dit middels de **prior**. De prior drukt onze kennis uit van de wereld *voorafgaand* aan het onderzoek: het geloof of onze overtuiging van hoe wereld op dat moment in elkaar zit. Dit neemt statistisch gezien de vorm van een bepaalde populatiewaarde of een kansverdeling. Dit geloof confronteren we vervolgens met de data die we vinden. Een nieuw onderzoek geeft ons als het ware nieuwe informatie om onze bestaande overtuigingen te updaten. In de praktijk vermenigvuldigen we de prior met de uitkomst van ons onderzoek (bijv. de Bayes factor). Daardoor combineren we dus eerdere kennis met het huidige onderzoek. Dit leidt uiteindelijk tot wat we de **posterior** noemen: ons geüpdatete geloof over de staat van de wereld. De posterior vertegenwoordigt daarmee ons meest recente inzicht waarin eerdere kennis en resultaten van het huidige onderzoek samenkomen.
 
-Kijken we weer naar ons voorbeeld over xtc-gebruik, dan zou onze prior zijn dat deze proportie tussen de 0,300 en 0,400 is. Deze prior vertegenwoordigt op dat moment ons beste beschikbare kennis over dit onderwerp.[^005-01-bayesfactor-13] Stel dat we dan in een onderzoek een credible interval tussen de 0,636 en 0,737 vinden. Dit ligt hoger dan onze prior. Hier kunnen verschillende redenen voor zijn. Wellicht hebben we in eerder onderzoek het xtc-gebruik niet helemaal goed gemeten en daarmee onderschat. Of het gebruik is in de tussentijd toegenomen. Het kan ook zijn dat we toevallig een steekproef hebben getrokken waarin het gebruik hoog is. In elk geval geeft het onderzoek nieuwe informatie waarmee we onze eerdere kennis over het gebruik in de populatie kunnen updaten. Als we de prior $[0,300; 0,400]$ combineren met de nieuwe data $[0,636; 0,737]$, dan zouden we kunnen uitkomen op een posterior $[0,452; 0,551]$. Naar onze beste kennis concluderen we dan dat de kans 95% is dat de proportie xtc-gebruik in de populatie uitgaande jongeren ergens tussen de 0,452 en 0,551 ligt. In meer algemene taal zeggen we dat waarschijnlijk tussen de 45% en 55% van de uitgaande jongeren weleens xtc heeft gebruikt.
+Kijken we weer naar ons voorbeeld over xtc-gebruik, dan zou onze prior zijn dat deze proportie tussen de 0,300 en 0,400 is. Deze prior vertegenwoordigt op dat moment ons beste beschikbare kennis over dit onderwerp.[^005-01-bayesfactor-13] Stel dat we dan in een onderzoek een credible interval tussen de 0,636 en 0,737 vinden. Dit ligt hoger dan onze prior. Hier kunnen verschillende redenen voor zijn. Wellicht hebben we in eerder onderzoek het xtc-gebruik niet helemaal goed gemeten en daarmee onderschat. Of het gebruik is in de tussentijd toegenomen. Het kan ook zijn dat we toevallig een steekproef hebben getrokken waarin het gebruik hoog is. In elk geval geeft het onderzoek nieuwe informatie waarmee we onze eerdere kennis over het gebruik in de populatie kunnen updaten. Als we de prior $[0,300; 0,400]$ combineren met de nieuwe data $[0,636; 0,737]$, dan zouden we kunnen uitkomen op een posterior $[0,452; 0,551]$. Naar onze beste kennis concluderen we dan dat de kans 95% is dat de proportie xtc-gebruik in de populatie uitgaande jongeren ergens tussen de 0,452 en 0,551 ligt. In meer algemene taal zeggen we dat waarschijnlijk tussen de 45% en 55% van de uitgaande jongeren weleens xtc heeft gebruikt. \[AANPASSEN NAAR VOORBEELD BAYES FACTOR\].
 
 [^005-01-bayesfactor-13]: Officieel zou onze prior een kansverdeling zijn die verdeling van deze proporties uitdrukt.
 

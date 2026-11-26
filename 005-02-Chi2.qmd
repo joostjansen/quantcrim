@@ -75,29 +75,29 @@ De verwachte frequentie $f_v$ is het totaal van een rij vermenigvuldigt met het 
 
 Als we de verwachte frequentie van de eerste cel willen berekenen (nee vs. helemaal mee oneens), dan doen we $rijtotaal*kolomtotaal/totaal tabel=30*155/350=13,3$. Als alle 350 respondenten dus evenredig over de cellen zouden zijn verdeeld (op basis van de rij- en kolomtotalen), dan zouden in deze cel zich 13,3 respondenten moeten bevinden (de $f_v$). De geobserveerde frequentie $f_0$ van deze cel is daarentegen 28, en daarmee dus hoger dan 13,3.
 
-|                         | xtc laatste jaar |     |        |
-|-------------------------|------------------|-----|--------|
-| **acceptatie xtc**      | nee              | ja  | Totaal |
-| helemaal mee oneens     | 28 (*13,3*)      | 2   | 30     |
-| mee oneens              | 19               | 4   | 23     |
-| niet mee eens of oneens | 20               | 4   | 24     |
-| mee eens                | 65               | 32  | 97     |
-| helemaal mee eens       | 23               | 153 | 176    |
-| **Totaal**              | 155              | 195 | 350    |
+|                         | xtc laatste jaar |     |            |
+|-------------------------|------------------|-----|------------|
+| **acceptatie xtc**      | nee              | ja  | **Totaal** |
+| helemaal mee oneens     | 28 (*13,3*)      | 2   | 30         |
+| mee oneens              | 19               | 4   | 23         |
+| niet mee eens of oneens | 20               | 4   | 24         |
+| mee eens                | 65               | 32  | 97         |
+| helemaal mee eens       | 23               | 153 | 176        |
+| **Totaal**              | 155              | 195 | 350        |
 
 : **Kruistabel van `xtc_laatste_jaar` vs. `acceptatie_xtc_vrienden`**
 
 Dit kunnen we nu ook voor andere cellen in de tabel doen. De verwachte frequenties $f_v$ staan steeds tussenhaakjes.
 
-|                         | xtc laatste jaar |              |        |
-|-------------------------|------------------|--------------|--------|
-| **acceptatie xtc**      | nee              | ja           | Totaal |
-| helemaal mee oneens     | 28 (*13,3*)      | 2 (*16,7*)   | 30     |
-| mee oneens              | 19 (*10,2*)      | 4 (*12,8*)   | 23     |
-| niet mee eens of oneens | 20 (*10,6*)      | 4 (*13,4*)   | 24     |
-| mee eens                | 65 (*43,0*)      | 32 (*54,0*)  | 97     |
-| helemaal mee eens       | 23 (*77,9*)      | 153 (*98,1*) | 176    |
-| **Totaal**              | 155              | 195          | 350    |
+|                         | xtc laatste jaar |              |            |
+|-------------------------|------------------|--------------|------------|
+| **acceptatie xtc**      | nee              | ja           | **Totaal** |
+| helemaal mee oneens     | 28 (*13,3*)      | 2 (*16,7*)   | 30         |
+| mee oneens              | 19 (*10,2*)      | 4 (*12,8*)   | 23         |
+| niet mee eens of oneens | 20 (*10,6*)      | 4 (*13,4*)   | 24         |
+| mee eens                | 65 (*43,0*)      | 32 (*54,0*)  | 97         |
+| helemaal mee eens       | 23 (*77,9*)      | 153 (*98,1*) | 176        |
+| **Totaal**              | 155              | 195          | 350        |
 
 : **Kruistabel van `xtc_laatste_jaar` vs. `acceptatie_xtc_vrienden`**
 
@@ -155,14 +155,27 @@ We rapporteren hierbij dus het aantal vrijheidsgraden (tussenhaakjes), de groott
 
 Vervolgens verwerpen we de nulhypothese dat er geen verband bestaat tussen xtc-gebruik in het laatste jaar en de mate van acceptatie van xtc-gebruik onder vrienden, en gaan we er voorlopig vanuit dat er wel een verband is.
 
+### Bayes factor
+
+We zouden onszelf tekort doen als we de hypothese ook niet volgens de Bayesiaanse wijze toetsen. Dit doen we in R via `contingencyTableBF()`. We kunnen de tabel `tabel_xtc` hier in voeren als argument. Verder moeten we ook `sampleType = "poisson"` specificeren. Dit is een technisch detail dat aangeeft dat de steekproefgrootte vantevoren niet vaststond, daar hoeven we ons verder niet druk om te maken hier.
+
+```{r}
+# Bayes factor van verband xtc gebruik en acceptatie onder vrienden 
+contingencyTableBF(tabel_xtc, sampleType = "poisson" )
+```
+
+De Bayesfactor staat hier weer in de tweede regel: 4,23e+32. Dit is dus een extreem groot getal (32 cijfers voor de komma). De interpretatie is hier hetzelfde als we [eerder](005-01-Bayesfactor.qmd#sec-Baysiaans) hebben gezien: hoe waarschijnlijk de originele hypothese de data voorspelt ten opzichte van de nulhypothese. Dit komt tot uitdrukking in een odds. De odds zijn in dit geval dus extreem groot, wat extreem sterk bewijs levert voor de originele hypothese.
+
+Let hier wederom op dat de Bayes factor ons meer inzicht geeft in de aannemelijkheid van beide hypotheses in vergelijking met toetsen op statistische significantie.
+
 ## Interpretatie praktische significantie
 
-We hebben al vaker gesignaleerd dat statistische significantie ons wel iets zegt over dat het aannemelijk is dat er een verband op populatieniveau bestaat, maar niet zoveel over de sterkte van het verband. Daarvoor moeten we een uitkomst toch nauwkeuriger bekijken. Bij de Chi^2^-toets doen we dit door de verschillen in de tabel nader te bekijken.
+We hebben al gesignaleerd dat statistische significantie en de Bayes factor ons wel iets zeggen over de aannemelijkheid dat er een verband op populatieniveau bestaat, maar niet meteen alles over de sterkte van het verband. Daarvoor moeten we een uitkomst toch nauwkeuriger bekijken. Bij de Chi^2^-toets doen we dit door de verschillen in de tabel nader te bekijken.
 
-Dit hebben we al gedaan voor dit voorbeeld bij [Relaties tussen variabelen](002-04-relatiesvariabelen.qmd#sec-nominaalordinaal) en @sec-gradatieacceptatie . Daaruit bleek dat er een sterk verband is, omdat de mate van acceptatie sterk verschilt tussen wel- en niet-gebruikers. Je kunt eenzelfde wijze van interpretatie, door goed te kijken naar de verdelingen van aantallen en proporties, en het eventueel te visualiseren, ook toepassen op andere voorbeelden.[^005-02-chi2-4]
+Dit hebben we al gedaan voor dit voorbeeld bij [Relaties tussen variabelen](002-04-relatiesvariabelen.qmd#sec-nominaalordinaal) en @sec-gradatieacceptatie . Daaruit bleek dat er een sterk verband is, omdat de mate van acceptatie sterk verschilt tussen wel- en niet-gebruikers. Je kunt eenzelfde wijze van interpretatie, door goed te kijken naar de verdelingen van aantallen en proporties (en het te visualiseren), ook toepassen op andere voorbeelden.[^005-02-chi2-4]
 
 [^005-02-chi2-4]: Voor 2x2 tabellen (met twee dichotome variabelen) zijn er ook andere manieren om de sterkte van een verband te interpreteren, bijvoorbeeld door te kijken naar residuals, verschillen in proporties of odds ratio's. Zie daarvoor [link1](https://www.datacamp.com/tutorial/chi-square-test-r) en [link2](https://whitlockschluter3e.zoology.ubc.ca/RLabs/R_tutorial_Contingency_analysis.html).
 
 ## Samenvatting
 
-De Chi-kwadraat toets gebruiken we om het verband tussen twee kwalitatieve variabelen te onderzoeken, op basis van de verwachte en geobserveerde frequenties. We vergelijken de Chi^2^-toetsingsgrootheid met een kritieke grenswaarde om te bepalen of een verband statistisch significant. Daarnaast is het belangrijk om de verschillen in een tabel te interpreteren om te zien hoe sterk het verband is tussen twee variabelen.
+De Chi-kwadraat toets gebruiken we om het verband tussen twee kwalitatieve variabelen te onderzoeken, op basis van de verwachte en geobserveerde frequenties. We vergelijken de Chi^2^-toetsingsgrootheid met een kritieke grenswaarde om te bepalen of een verband statistisch significant. Daarnaast kunnen we ook Bayes factor berekenen om aannemelijkheid van de originele hypthese t.o.v. de nulhypothese te onderzoeken. Ten slotte is het belangrijk om de verschillen in een tabel te interpreteren om te zien hoe sterk het verband is tussen twee variabelen.

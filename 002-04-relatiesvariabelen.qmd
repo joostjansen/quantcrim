@@ -142,7 +142,7 @@ Deze doosdiagrammen zien er wat anders uit dan [eerder](002-03-centrum-en-spreid
 
 Ook hier geldt weer: het onderzoeken van een beschrijvende relatie tussen ordinaal vs. kwantitatief kan doorgaans op dezelfde wijze als bij nominaal vs. kwantitatief.
 
-## Kwantitatief vs. kwantitatief
+## Kwantitatief vs. kwantitatief {#sec-kwantikwanti}
 
 Als laatste onderzoeken we de relatie tussen twee kwantitatieve variabelen. Het makkelijkst is om deze relatie direct te visualiseren (later in de cursus kijken we naar correlatie, een associatiemaat voor de sterkte van de relatie). We nemen de relatie tussen het aantal glazen alcohol op een uitgaansdag (`glazen_alcohol_uitgaansdag`) en het aantal gerookte sigaretten. Het gaat hier om jongeren die dus zowel alcohol drinken als roken tijdens het uitgaan. Verder zijn dit twee ratio variabelen (bedenk waarom).
 
