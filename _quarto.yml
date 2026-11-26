@@ -46,12 +46,14 @@ book:
       chapters:
         - 005-01-Bayesfactor.qmd
         - 005-02-Chi2.qmd
+        - 005-03-correlatie.qmd
     - part: "Colleges en practica"
       chapters:
         - 009-01-colleges.qmd
         - 009-02-opdrachten.qmd
   appendices: 
         - formuleblad.qmd
+        - Rfuncties.qmd
 license:
   text: "Erasmus Universiteit Rotterdam<br>CC BY-NC 4.0"
   url: "https://creativecommons.org/licenses/by-nc/4.0/"

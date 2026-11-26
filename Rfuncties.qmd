@@ -1,0 +1,6 @@
+---
+title: "R functies"
+format: html
+---
+
+volgt

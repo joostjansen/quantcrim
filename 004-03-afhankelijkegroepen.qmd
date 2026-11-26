@@ -105,7 +105,7 @@ We kunnen nu statistieken invullen in de formule. We moeten alleen nog de $t_k$ 
 1.244+4.597
 ```
 
-Het bhi is dus $[-3,35, 5,84]$.
+Het bhi is dus $[-3,35; 5,84]$.
 
 ### Computerberekening {#sec-afhankelijkgroepencomp}
 
